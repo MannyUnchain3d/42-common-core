@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:46:06 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/04 00:36:59 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/04 21:58:23 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	usage(void)
 	exit(EXIT_SUCCESS);
 }
 
-/* Function to open the fds with the right flags*/
+/* Function to open fds with the right flags*/
 int	open_fd(char *argv, int i)
 {
 	int	fd;
@@ -34,9 +34,6 @@ int	open_fd(char *argv, int i)
 	else if (i == 2)
 		fd = open(argv, O_RDONLY, 0777);
 	if (fd == -1)
-	{
-		ft_putstr_fd("\033[31mError: File not found\n\e[0m", 2);
-		exit(EXIT_FAILURE);
-	}
+		error();
 	return (fd);
 }

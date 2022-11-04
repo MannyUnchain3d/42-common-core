@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:14:16 by Manny             #+#    #+#             */
-/*   Updated: 2022/09/07 16:25:33 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/04 19:52:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		get_next_line(char **line);
 void	execute(char *argv, char **envp);
 
 /* Bonus functions */
-int		open_file(char *argv, int i);
+int		open_fd(char *argv, int i);
 void	usage(void);
 
 #endif

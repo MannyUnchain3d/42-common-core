@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:13:03 by Manny             #+#    #+#             */
-/*   Updated: 2022/10/24 15:51:40 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/04 22:32:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
 /* Child process runs inside a fork, takes the fdin, redirects the output,
-inside a pipe and closes the fd and execute the function. */
+ inside a pipe and closes the fd and executes the function. */
 void	child_process(char **argv, char **envp, int *fd)
 {
 	int	fdin;
@@ -28,7 +28,7 @@ void	child_process(char **argv, char **envp, int *fd)
 }
 
 /* Parent process takes data from the pipe, redirects the output for the fdout,
-closes the fd and execute the function */
+ closes the fd and executes the function */
 void	parent_process(char **argv, char **envp, int *fd)
 {
 	int	fdout;
@@ -42,23 +42,23 @@ void	parent_process(char **argv, char **envp, int *fd)
 	execute(argv[3], envp);
 }
 
-/* Main function creates a pipe, forks the process runs child and parent
-process, or display error message if fork fails or arguments are wrong. */
+/* Main function creates a pipe, forks the process, runs child and parent
+ process, or displays error message if fork fails or arguments are wrong. */
 int	main(int argc, char **argv, char **envp)
 {
 	int		fd[2];
-	pid_t	pid;
+	pid_t	pid1;
 
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
 			error();
-		pid = fork();
-		if (pid == -1)
+		pid1 = fork();
+		if (pid1 == -1)
 			error();
-		if (pid == 0)
+		if (pid1 == 0)
 			child_process(argv, envp, fd);
-		waitpid(pid, NULL, 0);
+		waitpid(pid1, NULL, 0);
 		parent_process(argv, envp, fd);
 	}
 	else
