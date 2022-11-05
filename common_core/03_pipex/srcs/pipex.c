@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:13:03 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/04 22:32:56 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/05 23:27:31 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ void	parent_process(char **argv, char **envp, int *fd)
 int	main(int argc, char **argv, char **envp)
 {
 	int		fd[2];
-	pid_t	pid1;
+	pid_t	pid;
 
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
 			error();
-		pid1 = fork();
-		if (pid1 == -1)
+		pid = fork();
+		if (pid == -1)
 			error();
-		if (pid1 == 0)
+		if (pid == 0)
 			child_process(argv, envp, fd);
-		waitpid(pid1, NULL, 0);
 		parent_process(argv, envp, fd);
+		waitpid(pid, NULL, 0);
 	}
 	else
 	{
