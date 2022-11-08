@@ -6,12 +6,11 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2022/11/06 01:19:50 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/06 23:45:08 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG	= pipex
-PROG_B	= pipex_bonus
 
 SRCS	= srcs/pipex.c srcs/utils.c
 OBJS	= $(SRCS:.c=.o)
@@ -37,13 +36,11 @@ $(PROG):	$(OBJS)
 					@$(CC) $(OBJS) -Llibft -lft -o $(PROG)
 					@echo "\033[32mPipex compiled!\n"
 
-bonus:		$(PROG_B)
-
-$(PROG_B):	$(OBJS_B)
+bonus:		$(OBJS_B)
 
 					@echo "\033[33m----Compiling lib----"
 					@make re -C ./libft
-					@$(CC) $(OBJS_B) -Llibft -lft -o $(PROG_B)
+					@$(CC) $(OBJS_B) -Llibft -lft -o $(PROG)
 					@echo "\033[32mPipex bonus compiled!\n"
 
 clean:
