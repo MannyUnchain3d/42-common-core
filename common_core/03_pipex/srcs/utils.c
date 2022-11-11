@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:14:29 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/08 21:01:52 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/12 01:36:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ char	*find_path(char *cmd, char **envp)
 		path = ft_strjoin(part_path, cmd);
 		free(part_path);
 		if (access(path, F_OK) == 0)
-		{	
 			return (path);
-		}
 		free(path);
 		i++;
 	}
