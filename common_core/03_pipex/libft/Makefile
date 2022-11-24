@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
-#    Updated: 2022/11/24 17:45:16 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/24 23:22:15 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,8 @@ OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 OBJ_B = $(SRC_B:%.c=$(OBJ_DIR)/%.o)
 
-$(OBJ_DIR)/%.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
@@ -59,7 +59,7 @@ $(NAME): $(OBJ_DIR) $(OBJ)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ libft is compiled! ----$(END)\n"
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 clean:
 	$(RM) $(OBJ_DIR)
