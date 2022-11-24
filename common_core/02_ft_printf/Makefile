@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 13:26:33 by Manny             #+#    #+#              #
-#    Updated: 2022/11/24 16:13:19 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/24 18:03:57 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,28 +43,28 @@ LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 $(OBJ_DIR)/%.o:%.c
-					$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS)
-			cp $(LIBFT) $(NAME)
-			$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-			@echo "\n$(GREEN)---- (っ▀¯▀)つ libftprintf is compiled! ----$(END)\n"
+	cp $(LIBFT) $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ libftprintf is compiled! ----$(END)\n"
 
 $(LIBFT):
-			make -C $(LIBFT_PATH) all
+	make -C $(LIBFT_PATH) all
 
 $(OBJ_DIR):
-			mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 
 clean:
-		make -C $(LIBFT_PATH) clean
-		$(RM) $(OBJ_DIR)
+	make -C $(LIBFT_PATH) clean
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
-		$(RM) $(NAME) ./libft/libft.a
-		@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
+	$(RM) $(NAME) ./libft/libft.a
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
 
 re: fclean all
 
