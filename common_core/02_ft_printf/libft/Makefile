@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
-#    Updated: 2022/11/24 15:39:12 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/24 16:05:32 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,17 +31,17 @@ AR = ar
 ARFLAGS = rcs
 RM = rm -rf
 
-SRC = ft_isalnum.c ft_isdigit.c ft_memcpy.c ft_putchar_fd.c ft_putstr_fd.c\
-		ft_strdup.c ft_strlcpy.c ft_strncmp.c ft_strtrim.c ft_toupper.c\
-		ft_bzero.c ft_isalpha.c ft_isprint.c ft_memchr.c ft_memmove.c\
-		ft_putendl_fd.c ft_split.c ft_strjoin.c ft_strlen.c ft_strnstr.c\
-		ft_substr.c ft_atoi.c ft_calloc.c ft_isascii.c ft_itoa.c ft_memcmp.c\
-		ft_memset.c ft_putnbr_fd.c ft_strchr.c ft_strlcat.c ft_strmapi.c\
-		ft_strrchr.c ft_tolower.c ft_striteri.c
-SRC_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
-		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
+		ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c\
+		ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c\
+		ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c\
+		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c\
+		ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c\
+		ft_substr.c ft_tolower.c ft_toupper.c
+SRC_B = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
+		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
-OBJ_DIR = obj
+OBJ_DIR =  obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 OBJ_B = $(SRC_B:%.c=$(OBJ_DIR)/%.o)
 
