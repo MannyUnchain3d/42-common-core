@@ -6,22 +6,9 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2022/11/25 02:13:51 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/25 02:37:25 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-END = \e[0m
-BOLD = \e[1m
-UNDER = \e[4m
-REV = \e[7m
-GREY = \e[30m
-RED = \e[31m
-GREEN = \e[32m
-YELLOW = \e[33m
-BLUE = \e[34m
-PURPLE = \e[35m
-CYAN = \e[36m
-WHITE = \e[37m
 
 NAME = pipex
 
@@ -51,11 +38,11 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(OBJ) $(lIBFTFLAGS) -o $(NAME)
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ pipex is compiled! ----$(END)\n"
+	@echo "\n\e[32m---- (っ▀¯▀)つ pipex is compiled! ----\e[0m\n"
 
 bonus: $(LIBFT) $(OBJ) $(OBJ_B)
-	$(CC) $(OBJ_B) $(lIBFTFLAGS) -o $(NAME_B)
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ pipex bonus is compiled! ----$(END)\n"
+	$(CC) $(OBJ_B) $(lIBFTFLAGS) -o $(NAME)
+	@echo "\n\e[32m---- (っ▀¯▀)つ pipex bonus is compiled! ----\e[0m\n"
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
@@ -69,7 +56,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
-	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
+	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
 
 re: fclean all
 
