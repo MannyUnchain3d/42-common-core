@@ -6,22 +6,9 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
-#    Updated: 2022/11/24 23:16:09 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/25 02:29:06 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-END = \e[0m
-BOLD = \e[1m
-UNDER = \e[4m
-REV = \e[7m
-GREY = \e[30m
-RED = \e[31m
-GREEN = \e[32m
-YELLOW = \e[33m
-BLUE = \e[34m
-PURPLE = \e[35m
-CYAN = \e[36m
-WHITE = \e[37m
 
 NAME = libft.a
 
@@ -47,26 +34,26 @@ OBJ_B = $(SRC_B:%.c=$(OBJ_DIR)/%.o)
 
 $(OBJ_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-
+	
 all: $(NAME)
-
-bonus: $(OBJ_DIR) $(OBJ) $(OBJ_B)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_B)
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ libft bonus is compiled! ----$(END)\n"
 
 $(NAME): $(OBJ_DIR) $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ libft is compiled! ----$(END)\n"
+	@echo "\n\e[32m---- (っ▀¯▀)つ libft is compiled! ----\e[0m\n"
+
+bonus: $(OBJ_DIR) $(OBJ) $(OBJ_B)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_B)
+	@echo "\n\e[32m---- (っ▀¯▀)つ libft bonus is compiled! ----\e[0m\n"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
-
+	
 clean:
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
+	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
 
 re: fclean all
 

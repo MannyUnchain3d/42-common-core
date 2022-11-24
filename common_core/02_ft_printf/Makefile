@@ -6,22 +6,9 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 13:26:33 by Manny             #+#    #+#              #
-#    Updated: 2022/11/25 00:29:39 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/25 02:22:11 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-END = \e[0m
-BOLD = \e[1m
-UNDER = \e[4m
-REV = \e[7m
-GREY = \e[30m
-RED = \e[31m
-GREEN = \e[32m
-YELLOW = \e[33m
-BLUE = \e[34m
-PURPLE = \e[35m
-CYAN = \e[36m
-WHITE = \e[37m
 
 NAME = libftprintf.a
 
@@ -52,7 +39,7 @@ bonus: all
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
 	cp $(LIBFT) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ libftprintf is compiled! ----$(END)\n"
+	@echo "\n\e[32m---- (っ▀¯▀)つ libftprintf is compiled! ----\e[0m\n"
 
 $(LIBFT):
 	make -C $(LIBFT_PATH)
@@ -66,7 +53,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
-	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
+	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
 
 re: fclean all
 
