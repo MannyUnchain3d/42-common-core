@@ -6,28 +6,28 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 00:21:48 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 00:28:18 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 16:05:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_atoi converts a string into an int.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The converted int.
 */
 
 int	ft_atoi(const char *str)
 {
 	int	num;
-	int	isneg;
+	int	sign;
 	int	i;
 
 	num = 0;
-	isneg = 1;
+	sign = 1;
 	i = 0;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'
 			|| str[i] == '\n' || str[i] == '\r'
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 		i++;
 	else if (str[i] == '-')
 	{
-		isneg *= -1;
+		sign *= -1;
 		i++;
 	}
 	while (ft_isdigit(str[i]))
@@ -45,5 +45,5 @@ int	ft_atoi(const char *str)
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
-	return (num * isneg);
+	return (num * sign);
 }

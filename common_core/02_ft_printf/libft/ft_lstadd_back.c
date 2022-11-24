@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:20:33 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:46:20 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 18:51:38 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_lstadd_back adds a new node to the back of a list:
 		[.]->[.]->[.]->[NEW]->[NULL]
 
-	RETURN VALUE :
+	RETURN VALUE:
 	None.
 */
 

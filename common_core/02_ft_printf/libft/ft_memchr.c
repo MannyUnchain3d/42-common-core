@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:09:33 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:52:20 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:01:01 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_memchr searches n bytes of the memory area pointed to
 	by s for the first occurence of c. Both c and the bytes of s are
 	interpreted as unsigned char.

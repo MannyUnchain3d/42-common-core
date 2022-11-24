@@ -6,17 +6,17 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:48:39 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:44:17 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 18:49:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_itoa converts the integer n into a string of characters.
 
-	RESULT VALUE :
+	RESULT VALUE:
 	The string of the converted integer.
 */
 

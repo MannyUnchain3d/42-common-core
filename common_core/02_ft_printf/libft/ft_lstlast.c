@@ -6,17 +6,17 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:15:59 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:49:53 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 18:57:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_lstlast finds the last node in a given list.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The last node of a list.
 		[.]->[.]->[.]->[LAST]->[NULL]
 */

@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:57:38 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:55:12 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:02:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_putchar_fd writes the given character to the given
 	file descriptor.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	None.
 */
 

@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:52:38 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:11:18 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:24:34 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
-	The function ft_split allocates and copies an array of strings by 
+	DESCRIPTION:
+	The function ft_split allocates and copies an array of strings by
 	splitting the given string s using the given separator c.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	An array of strings resulting from the split. NULL if the memory
 	allocation fails.
 */

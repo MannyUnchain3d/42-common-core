@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 00:52:34 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:34:16 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 12:23:33 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_calloc allocates memory for an array of count elements
 	of size bytes each and sets the memory to zero.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The pointer to the allocated memory. NULL if the memory allocation fails.
 */
 

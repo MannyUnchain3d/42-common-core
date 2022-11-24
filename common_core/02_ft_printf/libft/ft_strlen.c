@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 01:40:23 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:03:04 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:50:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strlen measures the length of the given string str,
 	excluding the terminating \0 character.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The number of bytes in the string str.
 */
 

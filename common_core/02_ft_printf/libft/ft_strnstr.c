@@ -6,19 +6,19 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 00:08:05 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:06:18 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:52:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strnstr searches the first n bytes of the given string
 	s1 for the first occurence of the full string s2.
 	Characters that appear after \0 are not searched.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	A pointer to the first character of the first occurrence of s2.
 	A pointer to s1 if s2 is empty.
 	NULL if s2 occurs nowhere in s1.

@@ -6,19 +6,19 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:21:50 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:11:45 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:52:19 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strtrim removes any characters of the given set from
 	the beginning and end of the given string s1, and allocates sufficient
 	memory to store the trimmed copy of the string.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	A pointer to the trimmed copy of the string.
 	NULL if the memory allocation fails.
 */

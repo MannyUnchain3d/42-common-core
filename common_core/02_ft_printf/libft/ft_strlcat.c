@@ -6,24 +6,23 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 17:55:31 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:02:08 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:49:37 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
-	The function ft_strlcat appends the given string src to the end of 
-	dst. It will append at most dstsize - ft_strlen(dst) - 1 and 
+	DESCRIPTION:
+	The function ft_strlcat appends the given string src to the end of
+	dst. It will append at most dstsize - ft_strlen(dst) - 1 and
 	nul-terminate the result.
 
-	Note : space for the terminating \0 character must be included in dstsize.
+	Note: space for the terminating \0 character must be included in dstsize.
 
-	RETURN VALUE :
-	The total length of the string that it tried to create : the initial
-	length of dst + the length of src, with the goal to facilitate
-	truncaction detection.
+	RETURN VALUE:
+	The total length of the string that it tried to create: the initial
+	length of dst + the length of src (to make truncation detection simple).
 */
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)

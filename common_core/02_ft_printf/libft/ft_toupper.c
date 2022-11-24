@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 00:28:26 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:08:48 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:53:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_toupper converts a given lowercase letter c to its
 	uppercase equivalent.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The uppercase equivalent letter.
 	The original character c if c is not a lowercase letter.
 */

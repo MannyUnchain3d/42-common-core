@@ -6,21 +6,21 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:56:57 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:53:45 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:01:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_memmove copies n bytes from memory area src to memory
 	area dst. The memory areas may overlap: if the dst pointer is found
 	to be between the src pointer and the index n, copying will be done
 	back to front to prevent data being modified before being copied.
 	Otherwise it will be done front to back	to preserve data.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	A pointer to dst.
 */
 

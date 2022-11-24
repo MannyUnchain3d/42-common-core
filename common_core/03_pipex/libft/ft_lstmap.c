@@ -6,21 +6,21 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 23:12:07 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:13:55 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 18:58:48 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
-	The function ft_lstmap creates a new list from a given list  by 
+	DESCRIPTION:
+	The function ft_lstmap creates a new list from a given list by
 	applying the function passed as parameter to the original list. If
 	the memory allocation fails for any node in the new list, the new list
 	will be deleted with the function passed as parameter and its memory
 	will be freed.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The new list containing the new values if a functon was provided.
 	A new copy of the list if no function was provided.
 	NULL if the memory allocation failed.

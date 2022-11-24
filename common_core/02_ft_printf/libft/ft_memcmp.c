@@ -6,20 +6,20 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 23:50:58 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:52:41 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:01:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_memcmp compares the first n bytes of the memory areas
 	s1 and s2. The bytes are interpreted as unsigned char.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	An integer less than, equal to, or greater than zero if the first
-	n bytes of s1 is found to be less than, equal to, or greater than the 
+	n bytes of s1 is found to be less than, equal to, or greater than the
 	first n bytes of s2. Zero if n is equal to zero.
 */
 

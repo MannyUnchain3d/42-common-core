@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 21:34:42 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:01:07 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:25:38 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_striteri applies the given function f to each
 	character in the given string s.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	None.
 */
 

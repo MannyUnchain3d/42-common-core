@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:04:17 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/08 21:00:44 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:29:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strjoin concatenates the given strings s1 and s2
 	and allocates sufficient memory for the newly created string.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	A pointer to the new concatenated string.
 	NULL if the memory allocation fails.
 */

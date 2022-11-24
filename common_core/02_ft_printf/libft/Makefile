@@ -5,81 +5,73 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/13 19:14:30 by etetopat          #+#    #+#              #
-#    Updated: 2022/08/30 14:24:19 by Manny            ###   ########.fr        #
+#    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
+#    Updated: 2022/11/23 23:21:42 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3
-AR = ar rcs
-SRC = ft_isalpha \
-	ft_isdigit \
-	ft_isalnum \
-	ft_isascii \
-	ft_isprint \
-	ft_strlen \
-	ft_memset \
-	ft_bzero \
-	ft_memcpy \
-	ft_memmove \
-	ft_strlcpy \
-	ft_strlcat \
-	ft_toupper \
-	ft_tolower \
-	ft_strchr \
-	ft_strrchr \
-	ft_strncmp \
-	ft_memchr \
-	ft_memcmp \
-	ft_strnstr \
-	ft_atoi \
-	ft_calloc \
-	ft_strdup \
-	ft_substr \
-	ft_strjoin \
-	ft_strtrim \
-	ft_split \
-	ft_itoa \
-	ft_strmapi \
-	ft_striteri \
-	ft_putchar_fd \
-	ft_putstr_fd \
-	ft_putendl_fd \
-	ft_putnbr_fd
-BONUS_SRC = ft_lstnew \
-	ft_lstadd_front \
-	ft_lstsize \
-	ft_lstlast \
-	ft_lstadd_back \
-	ft_lstdelone \
-	ft_lstclear \
-	ft_lstiter \
-	ft_lstmap  
+# -- ANSI COLOR CODES -- #
+END				=	\e[0m
+BOLD			=	\e[1m
+UNDER			=	\e[4m
+REV				=	\e[7m
+GREY			=	\e[30m
+RED				=	\e[31m
+GREEN			=	\e[32m
+YELLOW			=	\e[33m
+BLUE			=	\e[34m
+PURPLE			=	\e[35m
+CYAN			=	\e[36m
+WHITE			=	\e[37m
+# ---------------------- #
 
-SRCS = $(addsuffix .c, $(SRC))
-OBJS = $(addsuffix .o, $(SRC))
-BONUS_SRCS = $(addsuffix .c, $(BONUS_SRC))
-BONUS_OBJS = $(addsuffix .o, $(BONUS_SRC))
+NAME			=	libft.a
 
-.c.o: $(SRCS) $(BONUS_SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror
+AR				=	ar
+ARFLAGS 		=	rcs
+RM				=	rm -rf
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
+SRC				=	ft_isalnum.c ft_isdigit.c ft_memcpy.c ft_putchar_fd.c\
+					ft_putstr_fd.c ft_strdup.c ft_strlcpy.c ft_strncmp.c ft_strtrim.c\
+					ft_toupper.c ft_bzero.c ft_isalpha.c ft_isprint.c ft_memchr.c\
+					ft_memmove.c ft_putendl_fd.c ft_split.c ft_strjoin.c ft_strlen.c\
+					ft_strnstr.c ft_substr.c ft_atoi.c ft_calloc.c ft_isascii.c ft_itoa.c\
+					ft_memcmp.c ft_memset.c ft_putnbr_fd.c ft_strchr.c ft_strlcat.c\
+					ft_strmapi.c ft_strrchr.c ft_tolower.c ft_striteri.c
+SRC_B			= 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
+					ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $^
+OBJ_DIR			=	obj
+OBJ				=	$(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ_B			=	$(SRC_B:%.c=$(OBJ_DIR)/%.o)
 
-all: $(NAME)
+$(OBJ_DIR)/%.o:		%.c
+					$(CC) $(CFLAGS) -c $< -o $@
+
+all:				$(NAME)
+
+bonus:				$(OBJ_DIR) $(OBJ) $(OBJ_B)
+					$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_B)
+					@echo "$(GREEN)---- (っ▀¯▀)つ libft bonus is compiled! ----$(END)\n"
+
+$(NAME):			$(OBJ_DIR) $(OBJ)
+					$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+					@echo "$(GREEN)---- (っ▀¯▀)つ libft is compiled! ----$(END)\n"
+
+$(OBJ_DIR):
+					mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -f *.o
+					$(RM) $(OBJ_DIR)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:				clean
+					$(RM) $(NAME)
+					@echo "$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
 
-re: clean all
+re:					fclean all
 
-.PHONY: all clean fclean re bonus
+re_bonus:			fclean bonus
+
+.PHONY: 			all clean fclean re bonus

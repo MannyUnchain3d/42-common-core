@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 00:56:36 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:21:24 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:25:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
-	The function ft_strdup duplicates the given string s1 by allocating 
+	DESCRIPTION:
+	The function ft_strdup duplicates the given string s1 by allocating
 	memory and performing a copy of the given string.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	A pointer to the new string. NULL if the memory allocation fails.
 */
 
