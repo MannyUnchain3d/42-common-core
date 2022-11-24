@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 13:26:33 by Manny             #+#    #+#              #
-#    Updated: 2022/11/24 14:15:47 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/24 16:13:19 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ NAME = libftprintf.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
-RM = rm -rf
 AR = ar
 ARFLAGS = rcs
+RM = rm -rf
 
 SRC = ft_printf ft_print_char ft_print_str ft_print_hex ft_print_int \
 		ft_print_ptr ft_print_unsigned ft_nbr_len ft_flags ft_flags_utils \
