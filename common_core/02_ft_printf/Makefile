@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 13:26:33 by Manny             #+#    #+#              #
-#    Updated: 2022/11/24 18:03:57 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/24 23:47:22 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,39 +31,41 @@ AR = ar
 ARFLAGS = rcs
 RM = rm -rf
 
-SRC = ft_printf ft_print_char ft_print_str ft_print_hex ft_print_int \
-		ft_print_ptr ft_print_unsigned ft_nbr_len ft_flags ft_flags_utils \
-		ft_print_flag ft_printf_itoa ft_printf_utoa ft_printf_xtoa
-SRCS = $(addsuffix .c, $(SRC))
+SRC = ft_flags.c ft_flags_utils.c ft_nbr_len.c ft_print_char.c\
+		ft_print_flag.c ft_print_hex.c ft_print_int.c ft_print_ptr.c\
+		ft_print_str.c ft_print_unsigned.c ft_printf.c\
+		ft_printf_itoa.c ft_printf_utoa.c ft_printf_xtoa.c
 
 OBJ_DIR = obj
-OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-$(OBJ_DIR)/%.o:%.c
+$(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS)
+bonus: all
+
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
 	cp $(LIBFT) $(NAME)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ libftprintf is compiled! ----$(END)\n"
 
 $(LIBFT):
-	make -C $(LIBFT_PATH) all
+	make -C $(LIBFT_PATH)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	make -C $(LIBFT_PATH) clean
+	@make -C $(LIBFT_PATH) clean
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME) ./libft/libft.a
+	$(RM) $(NAME) $(LIBFT)
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
 
 re: fclean all
