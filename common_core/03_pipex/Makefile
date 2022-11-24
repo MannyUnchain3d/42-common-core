@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2022/11/25 01:33:16 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/25 02:13:51 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,9 @@ OBJ_B = $(SRC_B:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 
 HEADER = -Iinclude
 
-LIBFT_PATH = ./libft
-LIBFT = $(LIBFT_PATH)/libft.a
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+lIBFTFLAGS = -L$(LIBFT_DIR) -lft
 
 $(SRC_DIR)/$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(SRC_DIR)/$(OBJ_DIR)
@@ -49,21 +50,21 @@ $(SRC_DIR)/$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -Llibft -lft -o $(NAME)
+	$(CC) $(OBJ) $(lIBFTFLAGS) -o $(NAME)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ pipex is compiled! ----$(END)\n"
 
 bonus: $(LIBFT) $(OBJ) $(OBJ_B)
-	$(CC) $(OBJ_B) -Llibft -lft -o $(NAME)
+	$(CC) $(OBJ_B) $(lIBFTFLAGS) -o $(NAME_B)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ pipex bonus is compiled! ----$(END)\n"
 
 $(LIBFT):
-	@make -C $(LIBFT_PATH)
+	@make -C $(LIBFT_DIR)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	@make -C $(LIBFT_PATH) clean
+	@make -C $(LIBFT_DIR) clean
 	$(RM) $(SRC_DIR)/$(OBJ_DIR)
 
 fclean: clean
