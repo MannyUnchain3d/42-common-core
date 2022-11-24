@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 22:05:44 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:55:31 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:03:16 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_putendl_fd writes the given string to the given
 	file descriptor followed by a new line.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	None.
 */
 

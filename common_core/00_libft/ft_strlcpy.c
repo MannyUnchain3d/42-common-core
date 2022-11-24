@@ -6,22 +6,22 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:57:48 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:02:32 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:50:04 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strlcpy copies up to size - 1 characters from the given
 	string src to the given string dst, nul-terminating the result.
 
 	Note : space for the terminating \0 character must be included in dstsize.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The total length of the string that it tried to create : the length of
-	src, with the goal to facilitate truncaction detection.
+	src (to make truncation detection simple).
 */
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

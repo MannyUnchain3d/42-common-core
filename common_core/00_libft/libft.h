@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 22:20:42 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:18:07 by Manny            ###   ########.fr       */
+/*   Created: 2022/03/12 22:20:42 by Manny             #+#    #+#             */
+/*   Updated: 2022/11/23 23:21:54 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-/* ---------------   FILE DESCRIPTORS   --------------- */
+/* ---------------	FILE DESCRIPTORS	--------------- */
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);

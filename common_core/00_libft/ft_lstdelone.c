@@ -6,18 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:28:37 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:48:02 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 18:53:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_lstdelone deletes the content of a list node with the
 	function passed as parameter before freeing the memory of the node.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	None.
 */
 

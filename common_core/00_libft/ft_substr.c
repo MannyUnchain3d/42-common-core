@@ -6,19 +6,19 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 15:46:04 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:07:54 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 19:52:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_substr extracts a substring from the given string by
 	allocating sufficient memory for the new string starting at index start
 	and ending at len characters.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	A pointer to the new string.
 	NULL if the memory allocation fails.
 */

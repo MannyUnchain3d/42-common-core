@@ -6,17 +6,17 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 01:39:34 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 13:42:25 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/23 12:29:09 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_isascii checks whether c is an ascii character or not.
 
-	RESULT VALUE :
+	RESULT VALUE:
 	Non-zero if c is ascii, zero if not.
 */
 
