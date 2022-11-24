@@ -6,55 +6,72 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2022/11/06 23:45:08 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/25 01:33:16 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PROG	= pipex
+END = \e[0m
+BOLD = \e[1m
+UNDER = \e[4m
+REV = \e[7m
+GREY = \e[30m
+RED = \e[31m
+GREEN = \e[32m
+YELLOW = \e[33m
+BLUE = \e[34m
+PURPLE = \e[35m
+CYAN = \e[36m
+WHITE = \e[37m
 
-SRCS	= srcs/pipex.c srcs/utils.c
-OBJS	= $(SRCS:.c=.o)
-MAIN	= srcs/pipex.c
+NAME = pipex
 
-SRCS_B	= srcs/pipex_bonus.c srcs/utils.c srcs/utils_bonus.c
-OBJS_B	= $(SRCS_B:.c=.o)
-MAIN_B	= srcs/pipex_bonus.c
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g3
+RM = -rm -rf
 
-HEADER	= -Iinclude
+SRC_DIR = src
+SRC = pipex.c utils.c
+SRC_B = pipex_bonus.c utils.c utils_bonus.c
 
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -g
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
+OBJ_B = $(SRC_B:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 
-.c.o:		 %.o : %.c
-					@gcc $(CFLAGS) $(HEADER) -c $< -o $(<:.c=.o)
+HEADER = -Iinclude
 
-all:		$(PROG)
+LIBFT_PATH = ./libft
+LIBFT = $(LIBFT_PATH)/libft.a
 
-$(PROG):	$(OBJS)
-					@echo "\033[33m----Compiling lib----"
-					@make re -C ./libft
-					@$(CC) $(OBJS) -Llibft -lft -o $(PROG)
-					@echo "\033[32mPipex compiled!\n"
+$(SRC_DIR)/$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(SRC_DIR)/$(OBJ_DIR)
+	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
-bonus:		$(OBJS_B)
+all: $(NAME)
 
-					@echo "\033[33m----Compiling lib----"
-					@make re -C ./libft
-					@$(CC) $(OBJS_B) -Llibft -lft -o $(PROG)
-					@echo "\033[32mPipex bonus compiled!\n"
+$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(OBJ) -Llibft -lft -o $(NAME)
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ pipex is compiled! ----$(END)\n"
+
+bonus: $(LIBFT) $(OBJ) $(OBJ_B)
+	$(CC) $(OBJ_B) -Llibft -lft -o $(NAME)
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ pipex bonus is compiled! ----$(END)\n"
+
+$(LIBFT):
+	@make -C $(LIBFT_PATH)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
-					@make clean -C ./libft
-					@rm -rf $(OBJS) $(OBJS_B)
+	@make -C $(LIBFT_PATH) clean
+	$(RM) $(SRC_DIR)/$(OBJ_DIR)
 
-fclean:		clean
-					@make fclean -C ./libft
-					@rm -f $(NAME)
-					@rm -f $(PROG)
-					@echo "\n\033[31mDeleting EVERYTHING!!!\n"
+fclean: clean
+	$(RM) $(NAME) $(LIBFT)
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----$(END)\n"
 
-re:			fclean all
+re: fclean all
 
-re_bonus:	fclean bonus
+re_bonus: fclean bonus
 
-.PHONY: all clean fclean re re_bonus bonus
+.PHONY: all bonus clean fclean re re_bonus 
