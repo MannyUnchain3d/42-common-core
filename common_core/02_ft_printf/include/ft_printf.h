@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:17:28 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/24 18:02:51 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/25 16:39:09 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 # if defined (__linux__)
 #  define PTRNULL "(nil)"

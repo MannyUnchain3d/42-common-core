@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_flags_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 19:46:18 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 00:17:31 by Manny            ###   ########.fr       */
+/*   Created: 2022/08/26 18:57:43 by Manny             #+#    #+#             */
+/*   Updated: 2022/11/25 16:36:59 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-int	ft_print_c(char c)
+int	ft_isflag(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (ft_istype(c) || ft_isdigit(c) || ft_isspec(c));
 }
 
-int	ft_print_char(char c, t_flags flags)
+int	ft_isspec(int c)
 {
-	int	count;
+	if (c == '-' || c == '0' || c == '.' || c == '*'
+		|| c == '#' || c == ' ' || c == '+')
+		return (1);
+	return (0);
+}
 
-	count = 0;
-	if (flags.left == 1)
-		count += ft_print_c(c);
-	count += ft_pad_width(flags.width, 1, flags.zero);
-	if (flags.left == 0)
-		count += ft_print_c(c);
-	return (count);
+int	ft_istype(int c)
+{
+	if (c == 'c' || c == 's' || c == 'd' || c == 'i' || c == 'u'
+		|| c == 'x' || c == 'X' || c == 'p' || c == '%')
+		return (1);
+	return (0);
 }

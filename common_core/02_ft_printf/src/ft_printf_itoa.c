@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utoa.c                                   :+:      :+:    :+:   */
+/*   ft_printf_itoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 22:18:48 by Manny             #+#    #+#             */
-/*   Updated: 2022/08/30 00:22:36 by Manny            ###   ########.fr       */
+/*   Created: 2022/08/29 21:58:47 by Manny             #+#    #+#             */
+/*   Updated: 2022/11/25 16:36:39 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-static size_t	ft_utoa_len(long num)
+static size_t	ft_itoa_len(long num)
 {
 	size_t	len;
 
 	len = 0;
 	if (num == 0)
 		return (1);
+	if (num < 0)
+	{
+		len++;
+		num = -num;
+	}
 	while (num >= 1)
 	{
 		len++;
@@ -27,11 +32,16 @@ static size_t	ft_utoa_len(long num)
 	return (len);
 }
 
-static char	*ft_u_to_str(unsigned int num, char *str, size_t len)
+static char	*ft_num_to_str(long num, char *str, size_t len)
 {
 	str = ft_calloc(len + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
+	if (num < 0)
+	{
+		str[0] = '-';
+		num = -num;
+	}
 	len--;
 	while (len)
 	{
@@ -39,18 +49,19 @@ static char	*ft_u_to_str(unsigned int num, char *str, size_t len)
 		num /= 10;
 		len--;
 	}
-	str[0] = (num % 10) + '0';
+	if (str[0] != '-')
+		str[0] = (num % 10) + '0';
 	return (str);
 }
 
-char	*ft_printf_utoa(unsigned int num)
+char	*ft_printf_itoa(long num)
 {
 	size_t	len;
 	char	*str;
 
-	len = ft_utoa_len(num);
+	len = ft_itoa_len(num);
 	str = 0;
-	str = ft_u_to_str(num, str, len);
+	str = ft_num_to_str(num, str, len);
 	if (!str)
 		return (NULL);
 	return (str);

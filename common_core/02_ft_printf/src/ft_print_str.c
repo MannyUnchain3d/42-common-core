@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:34:11 by Manny             #+#    #+#             */
-/*   Updated: 2022/08/30 00:20:13 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/25 16:36:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static int	ft_print_string(const char *str, t_flags flags)
 {

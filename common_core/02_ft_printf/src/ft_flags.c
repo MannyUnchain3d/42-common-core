@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:22:51 by etetopat          #+#    #+#             */
-/*   Updated: 2022/08/30 14:28:27 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/25 16:36:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 t_flags	ft_flags_init(void)
 {
