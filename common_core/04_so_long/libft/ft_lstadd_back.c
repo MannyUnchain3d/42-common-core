@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 16:40:35 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/17 21:21:57 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 22:20:33 by etetopat          #+#    #+#             */
+/*   Updated: 2022/11/23 18:51:38 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
+#include "libft.h"
 
-int	main(void)
+/*
+	DESCRIPTION:
+	The function ft_lstadd_back adds a new node to the back of a list:
+		[.]->[.]->[.]->[NEW]->[NULL]
+
+	RETURN VALUE:
+	None.
+*/
+
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	void	*mlx;
-	void	*win;
+	t_list	*tmp;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
+	if (!new)
+		return ;
+	if (!*alst)
+	{
+		*alst = new;
+		return ;
+	}
+	tmp = ft_lstlast(*alst);
+	tmp->next = new;
 }
