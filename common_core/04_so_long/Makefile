@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 20:50:07 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/30 20:55:28 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,25 +24,25 @@ HEADER_GNL = gnl/get_next_line.h
 SRC = src/actions.c \
 		src/display_error.c \
 		src/map_check.c \
-		src/map_init.c \
+		src/map_init.c
 
 SRC_M = src/mandatory/image.c \
 		src/mandatory/moves.c \
-		src/mandatory/so_long.c \
+		src/mandatory/so_long.c
 
 #SRC_B = src/bonus/enemy_bonus.c \
 #		src/bonus/image_bonus.c \
 #		src/bonus/moves_bonus.c \
-#		src/bonus/so_long_bonus.c \
+#		src/bonus/so_long_bonus.c
 
 SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_putnbr_fd.c \
 			src/utils/ft_putstr_fd.c \
 			src/utils/ft_strcpy.c \
-			src/utils/ft_strlen.c \
+			src/utils/ft_strlen.c
 
 SRC_GNL = gnl/get_next_line.c \
-			gnl/get_next_line_utils.c \
+			gnl/get_next_line_utils.c
 
 SRC_M += $(SRC)
 SRC_M += $(SRC_UTILS)
