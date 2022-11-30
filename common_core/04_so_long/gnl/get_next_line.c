@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:06:15 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/29 20:38:49 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/30 22:47:42 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ char	*ft_line_from_leftover(char *leftover)
 	int		i;
 
 	i = 0;
-	while (leftover[i] != '\n' && leftover[i] != '\0')
+	if (!leftover[i])
+		return (NULL);
+	while (leftover[i] != '\0' && leftover[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (leftover[i] != '\n' && leftover[i] != '\0')
+	while (leftover[i] != '\0' && leftover[i] != '\n')
 	{
 		line[i] = leftover[i];
 		i++;
@@ -69,7 +71,7 @@ char	*ft_trim_leftover(char *leftover)
 	int		j;
 
 	i = 0;
-	while (leftover[i] != '\n' && leftover[i] != '\0')
+	while (leftover[i] != '\0' && leftover[i] != '\n')
 		i++;
 	if (!leftover[i])
 	{

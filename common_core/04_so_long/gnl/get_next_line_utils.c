@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:17:13 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/29 20:13:49 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/30 22:38:23 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ char	*ft_strjoin_gnl(char *leftover, char *buff)
 		leftover[0] = '\0';
 	}
 	if (!leftover || !buff)
-		return (0);
-	len = ft_strlen_gnl(leftover) + ft_strlen_gnl(buff);
+		return (NULL);
+	len = ft_strlen_gnl(leftover) + ft_strlen_gnl(buff) + 1;
 	str = (char *)malloc(sizeof(char) * len);
 	if (str == NULL)
-		return (0);
+		return (NULL);
 	if (leftover)
 		ft_strcpy_gnl(str, leftover);
 	ft_strcat_gnl(str, buff);
