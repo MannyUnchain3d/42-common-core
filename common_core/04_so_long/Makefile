@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 02:14:29 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/30 19:26:19 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = src/actions.c src/display_error.c src/image.c src/map.check.c\
 
 SRC_GNL = ./lib/gnl/*.c
 UTILS = ./lib/*c
+
 all: $(NAME)
 
 $(NAME): $(SRC) $(SRC_GNL) $(UTILS)
