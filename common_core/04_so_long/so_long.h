@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/30 20:40:36 by etetopat         ###   ########.fr       */
+/*   Updated: 2022/11/30 23:39:52 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 # define TRUE 1
 # define FALSE 0
-# define CELL_SIZE 72
+# define CELL_SIZE 64
 
-# define KEY_ESC 65307
-# define KEY_TAB 65289
-# define KEY_SPACE 32
-# define KEY_W 119
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_A 97
-# define ARROW_UP 65362
-# define ARROW_DOWN 65364
-# define ARROW_LEFT 65361
-# define ARROW_RIGHT 65363
+# define KEY_ESC 53
+# define KEY_TAB 48
+# define KEY_SPACE 49
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define ARROW_UP 126
+# define ARROW_LEFT 123
+# define ARROW_DOWN 125
+# define ARROW_RIGHT 124
 
 # define FLOOR_PATH "./img/floor.xpm"
 # define WALL_PATH "./img/wall.xpm"
