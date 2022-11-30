@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 20:35:37 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/30 20:50:07 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,14 @@ all: $(NAME)
 
 $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 	@make -s -C mlx
-	$(CC) $(CFLAGS) $(MLX) $< -o $@
+	$(CC) $(CFLAGS) $(MLX) $(OBJ_MANDATORY) -o $(NAME)
 	@echo "\n\e[32m---- (っ▀¯▀)つ so_long is ready to play! ----\e[0m\n"
 
 #bonus: $(NAME_BONUS)
 
 #$(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
 #	@make -s -C mlx
-#	$(CC) $(CFLAGS) $(MLX) $< -o $@
+#	$(CC) $(CFLAGS) $(MLX) $(OBJ_BONUS) -o $(NAME_BONUS)
 #	@echo "\n\e[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\e[0m\n"
 
 %.o: %.c $(HEADER) $(HEADER_GNL)
