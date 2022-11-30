@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/29 21:28:31 by Manny            ###   ########.fr       */
+/*   Updated: 2022/11/30 20:40:36 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <time.h>
-# include "mlx.h"
+# include "mlx/mlx.h"
 
 typedef struct s_mlx
 {
