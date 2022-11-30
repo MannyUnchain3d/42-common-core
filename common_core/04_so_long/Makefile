@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 20:01:00 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/30 20:35:37 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 #NAME_BONUS = so_long_bonus
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(HEADER) -I$(HEADER_GNL) -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -I$(HEADER) -I$(HEADER_GNL)
 MLX = -L mlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
