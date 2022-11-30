@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 21:36:12 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/30 22:31:36 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 	@make -s -C mlx
-	$(CC) $(CFLAGS) $(MLX) $< -o $@
+	$(CC) $(CFLAGS) $(MLX) $(OBJ_M) -o $@
 	@echo "\n\033[32m---- (っ▀¯▀)つ so_long is ready to play! ----\033[0m\n"
 
 #bonus: $(NAME_BONUS)
