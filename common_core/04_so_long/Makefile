@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 21:13:34 by Manny            ###   ########.fr        #
+#    Updated: 2022/11/30 21:36:12 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,26 @@ RM = rm -rf
 HEADER = so_long.h
 HEADER_GNL = gnl/get_next_line.h
 
-SRC_M = src/mandatory/image.c \
-		src/mandatory/moves.c \
-		src/mandatory/so_long.c
-#SRC_B = src/bonus/enemy_bonus.c \
-#		src/bonus/image_bonus.c \
-#		src/bonus/moves_bonus.c \
-#		src/bonus/so_long_bonus.c
 SRC = src/actions.c \
 		src/display_error.c \
 		src/map_check.c \
 		src/map_init.c
+
+SRC_M = src/mandatory/image.c \
+		src/mandatory/moves.c \
+		src/mandatory/so_long.c
+
+#SRC_B = src/bonus/enemy_bonus.c \
+#		src/bonus/image_bonus.c \
+#		src/bonus/moves_bonus.c \
+#		src/bonus/so_long_bonus.c
+
 SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_putnbr_fd.c \
 			src/utils/ft_putstr_fd.c \
 			src/utils/ft_strcpy.c \
 			src/utils/ft_strlen.c
+
 SRC_GNL = gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
@@ -49,19 +53,20 @@ OBJ_M = $(SRC_M:.c=.o)
 #SRC_B += $(SRC_UTILS)
 #SRC_B += $(SRC_GNL)
 #OBJ_B = $(SRC_B:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 	@make -s -C mlx
-	$(CC) $(CFLAGS) $(MLX) $(OBJ_MANDATORY) -o $(NAME)
-	@echo "\n\e[32m---- (っ▀¯▀)つ so_long is ready to play! ----\e[0m\n"
+	$(CC) $(CFLAGS) $(MLX) $< -o $@
+	@echo "\n\033[32m---- (っ▀¯▀)つ so_long is ready to play! ----\033[0m\n"
 
 #bonus: $(NAME_BONUS)
 
 #$(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
 #	@make -s -C mlx
-#	$(CC) $(CFLAGS) $(MLX) $(OBJ_BONUS) -o $(NAME_BONUS)
-#	@echo "\n\e[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\e[0m\n"
+#	$(CC) $(CFLAGS) $(MLX) $< -o $@
+#	@echo "\n\e[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\033[0m\n"
 
 %.o: %.c $(HEADER) $(HEADER_GNL)
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
@@ -69,11 +74,11 @@ $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 clean:
 	@make clean -s -C mlx
 	$(RM) $(OBJ_M) $(OBJ_B)
-	@echo "\n\e[31m---- (╯°□°)╯︵ ┻━┻ so_long is clean! ----\e[0m\n"
+	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ so_long is clean! ----\033[0m\n"
 
 fclean: clean
 	$(RM) $(NAME) $(NAME_BONUS)
-	@echo "\n\e[31m---- (╯°□°）╯︵ ┻━┻ so_long is gone! ----\e[0m\n"
+	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ so_long is gone! ----\033[0m\n"
 
 re: fclean all
 
