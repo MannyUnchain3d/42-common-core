@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/11/30 22:31:36 by etetopat         ###   ########.fr        #
+#    Updated: 2022/12/01 20:18:23 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I$(HEADER) -I$(HEADER_GNL)
-MLX = -L mlx -lmlx -framework OpenGL -framework AppKit
+MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
 HEADER = so_long.h
@@ -58,15 +58,15 @@ all: $(NAME)
 
 $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 	@make -s -C mlx
-	$(CC) $(CFLAGS) $(MLX) $(OBJ_M) -o $@
+	$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $@
 	@echo "\n\033[32m---- (っ▀¯▀)つ so_long is ready to play! ----\033[0m\n"
 
 #bonus: $(NAME_BONUS)
 
 #$(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
 #	@make -s -C mlx
-#	$(CC) $(CFLAGS) $(MLX) $< -o $@
-#	@echo "\n\e[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\033[0m\n"
+#	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
+#	@echo "\n\033[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\033[0m\n"
 
 %.o: %.c $(HEADER) $(HEADER_GNL)
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
