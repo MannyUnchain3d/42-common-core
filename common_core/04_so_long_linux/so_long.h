@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/01 21:35:14 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/05 01:44:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,21 @@
 # define PLAYER_PATH "./img/player.xpm"
 # define COLLECTIBLE_PATH "./img/collectible.xpm"
 # define EXIT_PATH "./img/exit.xpm"
+# define ENEMY_RIGHT_PATH "./img/enemy_right.xpm"
+# define ENEMY_LEFT_PATH "./img/enemy_left.xpm"
 
-# define ARGS_ERR "Wrong number of arguments."
-# define FILE_EXT_ERR "Wrong map file format."
-# define FILE_PERMISSION_ERR "Wrong permissions, can't open map file."
-# define MAP_SIZE_ERR "Map is not rectangular."
-# define MAP_WALLS_ERR "Map must be surrounded by walls."
-# define WRONG_CHAR_ERR "Map must contain these characters only: 0, 1, P, C, E."
-# define MAP_START_ERR "Map must have a player position (P character)."
-# define MAP_EXIT_ERR "Map must have an exit."
-# define MALLOC_ERR "Can't allocate memory."
-# define OTHER_ERR "Something went wrong."
+# define ARGS_ERR "Wrong number of arguments\n"
+# define FILE_EXT_ERR "Wrong map file format\n"
+# define FILE_PERMISSION_ERR "Wrong permissions, can't open map file\n"
+# define MAP_SIZE_ERR "Map is not rectangular\n"
+# define MAP_WALLS_ERR "Map must be surrounded by walls\n"
+# define WRONG_CHAR_ERR "Map contains invalid characters\n"
+# define MAP_START_ERR "Map must have a starting position (P character)\n"
+# define MAP_EXIT_ERR "Map must have an exit\n"
+# define MAP_COLLECTIBLES_ERR "Map must have at least one collectible\n"
+# define NO_VALID_PATH "Exit is not reachable\n"
+# define MALLOC_ERR "Can't allocate memory\n"
+# define OTHER_ERR "Something went wrong\n"
 
 # include <unistd.h> // write, read, close
 # include <stdlib.h> // malloc, free, exit
@@ -131,5 +135,11 @@ char	make_player_moves(t_map *map, int keycode, int exit);
 void	free_map_data(t_map *map);
 
 /* ---- Bonus-------------------------- */
+void	game_lose_bonus(t_game *game);
+void	put_enemy_bonus(t_map *map);
+void	img_init_bonus(t_mlx *mlx, t_img *img);
+void	img_to_win_bonus(t_game *game);
+int		game_action_bonus(int keycode, t_game *game);
+char	make_player_moves_bonus(t_map *map, int keycode, int exit);
 
 #endif
