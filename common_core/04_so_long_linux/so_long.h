@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/05 01:44:22 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/05 01:55:03 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@
 # define OTHER_ERR "Something went wrong\n"
 
 # include <unistd.h> // write, read, close
-# include <stdlib.h> // malloc, free, exit
+# include <stdlib.h> // malloc, free, exit, srand, rand
 # include <fcntl.h> // open
-# include <time.h> // time (for random seed)
+# include <time.h> // time in seconds for random seed
 # include "mlx/mlx.h"
 
 typedef struct s_mlx
