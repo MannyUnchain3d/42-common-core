@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:43 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/30 20:01:33 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/02 05:25:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	game_action(int keycode, t_game *game)
 	passed = make_player_moves(&(game->map), keycode, game->exit);
 	if (passed != '1' && !(game->exit == FALSE && passed == 'E'))
 	{
-		ft_putstr_fd("MOVE COUNT: :", 1);
+		ft_putstr_fd("Number of moves: ", 0);
 		ft_putnbr_fd(++(game->steps), 1);
 		ft_putstr_fd("\n", 1);
 	}

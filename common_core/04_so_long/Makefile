@@ -6,12 +6,12 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/12/01 20:18:23 by Manny            ###   ########.fr        #
+#    Updated: 2022/12/05 02:00:57 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-#NAME_BONUS = so_long_bonus
+NAME_BONUS = so_long_bonus
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I$(HEADER) -I$(HEADER_GNL)
@@ -30,10 +30,10 @@ SRC_M = src/mandatory/image.c \
 		src/mandatory/moves.c \
 		src/mandatory/so_long.c
 
-#SRC_B = src/bonus/enemy_bonus.c \
-#		src/bonus/image_bonus.c \
-#		src/bonus/moves_bonus.c \
-#		src/bonus/so_long_bonus.c
+SRC_B = src/bonus/enemy_bonus.c \
+		src/bonus/image_bonus.c \
+		src/bonus/moves_bonus.c \
+		src/bonus/so_long_bonus.c
 
 SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_putnbr_fd.c \
@@ -49,10 +49,10 @@ SRC_M += $(SRC_UTILS)
 SRC_M += $(SRC_GNL)
 OBJ_M = $(SRC_M:.c=.o)
 
-#SRC_B += $(SRC)
-#SRC_B += $(SRC_UTILS)
-#SRC_B += $(SRC_GNL)
-#OBJ_B = $(SRC_B:.c=.o)
+SRC_B += $(SRC)
+SRC_B += $(SRC_UTILS)
+SRC_B += $(SRC_GNL)
+OBJ_B = $(SRC_B:.c=.o)
 
 all: $(NAME)
 
@@ -61,12 +61,12 @@ $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 	$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $@
 	@echo "\n\033[32m---- (っ▀¯▀)つ so_long is ready to play! ----\033[0m\n"
 
-#bonus: $(NAME_BONUS)
+bonus: $(NAME_BONUS)
 
-#$(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
-#	@make -s -C mlx
-#	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
-#	@echo "\n\033[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\033[0m\n"
+$(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
+	@make -s -C mlx
+	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
+	@echo "\n\033[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\033[0m\n"
 
 %.o: %.c $(HEADER) $(HEADER_GNL)
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
@@ -82,6 +82,6 @@ fclean: clean
 
 re: fclean all
 
-#re_bonus: fclean bonus
+re_bonus: fclean bonus
 
 .PHONY: all bonus clean fclean re re_bonus

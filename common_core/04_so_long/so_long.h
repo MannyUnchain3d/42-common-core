@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/30 23:39:52 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/05 01:55:03 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,39 @@
 
 # define TRUE 1
 # define FALSE 0
-# define CELL_SIZE 64
+# define CELL_SIZE 64 // 64x64 pixels
 
-# define KEY_ESC 53
-# define KEY_TAB 48
-# define KEY_SPACE 49
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define ARROW_UP 126
-# define ARROW_LEFT 123
-# define ARROW_DOWN 125
-# define ARROW_RIGHT 124
+# define KEY_ESC 65307
+# define ARROW_UP 65362
+# define ARROW_LEFT 65361
+# define ARROW_DOWN 65364
+# define ARROW_RIGHT 65363
 
 # define FLOOR_PATH "./img/floor.xpm"
 # define WALL_PATH "./img/wall.xpm"
 # define PLAYER_PATH "./img/player.xpm"
 # define COLLECTIBLE_PATH "./img/collectible.xpm"
 # define EXIT_PATH "./img/exit.xpm"
+# define ENEMY_RIGHT_PATH "./img/enemy_right.xpm"
+# define ENEMY_LEFT_PATH "./img/enemy_left.xpm"
 
-# define ARGS_ERR "Wrong number of arguments."
-# define FILE_EXT_ERR "Wrong map file format."
-# define FILE_PERMISSION_ERR "Wrong permissions, can't open map file."
-# define MAP_SIZE_ERR "Map is not rectangular."
-# define MAP_WALLS_ERR "Map must be surrounded by walls."
-# define WRONG_CHAR_ERR "Map must contain these characters only: 0, 1, P, C, E."
-# define MAP_START_ERR "Map must have a player position (P character)."
-# define MAP_EXIT_ERR "Map must have an exit."
-# define MALLOC_ERR "Can't allocate memory."
-# define OTHER_ERR "Something went wrong."
+# define ARGS_ERR "Wrong number of arguments\n"
+# define FILE_EXT_ERR "Wrong map file format\n"
+# define FILE_PERMISSION_ERR "Wrong permissions, can't open map file\n"
+# define MAP_SIZE_ERR "Map is not rectangular\n"
+# define MAP_WALLS_ERR "Map must be surrounded by walls\n"
+# define WRONG_CHAR_ERR "Map contains invalid characters\n"
+# define MAP_START_ERR "Map must have a starting position (P character)\n"
+# define MAP_EXIT_ERR "Map must have an exit\n"
+# define MAP_COLLECTIBLES_ERR "Map must have at least one collectible\n"
+# define NO_VALID_PATH "Exit is not reachable\n"
+# define MALLOC_ERR "Can't allocate memory\n"
+# define OTHER_ERR "Something went wrong\n"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <time.h>
+# include <unistd.h> // write, read, close
+# include <stdlib.h> // malloc, free, exit, srand, rand
+# include <fcntl.h> // open
+# include <time.h> // time in seconds for random seed
 # include "mlx/mlx.h"
 
 typedef struct s_mlx
@@ -137,5 +135,11 @@ char	make_player_moves(t_map *map, int keycode, int exit);
 void	free_map_data(t_map *map);
 
 /* ---- Bonus-------------------------- */
+void	game_lose_bonus(t_game *game);
+void	put_enemy_bonus(t_map *map);
+void	img_init_bonus(t_mlx *mlx, t_img *img);
+void	img_to_win_bonus(t_game *game);
+int		game_action_bonus(int keycode, t_game *game);
+char	make_player_moves_bonus(t_map *map, int keycode, int exit);
 
 #endif
