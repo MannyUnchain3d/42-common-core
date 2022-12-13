@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/12/12 17:47:25 by Manny            ###   ########.fr        #
+#    Updated: 2022/12/13 18:58:19 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,9 @@ SRC_B = src/bonus/enemy_bonus.c \
 SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_putnbr_fd.c \
 			src/utils/ft_putstr_fd.c \
+			src/utils/ft_split.c \
 			src/utils/ft_strcpy.c \
+			src/utils/ft_strdup.c \
 			src/utils/ft_strlen.c
 
 SRC_GNL = gnl/get_next_line.c \

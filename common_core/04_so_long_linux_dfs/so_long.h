@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/12 15:29:45 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/13 18:58:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,11 @@ char	*get_next_line(int fd);
 char	*ft_itoa(int n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
+char	**ft_split(char const *s, char c);
 char	*ft_strcpy(char *dst, char *src);
+char	*ft_strdup(char *s1);
 int		ft_strlen(const char *str, int type);
+
 
 /* ---- Mandatory --------------------- */
 void	display_error_exit(char *message);

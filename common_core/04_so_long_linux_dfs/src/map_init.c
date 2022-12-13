@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 11:33:43 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/12 18:27:55 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/13 17:49:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,10 @@ void	map_size_init(t_map *map, char *ber)
 	}
 	skip_ending_newlines(file.fd);
 	close(file.fd);
-	map->map_data = (char **)malloc(sizeof(char *) * map->height);
+	map->map_data = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (map->map_data == NULL)
 		display_error_exit(MALLOC_ERR);
+	map->map_data[map->height] = NULL;
 }
 
 void	map_init(t_map *map, char *ber)
