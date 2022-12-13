@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 22:00:27 by etetopat          #+#    #+#             */
-/*   Updated: 2022/12/13 18:58:22 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/24 00:56:36 by etetopat          #+#    #+#             */
+/*   Updated: 2022/12/13 18:58:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "libft.h"
 
 /*
 	DESCRIPTION:
-	The function ft_putstr_fd writes the given string to the given
-	file descriptor.
+	The function ft_strdup duplicates the given string s1 by allocating
+	memory and performing a copy of the given string.
 
 	RETURN VALUE:
-	None.
+	A pointer to the new string. NULL if the memory allocation fails.
 */
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strdup(const char *s1)
 {
-	if (s)
-		write(fd, s, ft_strlen(s, 0));
+	char	*s2;
+	size_t	len;
+
+	len = ft_strlen(s1, 0) + 1;
+	s2 = malloc(len * sizeof(char));
+	if (!s2)
+		return (NULL);
+	ft_strlcpy(s2, s1, len);
+	return (s2);
 }
