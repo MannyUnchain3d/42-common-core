@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/13 18:58:21 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 00:20:48 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ typedef struct s_map
 	int					width;
 	int					height;
 	unsigned int		items_to_collect;
+	unsigned int		collectible;
+	unsigned int		cc_count;
+	unsigned int		exit;
 }	t_map;
 
 typedef struct s_map_checker
@@ -117,16 +120,15 @@ char	*get_next_line(int fd);
 char	*ft_itoa(int n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-char	**ft_split(char const *s, char c);
 char	*ft_strcpy(char *dst, char *src);
-char	*ft_strdup(char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s1);
 int		ft_strlen(const char *str, int type);
 
-
 /* ---- Mandatory --------------------- */
-void	display_error_exit(char *message);
+void	display_error_exit(t_map *map, char *message);
 void	map_symbols_checker(t_map *map);
-void	is_ber_file(char *filename);
+void	is_ber_file(t_map *map, char *filename);
 void	find_player(t_map *map, int *px, int *py);
 void	map_size_init(t_map *map, char *ber);
 void	map_init(t_map *map, char *ber);
@@ -138,6 +140,7 @@ void	img_init(t_mlx *mlx, t_img *img);
 void	img_to_win(t_game *game);
 char	make_player_moves(t_map *map, int keycode, int exit);
 void	free_map_data(t_map *map);
+void	free_map(char **map);
 
 /* ---- Bonus-------------------------- */
 void	game_lose_bonus(t_game *game);
