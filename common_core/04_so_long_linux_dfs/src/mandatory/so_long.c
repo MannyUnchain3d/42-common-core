@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 16:53:15 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/12 17:06:50 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/16 23:34:54 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	params_init(t_game *game)
 {
 	game->steps = 0;
 	game->exit = FALSE;
+	game->map.map_data = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -23,7 +24,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		display_error_exit(ARGS_ERR);
+		display_error_exit(&game.map, ARGS_ERR);
 	params_init(&game);
 	map_init(&game.map, argv[1]);
 	flood_fill(&game.map);
