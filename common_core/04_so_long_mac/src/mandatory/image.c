@@ -6,54 +6,54 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:52 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/30 20:01:14 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/12 00:41:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-static void	put_img(int i, int j, t_map *map, t_mlx mlx)
+static void	put_img(int row, int col, t_map *map, t_mlx mlx)
 {
-	if (map->map_data[i][j] == '0')
+	if (map->map_data[row][col] == '0')
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.floor,
-			CELL_SIZE * j, CELL_SIZE * i);
-	else if (map->map_data[i][j] == '1')
+			CELL_SIZE * col, CELL_SIZE * row);
+	else if (map->map_data[row][col] == '1')
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.wall,
-			CELL_SIZE * j, CELL_SIZE * i);
-	else if (map->map_data[i][j] == 'P')
+			CELL_SIZE * col, CELL_SIZE * row);
+	else if (map->map_data[row][col] == 'P')
 	{
-		map->player_position.x = j;
-		map->player_position.y = i;
+		map->player_pos.col = col;
+		map->player_pos.row = row;
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.player,
-			CELL_SIZE * j, CELL_SIZE * i);
+			CELL_SIZE * col, CELL_SIZE * row);
 	}
-	else if (map->map_data[i][j] == 'E')
+	else if (map->map_data[row][col] == 'E')
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.exit,
-			CELL_SIZE * j, CELL_SIZE * i);
-	else if (map->map_data[i][j] == 'C')
+			CELL_SIZE * col, CELL_SIZE * row);
+	else if (map->map_data[row][col] == 'C')
 	{
 		(map->items_to_collect)++;
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.collectible,
-			CELL_SIZE * j, CELL_SIZE * i);
+			CELL_SIZE * col, CELL_SIZE * row);
 	}
 }
 
 void	img_to_win(t_game *game)
 {
-	int	i;
-	int	j;
+	int	row;
+	int	col;
 
 	game->map.items_to_collect = 0;
-	i = 0;
-	while (i < game->map.height)
+	row = 0;
+	while (row < game->map.height)
 	{
-		j = 0;
-		while (j < game->map.width)
+		col = 0;
+		while (col < game->map.width)
 		{
-			put_img(i, j, &(game->map), game->mlx);
-			j++;
+			put_img(row, col, &(game->map), game->mlx);
+			col++;
 		}
-		i++;
+		row++;
 	}
 }
 

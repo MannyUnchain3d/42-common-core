@@ -6,15 +6,15 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/12/05 02:00:57 by Manny            ###   ########.fr        #
+#    Updated: 2022/12/17 02:18:08 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 NAME_BONUS = so_long_bonus
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(HEADER) -I$(HEADER_GNL)
+CC = gcc -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I/$(HEADER) -I/$(HEADER_GNL)
 MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
@@ -24,7 +24,8 @@ HEADER_GNL = gnl/get_next_line.h
 SRC = src/actions.c \
 		src/display_error.c \
 		src/map_check.c \
-		src/map_init.c
+		src/map_init.c \
+		src/path_check.c
 
 SRC_M = src/mandatory/image.c \
 		src/mandatory/moves.c \
@@ -39,6 +40,8 @@ SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_putnbr_fd.c \
 			src/utils/ft_putstr_fd.c \
 			src/utils/ft_strcpy.c \
+			src/utils/ft_strlcpy.c \
+			src/utils/ft_strdup.c \
 			src/utils/ft_strlen.c
 
 SRC_GNL = gnl/get_next_line.c \
@@ -69,7 +72,7 @@ $(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
 	@echo "\n\033[32m---- (っ▀¯▀)つ so_long_bonus is ready to play! ----\033[0m\n"
 
 %.o: %.c $(HEADER) $(HEADER_GNL)
-	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
+	$(CC) $(CFLAGS) -I/$(HEADER) -c $< -o $@
 
 clean:
 	@make clean -s -C mlx

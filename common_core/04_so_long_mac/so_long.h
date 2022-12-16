@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/05 01:55:03 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 02:15:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # define FALSE 0
 # define CELL_SIZE 64 // 64x64 pixels
 
-# define KEY_ESC 65307
-# define ARROW_UP 65362
-# define ARROW_LEFT 65361
-# define ARROW_DOWN 65364
-# define ARROW_RIGHT 65363
+# define KEY_ESC 53
+# define ARROW_UP 126
+# define ARROW_LEFT 123
+# define ARROW_DOWN 125
+# define ARROW_RIGHT 124
 
 # define FLOOR_PATH "./img/floor.xpm"
 # define WALL_PATH "./img/wall.xpm"
@@ -40,7 +40,7 @@
 # define MAP_START_ERR "Map must have a starting position (P character)\n"
 # define MAP_EXIT_ERR "Map must have an exit\n"
 # define MAP_COLLECTIBLES_ERR "Map must have at least one collectible\n"
-# define NO_VALID_PATH "Exit is not reachable\n"
+# define MAP_PATH_ERR "Exit or collectible is not reachable\n"
 # define MALLOC_ERR "Can't allocate memory\n"
 # define OTHER_ERR "Something went wrong\n"
 
@@ -72,21 +72,24 @@ typedef struct s_img
 	t_enemy		enemy;
 }	t_img;
 
-typedef struct s_player_position
+typedef struct s_player_pos
 {
-	unsigned int	x;
-	unsigned int	y;
-}	t_player_position;
+	unsigned int	col;
+	unsigned int	row;
+}	t_player_pos;
 
 typedef struct s_map
 {
 	t_mlx				mlx;
 	t_img				img;
 	char				**map_data;
-	t_player_position	player_position;
+	t_player_pos		player_pos;
 	int					width;
 	int					height;
 	unsigned int		items_to_collect;
+	unsigned int		collectible;
+	unsigned int		cc_count;
+	unsigned int		exit;
 }	t_map;
 
 typedef struct s_map_checker
@@ -118,14 +121,18 @@ char	*ft_itoa(int n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strcpy(char *dst, char *src);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s1);
 int		ft_strlen(const char *str, int type);
 
 /* ---- Mandatory --------------------- */
-void	display_error_exit(char *message);
+void	display_error_exit(t_map *map, char *message);
 void	map_symbols_checker(t_map *map);
-void	is_ber_file(char *filename);
+void	is_ber_file(t_map *map, char *filename);
+void	find_player(t_map *map, int *px, int *py);
 void	map_size_init(t_map *map, char *ber);
 void	map_init(t_map *map, char *ber);
+void	flood_fill(t_map *map);
 int		game_close(t_game *game);
 int		game_win(t_game *game);
 int		game_action(int keycode, t_game *game);
@@ -133,6 +140,7 @@ void	img_init(t_mlx *mlx, t_img *img);
 void	img_to_win(t_game *game);
 char	make_player_moves(t_map *map, int keycode, int exit);
 void	free_map_data(t_map *map);
+void	free_map(char **map);
 
 /* ---- Bonus-------------------------- */
 void	game_lose_bonus(t_game *game);

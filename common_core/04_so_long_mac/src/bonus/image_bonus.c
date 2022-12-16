@@ -6,77 +6,77 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:52 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/05 01:44:17 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 01:16:52 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-static void	put_enemy_img_bonus(int i, int j, t_map *map, t_mlx mlx)
+static void	put_enemy_img_bonus(int row, int col, t_map *map, t_mlx mlx)
 {
-	if (map->map_data[i][j] == 'N')
+	if (map->map_data[row][col] == 'N')
 	{
 		if ((int)time(NULL) % 2 == 0)
 
 			mlx_put_image_to_window(mlx.ptr, mlx.win,
-				map->img.enemy.enemy_right, CELL_SIZE * j, CELL_SIZE * i);
+				map->img.enemy.enemy_right, CELL_SIZE * col, CELL_SIZE * row);
 		else
 			mlx_put_image_to_window(mlx.ptr, mlx.win,
-				map->img.enemy.enemy_left, CELL_SIZE * j, CELL_SIZE * i);
+				map->img.enemy.enemy_left, CELL_SIZE * col, CELL_SIZE * row);
 	}
 }
 
-static void	put_img_bonus(int i, int j, t_map *map, t_mlx mlx)
+static void	put_img_bonus(int row, int col, t_map *map, t_mlx mlx)
 {
-	if (map->map_data[i][j] == '0')
+	if (map->map_data[row][col] == '0')
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.floor,
-			CELL_SIZE * j, CELL_SIZE * i);
-	else if (map->map_data[i][j] == '1')
+			CELL_SIZE * col, CELL_SIZE * row);
+	else if (map->map_data[row][col] == '1')
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.wall,
-			CELL_SIZE * j, CELL_SIZE * i);
-	else if (map->map_data[i][j] == 'P')
+			CELL_SIZE * col, CELL_SIZE * row);
+	else if (map->map_data[row][col] == 'P')
 	{
-		map->player_position.x = j;
-		map->player_position.y = i;
+		map->player_pos.col = col;
+		map->player_pos.row = row;
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.player,
-			CELL_SIZE * j, CELL_SIZE * i);
+			CELL_SIZE * col, CELL_SIZE * row);
 	}
-	else if (map->map_data[i][j] == 'E')
+	else if (map->map_data[row][col] == 'E')
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.exit,
-			CELL_SIZE * j, CELL_SIZE * i);
-	else if (map->map_data[i][j] == 'C')
+			CELL_SIZE * col, CELL_SIZE * row);
+	else if (map->map_data[row][col] == 'C')
 	{
 		(map->items_to_collect)++;
 		mlx_put_image_to_window(mlx.ptr, mlx.win, map->img.collectible,
-			CELL_SIZE * j, CELL_SIZE * i);
+			CELL_SIZE * col, CELL_SIZE * row);
 	}
 }
 
-static void	count_items_to_collect(int i, int j, t_map *map)
+static void	count_items_to_collect(int row, int col, t_map *map)
 {
-	if (map->map_data[i][j] == 'C')
+	if (map->map_data[row][col] == 'C')
 		(map->items_to_collect)++;
 }
 
 void	img_to_win_bonus(t_game *game)
 {
-	int		i;
-	int		j;
+	int		row;
+	int		col;
 	char	*counter_str;
 
 	game->map.items_to_collect = 0;
-	i = 0;
-	while (i < game->map.height)
+	row = 0;
+	while (row < game->map.height)
 	{
-		j = 0;
-		while (j < game->map.width)
+		col = 0;
+		while (col < game->map.width)
 		{
-			count_items_to_collect(i, j, &(game->map));
-			put_img_bonus(i, j, &(game->map), game->mlx);
-			put_enemy_img_bonus(i, j, &(game->map), game->mlx);
-			j++;
+			count_items_to_collect(row, col, &(game->map));
+			put_img_bonus(row, col, &(game->map), game->mlx);
+			put_enemy_img_bonus(row, col, &(game->map), game->mlx);
+			col++;
 		}
-		i++;
+		row++;
 	}
 	counter_str = ft_itoa(game->steps);
 	mlx_string_put(game->mlx.ptr, game->mlx.win, 70, 70, 0xFFFFFF,
