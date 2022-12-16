@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:57:11 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/05 01:44:20 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 01:28:35 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ void	game_lose_bonus(t_game *game)
 
 void	put_enemy_bonus(t_map *map)
 {
-	int	i;
-	int	j;
+	int	row;
+	int	col;
 
 	srand(time(NULL));
-	i = 0;
-	while (i < map->height)
+	row = 0;
+	while (row < map->height)
 	{
-		j = 0;
-		while (j < map->width)
+		col = 0;
+		while (col < map->width)
 		{
-			if (map->map_data[i][j] == '0' && rand() % (42 / 2) == 0)
-				map->map_data[i][j] = 'N';
-			j++;
+			if (map->map_data[row][col] == '0' && rand() % (42 / 2) == 0)
+				map->map_data[row][col] = 'N';
+			col++;
 		}
-		i++;
+		row++;
 	}
 }

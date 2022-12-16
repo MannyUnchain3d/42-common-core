@@ -6,57 +6,78 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:43 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/05 00:50:00 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 01:20:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-static void	change_coordinates_bonus(int keycode, t_player_position *old,
-								t_player_position *new)
+void	find_player(t_map *map, int *px, int *py)
+{
+	int	row;
+	int	col;
+
+	row = -1;
+	while (map->map_data[++row])
+	{
+		col = -1;
+		while (map->map_data[row][++col])
+		{
+			if (map->map_data[row][col] == 'P')
+			{
+				*px = col;
+				*py = row;
+			}
+		}
+	}
+
+}
+
+static void	change_coordinates_bonus(int keycode, t_player_pos *old,
+								t_player_pos *new)
 {
 	if (keycode == ARROW_UP)
 	{
-		new->x = old->x;
-		new->y = old->y - 1;
+		new->col = old->col;
+		new->row = old->row - 1;
 	}
 	if (keycode == ARROW_LEFT)
 	{
-		new->x = old->x - 1;
-		new->y = old->y;
+		new->col = old->col - 1;
+		new->row = old->row;
 	}
 	if (keycode == ARROW_DOWN)
 	{
-		new->x = old->x;
-		new->y = old->y + 1;
+		new->col = old->col;
+		new->row = old->row + 1;
 	}
 	if (keycode == ARROW_RIGHT)
 	{
-		new->x = old->x + 1;
-		new->y = old->y;
+		new->col = old->col + 1;
+		new->row = old->row;
 	}
 }
 
 char	make_player_moves_bonus(t_map *map, int keycode, int exit)
 {
-	t_player_position	old;
-	t_player_position	new;
-	char				passed;
+	t_player_pos	old;
+	t_player_pos	new;
+	char			passed;
 
-	old.y = map->player_position.y;
-	old.x = map->player_position.x;
+	old.row = map->player_pos.row;
+	old.col = map->player_pos.col;
 	change_coordinates_bonus(keycode, &old, &new);
 	passed = '1';
-	if (map->map_data[new.y][new.x] != '1')
+	if (map->map_data[new.row][new.col] != '1')
 	{
-		passed = map->map_data[new.y][new.x];
-		map->map_data[new.y][new.x] = 'P';
-		map->map_data[old.y][old.x] = '0';
+		passed = map->map_data[new.row][new.col];
+		map->map_data[new.row][new.col] = 'P';
+		map->map_data[old.row][old.col] = '0';
 	}
 	if (exit == FALSE && passed == 'E')
 	{
-		map->map_data[old.y][old.x] = 'P';
-		map->map_data[new.y][new.x] = 'E';
+		map->map_data[old.row][old.col] = 'P';
+		map->map_data[new.row][new.col] = 'E';
 	}
 	return (passed);
 }
