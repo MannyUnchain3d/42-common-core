@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 00:56:36 by etetopat          #+#    #+#             */
-/*   Updated: 2022/12/13 18:58:12 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/16 21:26:35 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../so_long.h"
 
 /*
 	DESCRIPTION:
