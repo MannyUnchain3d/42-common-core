@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/17 02:15:56 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/19 22:58:49 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,19 @@
 # define FALSE 0
 # define CELL_SIZE 64 // 64x64 pixels
 
-# define KEY_ESC 53
-# define ARROW_UP 126
-# define ARROW_LEFT 123
-# define ARROW_DOWN 125
-# define ARROW_RIGHT 124
+# if defined(__linux__)
+#  define KEY_ESC 65307
+#  define ARROW_UP 65362
+#  define ARROW_LEFT 65361
+#  define ARROW_DOWN 65364
+#  define ARROW_RIGHT 65363
+# elif defined(__APPLE__)
+#  define KEY_ESC 53
+#  define ARROW_UP 126
+#  define ARROW_LEFT 123
+#  define ARROW_DOWN 125
+#  define ARROW_RIGHT 124
+# endif
 
 # define FLOOR_PATH "./img/floor.xpm"
 # define WALL_PATH "./img/wall.xpm"
@@ -37,12 +45,12 @@
 # define MAP_SIZE_ERR "Map is not rectangular\n"
 # define MAP_WALLS_ERR "Map must be surrounded by walls\n"
 # define WRONG_CHAR_ERR "Map contains invalid characters\n"
-# define MAP_START_ERR "Map must have a starting position (P character)\n"
-# define MAP_EXIT_ERR "Map must have an exit\n"
+# define MAP_START_EXIT_ERR "Starting position or exit is missing\n"
+# define MAP_DUP_CHAR_ERR "Map contains duplicate characters\n"
 # define MAP_COLLECTIBLES_ERR "Map must have at least one collectible\n"
 # define MAP_PATH_ERR "Exit or collectible is not reachable\n"
 # define MALLOC_ERR "Can't allocate memory\n"
-# define OTHER_ERR "Something went wrong\n"
+# define OTHER_ERR "Oops... Something went wrong\n"
 
 # include <unistd.h> // write, read, close
 # include <stdlib.h> // malloc, free, exit, srand, rand
@@ -129,7 +137,6 @@ int		ft_strlen(const char *str, int type);
 void	display_error_exit(t_map *map, char *message);
 void	map_symbols_checker(t_map *map);
 void	is_ber_file(t_map *map, char *filename);
-void	find_player(t_map *map, int *px, int *py);
 void	map_size_init(t_map *map, char *ber);
 void	map_init(t_map *map, char *ber);
 void	flood_fill(t_map *map);

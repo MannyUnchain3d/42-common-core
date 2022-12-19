@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 16:53:15 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/17 01:35:02 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 02:46:08 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	game.mlx.win = mlx_new_window(game.mlx.ptr, game.map.width * CELL_SIZE,
 			game.map.height * CELL_SIZE, "so_long");
 	mlx_hook(game.mlx.win, 17, 0, game_close, (void *)&game);
-	mlx_hook(game.mlx.win, 2, 1L<<0, game_action_bonus, (void *)&game);
+	mlx_hook(game.mlx.win, 2, 1L << 0, game_action_bonus, (void *)&game);
 	mlx_loop_hook(game.mlx.ptr, update, &game);
 	img_init_bonus(&(game.mlx), &(game.map.img));
 	img_to_win_bonus(&game);

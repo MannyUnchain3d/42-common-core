@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2022/12/17 02:18:08 by Manny            ###   ########.fr        #
+#    Updated: 2022/12/19 22:42:12 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,13 @@ NAME_BONUS = so_long_bonus
 
 CC = gcc -g3 -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -I/$(HEADER) -I/$(HEADER_GNL)
-MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
+OS = $(shell uname)
+ifeq ($(OS), Linux)
+	MLX = -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
+else
+	MLX = -Lmlx -lmlx -Imlx -framework OpenGL -framework AppKit
+endif
 
 HEADER = so_long.h
 HEADER_GNL = gnl/get_next_line.h
