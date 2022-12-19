@@ -6,32 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:43 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/17 01:20:14 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 19:50:51 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
-
-void	find_player(t_map *map, int *px, int *py)
-{
-	int	row;
-	int	col;
-
-	row = -1;
-	while (map->map_data[++row])
-	{
-		col = -1;
-		while (map->map_data[row][++col])
-		{
-			if (map->map_data[row][col] == 'P')
-			{
-				*px = col;
-				*py = row;
-			}
-		}
-	}
-
-}
 
 static void	change_coordinates_bonus(int keycode, t_player_pos *old,
 								t_player_pos *new)

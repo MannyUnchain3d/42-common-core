@@ -6,11 +6,10 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 16:46:02 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/17 01:56:58 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/19 20:06:51 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../so_long.h"
 
 void	dfs(char **new_map, int row, int col, t_map *map)
@@ -23,7 +22,10 @@ void	dfs(char **new_map, int row, int col, t_map *map)
 	if (new_map[row][col] == 'C')
 		map->collectible++;
 	if (new_map[row][col] == 'E')
+	{
 		map->exit = 1;
+		return ;
+	}
 	new_map[row][col] = 'v';
 	dfs(new_map, row + 1, col, map);
 	dfs(new_map, row - 1, col, map);
@@ -31,10 +33,10 @@ void	dfs(char **new_map, int row, int col, t_map *map)
 	dfs(new_map, row, col - 1, map);
 }
 
-char **map_dup(t_map *map)
+char	**map_dup(t_map *map)
 {
-	int	i;
-	char **new_map;
+	int		i;
+	char	**new_map;
 
 	i = 0;
 	new_map = malloc(sizeof(char *) * (map->height + 1));
@@ -51,9 +53,9 @@ char **map_dup(t_map *map)
 
 void	flood_fill(t_map *map)
 {
-	int	row;
-	int	col;
-	char **new_map;
+	int				row;
+	int				col;
+	char			**new_map;
 
 	row = 0;
 	col = 0;
@@ -61,13 +63,9 @@ void	flood_fill(t_map *map)
 	{
 		col = 0;
 		while (map->map_data[row][col] && map->map_data[row][col] != 'P')
-		{
-			if (map->map_data[row][col] == 'P')
-				break;
 			col++;
-		}
 		if (map->map_data[row][col] == 'P')
-			break;
+			break ;
 		row++;
 	}
 	new_map = map_dup(map);

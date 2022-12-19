@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:52 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/17 01:16:52 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/17 02:46:26 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	put_enemy_img_bonus(int row, int col, t_map *map, t_mlx mlx)
 	if (map->map_data[row][col] == 'N')
 	{
 		if ((int)time(NULL) % 2 == 0)
-
 			mlx_put_image_to_window(mlx.ptr, mlx.win,
 				map->img.enemy.enemy_right, CELL_SIZE * col, CELL_SIZE * row);
 		else
