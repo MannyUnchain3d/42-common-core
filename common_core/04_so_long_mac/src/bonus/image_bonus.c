@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:52 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/17 02:46:26 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/20 16:40:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	img_to_win_bonus(t_game *game)
 	counter_str = ft_itoa(game->steps);
 	mlx_string_put(game->mlx.ptr, game->mlx.win, 70, 70, 0xFFFFFF,
 		"Move count:");
-	mlx_string_put(game->mlx.ptr, game->mlx.win, 140, 70, 0xFFFFFF,
+	mlx_string_put(game->mlx.ptr, game->mlx.win, 170, 70, 0xFFFFFF,
 		counter_str);
 	free(counter_str);
 }
