@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 00:04:56 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/22 16:41:37 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,17 @@ void		sort_3nb(t_stack **stack);
 void		sort(t_stack **stack_a, t_stack **stack_b);
 
 /* -------- Stack --------------------- */
-int			stack_size(t_stack *stack);
+int			stack_find_size(t_stack *stack);
 void		stack_add_bottom(t_stack **stack, t_stack *new);
 t_stack		*stack_new(int nb);
-t_stack		*stack_last(t_stack *stack);
-t_stack		*stack_before_last(t_stack *stack);
+t_stack		*stack_find_bottom(t_stack *stack);
+t_stack		*stack_before_bottom(t_stack *stack);
 
 /* -------- Utils --------------------- */
 int			abs_nb(int nb);
 void		free_stack(t_stack **stack);
-long int	ft_atoi(const char *str);
 void		ft_putstr(char *str);
+long int	ft_atoi(const char *str);
 
 /* -------- Error --------------------- */
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
