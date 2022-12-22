@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:09:14 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 00:02:13 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/22 20:33:49 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /* Fills stack_a with numbers from input, if the integers are out of range,
-frees the stack, prints error and exits */
+ * frees the stack, prints error and exits */
 t_stack	*fill_stack_nb(int argc, char **argv)
 {
 	t_stack		*stack_a;
@@ -38,9 +38,9 @@ t_stack	*fill_stack_nb(int argc, char **argv)
 }
 
 /* Assigns an index to each nb in stack_a, from highest to lowest
-(from stack_size to 1), easy to compare indexes instead of actual values
-ex. nb:		 4	 2	-6	 9
-	index:	[3]	[2]	[1]	[4] */
+ * (from stack_size to 1), easier to compare indexes instead of actual values
+ * ex. 	nb:		 4	 2	-6	 9
+ *		index:	[3]	[2]	[1]	[4] */
 void	assign_index(t_stack *stack_a, int stack_size)
 {
 	t_stack	*ptr;
