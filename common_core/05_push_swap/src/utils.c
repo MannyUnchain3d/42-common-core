@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:15:26 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/21 22:47:25 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/22 12:29:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ long int	ft_atoi(const char *str)
 		isneg *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (is_digit(str[i]))
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
