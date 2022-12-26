@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2022/12/26 21:22:52 by Manny            ###   ########.fr        #
+#    Updated: 2022/12/26 21:59:01 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,15 @@ $(OBJ_PATH):
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "\n\033[32m---- (っ▀¯▀)つ push_swap is ready! ----\033[0m\n"
 
 clean:
 	$(RM) $(OBJ_PATH)
+	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ push_swap is clean! ----\033[0m\n"
 
 fclean: clean
 	$(RM) $(NAME)
+	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ push_swap is gone! ----\033[0m\n"
 
 re: fclean all
 
