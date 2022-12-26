@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 16:41:37 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 13:51:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void		assign_index(t_stack *stack_a, int stack_size);
 
 /* -------- Position ------------------ */
 int			find_lowest_index(t_stack *stack);
-void		find_target_pos(t_stack **stack_a, t_stack **stack_b);
+void		assign_target_pos(t_stack **stack_a, t_stack **stack_b);
 
 /* -------- Cost ---------------------- */
 void		find_cost(t_stack **stack_a, t_stack **stack_b);
 void		cheapest_move(t_stack **stack_a, t_stack **stack_b);
 
 /* -------- Move ---------------------- */
-void		move_to_top(t_stack **stack_a, t_stack **stack_b);
+void		move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
 /* -------- Operations ---------------- */
 void		sa(t_stack **stack_a);
