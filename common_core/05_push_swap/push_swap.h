@@ -6,18 +6,17 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 13:51:40 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 16:40:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <stddef.h>
-# include <limits.h>
+# include <unistd.h> // write
+# include <stdlib.h> // malloc, free
+# include <stddef.h> // NULL
+# include <limits.h> // INT_MAX
 
 typedef struct s_stack
 {
@@ -41,7 +40,7 @@ t_stack		*fill_stack_nb(int argc, char **argv);
 void		assign_index(t_stack *stack_a, int stack_size);
 
 /* -------- Position ------------------ */
-int			find_lowest_index(t_stack *stack);
+int			find_lowest_index_pos(t_stack **stack);
 void		assign_target_pos(t_stack **stack_a, t_stack **stack_b);
 
 /* -------- Cost ---------------------- */
@@ -74,7 +73,7 @@ int			stack_find_size(t_stack *stack);
 void		stack_add_bottom(t_stack **stack, t_stack *new);
 t_stack		*stack_new(int nb);
 t_stack		*stack_find_bottom(t_stack *stack);
-t_stack		*stack_before_bottom(t_stack *stack);
+t_stack		*stack_find_before_bottom(t_stack *stack);
 
 /* -------- Utils --------------------- */
 int			abs_nb(int nb);

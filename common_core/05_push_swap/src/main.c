@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 20:13:33 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 16:19:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!is_correct_input(argv))
+	if (!is_valid_input(argv))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = fill_stack_nb(argc, argv);

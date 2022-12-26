@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 00:07:05 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 15:59:55 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 16:17:16 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	arg_is_zero(char *argv)
 }
 
 /* Checks if the argument is a valid number, returns 1 if valid or 0 if not */
-int	input_check(char **argv)
+int	is_valid_input(char **argv)
 {
 	int	i;
 	int	zeros;
