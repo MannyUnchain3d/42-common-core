@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:09:14 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 20:33:49 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 17:15:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_stack	*fill_stack_nb(int argc, char **argv)
 	return (stack_a);
 }
 
-/* Assigns an index to each nb in stack_a, from highest to lowest
+/* Assigns an index to each nb in stack A, from highest to lowest
  * (from stack_size to 1), easier to compare indexes instead of actual values
  * ex. 	nb:		 4	 2	-6	 9
  *		index:	[3]	[2]	[1]	[4] */

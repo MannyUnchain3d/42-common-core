@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 16:19:57 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 17:01:11 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* Checks if a stack is sorted, not sorted returns 0 and sorted returns 1 */
+/* Checks if a stack is sorted, returns 0 if sorted or 1 if it's not */
 int	is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
@@ -24,7 +24,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-/* Choose sorting method depending on amount of nb in stack */
+/* Chooses a sorting method depending on amount of nb in stack */
 static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2 && !is_sorted(*stack_a))
@@ -35,8 +35,8 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		sort(stack_a, stack_b);
 }
 
-/* Check if input is correct, if correct, initialize stack a and b, assign each
- * nb an index and sort the stack, when sorting is done, free stack */
+/* Checks if input is correct, initializes stack A and B, assign each
+ * nb an index and sorts the stack, when sorting is done, frees the stack */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -51,8 +51,8 @@ int	main(int argc, char **argv)
 	stack_a = fill_stack_nb(argc, argv);
 	stack_size = get_stack_size(stack_a);
 	assign_index(stack_a, stack_size + 1);
-	push_swap(stack_a, stack_b, stack_size);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	push_swap(&stack_a, &stack_b, stack_size);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
