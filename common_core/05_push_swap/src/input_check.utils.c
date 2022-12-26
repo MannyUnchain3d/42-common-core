@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:08:38 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/21 23:10:28 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 17:35:19 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_sign(char c)
 	return (0);
 }
 
-/* Compares 2 strings of digits, + sign is ignored, returns 0 if match */
+/* Compares 2 strings of digits, + sign is ignored, returns 0 if they match */
 int	strnb_cmp(const char *s1, const char *s2)
 {
 	int	i;

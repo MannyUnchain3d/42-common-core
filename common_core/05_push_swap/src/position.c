@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:32:56 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 16:23:40 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 20:21:11 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * ex. 	nb:		 4	 2	-6 	 9
  * 		index:	[3]	[2]	[1]	[4]
  * 		pos:	[0]	[1]	[2]	[3]
- * the cost of pushing nb 4 to the other stack is 0, for nb 2 it's 1, etc.
+ * the cost of pushing nb 4 to the other strack is 0, for nb 2 it's 1, etc.
  * the cost of rotating nb 9 to the top is 3, for nb 2 it's 1, etc. */
 static void	assign_position(t_stack **stack)
 {
@@ -56,8 +56,8 @@ int	find_lowest_index_pos(t_stack **stack)
 	return (lowest_pos);
 }
 
-/* Finds the best target position in stack a for a number in stack b.
- * Checks if there is a number in stack a with the closest biggest index,
+/* Finds the best target position in stack A for a number in stack B.
+ * Checks if there is a number in stack A with the closest biggest index,
  * if so, assigns as target position, if not, assigns to the lowest index
  * ex:	target_pos = INT_MAX
  *		B index: 8
@@ -68,7 +68,7 @@ int	find_lowest_index_pos(t_stack **stack)
  *		0 < 8 && 0 < 9			target_pos not changed
  *		target_pos = pos of index 9 because it's the closest bigger index
  *
- *  ex:	target_pos = INT_MAX
+ * ex2:	target_pos = INT_MAX
  *		B index: 8
  *		A indexes: 6 4 3
  *		6 < 8					target_pos not changed
@@ -107,7 +107,7 @@ static int	find_target_pos(t_stack **a, int b_idx,
 	return (target_pos);
 }
 
-/* Assigns a target position in stack a for each number of stack b.
+/* Assigns a target position in stack A for each number of stack B.
  * Used to calculate the cost of each move. */
 void	assign_target_pos(t_stack **a, t_stack **b)
 {

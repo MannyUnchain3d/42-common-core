@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:08:27 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 16:27:39 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 19:59:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	push(t_stack **src, t_stack **dest)
 	*src = tmp;
 }
 
-/* Pushes the top element of stack b to the top of stack a
+/* Pushes the top element of stack B to the top of stack A
  * then prints "pa" to stdout */
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
@@ -33,7 +33,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	ft_putstr("pa\n");
 }
 
-/* Pushes the top element of stack a to the top of stack b
+/* Pushes the top element of stack A to the top of stack B
  * then prints "pb" to stdout */
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {

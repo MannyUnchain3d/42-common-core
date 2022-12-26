@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 00:07:05 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 16:17:16 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 20:01:10 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static int	arg_is_duplicate(char **argv)
 	return (0);
 }
 
-/* Checks if the argment is a 0 to avoid duplicates like -0, +0, 000, +0000 etc.
- * Returns 1 if 0 or 0 if not */
+/* Checks if the argument is a zero to avoid duplicates (-0, +0, 00, +000 etc.)
+ * Returns 1 if the argument is a zero, or 0 if not */
 static int	arg_is_zero(char *argv)
 {
 	int	i;

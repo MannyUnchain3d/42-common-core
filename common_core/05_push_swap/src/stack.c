@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:31:17 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 16:43:25 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 19:52:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /* Creates a new stack of elements, returns NULL if malloc fails,
- * else returns the new element */
+ * else returns the new stack */
 t_stack	*stack_new(int nb)
 {
 	t_stack	*new;
@@ -71,7 +71,7 @@ int	stack_find_size(t_stack *stack)
 	size = 0;
 	if (!stack)
 		return (0);
-	while (stack != NULL)
+	while (stack)
 	{
 		stack = stack->next;
 		size++;

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:40:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 14:25:41 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 20:31:46 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	rotate_a(t_stack **a, int *cost)
 			ra(a);
 			(*cost)--;
 		}
-		else
+		else if (*cost < 0)
 		{
 			rra(a);
 			(*cost)++;
@@ -68,7 +68,7 @@ static void	rotate_b(t_stack **b, int *cost)
 			rb(b);
 			(*cost)--;
 		}
-		else
+		else if (*cost < 0)
 		{
 			rrb(b);
 			(*cost)++;
@@ -82,11 +82,11 @@ static void	rotate_b(t_stack **b, int *cost)
  * for each stack */
 void	move(t_stack **a, t_stack **b, int cost_a, int cost_b)
 {
-	if (cost_a > 0 && cost_b > 0)
-		rotate_both(a, b, &cost_a, &cost_b);
-	else if (cost_a < 0 && cost_b < 0)
+	if (cost_a < 0 && cost_b < 0)
 		rev_rotate_both(a, b, &cost_a, &cost_b);
+	else if (cost_a > 0 && cost_b > 0)
+		rotate_both(a, b, &cost_a, &cost_b);
 	rotate_a(a, &cost_a);
 	rotate_b(b, &cost_b);
-	pb(a, b);
+	pa(a, b);
 }

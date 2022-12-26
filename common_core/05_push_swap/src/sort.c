@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 15:52:40 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 20:39:05 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	shift_stack(t_stack **stack_a)
 }
 
 /* Sorting algorithm for more than 3 numbers in a stack.
- * Pushes all  numbers from stack A to stack B except for the last 3 numbers.
+ * Pushes all numbers from stack A to stack B except for the last 3 numbers.
  * Sorts the last 3 numbers in stack A using sort_3nb.
  * Pushes the numbers back to stack A by calculating the best cost-efficient way.
  * Shifts stack A until the smallest number is at the top */

@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:15:26 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 12:29:00 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 17:32:54 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* Returns the absolute value of a number to chose the shortest rotation */
+/* Returns the absolute value of a number to choose the shortest rotation */
 int	abs_nb(int nb)
 {
 	if (nb < 0)
@@ -55,7 +55,7 @@ long int	ft_atoi(const char *str)
 	}
 	while (is_digit(str[i]))
 	{
-		nb = nb * 10 + (str[i] - '0');
+		nb = (nb * 10) + (str[i] - '0');
 		i++;
 	}
 	return (nb * isneg);
@@ -67,9 +67,9 @@ void	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{	
-		write(1, &str, 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 }

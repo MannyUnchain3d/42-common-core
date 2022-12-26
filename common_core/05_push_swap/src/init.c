@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:09:14 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 17:15:29 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 17:23:02 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* Fills stack_a with numbers from input, if the integers are out of range,
+/* Fills stack A with numbers from input, if the integers are out of range,
  * frees the stack, prints error and exits */
 t_stack	*fill_stack_nb(int argc, char **argv)
 {
@@ -29,7 +29,7 @@ t_stack	*fill_stack_nb(int argc, char **argv)
 		if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
 		if (i == 1)
-			stack_a = stack_new(nb);
+			stack_a = stack_new((int)nb);
 		else
 			stack_add_bottom(&stack_a, stack_new((int)nb));
 		i++;
@@ -52,7 +52,7 @@ void	assign_index(t_stack *stack_a, int stack_size)
 		ptr = stack_a;
 		nb = INT_MIN;
 		highest = NULL;
-		while (ptr != NULL)
+		while (ptr)
 		{
 			if (ptr->nb == INT_MIN && ptr->index == 0)
 				ptr->index = 1;
