@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:15:26 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 17:32:54 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 21:50:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@ void	free_stack(t_stack **stack)
 		*stack = tmp;
 	}
 	*stack = NULL;
+}
+
+/* Writes an error message to the standard error, frees the stacks and exits */
+void	exit_error(t_stack **stack_a, t_stack **stack_b)
+{
+	if (stack_a == NULL || *stack_a != NULL)
+		free_stack(stack_a);
+	if (stack_b == NULL || *stack_b != NULL)
+		free_stack(stack_b);
+	write(2, "Error\n", 6);
+	exit (1);
 }
 
 /* Converts a string to a long integer */
