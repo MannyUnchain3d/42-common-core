@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 17:01:11 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 21:30:49 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = fill_stack_nb(argc, argv);
-	stack_size = get_stack_size(stack_a);
+	stack_size = stack_find_size(stack_a);
 	assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
 	free_stack(&stack_a);

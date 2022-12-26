@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 20:39:05 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 21:36:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	shift_stack(t_stack **stack_a)
 	int	lowest_index_pos;
 	int	stack_size;
 
-	lowest_index_pos = find_lowest_index_pos(*stack_a);
+	lowest_index_pos = find_lowest_index_pos(stack_a);
 	stack_size = stack_find_size(*stack_a);
 	if (lowest_index_pos > stack_size / 2)
 	{
@@ -78,7 +78,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	sort_3nb(stack_a);
 	while (*stack_b)
 	{
-		find_target_pos(stack_a, stack_b);
+		assign_target_pos(stack_a, stack_b);
 		find_cost(stack_a, stack_b);
 		cheapest_move(stack_a, stack_b);
 	}

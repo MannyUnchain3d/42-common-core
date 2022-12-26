@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:26:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 20:05:53 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/26 21:32:18 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	rev_rotate(t_stack **stack)
 	t_stack	*before_tail;
 
 	tail = stack_find_bottom(*stack);
-	before_tail = stack_before_bottom(*stack);
+	before_tail = stack_find_before_bottom(*stack);
 	tmp = *stack;
 	*stack = tail;
 	(*stack)->next = tmp;
