@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2022/12/26 23:24:06 by Manny            ###   ########.fr        #
+#    Updated: 2022/12/27 21:57:27 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ test2: $(NAME)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
-test3: (NAME)
+test3: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-100 -n 3))
 	./push_swap $(ARG) | ./checker $(ARG)
 	@echo -n "Instructions: "
