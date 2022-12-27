@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:15:26 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 21:50:20 by Manny            ###   ########.fr       */
+/*   Updated: 2022/12/27 18:52:41 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	if (stack_b == NULL || *stack_b != NULL)
 		free_stack(stack_b);
 	write(2, "Error\n", 6);
-	exit (1);
+	exit(1);
 }
 
 /* Converts a string to a long integer */
