@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:52:38 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:24:34 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/06 20:56:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static char	**ft_merror(char **strs)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**strs;
 	int		wordcount;
