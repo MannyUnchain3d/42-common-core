@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 16:40:56 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/07 16:07:01 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int			is_valid_input(char **argv);
 int			is_digit(char c);
 int			is_sign(char c);
 int			strnb_cmp(const char *s1, const char *s2);
+int			ft_strlen(const char *str);
+char		**ft_split(const char *s, char c);
 
 /* -------- Initialize ---------------- */
 t_stack		*fill_stack_nb(int argc, char **argv);
@@ -83,5 +85,6 @@ long int	ft_atoi(const char *str);
 
 /* -------- Error --------------------- */
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
+void		exit_error_strs(char **strs);
 
 #endif

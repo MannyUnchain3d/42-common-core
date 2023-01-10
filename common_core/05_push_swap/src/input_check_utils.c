@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.utils.c                                :+:      :+:    :+:   */
+/*   input_check_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:08:38 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 21:24:05 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/07 15:48:17 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ int	strnb_cmp(const char *s1, const char *s2)
 		j++;
 	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+}
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

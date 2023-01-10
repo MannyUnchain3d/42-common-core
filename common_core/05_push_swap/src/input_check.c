@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 00:07:05 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 21:28:31 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/07 16:21:13 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,14 @@ int	is_valid_input(char **argv)
 	if (arg_is_duplicate(argv))
 		return (0);
 	return (1);
+}
+
+/* Writes an error message to the standard error, frees the array and exits
+ * Used only if argv[1] is a string of numbers separated by spaces */
+void	exit_error_strs(char **strs)
+{
+	if (strs)
+		free(strs);
+	write(2, "Error\n", 6);
+	exit(1);
 }

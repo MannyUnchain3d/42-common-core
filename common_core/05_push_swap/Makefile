@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2022/12/27 21:57:27 by Manny            ###   ########.fr        #
+#    Updated: 2023/01/10 16:44:50 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC = -I.
 SRC_PATH = src/
 SRC = cost.c move.c init.c input_check_utils.c input_check.c main.c \
 		position.c push.c rev_rotate.c rotate.c sort_3nb.c sort.c \
-		stack.c swap.c utils.c
+		stack.c swap.c utils.c ft_split.c
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
 OBJ_PATH = obj/
