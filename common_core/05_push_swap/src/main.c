@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/08 15:15:52 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/12 20:31:55 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	main(int argc, char **argv)
 		strs = ft_split(argv[1], ' ');
 		if (!is_valid_input(strs))
 			exit_error_strs(strs);
-		run_push_swap(argc, strs);
-		free(strs);
+		run_push_swap(ft_split_size(strs), strs);
+		ft_split_free(strs);
 		return (0);
 	}
 	return (run_push_swap(argc, argv));

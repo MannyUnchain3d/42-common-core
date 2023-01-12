@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/07 16:07:01 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/12 19:30:08 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int			is_digit(char c);
 int			is_sign(char c);
 int			strnb_cmp(const char *s1, const char *s2);
 int			ft_strlen(const char *str);
+int			ft_split_size(char **srcs);
+void		ft_split_free(char **srcs);
 char		**ft_split(const char *s, char c);
 
 /* -------- Initialize ---------------- */
