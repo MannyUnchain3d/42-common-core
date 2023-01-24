@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2023/01/12 20:40:10 by Manny            ###   ########.fr        #
+#    Updated: 2023/01/25 02:48:29 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ CC = gcc -g3 -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-INC = -I.
+INC = -I ./
+LIBFTDIR = libft/
+LIBFT = -L libft -lft
 
 SRC_PATH = src/
-SRC = cost.c move.c init.c input_check_utils.c input_check.c main.c \
-		position.c push.c rev_rotate.c rotate.c sort_3nb.c sort.c \
-		stack.c swap.c utils.c utils2.c ft_split.c
-SRCS = $(addprefix $(SRC_PATH), $(SRC))
+SRC = cost.c init.c input_check.c main.c move.c position.c push.c rev_rotate.c \
+		rotate.c sort_3nb.c sort.c stack.c swap.c utils.c
 
 OBJ_PATH = obj/
 OBJ = $(SRC:.c=.o)
@@ -37,15 +37,18 @@ $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@make -C $(LIBFTDIR)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
 	@echo "\n\033[32m---- (っ▀¯▀)つ push_swap is ready! ----\033[0m\n"
 
 clean:
 	$(RM) $(OBJ_PATH)
+	@make clean -C $(LIBFTDIR)
 	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ push_swap is clean! ----\033[0m\n"
 
 fclean: clean
 	$(RM) $(NAME)
+	@make fclean -C $(LIBFTDIR)
 	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ push_swap is gone! ----\033[0m\n"
 
 re: fclean all
