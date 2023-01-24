@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:15:26 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/07 16:19:38 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 02:56:52 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,23 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
+/* Frees all the elements of the array and sets its pointer to NULL */
+void	free_split(char **strs)
+{
+	int	i;
+
+	if (strs != NULL)
+	{
+		i = 0;
+		while (strs[i] != NULL)
+		{
+			free(strs[i]);
+			i++;
+		}
+		free(strs);
+	}
+}
+
 /* Writes an error message to the standard error, frees the stacks and exits */
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
@@ -47,40 +64,12 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit(1);
 }
 
-/* Converts a string to a long integer */
-long int	ft_atoi(const char *str)
+/* Writes an error message to the standard error, frees the array and exits
+ * Used only if argv[1] is an array of strings */
+void	exit_error_strs(char **strs)
 {
-	long int	nb;
-	int			isneg;
-	int			i;
-
-	nb = 0;
-	isneg = 1;
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		isneg *= -1;
-		i++;
-	}
-	while (is_digit(str[i]))
-	{
-		nb = (nb * 10) + (str[i] - '0');
-		i++;
-	}
-	return (nb * isneg);
-}
-
-/* Prints a string to the standard output */
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{	
-		write(1, &str[i], 1);
-		i++;
-	}
+	if (strs)
+		free_split(strs);
+	write(2, "Error\n", 6);
+	exit(1);
 }

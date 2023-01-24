@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/12 19:30:08 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 02:25:06 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h> // malloc, free
 # include <stddef.h> // NULL
 # include <limits.h> // INT_MAX
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
@@ -30,17 +31,12 @@ typedef struct s_stack
 }	t_stack;
 
 /* -------- Input Check --------------- */
-int			is_valid_input(char **argv);
-int			is_digit(char c);
-int			is_sign(char c);
-int			strnb_cmp(const char *s1, const char *s2);
-int			ft_strlen(const char *str);
-int			ft_split_size(char **srcs);
-void		ft_split_free(char **srcs);
-char		**ft_split(const char *s, char c);
+int			arg_is_nb(char *argv);
+int			arg_is_dup(t_stack *stack_a);
 
 /* -------- Initialize ---------------- */
 t_stack		*fill_stack_nb(int argc, char **argv);
+t_stack		*fill_stack_nb2(char **argv);
 void		assign_index(t_stack *stack_a, int stack_size);
 
 /* -------- Position ------------------ */
@@ -82,8 +78,8 @@ t_stack		*stack_find_before_bottom(t_stack *stack);
 /* -------- Utils --------------------- */
 int			abs_nb(int nb);
 void		free_stack(t_stack **stack);
-void		ft_putstr(char *str);
-long int	ft_atoi(const char *str);
+void		free_split(char **strs);
+long		ft_atol(const char *str);
 
 /* -------- Error --------------------- */
 void		exit_error(t_stack **stack_a, t_stack **stack_b);

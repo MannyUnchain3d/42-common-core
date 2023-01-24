@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/12 20:31:55 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 02:07:59 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,38 +37,20 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 
 /* Checks if input is correct, initializes stack A and B, assign each
  * nb an index and sorts the stack, when sorting is done, frees the stack */
-static int	run_push_swap(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		stack_size;
 
-	if (!is_valid_input(argv))
-		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = fill_stack_nb(argc, argv);
+	if (!stack_a || arg_is_dup(stack_a))
+		exit_error(&stack_a, NULL);
 	stack_size = stack_find_size(stack_a);
 	assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	char	**strs;
-
-	if (argc < 2 || (argc == 2 && (ft_strlen(argv[1]) == 0)))
-		return (0);
-	if (argc == 2)
-	{
-		strs = ft_split(argv[1], ' ');
-		if (!is_valid_input(strs))
-			exit_error_strs(strs);
-		run_push_swap(ft_split_size(strs), strs);
-		ft_split_free(strs);
-		return (0);
-	}
-	return (run_push_swap(argc, argv));
 }

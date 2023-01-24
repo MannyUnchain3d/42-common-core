@@ -6,14 +6,29 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 00:07:05 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/07 16:21:13 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 02:20:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static int	is_digit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+/* Checks if the character is a + or - sign, returns 1 if sign or 0 if not */
+static int	is_sign(char c)
+{
+	if (c == '-' || c == '+')
+		return (1);
+	return (0);
+}
+
 /* Checks if the argument is a number, returns 1 if number or 0 if not */
-static int	arg_is_number(char *argv)
+int	arg_is_nb(char *argv)
 {
 	int	i;
 
@@ -28,70 +43,45 @@ static int	arg_is_number(char *argv)
 }
 
 /* Checks if the argument is a duplicate, returns 1 if duplicate or 0 if not */
-static int	arg_is_duplicate(char **argv)
+int	arg_is_dup(t_stack *stack_a)
 {
-	int	i;
-	int	j;
+	t_stack	*tmp;
 
-	i = 1;
-	while (argv[i])
+	while (stack_a)
 	{
-		j = 1;
-		while (argv[j])
+		tmp = stack_a->next;
+		while (tmp)
 		{
-			if (j != i && strnb_cmp(argv[i], argv[j]) == 0)
+			if (stack_a->nb == tmp->nb)
 				return (1);
-			j++;
+			tmp = tmp->next;
 		}
-		i++;
+		stack_a = stack_a->next;
 	}
 	return (0);
 }
 
-/* Checks if the argument is a zero to avoid duplicates (-0, +0, 00, +000 etc.)
- * Returns 1 if the argument is a zero, or 0 if not */
-static int	arg_is_zero(char *argv)
+/* Converts a string to a long integer */
+long	ft_atol(const char *str)
 {
-	int	i;
+	long		nb;
+	int			isneg;
+	int			i;
 
+	nb = 0;
+	isneg = 1;
 	i = 0;
-	if (is_sign(argv[i]))
+	if (str[i] == '+')
 		i++;
-	while (argv[i] != '\0' && argv[i] == '0')
-		i++;
-	if (argv[i] != '\0')
-		return (0);
-	return (1);
-}
-
-/* Checks if the argument is a valid number, returns 1 if valid or 0 if not */
-int	is_valid_input(char **argv)
-{
-	int	i;
-	int	zeros;
-
-	i = 1;
-	zeros = 0;
-	while (argv[i])
+	else if (str[i] == '-')
 	{
-		if (!arg_is_number(argv[i]))
-			return (0);
-		zeros += arg_is_zero(argv[i]);
+		isneg *= -1;
 		i++;
 	}
-	if (zeros > 1)
-		return (0);
-	if (arg_is_duplicate(argv))
-		return (0);
-	return (1);
-}
-
-/* Writes an error message to the standard error, frees the array and exits
- * Used only if argv[1] is a string of numbers separated by spaces */
-void	exit_error_strs(char **strs)
-{
-	if (strs)
-		free(strs);
-	write(2, "Error\n", 6);
-	exit(1);
+	while (is_digit(str[i]))
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * isneg);
 }

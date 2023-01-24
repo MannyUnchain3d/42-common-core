@@ -6,11 +6,41 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:09:14 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 17:23:02 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 02:29:37 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/* Fills stack A with numbers from input when there are only 2 arguments,
+ * splits argv[1] by space and converts each number to int, if the integers are
+ * out of range, frees the stack, prints error and exits */
+t_stack	*fill_stack_nb2(char **argv)
+{
+	t_stack		*stack_a;
+	char		**split;
+	int			i;
+	int			nb;
+
+	stack_a = NULL;
+	i = 0;
+	split = ft_split(argv[1], ' ');
+	while (split[i] != NULL)
+	{
+		nb = ft_atol(split[i]);
+		if (!arg_is_nb(split[i]))
+			exit_error_strs(split);
+		else if (nb > INT_MAX || nb < INT_MIN)
+			exit_error(&stack_a, NULL);
+		else if (i == 0)
+			stack_a = stack_new((int)nb);
+		else
+			stack_add_bottom(&stack_a, stack_new((int)nb));
+		i++;
+	}
+	free_split(split);
+	return (stack_a);
+}
 
 /* Fills stack A with numbers from input, if the integers are out of range,
  * frees the stack, prints error and exits */
@@ -21,18 +51,24 @@ t_stack	*fill_stack_nb(int argc, char **argv)
 	int			i;
 
 	stack_a = NULL;
-	nb = 0;
 	i = 1;
-	while (i < argc)
+	if (argc == 2)
+		stack_a = fill_stack_nb2(argv);
+	else
 	{
-		nb = ft_atoi(argv[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
-			exit_error(&stack_a, NULL);
-		if (i == 1)
-			stack_a = stack_new((int)nb);
-		else
-			stack_add_bottom(&stack_a, stack_new((int)nb));
-		i++;
+		while (i < argc)
+		{
+			nb = ft_atol(argv[i]);
+			if (!arg_is_nb(argv[i]))
+				exit_error(&stack_a, NULL);
+			else if (nb > INT_MAX || nb < INT_MIN)
+				exit_error(&stack_a, NULL);
+			else if (i == 1)
+				stack_a = stack_new((int)nb);
+			else
+				stack_add_bottom(&stack_a, stack_new((int)nb));
+			i++;
+		}
 	}
 	return (stack_a);
 }
