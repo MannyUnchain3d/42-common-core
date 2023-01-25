@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 03:29:57 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:15:44 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_sorted(t_stack *stack)
 static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2 && !is_sorted(*stack_a))
-		sa(stack_a);
+		sa(stack_a, 0);
 	else if (stack_size == 3)
 		sort_3nb(stack_a);
 	else if (stack_size > 3 && !is_sorted(*stack_a))
