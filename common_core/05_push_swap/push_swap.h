@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 02:25:06 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:03:44 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ void		cheapest_move(t_stack **stack_a, t_stack **stack_b);
 void		move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
 /* -------- Operations ---------------- */
-void		sa(t_stack **stack_a);
-void		sb(t_stack **stack_b);
-void		ss(t_stack **stack_a, t_stack **stack_b);
-void		pa(t_stack **stack_a, t_stack **stack_b);
-void		pb(t_stack **stack_a, t_stack **stack_b);
-void		ra(t_stack **stack_a);
-void		rb(t_stack **stack_b);
-void		rr(t_stack **stack_a, t_stack **stack_b);
-void		rra(t_stack **stack_a);
-void		rrb(t_stack **stack_b);
-void		rrr(t_stack **stack_a, t_stack **stack_b);
+void		sa(t_stack **stack_a, int print);
+void		sb(t_stack **stack_b, int print);
+void		ss(t_stack **stack_a, t_stack **stack_b, int print);
+void		pa(t_stack **stack_a, t_stack **stack_b, int print);
+void		pb(t_stack **stack_a, t_stack **stack_b, int print);
+void		ra(t_stack **stack_a, int print);
+void		rb(t_stack **stack_b, int print);
+void		rr(t_stack **stack_a, t_stack **stack_b, int print);
+void		rra(t_stack **stack_a, int print);
+void		rrb(t_stack **stack_b, int print);
+void		rrr(t_stack **stack_a, t_stack **stack_b, int print);
 
 /* -------- Sorting Algorithms -------- */
 int			is_sorted(t_stack *stack);

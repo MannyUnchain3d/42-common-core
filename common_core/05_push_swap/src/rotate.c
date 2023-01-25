@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:13:53 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 20:04:20 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:01:15 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,28 @@ static void	rotate(t_stack **stack)
 
 /* Rotates the top element of stack A to the bottom
  * then prints "ra" to stdout */
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, int print)
 {
 	rotate(stack_a);
-	ft_putstr("ra\n");
+	if (print)
+		ft_putstr("ra\n");
 }
 
 /* Rotates the top element of stack B to the bottom
  * then prints "rb" to stdout */
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, int print)
 {
 	rotate(stack_b);
-	ft_putstr("rb\n");
+	if (print)
+		ft_putstr("rb\n");
 }
 
 /* Rotates the top element of stack A and stack B to the bottom
  * then prints "rr" to stdout */
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_putstr("rr\n");
+	if (print)
+		ft_putstr("rr\n");
 }

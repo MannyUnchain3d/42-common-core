@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:49:38 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 19:59:13 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 12:57:55 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,27 @@ static void	swap(t_stack *stack)
 }
 
 /* Swaps the top 2 elements of stack A then prints "sa" to stdout */
-void	sa(t_stack **stack_a)
+void	sa(t_stack **stack_a, int print)
 {
 	swap(*stack_a);
-	ft_putstr("sa\n");
+	if (print)
+		ft_putstr("sa\n");
 }
 
 /* Swaps the top 2 elements of stack B then prints "sb" to stdout */
-void	sb(t_stack **stack_b)
+void	sb(t_stack **stack_b, int print)
 {
 	swap(*stack_b);
-	ft_putstr("sb\n");
+	if (print)
+		ft_putstr("sb\n");
 }
 
 /* Swaps the top 2 elements of stack A and stack B
  * then prints "ss" to stdout */
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	swap(*stack_a);
 	swap(*stack_b);
-	ft_putstr("ss\n");
+	if (print)
+		ft_putstr("ss\n");
 }

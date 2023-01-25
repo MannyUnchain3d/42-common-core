@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:26:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 21:32:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:00:26 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,29 @@ static void	rev_rotate(t_stack **stack)
 
 /* Rotates the bottom element of stack A to the top
  * then prints "rra" to stdout */
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, int print)
 {
 	rev_rotate(stack_a);
-	ft_putstr("rra\n");
+	if (print)
+		ft_putstr("rra\n");
 }
 
 /* Rotates the bottom element of stack B to the top
  * then prints "rrb" to stdout */
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, int print)
 {
 	rev_rotate(stack_b);
-	ft_putstr("rrb\n");
+	if (print)
+		ft_putstr("rrb\n");
 }
 
 /* Rotates the bottom element of stack A and stack B to the top
  * then prints "rrr" to stdout */
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	ft_putstr("rrr\n");
+	if (print)
+		ft_putstr("rrr\n");
 }

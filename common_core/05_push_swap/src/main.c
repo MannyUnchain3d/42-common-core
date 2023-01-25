@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:41 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 02:07:59 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 03:29:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 	int		stack_size;
 
+	if (argc < 2)
+		return (0);
 	stack_b = NULL;
 	stack_a = fill_stack_nb(argc, argv);
 	if (!stack_a || arg_is_dup(stack_a))
