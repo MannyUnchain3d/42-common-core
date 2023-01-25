@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:49 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/22 22:28:15 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:37:19 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	sort_3nb(t_stack **stack)
 		return ;
 	highest = find_highest_index(*stack);
 	if ((*stack)->index == highest)
-		ra(stack);
+		ra(stack, 0);
 	else if ((*stack)->next->index == highest)
-		rra(stack);
+		rra(stack, 0);
 	if ((*stack)->index > (*stack)->next->index)
-		sa(stack);
+		sa(stack, 0);
 }

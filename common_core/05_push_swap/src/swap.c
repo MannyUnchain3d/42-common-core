@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:49:38 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 12:57:55 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:35:54 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	swap(t_stack *stack)
 void	sa(t_stack **stack_a, int print)
 {
 	swap(*stack_a);
-	if (print)
+	if (print == 0)
 		ft_putstr("sa\n");
 }
 
@@ -40,7 +40,7 @@ void	sa(t_stack **stack_a, int print)
 void	sb(t_stack **stack_b, int print)
 {
 	swap(*stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("sb\n");
 }
 
@@ -50,6 +50,6 @@ void	ss(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	swap(*stack_a);
 	swap(*stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("ss\n");
 }

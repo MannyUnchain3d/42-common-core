@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:49:54 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:08:52 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:48:24 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ void	checker(t_stack **stack_a, t_stack **stack_b, char *line)
 	if (*stack_b)
 		write(1, "KO\n", 3);
 	else if (!is_sorted(*stack_a))
-		write(1, "KO\n", 3);
-	else
 		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	free(line);
 }
 
@@ -91,9 +91,9 @@ int	main(int argc, char **argv)
 	if (!stack_a || arg_is_dup(stack_a))
 		exit_error(&stack_a, NULL);
 	line = get_next_line(0);
-	if (!line && !is_sorted(stack_a))
+	if (!line && is_sorted(stack_a))
 		write(1, "KO\n", 3);
-	else if (!line && is_sorted(stack_a))
+	else if (!line && !is_sorted(stack_a))
 		write(1, "OK\n", 3);
 	else
 		checker(&stack_a, &stack_b, line);

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:08:27 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 12:59:29 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:38:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	push(t_stack **src, t_stack **dest)
 void	pa(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	push(stack_b, stack_a);
-	if (print)
+	if (print == 0)
 		ft_putstr("pa\n");
 }
 
@@ -39,6 +39,6 @@ void	pa(t_stack **stack_a, t_stack **stack_b, int print)
 void	pb(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	push(stack_a, stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:40:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 20:31:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:20:03 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	{
 		(*cost_a)--;
 		(*cost_b)--;
-		rr(a, b);
+		rr(a, b, 0);
 	}
 }
 
@@ -34,7 +34,7 @@ static void	rev_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	{
 		(*cost_a)++;
 		(*cost_b)++;
-		rrr(a, b);
+		rrr(a, b, 0);
 	}
 }
 
@@ -46,12 +46,12 @@ static void	rotate_a(t_stack **a, int *cost)
 	{
 		if (*cost > 0)
 		{
-			ra(a);
+			ra(a, 0);
 			(*cost)--;
 		}
 		else if (*cost < 0)
 		{
-			rra(a);
+			rra(a, 0);
 			(*cost)++;
 		}
 	}
@@ -65,12 +65,12 @@ static void	rotate_b(t_stack **b, int *cost)
 	{
 		if (*cost > 0)
 		{
-			rb(b);
+			rb(b, 0);
 			(*cost)--;
 		}
 		else if (*cost < 0)
 		{
-			rrb(b);
+			rrb(b, 0);
 			(*cost)++;
 		}
 	}
@@ -88,5 +88,5 @@ void	move(t_stack **a, t_stack **b, int cost_a, int cost_b)
 		rotate_both(a, b, &cost_a, &cost_b);
 	rotate_a(a, &cost_a);
 	rotate_b(b, &cost_b);
-	pa(a, b);
+	pa(a, b, 0);
 }

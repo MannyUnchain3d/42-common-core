@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:26:55 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:00:26 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 15:37:41 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	rev_rotate(t_stack **stack)
 	t_stack	*tail;
 	t_stack	*before_tail;
 
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	tail = stack_find_bottom(*stack);
 	before_tail = stack_find_before_bottom(*stack);
 	tmp = *stack;
@@ -32,7 +34,7 @@ static void	rev_rotate(t_stack **stack)
 void	rra(t_stack **stack_a, int print)
 {
 	rev_rotate(stack_a);
-	if (print)
+	if (print == 0)
 		ft_putstr("rra\n");
 }
 
@@ -41,7 +43,7 @@ void	rra(t_stack **stack_a, int print)
 void	rrb(t_stack **stack_b, int print)
 {
 	rev_rotate(stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("rrb\n");
 }
 
@@ -52,6 +54,6 @@ void	rrr(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("rrr\n");
 }

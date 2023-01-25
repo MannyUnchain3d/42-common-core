@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:55 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 21:36:56 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 13:22:04 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ void	push_all_but_3(t_stack **stack_a, t_stack **stack_b)
 	{
 		if ((*stack_a)->index <= stack_size / 2)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 			pushed++;
 		}
 		else
-			ra(stack_a);
+			ra(stack_a, 0);
 		i++;
 	}
 	while (stack_size - pushed > 3)
 	{
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 0);
 		pushed++;
 	}
 }
@@ -53,7 +53,7 @@ static void	shift_stack(t_stack **stack_a)
 	{
 		while (lowest_index_pos < stack_size)
 		{
-			rra(stack_a);
+			rra(stack_a, 0);
 			lowest_index_pos++;
 		}
 	}
@@ -61,7 +61,7 @@ static void	shift_stack(t_stack **stack_a)
 	{
 		while (lowest_index_pos > 0)
 		{
-			ra(stack_a);
+			ra(stack_a, 0);
 			lowest_index_pos--;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:13:53 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:01:15 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 15:54:42 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ static void	rotate(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*tail;
 
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tail = stack_find_bottom(*stack);
-	tmp->next = NULL;
 	tail->next = tmp;
+	tmp->next = NULL;
 }
 
 /* Rotates the top element of stack A to the bottom
@@ -30,7 +32,7 @@ static void	rotate(t_stack **stack)
 void	ra(t_stack **stack_a, int print)
 {
 	rotate(stack_a);
-	if (print)
+	if (print == 0)
 		ft_putstr("ra\n");
 }
 
@@ -39,7 +41,7 @@ void	ra(t_stack **stack_a, int print)
 void	rb(t_stack **stack_b, int print)
 {
 	rotate(stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("rb\n");
 }
 
@@ -49,6 +51,6 @@ void	rr(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	if (print)
+	if (print == 0)
 		ft_putstr("rr\n");
 }

@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2023/01/25 04:55:37 by Manny            ###   ########.fr        #
+#    Updated: 2023/01/25 15:38:05 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,8 @@ fclean: clean
 
 re: fclean all
 
+rebonus: fclean bonus
+
 test2: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-100 -n 2))
 	./push_swap $(ARG) | ./checker $(ARG)
@@ -73,32 +75,32 @@ test2: $(NAME)
 
 test3: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-100 -n 3))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
+	./push_swap $(ARG) | ./checker $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
 test5: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-5000 -n 5))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
+	./push_swap $(ARG) | ./checker $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
 test100: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-5000 -n 100))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
+	./push_swap $(ARG) | ./checker $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
 test500: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-5000 -n 500))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
+	./push_swap $(ARG) | ./checker $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
 test1000: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-5000 -n 1000))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
+	./push_swap $(ARG) | ./checker $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
-.PHONY: all clean fclean re bonus test2 test3 test5 test100 test500 test1000
+.PHONY: all bonus clean fclean re rebonus test2 test3 test5 test100 test500 test1000

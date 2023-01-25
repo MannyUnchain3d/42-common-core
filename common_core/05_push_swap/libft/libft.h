@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:20:42 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 02:17:55 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:50:27 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
-
 
 /* ---- LISTS ------------------------- */
 typedef struct s_list
