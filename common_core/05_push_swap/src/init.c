@@ -6,21 +6,22 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:09:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 02:29:37 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 22:25:55 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 /* Fills stack A with numbers from input when there are only 2 arguments,
  * splits argv[1] by space and converts each number to int, if the integers are
  * out of range, frees the stack, prints error and exits */
 t_stack	*fill_stack_nb2(char **argv)
 {
-	t_stack		*stack_a;
-	char		**split;
-	int			i;
-	int			nb;
+	t_stack			*stack_a;
+	char			**split;
+	int				i;
+	long			nb;
 
 	stack_a = NULL;
 	i = 0;
@@ -28,8 +29,8 @@ t_stack	*fill_stack_nb2(char **argv)
 	while (split[i] != NULL)
 	{
 		nb = ft_atol(split[i]);
-		if (!arg_is_nb(split[i]))
-			exit_error_strs(split);
+		if (!arg_is_nb(split[i]) || ft_strlen(split[i]) > 11)
+			exit_error(&stack_a, NULL);
 		else if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
 		else if (i == 0)
@@ -59,7 +60,7 @@ t_stack	*fill_stack_nb(int argc, char **argv)
 		while (i < argc)
 		{
 			nb = ft_atol(argv[i]);
-			if (!arg_is_nb(argv[i]))
+			if (!arg_is_nb(argv[i]) || ft_strlen(argv[i]) > 11)
 				exit_error(&stack_a, NULL);
 			else if (nb > INT_MAX || nb < INT_MIN)
 				exit_error(&stack_a, NULL);
