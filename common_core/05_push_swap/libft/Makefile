@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
-#    Updated: 2023/01/25 02:15:28 by Manny            ###   ########.fr        #
+#    Updated: 2023/01/26 16:22:13 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,11 +39,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@echo "\n\e[32m---- (っ▀¯▀)つ libft is compiled! ----\e[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ libft is compiled! ----\033[0m\n"
 
 bonus: $(OBJ_DIR) $(OBJ) $(OBJ_B)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_B)
-	@echo "\n\e[32m---- (っ▀¯▀)つ libft bonus is compiled! ----\e[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ libft bonus is compiled! ----\033[0m\n"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -53,7 +53,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
+	@echo "\n\033[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\033[0m\n"
 
 re: fclean all
 
