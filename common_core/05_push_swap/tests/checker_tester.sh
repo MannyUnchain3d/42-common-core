@@ -50,17 +50,17 @@ print_compare()
 echo -e $BLUE"Test Input"$RESET
 printf "$BOLD%-27s%-10s%s$RESET\n" "Name" "Status" "Result/Expect"
 #1
-printf "1. %-25s" "Invalid \$ARG"
+printf "1. %-25s" "abc \$ARG"
 INPUT=""
 ARG="abc"
 print_compare "$INPUT" "$ARG" "Error"
 #2
-printf "2. %-25s" "Mixin invalid \$ARG"
+printf "2. %-25s" "1 2 a \$ARG"
 INPUT=""
 ARG="1 2 a"
 print_compare "$INPUT" "$ARG" "Error"
 #2
-printf "2. %-25s" "Dupplicated \$ARG"
+printf "2. %-25s" "Duplicate \$ARG"
 INPUT=""
 ARG="1 2 1"
 print_compare "$INPUT" "$ARG" "Error"
@@ -70,17 +70,17 @@ INPUT=""
 ARG="9999999999"
 print_compare "$INPUT" "$ARG" "Error"
 #5
-printf "5. %-25s" "Mixin MAX_INT++"
+printf "5. %-25s" "Mixed MAX_INT++"
 INPUT=""
 ARG="1 2 3 9999999999"
 print_compare "$INPUT" "$ARG" "Error"
 #6
-printf "6. %-25s" "No \$ARG"
+printf "6. %-25s" "No ARG \$ARG"
 INPUT=""
 ARG=
 print_compare "$INPUT" "$ARG" ""
 #7
-printf "7. %-25s" "Empty \$ARG"
+printf "7. %-25s" "Empty element \$ARG"
 INPUT=""
 ARG=""
 print_compare "$INPUT" "$ARG" ""
@@ -90,7 +90,7 @@ INPUT="sa\nsb\nss\nra\nrb\nrr\nrra\nrrb\nrrr\npa\npb\n"
 ARG="1 2 3"
 print_compare "$INPUT" "$ARG" "KO"
 #9
-printf "9. %-25s" "No opteration input"
+printf "9. %-25s" "No operation input"
 INPUT="abcd\n"
 ARG="1 2 3"
 print_compare "$INPUT" "$ARG" "Error"

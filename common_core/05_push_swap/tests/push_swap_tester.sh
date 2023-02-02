@@ -141,15 +141,15 @@ print_compare()
 printf $BLUE"Validation Test\n"$RESET
 printf "$BOLD%-27s%-10s%s$RESET\n" "Name" "Status" "Result/Expect"
 #1
-printf "1. %-25s" "Invalid \$ARG"
+printf "1. %-25s" "abc \$ARG"
 ARG="abc"
 print_compare "$ARG" "Error"
 #2
-printf "2. %-25s" "Mixin invalid \$ARG"
+printf "2. %-25s" "1 2 a \$ARG"
 ARG="1 2 a"
 print_compare "$ARG" "Error"
 #3
-printf "3. %-25s" "Dupplicated \$ARG"
+printf "3. %-25s" "Duplicate \$ARG"
 ARG="1 2 3 1"
 print_compare "$ARG" "Error"
 #4
@@ -157,27 +157,27 @@ printf "4. %-25s" "MAX_INT++"
 ARG="9999999999"
 print_compare "$ARG" "Error"
 #5
-printf "5. %-25s" "Mixin MAX_INT++"
+printf "5. %-25s" "Mixed MAX_INT++"
 ARG="1 2 3 9999999999"
 print_compare "$ARG" "Error"
 #6
-printf "6. %-25s" "No \$ARG"
+printf "6. %-25s" "No args \$ARG"
 ARG=
 print_compare "$ARG" ""
 #7
-printf "7. %-25s" "Empty \$ARG"
+printf "7. %-25s" "Empty srtring \$ARG"
 ARG=""
 print_compare "$ARG" ""
 #8
-printf "8. %-25s" "Single \$ARG"
+printf "8. %-25s" "Single element \$ARG"
 ARG="1"
 print_compare "$ARG" ""
 #9
-printf "9. %-25s" "Sorted \$ARG"
+printf "9. %-25s" "Already sorted 1-3 \$ARG"
 ARG="1 2 3"
 print_compare "$ARG" ""
 #10
-printf "10.%-25s" "Sorted \$ARG"
+printf "10.%-25s" "Aleady sorted 1-9 \$ARG"
 ARG="1 2 3 4 5 6 7 8 9"
 print_compare "$ARG" ""
 echo
