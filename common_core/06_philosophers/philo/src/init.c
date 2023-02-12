@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 21:47:11 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/08 22:54:55 by Manny            ###   ########.fr       */
+/*   Updated: 2023/02/12 20:02:23 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,14 @@ static pthread_mutex_t	*init_forks(t_table *table)
 }
 
 /* Assigns 2 forks ids to each philosopher. Even-numbered philosophers
-get their fork order switched to avoid deadlocks. */
+get their fork order switched to avoid deadlocks. Example with 3 philosophers:
+ * Philo #1 (id0) takes fork 1 and then fork 0.
+ * Philo #2 (id1) takes fork 1 and then fork 2.
+ * Philo #3 (id2) takes fork 0 and then fork 2.
+ * Philo #1 takes fork 1, philo #3 takes fork 0 and philo #2 waits.
+ * Fork 2 is free for philo #3, so he eats.
+ * When he is done philo #1 can take fork 0 and eat.
+ * When he is done, philo #2 can finally get fork 1 and eat. */
 static void	assign_forks(t_philo *philo)
 {
 	philo->fork[0] = philo->id;
@@ -101,7 +108,6 @@ t_table	*init_table(int ac, char **av, int i)
 	table->time_to_eat = digit_atoi(av[i++]);
 	table->time_to_sleep = digit_atoi(av[i++]);
 	table->must_eat_count = -1;
-	if (ac - 1 == 5)
 		table->must_eat_count = digit_atoi(av[i++]);
 	table->philos = init_philosophers(table);
 	if (!table->philos)

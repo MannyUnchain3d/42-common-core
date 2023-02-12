@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:37 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/08 22:56:11 by Manny            ###   ########.fr       */
+/*   Updated: 2023/02/12 22:08:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	set_sim_stop_flag(t_table *table, bool state)
 
 /* Checks if the simulation has stopped, the stop flag is protected by a lock
  * to avoid multiple threads checking at the same time.
- * Return true if the sim_stop flag is true and false if not. */
+ * Returns true if the sim_stop flag is true and false if not. */
 bool	sim_has_stopped(t_table *table)
 {
 	bool	ret;
@@ -53,7 +53,7 @@ static bool	philo_died(t_philo *philo)
 	return (false);
 }
 
-/* Checks if the conditions to end the simulation has been met.
+/* Checks if the conditions to end the simulation have been met.
  * Stops the sim if a philo died or if he ate enough.
  * Returns true if a condition has been met or false if not. */
 static bool	stop_condition_met(t_table *table)

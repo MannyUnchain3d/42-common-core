@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/08 22:56:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/02/12 20:13:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	print_status(t_philo *philo, char *str)
 		philo->id + 1, str);
 }
 
-void	write_status(t_philo *philo, bool reaper_report, t_status status)
+void	write_status(t_philo *philo, bool manager_report, t_status status)
 {
 	pthread_mutex_lock(&philo->table->write_lock);
-	if (sim_has_stopped(philo->table) == true && reaper_report == false)
+	if (sim_has_stopped(philo->table) == true && manager_report == false)
 	{
 		pthread_mutex_unlock(&philo->table->write_lock);
 		return ;

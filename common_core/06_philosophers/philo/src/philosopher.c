@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:25 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/08 21:36:32 by Manny            ###   ########.fr       */
+/*   Updated: 2023/02/12 22:05:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static void	think_routine(t_philo *philo, bool silent)
 	philo_sleep(philo->table, time_to_think);
 }
 
-/* When only one philosopher is at the table, he only has one fork,
- * he picks it up and waits for time_to_die because he can't eat... So sad...*/
+/* When a single philosopher is at the table, he only has one fork,
+ * he picks it up and waits for time_to_die because he can't eat...น่าสงสาร. */
 static void	*single_philo_routine(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->table->fork_locks[philo->fork[0]]);
