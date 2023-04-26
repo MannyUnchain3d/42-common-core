@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 22:46:22 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:56:15 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 22:46:22 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:24:50 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	RETURN VALUE:
 	None.
 */
+
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

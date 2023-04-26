@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 23:24:46 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:02:11 by Manny            ###   ########.fr       */
+/*   Created: 2022/03/07 23:24:46 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:26:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	RETURN VALUE:
 	A pointer to memory area s.
 */
+
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

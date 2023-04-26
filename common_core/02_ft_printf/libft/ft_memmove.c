@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 23:56:57 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:01:57 by Manny            ###   ########.fr       */
+/*   Created: 2022/03/07 23:56:57 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:26:08 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -23,6 +21,8 @@
 	RETURN VALUE:
 	A pointer to dst.
 */
+
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

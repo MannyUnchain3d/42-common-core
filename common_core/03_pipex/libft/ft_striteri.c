@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 21:34:42 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:25:38 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/27 21:34:42 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:27:53 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	RETURN VALUE:
 	None.
 */
+
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

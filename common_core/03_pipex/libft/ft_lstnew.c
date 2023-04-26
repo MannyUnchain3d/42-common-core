@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 21:11:41 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:59:14 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 21:11:41 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:25:06 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	RESULT VALUE:
 	The new list node.
 */
+
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {

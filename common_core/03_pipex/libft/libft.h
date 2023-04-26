@@ -6,12 +6,15 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:20:42 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/24 17:59:23 by Manny            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:50:27 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 # include <stddef.h>
 # include <unistd.h>
@@ -77,5 +80,9 @@ void	*ft_calloc(size_t count, size_t size);
 /* ---- CONVERSIONS ------------------- */
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+
+/* ---- ADDITIONALS -------------------- */
+char	*get_next_line(int fd);
+void	ft_putstr(char *str);
 
 #endif

@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 17:21:50 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:52:19 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/26 17:21:50 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:32:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -22,6 +20,8 @@
 	A pointer to the trimmed copy of the string.
 	NULL if the memory allocation fails.
 */
+
+#include "libft.h"
 
 static int	is_set(char c, char const *set)
 {

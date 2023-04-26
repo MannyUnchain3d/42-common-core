@@ -6,11 +6,9 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 17:52:38 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:24:34 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/26 19:23:33 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	An array of strings resulting from the split. NULL if the memory
 	allocation fails.
 */
+
+#include "libft.h"
 
 static int	ft_count_words(const char *s, char c)
 {

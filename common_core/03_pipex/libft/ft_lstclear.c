@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 22:38:18 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:52:26 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 22:38:18 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:24:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	RETURN VALUE:
 	None.
 */
+
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

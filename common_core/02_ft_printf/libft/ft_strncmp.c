@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 17:50:37 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:51:39 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/22 17:50:37 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:32:18 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	An integer less than, equal to, or greater than zero if one of the first
 	n bytes of s1 is found to be less than, to match, or to be greater than s2.
 */
+
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

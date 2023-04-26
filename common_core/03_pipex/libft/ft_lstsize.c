@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 22:11:21 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:59:49 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 22:11:21 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:25:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	RETURN VALUE:
 	The integer number of nodes in the given list.
 */
+
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

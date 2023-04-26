@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/23 00:08:05 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:52:00 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/23 00:08:05 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:32:33 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -23,6 +21,8 @@
 	A pointer to s1 if s2 is empty.
 	NULL if s2 occurs nowhere in s1.
 */
+
+#include "libft.h"
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {

@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 17:48:39 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:49:20 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/26 17:48:39 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:24:23 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -19,6 +17,8 @@
 	RESULT VALUE:
 	The string of the converted integer.
 */
+
+#include "libft.h"
 
 static size_t	ft_itoa_len(long num)
 {

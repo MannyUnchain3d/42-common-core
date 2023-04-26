@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
-#    Updated: 2022/11/25 02:29:06 by Manny            ###   ########.fr        #
+#    Updated: 2023/01/26 16:22:13 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
 		ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c\
 		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c\
 		ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c\
-		ft_substr.c ft_tolower.c ft_toupper.c
+		ft_substr.c ft_tolower.c ft_toupper.c get_next_line.c ft_putstr.c
 SRC_B = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
 		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
@@ -39,11 +39,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@echo "\n\e[32m---- (っ▀¯▀)つ libft is compiled! ----\e[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ libft is compiled! ----\033[0m\n"
 
 bonus: $(OBJ_DIR) $(OBJ) $(OBJ_B)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_B)
-	@echo "\n\e[32m---- (っ▀¯▀)つ libft bonus is compiled! ----\e[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ libft bonus is compiled! ----\033[0m\n"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -53,7 +53,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
+	@echo "\n\033[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\033[0m\n"
 
 re: fclean all
 

@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 15:26:20 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:24:31 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/22 15:26:20 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:24:06 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	A pointer to the first occurence of c in str.
 	NULL if c is not found.
 */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {

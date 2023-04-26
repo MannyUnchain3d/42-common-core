@@ -6,11 +6,9 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 01:39:34 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 12:29:09 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/26 18:52:42 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -19,6 +17,8 @@
 	RESULT VALUE:
 	Non-zero if c is ascii, zero if not.
 */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

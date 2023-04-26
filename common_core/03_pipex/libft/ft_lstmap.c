@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 23:12:07 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:58:48 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 23:12:07 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:25:01 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -25,6 +23,8 @@
 	A new copy of the list if no function was provided.
 	NULL if the memory allocation failed.
 */
+
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

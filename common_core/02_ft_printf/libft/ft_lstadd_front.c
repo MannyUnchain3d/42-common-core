@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 22:02:27 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:51:56 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 22:02:27 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:24:35 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	RETURN VALUE:
 	None.
 */
+
+#include "libft.h"
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {

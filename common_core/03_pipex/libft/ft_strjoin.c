@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 17:04:17 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:29:14 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/26 17:04:17 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:28:46 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	A pointer to the new concatenated string.
 	NULL if the memory allocation fails.
 */
+
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

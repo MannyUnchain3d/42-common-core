@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 17:55:31 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:49:37 by Manny            ###   ########.fr       */
+/*   Created: 2022/03/28 17:55:31 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:30:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -24,6 +22,8 @@
 	The total length of the string that it tried to create: the initial
 	length of dst + the length of src (to make truncation detection simple).
 */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

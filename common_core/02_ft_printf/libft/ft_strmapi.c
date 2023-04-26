@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:58:07 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:50:16 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/27 16:58:07 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:31:42 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESRIPTION:
@@ -22,6 +20,8 @@
 	A pointer to the newly created string. NULL if the memory allocation
 	fails.
 */
+
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

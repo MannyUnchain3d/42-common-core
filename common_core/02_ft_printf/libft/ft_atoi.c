@@ -6,19 +6,19 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 00:21:48 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 16:05:21 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/26 19:05:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 	DESCRIPTION:
-	The function ft_atoi converts a string into an int.
+	The function ft_atoi converts a string of characters into an integer.
 
 	RETURN VALUE:
-	The converted int.
+	The converted integer.
 */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

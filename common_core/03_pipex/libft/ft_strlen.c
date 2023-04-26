@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 01:40:23 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:50:00 by Manny            ###   ########.fr       */
+/*   Created: 2022/03/07 01:40:23 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:31:30 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	RETURN VALUE:
 	The number of bytes in the string str.
 */
+
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {

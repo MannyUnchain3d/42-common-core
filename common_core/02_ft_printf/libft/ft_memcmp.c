@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 23:50:58 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:01:14 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/22 23:50:58 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:25:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -22,6 +20,8 @@
 	n bytes of s1 is found to be less than, equal to, or greater than the
 	first n bytes of s2. Zero if n is equal to zero.
 */
+
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

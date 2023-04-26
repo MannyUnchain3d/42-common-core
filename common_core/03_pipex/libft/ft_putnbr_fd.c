@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 22:10:08 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:03:23 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/27 22:10:08 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:26:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	RETURN VALUE:
 	None.
 */
+
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 22:15:59 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 18:57:56 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/28 22:15:59 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:24:55 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -20,6 +18,8 @@
 	The last node of a list.
 		[.]->[.]->[.]->[LAST]->[NULL]
 */
+
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

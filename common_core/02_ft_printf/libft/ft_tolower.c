@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 00:32:40 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:53:30 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/21 00:32:40 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:35:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -21,6 +19,8 @@
 	The lowercase equivalent letter.
 	The original character c if c is not an uppercase letter.
 */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

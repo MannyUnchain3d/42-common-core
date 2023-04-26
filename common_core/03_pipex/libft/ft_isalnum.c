@@ -6,11 +6,9 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 01:38:10 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 12:24:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/26 18:52:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -19,6 +17,8 @@
 	RETURN VALUE:
 	Non-zero if c is alphanumeric, zero if not.
 */
+
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

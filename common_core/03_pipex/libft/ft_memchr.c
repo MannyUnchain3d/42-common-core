@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 18:09:33 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/23 19:01:01 by Manny            ###   ########.fr       */
+/*   Created: 2022/04/22 18:09:33 by Manny             #+#    #+#             */
+/*   Updated: 2023/04/26 19:25:50 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
 	DESCRIPTION:
@@ -22,6 +20,8 @@
 	A pointer to the matching byte. NULL if the character does not occur
 	in the given memory area.
 */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
