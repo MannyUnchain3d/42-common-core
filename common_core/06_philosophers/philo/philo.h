@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:51:21 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 19:33:35 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/27 12:18:32 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,32 +73,32 @@ typedef enum e_status
 	GOT_FORK_2 = 5
 }	t_status;
 
-/* -------- Input Check --------------- */
+/* ---- INPUT CHECK ------------------- */
 bool	is_valid_input(int ac, char **av);
 int		digit_atoi(char *str);
 
-/* -------- Initialize ---------------- */
+/* ---- INITIALIZE -------------------- */
 t_table	*init_table(int ac, char **av, int i);
 
-/* -------- Routines ------------------ */
+/* ---- ROUTINES ---------------------- */
 void	*philosopher(void *data);
 
-/* -------- Time ---------------------- */
+/* ---- TIME -------------------------- */
 time_t	get_time_in_ms(void);
 void	philo_sleep(t_table *table, time_t sleep_time);
 void	sim_start_delay(time_t start_time);
 
-/* -------- Output -------------------- */
+/* ---- OUTPUT ------------------------ */
 void	write_status(t_philo *philo, bool death, t_status status);
 void	write_outcome(t_table *table);
 void	*error_null(char *str, char *details, t_table *table);
 int		msg(char *str, char *details, int exit_nb);
 
-/* -------- Manager ------------------- */
+/* ---- MANAGER ----------------------- */
 void	*manager(void *data);
 bool	sim_has_stopped(t_table *table);
 
-/* -------- Exit ---------------------- */
+/* ---- EXIT -------------------------- */
 int		error_failure(char *str, char *infos, t_table *table);
 void	*free_table(t_table *table);
 void	destroy_mutex(t_table *table);

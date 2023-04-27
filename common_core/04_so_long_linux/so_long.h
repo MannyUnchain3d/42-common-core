@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/19 22:58:49 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/27 12:45:16 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,17 +123,7 @@ typedef struct s_game
 
 char	*get_next_line(int fd);
 
-/* ---- Utils ------------------------- */
-
-char	*ft_itoa(int n);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
-char	*ft_strcpy(char *dst, char *src);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strdup(const char *s1);
-int		ft_strlen(const char *str, int type);
-
-/* ---- Mandatory --------------------- */
+/* ---- MANDATORY --------------------- */
 void	display_error_exit(t_map *map, char *message);
 void	map_symbols_checker(t_map *map);
 void	is_ber_file(t_map *map, char *filename);
@@ -149,12 +139,21 @@ char	make_player_moves(t_map *map, int keycode, int exit);
 void	free_map_data(t_map *map);
 void	free_map(char **map);
 
-/* ---- Bonus-------------------------- */
+/* ---- BONUS ------------------------- */
 void	game_lose_bonus(t_game *game);
 void	put_enemy_bonus(t_map *map);
 void	img_init_bonus(t_mlx *mlx, t_img *img);
 void	img_to_win_bonus(t_game *game);
 int		game_action_bonus(int keycode, t_game *game);
 char	make_player_moves_bonus(t_map *map, int keycode, int exit);
+
+/* ---- UTILS ------------------------ */
+char	*ft_itoa(int n);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+char	*ft_strcpy(char *dst, char *src);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s1);
+int		ft_strlen(const char *str, int type);
 
 #endif

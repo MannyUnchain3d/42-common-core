@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/26 00:02:19 by Manny            ###   ########.fr       */
+/*   Updated: 2023/04/27 11:33:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,27 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-/* -------- Input Check --------------- */
+/* -------- INPUT CHECK --------------- */
 int			arg_is_nb(char *argv);
 int			arg_is_dup(t_stack *stack_a);
 
-/* -------- Initialize ---------------- */
+/* -------- INITIALIZE ---------------- */
 t_stack		*fill_stack_nb(int argc, char **argv);
 t_stack		*fill_stack_nb2(char **argv);
 void		assign_index(t_stack *stack_a, int stack_size);
 
-/* -------- Position ------------------ */
+/* -------- POSITION ------------------ */
 int			find_lowest_index_pos(t_stack **stack);
 void		assign_target_pos(t_stack **stack_a, t_stack **stack_b);
 
-/* -------- Cost ---------------------- */
+/* -------- COST ---------------------- */
 void		find_cost(t_stack **stack_a, t_stack **stack_b);
 void		cheapest_move(t_stack **stack_a, t_stack **stack_b);
 
-/* -------- Move ---------------------- */
+/* -------- MOVE ---------------------- */
 void		move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
-/* -------- Operations ---------------- */
+/* -------- OPERATIONS ---------------- */
 void		sa(t_stack **stack_a, int print);
 void		sb(t_stack **stack_b, int print);
 void		ss(t_stack **stack_a, t_stack **stack_b, int print);
@@ -63,25 +63,25 @@ void		rra(t_stack **stack_a, int print);
 void		rrb(t_stack **stack_b, int print);
 void		rrr(t_stack **stack_a, t_stack **stack_b, int print);
 
-/* -------- Sorting Algorithms -------- */
+/* -------- SORTING ALGORITHMS -------- */
 int			is_sorted(t_stack *stack);
 void		sort_3nb(t_stack **stack);
 void		sort(t_stack **stack_a, t_stack **stack_b);
 
-/* -------- Stack --------------------- */
+/* -------- STACK --------------------- */
 int			stack_find_size(t_stack *stack);
 void		stack_add_bottom(t_stack **stack, t_stack *new);
 t_stack		*stack_new(int nb);
 t_stack		*stack_find_bottom(t_stack *stack);
 t_stack		*stack_find_before_bottom(t_stack *stack);
 
-/* -------- Utils --------------------- */
+/* -------- UTILS --------------------- */
 int			abs_nb(int nb);
 void		free_stack(t_stack **stack);
 void		free_split(char **strs);
 long		ft_atol(const char *str);
 
-/* -------- Error --------------------- */
+/* -------- ERROR --------------------- */
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
 void		exit_error_strs(char **strs);
 
