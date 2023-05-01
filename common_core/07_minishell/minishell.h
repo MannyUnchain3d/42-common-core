@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:30:55 by Manny             #+#    #+#             */
-/*   Updated: 2023/05/01 13:54:53 by Manny            ###   ########.fr       */
+/*   Updated: 2023/05/01 21:45:32 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ typedef struct s_data
 }	t_data;
 
 /* -------- INITIALIZE ---------------- */
-bool	init_data(t_data *data char **envp);
+bool	init_data(t_data *data, char **envp);
 bool	init_io(t_cmd *cmd);
 
 #endif
