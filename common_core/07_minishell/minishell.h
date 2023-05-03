@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 20:30:55 by Manny             #+#    #+#             */
-/*   Updated: 2023/05/01 21:45:32 by Manny            ###   ########.fr       */
+/*   Updated: 2023/05/03 16:13:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ typedef struct s_data
 {
 	bool		interactive;
 	char		*user_input;
-	char		**envp;
+	char		**env;
 	char		*wd;
 	char		*old_wd;
 	pid_t		pid;
@@ -100,7 +100,22 @@ typedef struct s_data
 }	t_data;
 
 /* -------- INITIALIZE ---------------- */
-bool	init_data(t_data *data, char **envp);
+bool	init_data(t_data *data, char **env);
 bool	init_io(t_cmd *cmd);
+
+/* -------- EXECTUTION ---------------- */
+//BUILTINS:
+int		cd_builtin(t_data *data, char **args);
+
+// ENV:
+int		env_var_count(char **env);
+int		get_env_var_index(char **env, char *var);
+char	*get_env_var_value(char **env, char *var);
+bool	is_valid_env_var_key(char *var);
+
+// ENV_SET.C:
+bool	set_env_var(t_data *data, char *key, char *value);
+bool	remove_env_var(t_data *data, int index);
+
 
 #endif

@@ -6,12 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:53:36 by Manny             #+#    #+#             */
-/*   Updated: 2023/05/01 21:33:42 by Manny            ###   ########.fr       */
+/*   Updated: 2023/05/03 17:23:15 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/* Reallocates memory for the global variable g_env_vars 
+ * Returns a pointer to the new env vars or NULL if mem alloc error */
 static char **realloc_env_vars(t_data *data, int size)
 {
     char    **new_env;
@@ -30,7 +32,9 @@ static char **realloc_env_vars(t_data *data, int size)
 	free(data->env);
 	return (new_env);
 }
-
+/* Adds an env var with the given key and value. Overwrite any existing key
+ * or creates a new one. 
+ * Returns 1 on success, 0 on error. */
 bool	set_env_var(t_data *data, char *key, char *value)
 {
 	int		index;
@@ -59,8 +63,8 @@ bool	set_env_var(t_data *data, char *key, char *value)
 	return (true);
  }
 
-/* Removes the variable at the given index from the environment. 
- * Returns 1 if success or 0 if */
+/* Removes the variable at the given index from the environment variables. 
+ * Returns 1 on success, 0 on error */
 
  bool	remove_env_var(t_data *data, int index)
  {
