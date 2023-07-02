@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: niclaw <nicklaw@gmail.com>                 +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:47:27 by Manny             #+#    #+#              #
-#    Updated: 2023/06/28 12:18:01 by niclaw           ###   ########.fr        #
+#    Updated: 2023/07/03 02:40:56 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = minishell
 NAME_B = minishell_bonus
