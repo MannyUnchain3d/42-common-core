@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:47:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/03 02:40:56 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/03 16:04:52 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,16 @@ RM = rm -rf
 
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Darwin)
-INC = -I ./includes -I $(LIBFT_PATH) -I /usr/local/opt/readline/include
+INC = -I ./inc -I $(LIBFT_PATH) -I /usr/local/opt/readline/include
 READ = -L /usr/local/opt/readline/lib -l readline
 else
-INC = -I ./includes -I $(LIBFT_PATH)
+INC = -I ./inc -I $(LIBFT_PATH)
 READ = -l readline
 endif
 LIBFT_PATH = ./libft/
 LIBFT = ./libft/libft.a
 
-SRC_PATH = ./sources/
+SRC_PATH = ./src/
 SRC = 	main.c \
 		builtins/cd_builtin.c \
 		builtins/echo_builtin.c \
@@ -68,7 +68,7 @@ SRC = 	main.c \
 		utils/error.c \
 		utils/exit.c \
 		utils/init_data.c
-
+		
 SRC_BO =	$(filter-out parser/parse_2.c,$(SRC)) \
 		parser/parse_2_bonus.c \
 		parser/wildling_bonus.c
@@ -78,6 +78,7 @@ SRCS = $(addprefix $(SRC_PATH), $(SRC))
 OBJ_PATH = ./obj/
 OBJ = $(SRC:.c=.o)
 OBJ_BO = $(SRC_BO:.c=.o)
+
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 OBJS_BO = $(addprefix $(OBJ_PATH), $(OBJ_BO))
 

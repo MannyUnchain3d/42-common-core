@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 17:04:48 by etetopat          #+#    #+#             */
-/*   Updated: 2022/11/25 16:36:52 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_pad_width(int total_width, int size, int zero)
 {

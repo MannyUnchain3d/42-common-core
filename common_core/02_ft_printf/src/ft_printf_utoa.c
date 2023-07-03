@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 22:18:48 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/25 16:36:38 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static size_t	ft_utoa_len(long num)
 {

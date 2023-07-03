@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:20:42 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 16:50:27 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:23:39 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 
 /* ---- ADDITIONALS -------------------- */
-char	*get_next_line(int fd);
 void	ft_putstr(char *str);
 
 #endif

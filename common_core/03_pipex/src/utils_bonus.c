@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:46:06 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/04 21:58:23 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "pipex.h"
 
 /* Function to display an error message for wrong arguments*/
 void	usage(void)

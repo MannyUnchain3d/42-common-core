@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 13:26:33 by Manny             #+#    #+#              #
-#    Updated: 2022/11/25 16:32:10 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/03 16:06:27 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC = ft_flags.c ft_flags_utils.c ft_nbr_len.c ft_print_char.c\
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 
-HEADER = -Iinclude
+HEADER = -I inc
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

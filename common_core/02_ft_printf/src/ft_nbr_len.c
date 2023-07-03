@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:19:58 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/25 16:36:55 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_ptr_len(unsigned long int n)
 {

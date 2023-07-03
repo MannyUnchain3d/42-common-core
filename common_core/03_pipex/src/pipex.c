@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:13:03 by Manny             #+#    #+#             */
-/*   Updated: 2022/11/08 20:27:03 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "pipex.h"
 
 /* Child process runs inside a fork, takes the fdin, redirects the output,
  inside a pipe and closes the fd and executes the function. */

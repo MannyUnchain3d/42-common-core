@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2023/01/26 05:51:23 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/03 16:31:48 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
 INC = -I ./
-LIBFTDIR = libft/
+LIBFTDIR = ./libft/
 LIBFT = -L libft -lft
 
 SRC_PATH = src/

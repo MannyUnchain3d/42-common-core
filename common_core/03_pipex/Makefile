@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2022/11/25 16:22:36 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/03 16:10:13 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 OBJ_B = $(SRC_B:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 
-HEADER = -Iinclude
+HEADER = -I inc
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
