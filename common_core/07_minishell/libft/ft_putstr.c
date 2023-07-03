@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 02:15:50 by Manny             #+#    #+#             */
-/*   Updated: 2023/06/23 15:59:05 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/03 15:16:51 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* 
 	DESCRIPTION:
-	The function ft_putstr writes the given string to the standard output 
+	The function ft_putstr writes the given string to the standard output
 	
 	RETURN VALUE:
 	None.

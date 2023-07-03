@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:37 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 22:08:21 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 15:03:25 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	set_sim_stop_flag(t_table *table, bool state)
 {
 	pthread_mutex_lock(&table->sim_stop_lock);
-		table->sim_stop = state;
+	table->sim_stop = state;
 	pthread_mutex_unlock(&table->sim_stop_lock);
 }
 

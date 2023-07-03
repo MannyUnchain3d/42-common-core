@@ -6,17 +6,17 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2023/04/27 11:33:45 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 15:01:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h> // write
-# include <stdlib.h> // malloc, free
-# include <stddef.h> // NULL
-# include <limits.h> // INT_MAX
+# include <unistd.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <limits.h>
 # include "libft/libft.h"
 
 typedef struct s_stack

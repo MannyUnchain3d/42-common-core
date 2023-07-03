@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:23:47 by Manny             #+#    #+#             */
-/*   Updated: 2023/04/27 12:45:16 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 15:14:17 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@
 # define MALLOC_ERR "Can't allocate memory\n"
 # define OTHER_ERR "Oops... Something went wrong\n"
 
-# include <unistd.h> // write, read, close
-# include <stdlib.h> // malloc, free, exit, srand, rand
-# include <fcntl.h> // open
-# include <time.h> // time in seconds for random seed
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <time.h>
 # include "mlx/mlx.h"
 
 typedef struct s_mlx

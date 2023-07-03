@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 02:15:50 by Manny             #+#    #+#             */
-/*   Updated: 2023/04/26 19:19:50 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/03 15:01:02 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* 
 	DESCRIPTION:
-	The function ft_putstr writes the given string to the standard output 
+	The function ft_putstr writes the given string to the standard output
 	
 	RETURN VALUE:
 	None.
@@ -26,7 +26,7 @@ void	ft_putstr(char *str)
 
 	i = 0;
 	while (str[i])
-	{	
+	{
 		write(1, &str[i], 1);
 		i++;
 	}
