@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 15:30:08 by Manny             #+#    #+#              #
-#    Updated: 2023/07/03 16:48:22 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/03 16:56:03 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-INC = -I ./inc
+INC = -I ./inc/
 
 SRC_PATH = ./src/
 SRC = 	main.cpp \
