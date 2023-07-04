@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 02:28:22 by Manny             #+#    #+#              #
-#    Updated: 2023/07/03 15:57:53 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/05 02:16:10 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,11 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ megaphone is clean! ----\033[0m\n"
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ megaphone is gone! ----\033[0m\n"
 
 re: fclean all
