@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 00:15:49 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/05 01:54:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ PhoneBook::~PhoneBook(void) {
 
 /* ----- PRIVATE METHODS -------------- */
 
+/* Prompts the user to enter a string and returns it trimmed of whitespaces
+ * and tabs. If the user enters an empty string or EOF, the `_abort` flag is set
+ * to true and it returns an empty string. */
 std::string	PhoneBook::_getInput(std::string const prompt) {
 	std::string	input;
 
@@ -42,6 +45,7 @@ std::string	PhoneBook::_getInput(std::string const prompt) {
 	return (input);
 }
 
+/* Increments the `_index` attribute and resets it to 0 if it goes over 7 */
 void	PhoneBook::_incrementIndex(void) {
 	_index++;
 	if (_index > 7) {
@@ -49,6 +53,7 @@ void	PhoneBook::_incrementIndex(void) {
 	}
 }
 
+/* Prints the table of contacts */
 void	PhoneBook::_printTable(void) const {
 	std::cout << YELLOW << "#----------+----------+----------+----------#" << std::endl
 						<< "|  INDEX   |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
@@ -59,6 +64,8 @@ void	PhoneBook::_printTable(void) const {
 	std::cout << std::endl;
 }
 
+/* Prints the information of a contact at the given index.
+ * If the contact is empty, it does nothing. */
 void	PhoneBook::_printInfo(int const index) const {
 	if (this->_list[index].isEmpty())
 		return ;
@@ -70,6 +77,9 @@ void	PhoneBook::_printInfo(int const index) const {
 				<< YELLOW << "#----------+----------+----------+----------#" << RESET << std::endl;
 }
 
+/* Prints a string in a 10 characters wide column. If the string is too long,
+ * it is truncated to 9 characters and a dot is added at the end.
+ * If the string is empty, it does nothing. */
 void	PhoneBook::_printTableString(std::string str) const {
 	if (str.length() > 10) {
 		str.resize(9);
@@ -78,6 +88,8 @@ void	PhoneBook::_printTableString(std::string str) const {
 	std::cout << std::setw(10) << str << YELLOW << "|" << RESET;
 }
 
+/* Prints the information of a contact at the given index is valid.
+ * If the contact is empty, it prints an error message and returns false. */
 bool	PhoneBook::_printContactByIndex(std::string const input) const {
 	int	index;
 
@@ -98,6 +110,8 @@ bool	PhoneBook::_printContactByIndex(std::string const input) const {
 
 /* ----- PUBLIC METHODS --------------- */
 
+/* Trims the given string of whitespaces and tabs
+ * Returns the trimmed string or the original string if there is nothing to trim */
 std::string	PhoneBook::trimSpace(std::string str) {
 	std::string	space = " \t\n\r\v\f";
 	size_t		start;
@@ -110,6 +124,9 @@ std::string	PhoneBook::trimSpace(std::string str) {
 	return (str.substr(start, end - start + 1));
 }
 
+/* Adds a contact to the next index of the list. Prompts the user to enter
+ * the information of the contact. Aborts if EOF is encountered.
+ * Returns true if the contact was successfully added, false otherwise. */
 bool	PhoneBook::addContact(void) {
 	std::string	input;
 	
@@ -148,6 +165,9 @@ bool	PhoneBook::addContact(void) {
 	return (true);
 }
 
+/* Searches for a contact by index. Prompts the user to enter the index.
+ * If the index is valid, it prints the information of the contact. Otherwise, it prints an error message.
+ * Returns true if the contact was successfully printed, false otherwise. */
 bool	PhoneBook::searchContact(void) {
 	std::string	input;
 
@@ -165,12 +185,4 @@ bool	PhoneBook::searchContact(void) {
 		}
 	}
 	return (true);
-}
-
-void	PhoneBook::printContact(int index) const {
-	if (index >= 0 && index <= 7) {
-		if (this->_list[index].printContactInfo())
-			return ;
-	}
-	std::cout << BOLD << LRED << "No contact... Congrats! You have 0 friends!" << RESET << std::endl;
 }

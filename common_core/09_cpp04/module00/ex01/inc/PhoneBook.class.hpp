@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:20 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 00:22:48 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/05 01:54:17 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ class	PhoneBook {
 		std::string	trimSpace(std::string str);
 		bool		addContact(void);
 		bool		searchContact(void);
-		void		printContact(int index) const;
 };
 
 #endif
