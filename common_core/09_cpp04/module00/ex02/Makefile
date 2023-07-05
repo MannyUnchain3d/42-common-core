@@ -6,7 +6,7 @@
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 02:11:23 by Manny             #+#    #+#              #
-#    Updated: 2023/07/05 17:40:16 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/05 19:42:57 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,4 +38,11 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+mem1:
+	valgrind --leak-check=summary ./no_money_no_honey
+mem2:
+	valgrind --leak-check=full --show-leak-kinds=all ./no_money_no_honey
+mem3:
+	valgrind -s ./no_money_no_honey
+
+.PHONY : all clean fclean re mem1 mem2 mem3

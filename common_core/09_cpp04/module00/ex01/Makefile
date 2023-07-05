@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 15:30:08 by Manny             #+#    #+#              #
-#    Updated: 2023/07/04 22:02:29 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/05 19:43:19 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ re: fclean all
 mem1:
 	valgrind --leak-check=summary ./angry-phonebook
 mem2:
-	valgrind --leak-check=full --show-leak-kinds=definite,possible ./angry-phonebook
+	valgrind --leak-check=full --show-leak-kinds=all ./angry-phonebook
 mem3:
 	valgrind -s ./angry-phonebook
 
