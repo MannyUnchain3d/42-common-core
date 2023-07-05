@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 02:21:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 17:51:08 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:59:10 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void	Account::makeDeposit(int deposit) {
 				<< "p_amount:" << _amount << ";"
 				<< "deposit:";
 	_amount += deposit;
-	_nbDeposits++;
 	_totalAmount += deposit;
+	_nbDeposits++;
 	_totalNbDeposits++;
 	std::cout	<< deposit << ";"
 				<< "amount:" << _amount << ";"
