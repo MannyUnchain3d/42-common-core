@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 02:21:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 04:31:56 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/05 17:51:08 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,67 @@ void	Account::_displayTimestamp(void) {
 
 /* ----- PUBLIC METHODS --------------- */
 
+/* Makes a deposit of the specified amount into the account.
+ * Updates the amount of deposits and the total amount of deposits.
+ * Prints the account information before and after the deposit. */
+void	Account::makeDeposit(int deposit) {
+	_displayTimestamp();
+	std::cout 	<< "index:" << _accountIndex << ";"
+				<< "p_amount:" << _amount << ";"
+				<< "deposit:";
+	_amount += deposit;
+	_nbDeposits++;
+	_totalAmount += deposit;
+	_totalNbDeposits++;
+	std::cout	<< deposit << ";"
+				<< "amount:" << _amount << ";"
+				<< "nb_deposits:" << _nbDeposits << std::endl;
+}
+
+/* Makes a withdrawal of the specified amount from the account.
+ * Updates the amount of withdrawals and the total amount of withdrawals.
+ * Prints the account information before and after the withdrawal.
+ * If the withdrawal is not possible, prints "refused" instead of the amount. */
+bool	Account::makeWithdrawal(int withdrawal) {
+	_displayTimestamp();
+	std::cout 	<< "index:" << _accountIndex << ";"
+				<< "p_amount:" << _amount << ";"
+				<< "withdrawal:";
+	if (withdrawal > _amount) {
+		std::cout << "refused" << std::endl;
+		return (false);
+	}
+	else {
+		_amount -= withdrawal;
+		_totalAmount -= withdrawal;
+		_nbWithdrawals++;
+		_totalNbWithdrawals++;
+		std::cout	<< withdrawal << ";"
+					<< "amount:" << _amount << ";"
+					<< "nb_withdrawals:" << _nbWithdrawals << std::endl;
+	}
+	return (true);
+}
+
+/* Prints the amount of the current account. */
+int		Account::checkAmount(void) const {
+	return (_amount);
+}
+
+/* Displays the status of the current account. */
+void	Account::displayStatus(void) const {
+	_displayTimestamp();
+	std::cout 	<< "index:" << _accountIndex << ";"
+				<< "amount:" << _amount << ";"
+				<< "deposits:" << _nbDeposits << ";"
+				<< "withdrawals:" << _nbWithdrawals << std::endl;
+}
+
+/* Displays the status of all the accounts. */
+void	Account::displayAccountsInfos(void) {
+	_displayTimestamp();
+	std::cout 	<< "accounts:" << getNbAccounts() << ";"
+				<< "total:" << getTotalAmount() << ";"
+				<< "deposits:" << getNbDeposits() << ";"
+				<< "withdrawals:" << getNbWithdrawals() << std::endl;
+}
