@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 00:17:11 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/05 16:43:45 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int	main(void) {
 						<< BOLD << MAGENTA << BLINK << "\tEXIT\t" << RESET 		<< ": Come on... Do I have to explain everything?" << std::endl;
 		}
 	}
-	std::cout << std::endl << "Finally... (╯°□°）╯︵ ┻━┻" << std::endl;
+	std::cout << std::endl << BOLD << RED << "Finally... (╯°□°）╯︵ ┻━┻" << RESET << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 01:54:14 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/05 16:42:28 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ bool	PhoneBook::_printContactByIndex(std::string const input) const {
 			if (this->_list[index].printContactInfo())
 				return (true);
 			else {
-				std::cout << BOLD << LRED << "Index [" << index << "] is empty, like your head..." << RESET << std::endl;
+				std::cout << std::endl << BOLD << LRED << "Index [" << index << "] is empty, like your head..." << RESET << std::endl;
 				return (false);
 			}
 		}
