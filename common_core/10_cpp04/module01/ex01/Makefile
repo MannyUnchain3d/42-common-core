@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/07 02:06:56 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/07 02:48:57 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_PATH)
 	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
 
 fclean: clean
