@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 02:21:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 18:59:10 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 21:06:42 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,6 @@ int	Account::getNbDeposits(void) {
 /* Returns the total number of withdrawals */
 int	Account::getNbWithdrawals(void) {
 	return (Account::_totalNbWithdrawals);
-}
-
-/* ----- PRIVATE METHODS -------------- */
-
-/* Displays the current date and time followed by a space.
- * Format: [YYYYMMDD_HHMMSS] */
-void	Account::_displayTimestamp(void) {
-	std::time_t	t = std::time(NULL);
-	std::tm		*now = std::localtime(&t);
-
-	std::cout << std::setfill('0') << "[" << now->tm_year + 1900
-			  << std::setw(2) << now->tm_mon + 1
-			  << std::setw(2) << now->tm_mday << "_"
-			  << std::setw(2) << now->tm_hour
-			  << std::setw(2) << now->tm_min
-			  << std::setw(2) << now->tm_sec << "] " << std::flush;
 }
 
 /* ----- PUBLIC METHODS --------------- */
@@ -150,4 +134,20 @@ void	Account::displayAccountsInfos(void) {
 				<< "total:" << getTotalAmount() << ";"
 				<< "deposits:" << getNbDeposits() << ";"
 				<< "withdrawals:" << getNbWithdrawals() << std::endl;
+}
+
+/* ----- PRIVATE METHODS -------------- */
+
+/* Displays the current date and time followed by a space.
+ * Format: [YYYYMMDD_HHMMSS] */
+void	Account::_displayTimestamp(void) {
+	std::time_t	t = std::time(NULL);
+	std::tm		*now = std::localtime(&t);
+
+	std::cout << std::setfill('0') << "[" << now->tm_year + 1900
+			  << std::setw(2) << now->tm_mon + 1
+			  << std::setw(2) << now->tm_mday << "_"
+			  << std::setw(2) << now->tm_hour
+			  << std::setw(2) << now->tm_min
+			  << std::setw(2) << now->tm_sec << "] " << std::flush;
 }

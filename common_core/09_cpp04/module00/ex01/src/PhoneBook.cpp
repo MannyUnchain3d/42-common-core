@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 18:57:27 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 21:04:45 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,85 @@ PhoneBook::PhoneBook(void) : _index(-1),
 
 PhoneBook::~PhoneBook(void) {
 	return ;
+}
+
+/* ----- PUBLIC METHODS --------------- */
+
+/* Trims the given string of whitespaces and tabs
+ * Returns the trimmed string or the original string if there is nothing to trim */
+std::string	PhoneBook::trimSpace(std::string str) {
+	std::string	space = " \t\n\r\v\f";
+	size_t		start;
+	size_t		end;
+
+	start = str.find_first_not_of(space);
+	end = str.find_last_not_of(space);
+	if (start == end)
+		return (str);
+	return (str.substr(start, end - start + 1));
+}
+
+/* Adds a contact to the next index of the list. Prompts the user to enter
+ * the information of the contact. Aborts if EOF is encountered.
+ * Returns true if the contact was successfully added, false otherwise. */
+bool	PhoneBook::addContact(void) {
+	std::string	input;
+	
+	_incrementIndex();
+	std::cout << std::endl << BOLD << RED << BLINK << "#---------- ADD CONTACT ----------#" << RESET << std::endl << std::endl;
+	while (!_abort) {
+		input = _getInput("firstname");
+		if (_abort || this->_list[_index].setFirstname(input))
+			break ;
+	}
+	while (!_abort) {
+		input = _getInput("lastname");
+		if (_abort || this->_list[_index].setLastname(input))
+			break ;
+	}
+	while (!_abort) {
+		input = _getInput("nickname");
+		if (_abort || this->_list[_index].setNickname(input))
+			break ;
+	}
+	while (!_abort) {
+		input = _getInput("phone number");
+		if (_abort || this->_list[_index].setPhoneNumber(input))
+			break ;
+	}
+	while (!_abort) {
+		input = _getInput("darkest secret");
+		if (_abort || this->_list[_index].setSecret(input))
+			break ;
+	}
+	if (_abort) {
+		_abort = false;
+		return (false);
+	}
+	std::cout << std::endl << BOLD << GREEN << "Contact saved... Whatever... " << RESET << std::endl;
+	return (true);
+}
+
+/* Searches for a contact by index. Prompts the user to enter the index.
+ * If the index is valid, it prints the information of the contact. Otherwise, it prints an error message.
+ * Returns true if the contact was successfully printed, false otherwise. */
+bool	PhoneBook::searchContact(void) {
+	std::string	input;
+
+	std::cout << std::endl << BOLD << RED << BLINK << "#---------- SEARCH ----------#" << RESET << std::endl << std::endl;
+	if (_index == -1) {
+		std::cout << BOLD << LRED << "ADD a contact first you dumb dumb..." << RESET << std::endl;
+		return (true);
+	}
+	this->_printTable();
+	while (true) {
+		input = _getInput("index of the contact (between 0 and 7)");
+		if (!input.empty()) {
+			this->_printContactByIndex((std::string const)input);
+			break ;
+		}
+	}
+	return (true);
 }
 
 /* ----- PRIVATE METHODS -------------- */
@@ -106,83 +185,4 @@ bool	PhoneBook::_printContactByIndex(std::string const input) const {
 	}
 	std::cout << std::endl << BOLD << LRED << "Back to the menu because you can't count..." << RESET << std::endl;
 	return (false);
-}
-
-/* ----- PUBLIC METHODS --------------- */
-
-/* Trims the given string of whitespaces and tabs
- * Returns the trimmed string or the original string if there is nothing to trim */
-std::string	PhoneBook::trimSpace(std::string str) {
-	std::string	space = " \t\n\r\v\f";
-	size_t		start;
-	size_t		end;
-
-	start = str.find_first_not_of(space);
-	end = str.find_last_not_of(space);
-	if (start == end)
-		return (str);
-	return (str.substr(start, end - start + 1));
-}
-
-/* Adds a contact to the next index of the list. Prompts the user to enter
- * the information of the contact. Aborts if EOF is encountered.
- * Returns true if the contact was successfully added, false otherwise. */
-bool	PhoneBook::addContact(void) {
-	std::string	input;
-	
-	_incrementIndex();
-	std::cout << std::endl << BOLD << RED << BLINK << "#---------- ADD CONTACT ----------#" << RESET << std::endl << std::endl;
-	while (!_abort) {
-		input = _getInput("firstname");
-		if (_abort || this->_list[_index].setFirstname(input))
-			break ;
-	}
-	while (!_abort) {
-		input = _getInput("lastname");
-		if (_abort || this->_list[_index].setLastname(input))
-			break ;
-	}
-	while (!_abort) {
-		input = _getInput("nickname");
-		if (_abort || this->_list[_index].setNickname(input))
-			break ;
-	}
-	while (!_abort) {
-		input = _getInput("phone number");
-		if (_abort || this->_list[_index].setPhoneNumber(input))
-			break ;
-	}
-	while (!_abort) {
-		input = _getInput("darkest secret");
-		if (_abort || this->_list[_index].setSecret(input))
-			break ;
-	}
-	if (_abort) {
-		_abort = false;
-		return (false);
-	}
-	std::cout << std::endl << BOLD << GREEN << "Contact saved... Whatever... " << RESET << std::endl;
-	return (true);
-}
-
-/* Searches for a contact by index. Prompts the user to enter the index.
- * If the index is valid, it prints the information of the contact. Otherwise, it prints an error message.
- * Returns true if the contact was successfully printed, false otherwise. */
-bool	PhoneBook::searchContact(void) {
-	std::string	input;
-
-	std::cout << std::endl << BOLD << RED << BLINK << "#---------- SEARCH ----------#" << RESET << std::endl << std::endl;
-	if (_index == -1) {
-		std::cout << BOLD << LRED << "ADD a contact first you dumb dumb..." << RESET << std::endl;
-		return (true);
-	}
-	this->_printTable();
-	while (true) {
-		input = _getInput("index of the contact (between 0 and 7)");
-		if (!input.empty()) {
-			this->_printContactByIndex((std::string const)input);
-			break ;
-		}
-	}
-	return (true);
 }

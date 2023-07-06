@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:08 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 18:57:19 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:39:30 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,30 +129,6 @@ bool	Contact::setSecret(std:: string const str) {
 	return (true);
 }
 
-/* ----- PRIVATE METHODS -------------- */
-
-/* Checks if the given string contains only alphabetical characters, spaces and hyphens.
- * Returns true if the string is valid, false otherwise */
-bool	Contact::_onlyAlpha(std::string const s) {
-	for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
-		if (!std::isalpha(*it) && *it != ' ' && *it != '-') {
-			return (false);
-		}
-	}
-	return (true);
-}
-
-/* Checks if the given string contains only numerical characters, spaces and hyphens.
- * Returns true if the string is valid, false otherwise */
-bool	Contact::_onlyDigit(std::string const s) {
-	for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
-		if (!std::isdigit(*it) && *it != ' ' && *it != '-') {
-			return (false);
-		}
-	}
-	return (true);
-}
-
 /* ----- PUBLIC METHODS --------------- */
 
 /* Checks if any of the class attributes are empty.
@@ -178,5 +154,29 @@ bool	Contact::printContactInfo(void) const {
 				<< "* Nickname\t: "			<< this->getNickname()		<< std::endl
 				<< "* Phone Number\t: "		<< this->getPhoneNumber()	<< std::endl
 				<< "* Darkest Secret: "		<< this->getSecret()		<< std::endl;
+	return (true);
+}
+
+/* ----- PRIVATE METHODS -------------- */
+
+/* Checks if the given string contains only alphabetical characters, spaces and hyphens.
+ * Returns true if the string is valid, false otherwise */
+bool	Contact::_onlyAlpha(std::string const s) {
+	for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
+		if (!std::isalpha(*it) && *it != ' ' && *it != '-') {
+			return (false);
+		}
+	}
+	return (true);
+}
+
+/* Checks if the given string contains only numerical characters, spaces and hyphens.
+ * Returns true if the string is valid, false otherwise */
+bool	Contact::_onlyDigit(std::string const s) {
+	for (std::string::const_iterator it = s.begin(); it != s.end(); it++) {
+		if (!std::isdigit(*it) && *it != ' ' && *it != '-') {
+			return (false);
+		}
+	}
 	return (true);
 }

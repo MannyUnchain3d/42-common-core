@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:07:12 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/06 18:26:53 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:25:53 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@
 # include <string>
 
 class Zombie {
-	private:
-		std::string	_name;
-		std::string _getName(void) const;
-	
 	public:
 		Zombie(void);
 		Zombie(std::string name);
 		~Zombie(void);
 		void	announce(void) const;
+
+	private:
+		std::string	_name;
+		std::string _getName(void) const;
 };
+
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif
