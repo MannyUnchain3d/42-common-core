@@ -6,12 +6,12 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/05 16:43:45 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 18:58:04 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "PhoneBook.class.hpp"
+#include "PhoneBook.hpp"
 
 std::string	getInput(PhoneBook* book) {
 	std::string input;

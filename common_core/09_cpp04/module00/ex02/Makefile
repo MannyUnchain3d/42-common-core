@@ -6,7 +6,7 @@
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 02:11:23 by Manny             #+#    #+#              #
-#    Updated: 2023/07/05 19:42:57 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/06 19:00:43 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,18 +23,18 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@ -I.
-	@echo "\n\033[32m---- (っ▀¯▀)つ account is ready! ----\033[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ fake account is ready! ----\033[0m\n"
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 clean:
 	$(RM) $(OBJ)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ account is clean! ----\033[0m\n"
+	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ fake account is clean! ----\033[0m\n"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ account is gone! ----\033[0m\n"
+	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ fake account is gone! ----\033[0m\n"
 
 re: fclean all
 

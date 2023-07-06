@@ -6,7 +6,7 @@
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 15:30:08 by Manny             #+#    #+#              #
-#    Updated: 2023/07/05 19:43:19 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/06 18:57:41 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ INC = -I ./inc/
 
 SRC_PATH = ./src/
 SRC = 	main.cpp \
-		Contact.class.cpp \
-		PhoneBook.class.cpp
+		Contact.cpp \
+		PhoneBook.cpp
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
