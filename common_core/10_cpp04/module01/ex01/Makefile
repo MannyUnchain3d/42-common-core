@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/07 00:52:26 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/07 02:06:56 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ INC = -I ./inc/
 
 #--- SOURCES ---#
 SRC_PATH = ./src/
-SRC =
+SRC = main.cpp \
+		Zombie.cpp \
+		zombieHorde.cpp
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 

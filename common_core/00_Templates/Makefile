@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/07 00:52:36 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/07 02:43:56 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,12 @@ fclean: clean
 	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
 
 re: fclean all
+
+#--- GENERATE CLASS ---#
+GENERATE_CLASS_PATH = ./generate_class/
+
+sample:
+	&(GENERATE_CLASS_PATH)/generate_class.sh $(ARGS)
 
 mem1:
 	valgrind --leak-check=summary ./$(NAME)
