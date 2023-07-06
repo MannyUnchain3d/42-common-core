@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:26 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 19:04:11 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/07 00:16:19 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 # define RED		"\033[0;31m"
 # define GREEN		"\033[0;32m"
 # define YELLOW		"\033[0;33m"
+# define BLUE		"\033[0;34m"
 # define MAGENTA	"\033[0;35m"
-# define LRED		"\033[0;91m"
+# define CYAN		"\033[0;36m"
 # define BOLD		"\033[1m"
+# define ITALIC		"\033[3m"
+# define UNDERLINE	"\033[4m"
 # define BLINK		"\033[5m"
-# define RESET		"\033[0m"
+# define NC			"\033[0m"
 
 class	Contact {
 	public:

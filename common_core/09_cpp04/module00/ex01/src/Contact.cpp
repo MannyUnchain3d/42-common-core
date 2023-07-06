@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:08 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 19:39:30 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/07 00:22:12 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool	Contact::setFirstname(std::string str) {
 		return (false);
 	}
 	else if (!_onlyAlpha(str)) {
-		std::cout << BOLD << LRED << "Only letters, spaces and hyphens... I don't have time for weird name..." << RESET << std::endl;
+		std::cout << BOLD << RED << "Only letters, spaces and hyphens... I don't have time for weird name..." << NC << std::endl;
 		return (false);
 	}
 	this->_firstname = str;
@@ -81,7 +81,7 @@ bool	Contact::setLastname(std::string str) {
 		return (false);
 	}
 	else if (!_onlyAlpha(str)) {
-		std::cout << BOLD << LRED << "Only letters, spaces and hyphens... I don't have time for weird name..." << RESET << std::endl;
+		std::cout << BOLD << RED << "Only letters, spaces and hyphens... I don't have time for weird name..." << NC << std::endl;
 		return (false);
 	}
 	this->_lastname = str;
@@ -96,7 +96,7 @@ bool	Contact::setNickname(std::string str) {
 		return (false);
 	}
 	else if (!_onlyAlpha(str)) {
-		std::cout << BOLD << LRED << "Only letters, spaces and hyphens... Argghhh! How many time do I have to repeat myself???" << RESET << std::endl;
+		std::cout << BOLD << RED << "Only letters, spaces and hyphens... Argghhh! How many time do I have to repeat myself???" << NC << std::endl;
 		return (false);
 	}
 	this->_nickname = str;
@@ -111,7 +111,7 @@ bool	Contact::setPhoneNumber(std::string const str) {
 		return (false);
 	}
 	else if (!_onlyDigit(str)) {
-		std::cout << BOLD << LRED << "Hey! I can play stupid too... Don't try me!" << RESET << std::endl;
+		std::cout << BOLD << RED << "Hey! I can play stupid too... Don't try me!" << NC << std::endl;
 		return (false);
 	}
 	this->_phoneNumber = str;

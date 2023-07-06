@@ -6,19 +6,35 @@
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/06 18:13:18 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/07 00:35:14 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#--- EXECUTABLE ---#
+NAME = BraiiiiiiiinnnzzzZ
 
-NAME = brainzz
+#--- COLORS ---#
+RED		= \033[0;31m
+GREEN	= \033[0;32m
+YELLOW	= \033[0;33m
+BLUE	= \033[0;34m
+MAGENTA	= \033[0;35m
+CYAN	= \033[0;36m
+BOLD	= \033[1m
+ITALIC	= \033[3m
+ULINE	= \033[4m
+BLINK	= \033[5m
+NC		= \033[0m
 
-CC = g++
+#--- COMPILATION ---#
+CC = g++ -g3
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+#--- INCLUDES ---#
 INC = -I ./inc/
 
+#--- SOURCES ---#
 SRC_PATH = ./src/
 SRC = main.cpp \
 	  newZombie.cpp \
@@ -26,11 +42,12 @@ SRC = main.cpp \
 	  Zombie.cpp
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
+#--- OBJECTS ---#
 OBJ_PATH = ./obj/
 OBJ = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 
-
+#--- RULES ---#
 all: $(OBJ_PATH) $(NAME)
 
  $(OBJ_PATH):
@@ -39,28 +56,28 @@ all: $(OBJ_PATH) $(NAME)
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@ -I.
-	@echo "\n\033[32m---- (っ▀¯▀)つ brainzz is ready! ----\033[0m\n"
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@ -I.
+	@echo "\n\033[32m---- (っ▀¯▀)つ BraiiiiiiiinnnzzzZ is ready! ----\033[0m\n"
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 clean:
 	$(RM) $(OBJ)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ brainzz is clean! ----\033[0m\n"
+	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ BraiiiiiiiinnnzzzZ is clean! ----\033[0m\n"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ brainzz is gone! ----\033[0m\n"
+	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ BraiiiiiiiinnnzzzZ is gone! ----\033[0m\n"
 
 re: fclean all
 
 mem1:
-	valgrind --leak-check=summary ./brainzz
+	valgrind --leak-check=summary ./BraiiiiiiiinnnzzzZ
 mem2:
-	valgrind --leak-check=full --show-leak-kinds=all ./brainzz
+	valgrind --leak-check=full --show-leak-kinds=all ./BraiiiiiiiinnnzzzZ
 mem3:
-	valgrind -s ./brainzz
+	valgrind -s ./BraiiiiiiiinnnzzzZ
 
 .PHONY : all clean fclean re mem1 mem2 mem3

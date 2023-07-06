@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 21:04:45 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/07 00:22:12 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	PhoneBook::addContact(void) {
 	std::string	input;
 	
 	_incrementIndex();
-	std::cout << std::endl << BOLD << RED << BLINK << "#---------- ADD CONTACT ----------#" << RESET << std::endl << std::endl;
+	std::cout << std::endl << BOLD << RED << BLINK << "#---------- ADD CONTACT ----------#" << NC << std::endl << std::endl;
 	while (!_abort) {
 		input = _getInput("firstname");
 		if (_abort || this->_list[_index].setFirstname(input))
@@ -80,7 +80,7 @@ bool	PhoneBook::addContact(void) {
 		_abort = false;
 		return (false);
 	}
-	std::cout << std::endl << BOLD << GREEN << "Contact saved... Whatever... " << RESET << std::endl;
+	std::cout << std::endl << BOLD << GREEN << "Contact saved... Whatever... " << NC << std::endl;
 	return (true);
 }
 
@@ -90,9 +90,9 @@ bool	PhoneBook::addContact(void) {
 bool	PhoneBook::searchContact(void) {
 	std::string	input;
 
-	std::cout << std::endl << BOLD << RED << BLINK << "#---------- SEARCH ----------#" << RESET << std::endl << std::endl;
+	std::cout << std::endl << BOLD << RED << BLINK << "#---------- SEARCH ----------#" << NC << std::endl << std::endl;
 	if (_index == -1) {
-		std::cout << BOLD << LRED << "ADD a contact first you dumb dumb..." << RESET << std::endl;
+		std::cout << BOLD << RED << "ADD a contact first you dumb dumb..." << NC << std::endl;
 		return (true);
 	}
 	this->_printTable();
@@ -136,7 +136,7 @@ void	PhoneBook::_incrementIndex(void) {
 void	PhoneBook::_printTable(void) const {
 	std::cout << YELLOW << "#----------+----------+----------+----------#" << std::endl
 						<< "|  INDEX   |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
-						<< "#----------+----------+----------+----------#" << RESET << std::endl;
+						<< "#----------+----------+----------+----------#" << NC << std::endl;
 	for (int i = 0; i < 8; i++) {
 		_printInfo(i);
 	}
@@ -148,12 +148,12 @@ void	PhoneBook::_printTable(void) const {
 void	PhoneBook::_printInfo(int const index) const {
 	if (this->_list[index].isEmpty())
 		return ;
-	std::cout 	<< YELLOW << "|" << RESET << std::setw(10) << index << YELLOW << "|" << RESET;
+	std::cout 	<< YELLOW << "|" << NC << std::setw(10) << index << YELLOW << "|" << NC;
 	_printTableString(this->_list[index].getFirstname());
 	_printTableString(this->_list[index].getLastname());
 	_printTableString(this->_list[index].getNickname());
 	std::cout 	<< std::endl
-				<< YELLOW << "#----------+----------+----------+----------#" << RESET << std::endl;
+				<< YELLOW << "#----------+----------+----------+----------#" << NC << std::endl;
 }
 
 /* Prints a string in a 10 characters wide column. If the string is too long,
@@ -164,7 +164,7 @@ void	PhoneBook::_printTableString(std::string str) const {
 		str.resize(9);
 		str += ".";
 	}
-	std::cout << std::setw(10) << str << YELLOW << "|" << RESET;
+	std::cout << std::setw(10) << str << YELLOW << "|" << NC;
 }
 
 /* Prints the information of a contact at the given index is valid.
@@ -178,11 +178,11 @@ bool	PhoneBook::_printContactByIndex(std::string const input) const {
 			if (this->_list[index].printContactInfo())
 				return (true);
 			else {
-				std::cout << std::endl << BOLD << LRED << "Index [" << index << "] is empty, like your head..." << RESET << std::endl;
+				std::cout << std::endl << BOLD << RED << "Index [" << index << "] is empty, like your head..." << NC << std::endl;
 				return (false);
 			}
 		}
 	}
-	std::cout << std::endl << BOLD << LRED << "Back to the menu because you can't count..." << RESET << std::endl;
+	std::cout << std::endl << BOLD << RED << "Back to the menu because you can't count..." << NC << std::endl;
 	return (false);
 }

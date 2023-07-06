@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 18:58:04 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/07 00:24:03 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void) {
 	PhoneBook	book;
 	std::string	input;
 
-	std::cout << std::endl << BOLD << RED << "📞 42 BANGKOK ANGRY PHONEBOOK ಠ_ಠ╭∩╮" << RESET << std::endl;
+	std::cout << std::endl << BOLD << RED << "📞 42 BANGKOK ANGRY PHONEBOOK ಠ_ಠ╭∩╮" << NC << std::endl;
 	while (true) {
 		std::cout	<< std::endl << "Type something... hurry up..." << std::endl << std::endl;
 		input = getInput(&book);
@@ -46,15 +46,15 @@ int	main(void) {
 				break ;
 		}
 		else {
-			std::cout 	<< BOLD << RED << BLINK << "#---------- MENU FOR DUMMIES ----------#" << RESET << std::endl
+			std::cout 	<< BOLD << RED << BLINK << "#---------- MENU FOR DUMMIES ----------#" << NC << std::endl
 						<< std::endl
-						<< BOLD << LRED << "ಠ_ಠ Type correctly or go back to school!" << RESET << std::endl
+						<< BOLD << RED << "ಠ_ಠ Type correctly or go back to school!" << NC << std::endl
 						<< std::endl
-						<< BOLD << MAGENTA << BLINK << "\tADD\t" << RESET 		<< ": Do you even have friends?" << std::endl
-						<< BOLD << MAGENTA << BLINK << "\tSEARCH\t" << RESET 	<< ": Did you forget your mom's number?" << std::endl
-						<< BOLD << MAGENTA << BLINK << "\tEXIT\t" << RESET 		<< ": Come on... Do I have to explain everything?" << std::endl;
+						<< BOLD << MAGENTA << BLINK << "\tADD\t" << NC 		<< ": Do you even have friends?" << std::endl
+						<< BOLD << MAGENTA << BLINK << "\tSEARCH\t" << NC 	<< ": Did you forget your mom's number?" << std::endl
+						<< BOLD << MAGENTA << BLINK << "\tEXIT\t" << NC 	<< ": Come on... Do I have to explain everything?" << std::endl;
 		}
 	}
-	std::cout << std::endl << BOLD << RED << "Finally... (╯°□°）╯︵ ┻━┻" << RESET << std::endl;
+	std::cout << std::endl << BOLD << RED << "Finally... (╯°□°）╯︵ ┻━┻" << NC << std::endl;
 	return (0);
 }
