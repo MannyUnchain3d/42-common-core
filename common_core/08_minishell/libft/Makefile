@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: niclaw <nicklaw@gmail.com>                 +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
-#    Updated: 2023/05/30 13:16:58 by niclaw           ###   ########.fr        #
+#    Updated: 2023/07/07 01:05:44 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,11 +40,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@echo "\n\033[32m---- (っ▀¯▀)つ libft is compiled! ----\033[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is compiled! ----\033[0m\n"
 
 bonus: $(OBJ_DIR) $(OBJ) $(OBJ_B)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(OBJ_B)
-	@echo "\n\033[32m---- (っ▀¯▀)つ libft bonus is compiled! ----\033[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) bonus is compiled! ----\033[0m\n"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
