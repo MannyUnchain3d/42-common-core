@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:20 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 19:00:05 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:04:57 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@
 # define RESET		"\033[0m"
 
 class	PhoneBook {
+	public:
+		PhoneBook(void);
+		~PhoneBook(void);
+
+		std::string	trimSpace(std::string str);
+		bool		addContact(void);
+		bool		searchContact(void);
+		
 	private:
 		int		_index;
 		bool	_abort;
@@ -36,14 +44,6 @@ class	PhoneBook {
 		void		_printInfo(int const index) const;
 		void		_printTableString(std::string str) const;
 		bool		_printContactByIndex(std::string const input) const;
-	
-	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-
-		std::string	trimSpace(std::string str);
-		bool		addContact(void);
-		bool		searchContact(void);
 };
 
 #endif

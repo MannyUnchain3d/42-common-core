@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:40:26 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 18:58:53 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:04:11 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,6 @@
 # define RESET		"\033[0m"
 
 class	Contact {
-	private:
-		std::string	_firstname;
-		std::string	_lastname;
-		std::string	_nickname;
-		std::string	_phoneNumber;
-		std::string	_secret;
-		
-		bool		_onlyAlpha(std::string const input);
-		bool		_onlyDigit(std::string const input);
-
 	public:
 		Contact(void);
 		~Contact(void);
@@ -51,6 +41,15 @@ class	Contact {
 		bool				setPhoneNumber(std::string const str);
 		bool				setSecret(std::string const str);
 		bool				printContactInfo(void) const;
+	
+	private:
+		std::string	_firstname;
+		std::string	_lastname;
+		std::string	_nickname;
+		std::string	_phoneNumber;
+		std::string	_secret;
+		bool		_onlyAlpha(std::string const input);
+		bool		_onlyDigit(std::string const input);
 };
 
 #endif
