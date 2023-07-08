@@ -6,14 +6,14 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/08 14:41:48 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/09 03:03:36 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#--- EXECUTABLE ---#
+# ***** EXECUTABLE ***** #
 NAME = moarbrainz
 
-#--- COLORS ---#
+# ***** COLORS ********* #
 RED		= \033[0;31m
 GREEN	= \033[0;32m
 YELLOW	= \033[0;33m
@@ -26,27 +26,27 @@ ULINE	= \033[4m
 BLINK	= \033[5m
 NC		= \033[0m
 
-#--- COMPILATION ---#
+# ***** COMPILATION **** #
 CC = g++ -g3
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-#--- INCLUDES ---#
+# ***** INCLUDES ******* #
 INC = -I ./inc/
 
-#--- SOURCES ---#
+# ***** SOURCES ******** #
 SRC_PATH = ./src/
 SRC = main.cpp \
 		Zombie.cpp \
 		zombieHorde.cpp
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
-#--- OBJECTS ---#
+# ***** OBJECTS ******** #
 OBJ_PATH = ./obj/
 OBJ = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 
-#--- RULES ---#
+# ***** RULES ********** #
 all: $(OBJ_PATH) $(NAME)
 
 $(OBJ_PATH):
@@ -72,6 +72,7 @@ fclean: clean
 
 re: fclean all
 
+# ***** MEMORY LEAKS *** #
 mem1:
 	valgrind --leak-check=summary ./$(NAME)
 mem2:
