@@ -6,12 +6,12 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/07 02:48:57 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/08 14:41:48 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #--- EXECUTABLE ---#
-NAME =
+NAME = moarbrainz
 
 #--- COLORS ---#
 RED		= \033[0;31m
@@ -39,7 +39,6 @@ SRC_PATH = ./src/
 SRC = main.cpp \
 		Zombie.cpp \
 		zombieHorde.cpp
-
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
 #--- OBJECTS ---#
@@ -50,14 +49,14 @@ OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 #--- RULES ---#
 all: $(OBJ_PATH) $(NAME)
 
- $(OBJ_PATH):
+$(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ -I.
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
 	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
 
 %.o: %.cpp
