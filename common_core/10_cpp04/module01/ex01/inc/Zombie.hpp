@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:07:12 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/09 02:23:28 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/09 02:45:53 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ class Zombie {
 		std::string	_name;
 		std::string	_getName(void) const;
 };
+
+Zombie*	zombieHorde(int N, std::string name);
 
 #endif
