@@ -6,15 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:07:08 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/09 02:10:27 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/09 02:50:01 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <limits>
 #include <sstream>
-
-Zombie *zombieHorde( int N, std::string name );
 
 std::string colorZombie(std::string const color, std::string const name) {
 	return (color + name + NC);
@@ -79,6 +77,6 @@ int	main(void) {
 	for (int i = 0; i < nb; i++) 
 		horde[i].announce();
 	std::cout << GREEN << "The horde is dead, long live the horde!" << NC << std::endl;
-	delete [] horde;
+	delete[] horde;
 	return (0);
 }
