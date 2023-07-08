@@ -6,21 +6,25 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 02:58:51 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:06:15 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/09 03:20:06 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-
+# ***** EXECUTABLE ***** #
 NAME = brain
 
+# ***** COLORS ********* #
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** SOURCES ******** #
 SRC = main.cpp
+
+# ***** OBJECTS ******** #
 OBJ = $(SRC:.cpp=.o)
 
+# ***** RULES ********** #
 all: $(NAME)
 
 $(NAME): $(OBJ)

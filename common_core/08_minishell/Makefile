@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:47:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 01:00:07 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:51:33 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = minishell
 NAME_B = minishell_bonus
 
+# ***** COMPILATION **** #
 CC = gcc -g3 #-fsanitize=address
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
@@ -25,9 +27,12 @@ else
 INC = -I ./inc -I $(LIBFT_PATH)
 READ = -l readline
 endif
+
+# ***** LIBFT ********** #
 LIBFT_PATH = ./libft/
 LIBFT = ./libft/libft.a
 
+# ***** SOURCES ******* #
 SRC_PATH = ./src/
 SRC = 	main.c \
 		builtins/cd_builtin.c \
@@ -68,13 +73,14 @@ SRC = 	main.c \
 		utils/error.c \
 		utils/exit.c \
 		utils/init_data.c
-		
+
 SRC_BO =	$(filter-out parser/parse_2.c,$(SRC)) \
 		parser/parse_2_bonus.c \
 		parser/wildling_bonus.c
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
+# ***** OBJECTS ******* #
 OBJ_PATH = ./obj/
 OBJ = $(SRC:.c=.o)
 OBJ_BO = $(SRC_BO:.c=.o)
@@ -82,6 +88,7 @@ OBJ_BO = $(SRC_BO:.c=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 OBJS_BO = $(addprefix $(OBJ_PATH), $(OBJ_BO))
 
+# ***** RULES ********* #
 all: $(OBJ_PATH) $(LIBFT) $(NAME)
 
 $(OBJ_PATH):
@@ -123,6 +130,7 @@ re: fclean all
 
 rebonus: fclean bonus
 
+# ***** MEMORY LEAKS *** #
 mem1:
 	valgrind --leak-check=summary ./$(NAME)
 mem2:

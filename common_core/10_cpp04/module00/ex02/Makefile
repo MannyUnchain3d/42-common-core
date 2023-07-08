@@ -3,22 +3,26 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 02:11:23 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 01:01:31 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:52:45 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = no_money_no_honey
 
+# ***** COMPILATION **** #
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** SOURCES ******** #
 SRC = Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 
+# ***** RULES ********** #
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -38,6 +42,7 @@ fclean: clean
 
 re: fclean all
 
+# ***** MEMORY LEAKS **** #
 mem1:
 	valgrind --leak-check=summary ./$(NAME)
 mem2:

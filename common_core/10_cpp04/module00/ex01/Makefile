@@ -3,33 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 15:30:08 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 01:00:56 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:21:48 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = angry-phonebook
 
+# ***** COMPILATION **** #
 CC = g++ -g
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** INCLUDES ******* #
 INC = -I ./inc/
 
+# ***** SOURCES ******** #
 SRC_PATH = ./src/
 SRC = 	main.cpp \
 		Contact.cpp \
 		PhoneBook.cpp
-
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
+# ***** OBJECTS ******** #
 OBJ_PATH = ./obj/
 OBJ = $(SRC:.cpp=.o)
-
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 
+# ***** RULES ********** #
 all: $(OBJ_PATH) $(NAME)
 
 $(OBJ_PATH):
@@ -52,6 +56,7 @@ fclean: clean
 
 re: fclean all
 
+# ***** MEMORY LEAKS **** #
 mem1:
 	valgrind --leak-check=summary ./$(NAME)
 mem2:

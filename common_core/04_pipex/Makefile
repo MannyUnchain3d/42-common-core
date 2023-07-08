@@ -3,37 +3,45 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 00:54:39 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:37:41 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = pipex
 
+# ***** COMPILATION **** #
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 RM = -rm -rf
 
+# ***** SOURCES ******** #
 SRC_DIR = src
 SRC = pipex.c utils.c
 SRC_B = pipex_bonus.c utils.c utils_bonus.c
 
+# ***** OBJECTS ******** #
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 OBJ_B = $(SRC_B:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
 
+# ***** HEADER ********* #
 HEADER = -I inc
 
+# ***** LIBFT ********** #
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 lIBFTFLAGS = -L$(LIBFT_DIR) -lft
 
+# ***** OBJECTS ******** #
 $(SRC_DIR)/$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(SRC_DIR)/$(OBJ_DIR)
 	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
+# ***** RULES ********** #
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
@@ -62,4 +70,12 @@ re: fclean all
 
 re_bonus: fclean bonus
 
-.PHONY: all bonus clean fclean re re_bonus 
+# ***** MEMORY LEAKS *** #
+mem1:
+	valgrind --leak-check=summary ./$(NAME)
+mem2:
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+mem3:
+	valgrind -s ./$(NAME)
+
+.PHONY : all clean fclean re bonus re_bonus mem1 mem2 mem3

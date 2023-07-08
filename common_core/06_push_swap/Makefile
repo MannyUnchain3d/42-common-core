@@ -3,36 +3,44 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 00:58:52 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:46:45 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = push_swap
 BONUS = checker
 
+# ***** COMPILATION **** #
 CC = gcc -g3 -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
+# ***** INCLUDES ******* #
 INC = -I ./
+
+# ***** LIBFT ********** #
 LIBFTDIR = ./libft/
 LIBFT = -L libft -lft
 
+# ***** SOURCES ******* #
 SRC_PATH = src/
 SRC = cost.c init.c input_check.c main.c move.c position.c push.c rev_rotate.c \
 		rotate.c sort_3nb.c sort.c stack.c swap.c utils.c
 SRC_BONUS = cost.c init.c input_check.c move.c position.c push.c rev_rotate.c \
 		rotate.c sort_3nb.c sort.c stack.c swap.c utils.c checker.c
 
+# ***** OBJECTS ******* #
 OBJ_PATH = obj/
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 OBJS_BONUS = $(addprefix $(OBJ_PATH), $(OBJ_BONUS))
 
+# ***** RULES ********* #
 all: $(OBJ_PATH) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -103,4 +111,12 @@ test1000: $(NAME)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
-.PHONY: all bonus clean fclean re rebonus test2 test3 test5 test100 test500 test1000
+# ***** MEMORY LEAKS *** #
+mem1:
+	valgrind --leak-check=summary ./$(NAME)
+mem2:
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+mem3:
+	valgrind -s ./$(NAME)
+
+.PHONY: all bonus clean fclean re rebonus test2 test3 test5 test100 test500 test1000 mem1 mem2 mem3

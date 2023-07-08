@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 00:58:04 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:40:47 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = so_long
 NAME_BONUS = so_long_bonus
 
+# ***** COMPILATION **** #
 CC = gcc -g3 -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -I/$(HEADER) -I/$(HEADER_GNL)
 RM = rm -rf
@@ -23,9 +25,11 @@ else
 	MLX = -Lmlx -lmlx -Imlx -framework OpenGL -framework AppKit
 endif
 
+# ***** HEADER ********* #
 HEADER = so_long.h
 HEADER_GNL = gnl/get_next_line.h
 
+# ***** SOURCES ******** #
 SRC = src/actions.c \
 		src/display_error.c \
 		src/map_check.c \
@@ -48,10 +52,11 @@ SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_strlcpy.c \
 			src/utils/ft_strdup.c \
 			src/utils/ft_strlen.c
-
+			
 SRC_GNL = gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
+# ***** OBJECTS ******** #
 SRC_M += $(SRC)
 SRC_M += $(SRC_UTILS)
 SRC_M += $(SRC_GNL)
@@ -62,6 +67,7 @@ SRC_B += $(SRC_UTILS)
 SRC_B += $(SRC_GNL)
 OBJ_B = $(SRC_B:.c=.o)
 
+# ***** RULES ********** #
 all: $(NAME)
 
 $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
@@ -92,4 +98,12 @@ re: fclean all
 
 re_bonus: fclean bonus
 
-.PHONY: all bonus clean fclean re re_bonus
+# ***** MEMORY LEAKS *** #
+mem1:
+	valgrind --leak-check=summary ./$(NAME)
+mem2:
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+mem3:
+	valgrind -s ./$(NAME)
+
+.PHONY: all clean fclean re bonus re_bonus mem1 mem2 mem3

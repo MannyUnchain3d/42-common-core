@@ -3,22 +3,28 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 02:28:22 by Manny             #+#    #+#              #
-#    Updated: 2023/07/07 01:00:27 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/09 03:21:03 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# ***** EXECUTABLE ***** #
 NAME = megaphone
 
+# ***** COMPILATION **** #
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** SOURCES ******** #
 SRC = megaphone.cpp
+
+# ***** OBJECTS ******** #
 OBJ = $(SRC:.cpp=.o)
 
+# ***** RULES ********** #
 all: $(NAME)
 
 $(NAME): $(OBJ)
