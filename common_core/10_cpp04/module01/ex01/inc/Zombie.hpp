@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:07:12 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/09 02:45:53 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/10 11:19:24 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
+
 # define MIN_ZOMBIES 1
 # define MAX_ZOMBIES 100
 
