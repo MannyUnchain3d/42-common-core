@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/09 03:24:22 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/10 13:46:37 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ clean:
 	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(OBJ_PATH)
 	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
 
 re: fclean all
