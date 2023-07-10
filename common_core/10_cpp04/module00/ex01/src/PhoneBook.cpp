@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/07 00:22:12 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/11 01:54:17 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@
 
 PhoneBook::PhoneBook(void) : _index(-1),
 							 _abort(false) {
-	return ;
 }
 
 /* ----- DESTRUCTOR ------------------- */
 
 PhoneBook::~PhoneBook(void) {
-	return ;
 }
 
 /* ----- PUBLIC METHODS --------------- */

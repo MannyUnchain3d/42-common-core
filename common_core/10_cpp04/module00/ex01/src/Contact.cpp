@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:41:08 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/07 00:22:12 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/11 01:53:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ Contact::Contact(void) : _firstname(""),
 						 _nickname(""),
 						 _phoneNumber(""),
 						 _secret("") {
-	return ;
 }
 
 /* ----- DESTRUCTOR ------------------- */
 
 Contact::~Contact(void) {
-	return ;
 }
 
 /* ----- GETTERS ---------------------- */

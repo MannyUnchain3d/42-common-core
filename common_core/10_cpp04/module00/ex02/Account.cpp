@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 02:21:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/06 21:06:42 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/11 01:54:39 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts),
 	std::cout 	<< "index:" << _accountIndex << ";"
 				<< "amount:" << _amount << ";"
 				<< "created" << std::endl;
-	return ;
 }
 
 /* ----- DESTRUCTOR ------------------- */
@@ -44,7 +43,6 @@ Account::~Account(void) {
 	std::cout 	<< "index:" << _accountIndex << ";"
 				<< "amount:" << _amount << ";"
 				<< "closed" << std::endl;
-	return ;
 }
 
 /* ----- GETTERS ---------------------- */
