@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:07:08 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/07 00:23:48 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/10 10:43:21 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void) {
 	
 	std::cout << std::endl << RED << "Creating a zombie on the heap" << NC << std::endl << std::endl;
 	std::cout << "Enter a name for the zombie: " << std::flush;
-	std::cin >> name;
+	std::getline(std::cin, name);
 
 	Zombie* heapZombie = newZombie(colorZombie(RED, name));
 	heapZombie->announce();
