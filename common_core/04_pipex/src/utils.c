@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:14:29 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/11 19:32:54 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/* Function that searches for all paths in the environment, 
-splits them, tries each command path and returns the right one */
+/* Function that searches for all paths in the environment, splits them,
+tries each command path and returns the right one */
 char	*find_path(char *cmd, char **envp)
 {
 	char	**paths;

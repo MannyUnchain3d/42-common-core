@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:14:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 16:23:25 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/11 19:39:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <sys/wait.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "libft.h"
 
 /* Mandatory functions */
 void	error(void);
