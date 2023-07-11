@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 00:41:03 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/11 20:18:30 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 /* Child process creates a fork and a pipe, redirects the output inside a pipe,
- then closes the fd and executes the function.*/
+ * then closes the fd and executes the function.*/
 void	child_process(char *argv, char **envp)
 {
 	pid_t	pid;
@@ -39,7 +39,7 @@ void	child_process(char *argv, char **envp)
 }
 
 /* Function to make a child process reads from stdin using get_next_line,
- stops when it reaches the limiter, then redirects the output to a pipe. */
+ * stops when it reaches the limiter, then redirects the output to a pipe. */
 void	here_doc(char *limiter, int argc)
 {
 	pid_t	reader;
@@ -69,9 +69,9 @@ void	here_doc(char *limiter, int argc)
 	}
 }
 
-/* Main function runs the child processes with the right fds or displays 
- an error message if the arguments are wrong. It runs the here_doc function 
- if the "here_doc" string is passed in argv[1] */
+/* Main function runs the child processes with the right fds or displays
+ * an error message if the arguments are wrong. It runs the here_doc function
+ * if the "here_doc" string is passed in argv[1] */
 int	main(int argc, char **argv, char **envp)
 {
 	int	i;

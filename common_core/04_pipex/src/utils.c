@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:14:29 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/11 19:32:54 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/11 20:20:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 /* Function that searches for all paths in the environment, splits them,
-tries each command path and returns the right one */
+ * tries each command path and returns the right one. */
 char	*find_path(char *cmd, char **envp)
 {
 	char	**paths;
@@ -43,7 +43,7 @@ char	*find_path(char *cmd, char **envp)
 	return (0);
 }
 
-/* Displays an error*/
+/* Displays an error. */
 void	error(void)
 {
 	perror("\033[31mError");
@@ -51,7 +51,7 @@ void	error(void)
 }
 
 /* Function that takes the command and send it to find_path
-before executing it */
+ * before executing it */
 void	execute(char *argv, char **envp)
 {
 	char	**cmd;
@@ -72,7 +72,7 @@ void	execute(char *argv, char **envp)
 		error();
 }
 
-/* Function that read input from the terminal and return line */
+/* Function that read input from the terminal and return line. */
 int	get_next_line(char **line)
 {
 	char	*buffer;

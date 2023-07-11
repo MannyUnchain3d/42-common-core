@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:13:03 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/11 20:17:37 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/* Child process runs inside a fork, takes the fdin, redirects the output,
- inside a pipe and closes the fd and executes the function. */
+/* Child process runs inside a fork, takes the fdin, redirects the output
+ * inside a pipe, closes the fd and executes the function. */
 void	child_process(char **argv, char **envp, int *fd)
 {
 	int	fdin;
@@ -28,7 +28,7 @@ void	child_process(char **argv, char **envp, int *fd)
 }
 
 /* Parent process takes data from the pipe, redirects the output for the fdout,
- closes the fd and executes the function */
+ * closes the fd and executes the function */
 void	parent_process(char **argv, char **envp, int *fd)
 {
 	int	fdout;
@@ -43,7 +43,7 @@ void	parent_process(char **argv, char **envp, int *fd)
 }
 
 /* Main function creates a pipe, forks the process, runs child and parent
- process, or displays error message if fork fails or arguments are wrong. */
+ * process, or displays error message if fork fails or arguments are wrong. */
 int	main(int argc, char **argv, char **envp)
 {
 	int		fd[2];

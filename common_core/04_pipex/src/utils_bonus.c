@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:46:06 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 16:08:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/11 20:18:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/* Function to display an error message for wrong arguments*/
+/* Function to display an error message for wrong arguments. */
 void	usage(void)
 {
 	ft_putstr_fd("\033[31mError: Wrong arguments\n\e[0m", 2);
@@ -21,7 +21,7 @@ void	usage(void)
 	exit(EXIT_SUCCESS);
 }
 
-/* Function to open fds with the right flags*/
+/* Function to open fds with the right flags. */
 int	open_fd(char *argv, int i)
 {
 	int	fd;
