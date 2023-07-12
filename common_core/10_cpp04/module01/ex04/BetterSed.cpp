@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BetterSed.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:31:31 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/12 18:02:13 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/12 23:05:32 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,39 @@ BetterSed::~BetterSed(void) {
 }
 
 void	BetterSed::replace(std::string s1, std::string s2) {
-	std::string 	content;
-	size_t			pos;
-
 	std::ifstream	ifs(this->_infile.c_str());
-	if (ifs.is_open()) {
-		if (std::getline(ifs, content, '\0')) {
-			std::ofstream	ofs(this->_outfile.c_str());
-			pos = content.find(s1);
-			while (pos != std::string::npos) {
-				content.erase(pos, s1.length());
-				content.insert(pos, s2);
-				pos = content.find(s1);
-			}
-			ofs << content;
-			ofs.close();
-		}
-		else
-			std::cout << "Error: empty file" << std::endl;
-		ifs.close();
-	}
-	else {
-		std::cout << "Error: can't open file" << std::endl;
+	if (!ifs.is_open()) {
+		std::cout << "Error: cannot open file " << this->_infile << std::endl;
 		std::exit(EXIT_FAILURE);
 	}
+
+	std::string	content((std::istreambuf_iterator<char>(ifs)), (std::istreambuf_iterator<char>()));
+	ifs.close();
+
+	if (content.empty()) {
+		std::cout << "Error: file " << this->_infile << " is empty" << std::endl;
+		return ;
+	}
+
+	std::ofstream	ofs(this->_outfile.c_str());
+	if (!ofs.is_open()) {
+		std::cout << "Error: cannot create outpule file " << this->_outfile << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
+
+	if (s1 != s2) {
+		size_t	pos = content.find(s1);
+		size_t	len = s1.length();
+		while (pos != std::string::npos) {
+			content.erase(pos, len);
+			content.insert(pos, s2);
+			pos = content.find(s1, pos + s2.length());
+		}
+	}
+	else {
+		std::cout << "Error: s1 and s2 are the same" << std::endl;
+		return ;
+	}
+	ofs << content;
+	ofs.close();
 }
