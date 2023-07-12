@@ -6,13 +6,13 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:31:31 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/10 23:47:26 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:15:09 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BetterSed.hpp"
 
-BetterSed::BetterSed(std::string filename) : _infile(filename) {
+BetterSed::BetterSed(std::string const& filename) : _infile(filename.c_str()) {
 	this->_outfile = this->_infile + ".replace";
 }
 
