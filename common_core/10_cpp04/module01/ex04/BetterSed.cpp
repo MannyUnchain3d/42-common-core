@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BetterSed.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:31:31 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/12 20:21:56 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:02:13 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	BetterSed::replace(std::string s1, std::string s2) {
 	std::string 	content;
 	size_t			pos;
 
-	std::ifstream	ifs(this->_infile);
+	std::ifstream	ifs(this->_infile.c_str());
 	if (ifs.is_open()) {
 		if (std::getline(ifs, content, '\0')) {
-			std::ofstream	ofs(this->_outfile);
+			std::ofstream	ofs(this->_outfile.c_str());
 			pos = content.find(s1);
 			while (pos != std::string::npos) {
 				content.erase(pos, s1.length());
