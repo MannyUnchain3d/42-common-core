@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 13:48:00 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/11 01:49:00 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/12 13:04:31 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** INCLUDES ******* #
+INC = -I ./
+
 # ***** SOURCES ******** #
 SRC = Harl.cpp main.cpp
 
@@ -28,7 +31,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
 	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
 
 %.o: %.cpp

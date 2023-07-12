@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:31:31 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/12 20:15:09 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:21:56 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	BetterSed::replace(std::string s1, std::string s2) {
 	}
 	else {
 		std::cout << "Error: can't open file" << std::endl;
-		exit(EXIT_FAILURE);
+		std::exit(EXIT_FAILURE);
 	}
 }

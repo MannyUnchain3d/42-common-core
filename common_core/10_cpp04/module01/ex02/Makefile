@@ -6,17 +6,20 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 02:58:51 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:20:06 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/12 13:50:19 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = brain
 
-# ***** COLORS ********* #
+# ***** COMPILATION ********* #
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
+
+# ***** INCLUDES ******* #
+INC = -I ./
 
 # ***** SOURCES ******** #
 SRC = main.cpp
@@ -28,7 +31,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
 	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
 
 %.o: %.cpp

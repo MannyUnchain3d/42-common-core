@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 13:48:00 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/10 21:14:03 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/12 13:50:57 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** INCLUDES ******* #
+INC = -I ./
+
 # ***** SOURCES ******** #
 SRC = main.cpp BetterSed.cpp
 
@@ -28,7 +31,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
 	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
 
 %.o: %.cpp
