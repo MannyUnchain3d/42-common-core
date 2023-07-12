@@ -5,13 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/05 02:11:23 by Manny             #+#    #+#              #
-#    Updated: 2023/07/12 13:49:50 by Manny            ###   ########.fr        #
+#    Created: 2023/07/12 12:59:47 by Manny             #+#    #+#              #
+#    Updated: 2023/07/12 13:04:14 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 # ***** EXECUTABLE ***** #
-NAME = no_money_no_honey
+NAME = Fixed
 
 # ***** COMPILATION **** #
 CC = g++
@@ -22,7 +23,9 @@ RM = rm -rf
 INC = -I ./
 
 # ***** SOURCES ******** #
-SRC = Account.cpp tests.cpp
+SRC = Fixed.cpp main.cpp
+
+# ***** OBJECTS ******** #
 OBJ = $(SRC:.cpp=.o)
 
 # ***** RULES ********** #
@@ -45,12 +48,4 @@ fclean: clean
 
 re: fclean all
 
-# ***** MEMORY LEAKS **** #
-mem1:
-	valgrind --leak-check=summary ./$(NAME)
-mem2:
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
-mem3:
-	valgrind -s ./$(NAME)
-
-.PHONY : all clean fclean re mem1 mem2 mem3
+.PHONY : all clean fclean re

@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 02:28:22 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:21:03 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/12 13:48:30 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
+# ***** INCLUDES ******* #
+INC = -I ./
+
 # ***** SOURCES ******** #
 SRC = megaphone.cpp
 
@@ -28,7 +31,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
 	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
 
 %.o: %.cpp

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BetterSed.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:51:47 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/10 22:52:50 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:54:15 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BETTERSED_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include <fstream>
 
 class BetterSed {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BetterSed.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:31:31 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/10 23:47:26 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:58:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	BetterSed::replace(std::string s1, std::string s2) {
 	}
 	else {
 		std::cout << "Error: can't open file" << std::endl;
-		exit(EXIT_FAILURE);
+		std::exit(EXIT_FAILURE);
 	}
 }
