@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:14:29 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/11 20:20:00 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/13 18:39:06 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*find_path(char *cmd, char **envp)
 /* Displays an error. */
 void	error(void)
 {
-	perror("\033[31mError");
+	perror("\033[31mError\033[0m");
 	exit(EXIT_FAILURE);
 }
 

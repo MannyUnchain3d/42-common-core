@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:14:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/11 19:39:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/13 17:54:10 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <sys/wait.h>
 # include <fcntl.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 /* Mandatory functions */
 void	error(void);

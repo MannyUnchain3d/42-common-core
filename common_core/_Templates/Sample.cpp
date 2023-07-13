@@ -3,27 +3,26 @@
 /* ----- CONSTRUCTOR -------------------*/
 
 /* Default Constructor */
-Sample::Sample(void){
+Sample::Sample(void) {
+	// Make your Constructor here
 	return ;
 }
 
 /* Copy Constructor */
-Sample::Sample(Sample const& src)
-{
+Sample::Sample (Sample const& src) {
+	// Make your Copy Constructor here
 	*this = src;
 }
 
 /* ----- DESTRUCTOR ------------------ */
 
-Sample::~Sample(void)
-{
-	return ;
+Sample::~Sample(void) {
+	// Make your Destructor here
 }
 
-/* ----- OPERATOR OVERLOADS ---------- */
+/* ----- OPERATOR OVERLOAD ---------- */
 
-Sample	&Sample::operator=(Sample const& rhs)
-{
+Sample&	Sample::operator=(Sample const& rhs) {
 	// Make your Assignment here
 	return (*this);
 }
@@ -32,9 +31,9 @@ Sample	&Sample::operator=(Sample const& rhs)
 
 /* ----- SETTER ----------------------- */
 
-/* ----- PUBLIC METHOD(S) ------------- */
+/* ----- PUBLIC METHOD ------------- */
 
-/* ----- PRIVATE METHOD(S) ------------ */
+/* ----- PRIVATE METHOD ------------ */
 
-/* ----- EXTERNAL FUNCTION(S) --------- */
+/* ----- EXTERNAL FUNCTION --------- */
 

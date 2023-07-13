@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 20:13:10 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 20:14:24 by etetopat         ###   ########.fr       */
+/*   Created: 2023/07/13 23:02:05 by etetopat          #+#    #+#             */
+/*   Updated: 2023/07/13 23:30:55 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main( void ) {
-	Fixed	a;
-	Fixed	b(a);
-	Fixed	c;
+int	main(void) {
 
-	c = b;
+	Fixed		a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 
-	return 0;
+	return (0);
 }

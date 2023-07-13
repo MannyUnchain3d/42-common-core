@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:37:41 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/13 17:55:07 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,11 +46,11 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(OBJ) $(lIBFTFLAGS) -o $(NAME)
-	@echo "\n\e[32m---- (っ▀¯▀)つ $(NAME) is compiled! ----\e[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is compiled! ----\033[0m\n"
 
 bonus: $(LIBFT) $(OBJ) $(OBJ_B)
 	$(CC) $(OBJ_B) $(lIBFTFLAGS) -o $(NAME)
-	@echo "\n\e[32m---- (っ▀¯▀)つ $(NAME) bonus is compiled! ----\e[0m\n"
+	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) bonus is compiled! ----\033[0m\n"
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
@@ -64,7 +64,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
-	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
+	@echo "\n\033[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\033[0m\n"
 
 re: fclean all
 

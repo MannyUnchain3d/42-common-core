@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 20:11:51 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 22:48:09 by etetopat         ###   ########.fr       */
+/*   Created: 2023/07/13 20:49:32 by etetopat          #+#    #+#             */
+/*   Updated: 2023/07/13 22:55:15 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/* ----- CONSTRUCTOR -------------------*/
+/* ----- CONSTRUCTOR(S) -------------------*/
 
 /* Default Constructor */
 Fixed::Fixed(void){
@@ -23,8 +23,19 @@ Fixed::Fixed(void){
 /* Copy Constructor */
 Fixed::Fixed(Fixed const& src) {
 	std::cout << "Copy constructor called" << std::endl;
-	this->setRawBits(src.getRawBits());
+	*this = src;
 }
+
+Fixed::Fixed(int const value) {
+	std::cout << "Int constructor called" << std::endl;
+	this->_fixedPointValue = value << this->_fractionalBits;
+}
+
+Fixed::Fixed(float const value) {
+	std::cout << "Float constructor called" << std::endl;
+	this->_fixedPointValue = roundf(value * (1 << this->_fractionalBits));
+}
+
 
 /* ----- DESTRUCTOR ------------------ */
 
@@ -44,7 +55,6 @@ Fixed&	Fixed::operator=(Fixed const& rhs) {
 /* ----- GETTER ----------------------- */
 
 int		Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixedPointValue);
 }
 
@@ -52,4 +62,21 @@ int		Fixed::getRawBits(void) const {
 
 void	Fixed::setRawBits(int const raw) {
 	this->_fixedPointValue = raw;
+}
+
+/* ----- PUBLIC METHOD --------------- */
+
+int		Fixed::toInt(void) const {
+	return (this->_fixedPointValue >> this->_fractionalBits);
+}
+
+float	Fixed::toFloat(void) const {
+	return ((float)this->_fixedPointValue / (float)(1 << this->_fractionalBits));
+}
+
+/* ----- EXTERNAL FUNCTION ----------- */
+
+std::ostream&	operator<<(std::ostream& out, Fixed const& rhs) {
+	out << rhs.toFloat();
+	return (out);
 }
