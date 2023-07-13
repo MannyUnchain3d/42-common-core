@@ -1,5 +1,5 @@
-#ifndef __SAMPLE_HPP__
-# define __SAMPLE_HPP__
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # define RED		"\033[0;31m"
 # define GREEN		"\033[0;32m"
@@ -18,7 +18,7 @@ class Sample {
 		Sample(Sample const &src); // Class Copy Constructor
 		~Sample(void); // Class Deconstructor
 
-		Sample	&operator=(Sample const &rhs); // Operator Overload
+		Sample	&operator=(Sample const& rhs); // Operator Overload
 
 		virtual	~Sample(void); // Virtual Deconstructor
 };
