@@ -15,10 +15,10 @@
 class Sample {
 	public:
 		Sample(void); // Class Constructor
-		Sample(Sample const& src); // Class Copy Constructor
+		Sample(const Sample& src); // Class Copy Constructor
 		~Sample(void); // Class Deconstructor
 
-		Sample	&operator=(Sample const& rhs); // Operator Overload
+		Sample& operator=(const Sample& rhs); // Operator Overload
 
 		virtual	~Sample(void); // Virtual Deconstructor
 };

@@ -22,7 +22,7 @@ Sample::~Sample(void)
 
 /* ----- OPERATOR OVERLOADS ---------- */
 
-Sample	&Sample::operator=(Sample const& rhs)
+Sample& Sample::operator=(Sample const& rhs)
 {
 	// Make your Assignment here
 	return (*this);

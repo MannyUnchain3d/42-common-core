@@ -12,15 +12,19 @@
 # define UNDERLINE	"\033[4m"
 # define BLINK		"\033[5m"
 # define NC			"\033[0m"
-class Sample {
+class Fixed {
 	public:
-		Sample(void); // Class Constructor
-		Sample(Sample const &src); // Class Copy Constructor
-		~Sample(void); // Class Deconstructor
+		Fixed(void);
+		Fixed(Fixed const& src);
+		~Fixed(void);
 
-		Sample	&operator=(Sample const& rhs); // Operator Overload
-
-		virtual	~Sample(void); // Virtual Deconstructor
+		Fixed	&operator=(Fixed const& rhs);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+	
+	private:
+		int					_value;
+		static const int	_fractionalBits = 8;
 };
 
 #endif
