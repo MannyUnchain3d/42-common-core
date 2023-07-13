@@ -1,0 +1,214 @@
+
+                                           ##################################
+                                           #          BORN 2 BE ROOT        #
+                                           ##################################
+
+PROJECT OVERVIEW:
+
+certUtil -hashfile born2beroot.vdi sha1
+
+Q: What is a virtual machine?
+A: A Virtual Machine (VM) is a compute resource that uses software instead of a physical computer to run programs and deploy apps.
+Each virtual machine runs its own operating system and functions separately from other VMs, even when they are all running on the same host. 
+For example, you can run a virtual macOS machine on a physical PC. 
+
+Q: How does it work?
+A: VM works through "Virtualization" technology. Virtualization uses software to simulate virtual hardware that allows VMs to run on a single host machine.
+
+Q: What's its purpose?
+A: VMs may be deployed to run software that requires a different operating system, or to test applications in a safe, sandboxed environment, etc. 
+
+Q: Why Debian?
+A: It's easier to install and configure than CentOS
+
+Q: Diff between aptitude and apt?
+A: Aptitude is a high-level package manager while APT is a lower-level package manager which can be used by other higher-level package managers. Aptitude has more functionality and integrates apt-get and its other variants including apt-mark and apt-cache.
+
+Q: What is AppArmor?
+A: AppArmor ("Application Armor") is a Linux kernel security module that allows the system administrator to restrict processes' capabilities with profiles per program.
+
+Q: What is SSH?
+A: SSH, means Secure Shell or Secure Socket Shell, it's a network protocol that gives users, a secure way to access a computer over an unsecured network.
+
+
+
+SIMPLE SETUP:
+
+1 - sudo systemctl status ufw - Check UFW status
+
+2 - sudo aa-status - Check AppArmor status
+
+2 - sudo systemctl status ssh - Check SSH status
+
+3 - cat /etc/os-release - Check OS info
+
+
+
+USER:
+
+1 - less /etc/passwd | cut -d ":" -f 1 - Check all users
+
+2 - less /etc/group | cut -d ":" -f 1 - Check all groups
+
+3 - sudo vi /etc/login.defs - Check password expiration policy (line 154)
+
+4 - sudo vi /etc/pam.d/common-password - Check password policy
+
+5 - sudo adduser username - Create a username
+
+6 - sudo deluser -r username - Delete a username
+
+7 - sudo chage -l username - Check username password status
+
+8 - sudo adduser username user42 - Add username to user42 group
+
+9 - sudo groupadd evaluating - Add group "evaluating"
+		
+10 - Benefits and drawbacks of password complexity policy : 
+
+The main benefit of password complexity rules is that they enforce the use of unique passwords that are harder to crack. The more requirements you enforce, the higher the number of possible combinations of letters, numbers, and characters. 
+
+Password complexity only scales up to a certain point. Beyond a certain point, a complex password can be difficult to crack if the number of possible combinations is extremely high, but it can also be too complex to be useful for the user.
+
+
+*********************** EXTRA COMMANDS *********************
+groups <username> - shows user's groups;
+groupadd <groupname> - create new group;
+groupdel <groupname> - delete group;
+gpasswd -a <username> <groupname> - adds user to group;
+gpasswd -d <username> <groupname> - removes user from group;
+getent group <groupname> - show users in group;
+id -g <username> - show user's main group GID.
+************************************************************
+
+
+
+HOSTNAME AND PARTITIONS:
+
+1 - sudo hostnamectl - Check the hostname
+
+2 - sudo hostnamectl set-hostname new_hostname - Change the hostname by the evaluator's
+or here: sudo vi /etc/hosts and restart
+
+3 - restart check if the new hostname is ok and change it back to original
+
+4 - lsblk - Check partitions
+
+5 - LVM (Logical Volume Manager) is a layer between a storage device and a file system, the main advantage is that we have much more flexibility to manage partitions. Suppose we create four partitions on our storage disk. If we need to expand the storage of the first partition it won't be possible because there is no space between the first and second partition. LVM fixes that.
+
+Physical Volume = physical storage device (HDD, SD card...)
+Volume Groups = virtual storage disk used by LV
+Logical Volume: virtual partition
+
+
+
+SUDO:
+
+1 - sudo --version - Check sudo version
+or dpkg -l | grep sudo
+
+2 - sudo adduser username sudo - Add username to sudo group
+
+3 - sudo vi /etc/sudoers.d/sudoers-specs - Check rules for sudo
+
+4 - su - then cd /var/log/sudo/ && ls -la - Check sudo logs directory
+
+5 - run sudo apt update - To create a new log entry
+
+6 - cat sudo.log | less +G - Check the logs from the last entry
+
+
+
+UFW (Uncomplicated Firewall, it prevents security breach):
+
+1 - dpkg -l | grep ufw - Check if UFW is installed
+
+2 - sudo systemctl status ufw - Check is working properly and active
+
+3 - sudo ufw status - Check UFW rules
+
+4 - sudo ufw allow 8080
+
+5 - sudo ufw status
+
+6 - sudo ufw delete allow 8080
+
+7 - sudo ufw status
+
+
+
+SSH (Secure Shell):
+
+1 - dpkg -l | grep ssh - Check if SSH is installed
+
+2 - sudo systemctl status ssh - Check if SSH is working properly and is active
+
+3 - SSH is a remote administration protocol that allows users to control and modify their servers over the internet with an authentication system. All communications between the host and the client are encrypted. 
+
+4 - sudo vi /etc/ssh/sshd_config - Check that root is not allowed to use SSH and only port 4242 is allowed
+
+5 - ssh etetopat@127.0.0.1 -p 4242 - Connects to VM from your host (physical) machine via SSH
+
+6 - Try with root
+
+
+
+SCRIPT MONITORING:
+
+1 - cd /usr/local/bin/ - Explain monitoring.sh and sleep.sh
+
+2 - sudo crontab -l - Explain how cron works (task planner/scheduling)
+
+3 - sudo crontab -e - And change it to execute every minute
+
+4 - sudo service cron stop
+
+5 - sudo systemctl status cron
+
+
+
+BONUS:
+
+WordPress is a content management system (CMS for short) that allows anyone anywhere to create and maintain a functional website, without any particular technical knowledge.
+
+For our Born2beroot server to be able to host a WordPress website, we need three things: HTTP server software (lighty), a database manager (MariaDB), and PHP. 
+
+PHP (PHP: Hypertext Preprocessor) is a very popular programming language for the creation of dynamic web pages a via web server
+
+
+1 - cd /var/www/html - check Wordpress directory
+
+2 - sudo ufw allow http
+
+3 - php -v
+
+4 - sudo lighttpd -v - Check Web server
+
+5 - systemctl status apache2 - Check that apache2 is not installed
+
+6 - 127.0.0.1:8080 - Check lightttpd and wordpress website on Brave
+
+7 - systemctl status mariadb - Check MariaDB
+
+8 - mysql -u root -p - Enter MariaDB
+
+9 - show databases; - Check the database
+
+10 - EXIT;
+
+
+Fail2ban is a program that analyses server logs to check and ban suspicious IP addresses. If it finds multiple failed login attempts or automated attacks from an IP address, it can block it with the firewall temporarily or permanently.
+
+11 - sudo systemctl status fail2ban - Check fail2ban status
+
+12 - sudo vi /etc/fail2ban/jail.local - Check fail2ban config
+
+13 - sudo fail2ban-client status sshd
+
+14 - ssh etetopat@127.0.0.1 -p 4242 - Connect with the wrong password more than 3 times
+
+15 - sudo fail2ban-client status sshd - Check ban
+and sudo tail -f /var/log/fail2ban.log
+
+
+CONGRATS!!!!! 
