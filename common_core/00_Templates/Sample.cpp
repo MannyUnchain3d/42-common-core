@@ -20,7 +20,7 @@ Sample::~Sample(void) {
 	// Make your Destructor here
 }
 
-/* ----- OPERATOR OVERLOADS ---------- */
+/* ----- OPERATOR OVERLOAD ---------- */
 
 Sample&	Sample::operator=(Sample const& rhs) {
 	// Make your Assignment here
@@ -31,9 +31,9 @@ Sample&	Sample::operator=(Sample const& rhs) {
 
 /* ----- SETTER ----------------------- */
 
-/* ----- PUBLIC METHOD(S) ------------- */
+/* ----- PUBLIC METHOD ------------- */
 
-/* ----- PRIVATE METHOD(S) ------------ */
+/* ----- PRIVATE METHOD ------------ */
 
-/* ----- EXTERNAL FUNCTION(S) --------- */
+/* ----- EXTERNAL FUNCTION --------- */
 

@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 20:11:51 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 20:43:33 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/13 22:48:09 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
-/* ----- OPERATOR OVERLOADS ---------- */
+/* ----- OPERATOR OVERLOAD ---------- */
 
 Fixed&	Fixed::operator=(Fixed const& rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
