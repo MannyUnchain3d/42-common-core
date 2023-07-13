@@ -1,40 +1,55 @@
-#include "Sample.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/13 20:11:51 by etetopat          #+#    #+#             */
+/*   Updated: 2023/07/13 20:43:33 by etetopat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
 
 /* ----- CONSTRUCTOR -------------------*/
 
 /* Default Constructor */
-Sample::Sample(void){
-	return ;
+Fixed::Fixed(void){
+	std::cout << "Default constructor called" << std::endl;
+	this->_fixedPointValue = 0;
 }
 
 /* Copy Constructor */
-Sample::Sample(Sample const& src)
-{
-	*this = src;
+Fixed::Fixed(Fixed const& src) {
+	std::cout << "Copy constructor called" << std::endl;
+	this->setRawBits(src.getRawBits());
 }
 
 /* ----- DESTRUCTOR ------------------ */
 
-Sample::~Sample(void)
-{
-	return ;
+Fixed::~Fixed(void) {
+	std::cout << "Destructor called" << std::endl;
 }
 
 /* ----- OPERATOR OVERLOADS ---------- */
 
-Sample& Sample::operator=(Sample const& rhs)
-{
-	// Make your Assignment here
+Fixed&	Fixed::operator=(Fixed const& rhs) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &rhs)
+		this->_fixedPointValue = rhs.getRawBits();
 	return (*this);
 }
 
 /* ----- GETTER ----------------------- */
 
+int		Fixed::getRawBits(void) const {
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_fixedPointValue);
+}
+
 /* ----- SETTER ----------------------- */
 
-/* ----- PUBLIC METHOD(S) ------------- */
-
-/* ----- PRIVATE METHOD(S) ------------ */
-
-/* ----- EXTERNAL FUNCTION(S) --------- */
-
+void	Fixed::setRawBits(int const raw) {
+	this->_fixedPointValue = raw;
+}
