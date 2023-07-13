@@ -1,8 +1,3 @@
-
-                                           ##################################
-                                           #          BORN 2 BE ROOT        #
-                                           ##################################
-
 PROJECT OVERVIEW:
 
 certUtil -hashfile born2beroot.vdi sha1
@@ -211,4 +206,4 @@ Fail2ban is a program that analyses server logs to check and ban suspicious IP a
 and sudo tail -f /var/log/fail2ban.log
 
 
-CONGRATS!!!!! 
+CONGRATS!!!!!
