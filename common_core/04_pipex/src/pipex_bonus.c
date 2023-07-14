@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 00:41:03 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/11 20:18:30 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/14 22:19:26 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ void	child_process(char *argv, char **envp)
 	}
 }
 
+static void	close_dup_wait(int *fd, pid_t reader)
+{
+	close(fd[1]);
+	dup2(fd[0], STDIN_FILENO);
+	waitpid(reader, NULL, 0);
+}
+
 /* Function to make a child process reads from stdin using get_next_line,
  * stops when it reaches the limiter, then redirects the output to a pipe. */
 void	here_doc(char *limiter, int argc)
@@ -56,17 +63,14 @@ void	here_doc(char *limiter, int argc)
 		close(fd[0]);
 		while (get_next_line(&line))
 		{
-			if ((ft_strncmp(line, limiter, ft_strlen(limiter))) == 0)
+			if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0
+				&& ft_strlen(line) - 1 == ft_strlen(limiter))
 				exit(EXIT_SUCCESS);
 			write(fd[1], line, ft_strlen(line));
 		}
 	}
 	else
-	{
-		close(fd[1]);
-		dup2(fd[0], STDIN_FILENO);
-		wait(NULL);
-	}
+		close_dup_wait(fd, reader);
 }
 
 /* Main function runs the child processes with the right fds or displays
@@ -80,7 +84,7 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc >= 5)
 	{
-		if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+		if (ft_strncmp(argv[1], "here_doc", 8) == 0 && ft_strlen(argv[1]) == 8)
 		{
 			i = 3;
 			fdout = open_fd(argv[argc - 1], 0);
