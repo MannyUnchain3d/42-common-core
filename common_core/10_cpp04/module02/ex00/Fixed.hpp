@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 20:08:38 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 21:09:14 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:22:10 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ class Fixed {
 		Fixed(void);
 		Fixed(Fixed const& src);
 		~Fixed(void);
-		Fixed	&operator=(Fixed const& rhs);
+
+		Fixed&	operator=(Fixed const& rhs);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);

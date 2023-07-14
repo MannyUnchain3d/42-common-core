@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 20:49:32 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 22:55:15 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:23:27 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Fixed::Fixed(Fixed const& src) {
 	*this = src;
 }
 
+/* Constructor with parameters */
 Fixed::Fixed(int const value) {
 	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPointValue = value << this->_fractionalBits;
@@ -45,6 +46,7 @@ Fixed::~Fixed(void) {
 
 /* ----- OPERATOR OVERLOAD ---------- */
 
+/* Assignment Operator */
 Fixed&	Fixed::operator=(Fixed const& rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -76,6 +78,7 @@ float	Fixed::toFloat(void) const {
 
 /* ----- EXTERNAL FUNCTION ----------- */
 
+/* Stream Insertion Operator */
 std::ostream&	operator<<(std::ostream& out, Fixed const& rhs) {
 	out << rhs.toFloat();
 	return (out);

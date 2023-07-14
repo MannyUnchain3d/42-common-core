@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 23:04:14 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 23:13:54 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:11:58 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Fixed {
 		Fixed(float const value);
 		Fixed(Fixed const& src);
 		~Fixed(void);
+
 		Fixed&	operator=(Fixed const& rhs);
 
 		bool	operator>(Fixed const& rhs);

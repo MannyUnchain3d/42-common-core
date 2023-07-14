@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 23:04:05 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/14 22:31:35 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:16:17 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,6 @@ Fixed::Fixed(float const value) {
 Fixed::~Fixed(void) {
 }
 
-/* ----- OPERATOR OVERLOAD ---------- */
-
-Fixed&	Fixed::operator=(Fixed const& rhs) {
-	if (this != &rhs)
-		this->_fixedPointValue = rhs.getRawBits();
-	return (*this);
-}
-
 /* ----- GETTER ----------------------- */
 
 int		Fixed::getRawBits(void) const {
@@ -68,15 +60,16 @@ float	Fixed::toFloat(void) const {
 	return ((float)this->_fixedPointValue / (float)(1 << this->_fractionalBits));
 }
 
-/* ----- EXTERNAL FUNCTION ----------- */
+/* ----- OPERATOR OVERLOAD ---------- */
 
-std::ostream&	operator<<(std::ostream& out, Fixed const& rhs) {
-	out << rhs.toFloat();
-	return (out);
+/* Assignment Operator */
+Fixed&	Fixed::operator=(Fixed const& rhs) {
+	if (this != &rhs)
+		this->_fixedPointValue = rhs.getRawBits();
+	return (*this);
 }
 
-/* ----- COMPARISON OPERATOR --------- */
-
+/* Comparison Operator */
 bool	Fixed::operator>(Fixed const& rhs) {
 	return (this->_fixedPointValue > rhs.getRawBits());
 }
@@ -101,8 +94,7 @@ bool	Fixed::operator!=(Fixed const& rhs) {
 	return (this->_fixedPointValue != rhs.getRawBits());
 }
 
-/* ----- ARITHMETIC OPERATOR --------- */
-
+/* Arithmetic Operator */
 Fixed	Fixed::operator+(Fixed const& rhs) {
 	return (Fixed(this->toFloat() + rhs.toFloat()));
 }
@@ -119,8 +111,7 @@ Fixed	Fixed::operator/(Fixed const& rhs) {
 	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
-/* ----- INCREMENT OPERATOR ---------- */
-
+/* Increment operator */
 Fixed&	Fixed::operator++(void) {
 	this->_fixedPointValue++;
 	return (*this);
@@ -132,6 +123,7 @@ Fixed	Fixed::operator++(int) {
 	return (tmp);
 }
 
+/* Decrement operator */
 Fixed&	Fixed::operator--(void) {
 	this->_fixedPointValue--;
 	return (*this);
@@ -143,8 +135,7 @@ Fixed	Fixed::operator--(int) {
 	return (tmp);
 }
 
-/* ----- MIN MAX FUNCTION ------------ */
-
+/* ----- STATIC METHOD -------------- */
 Fixed&	Fixed::min(Fixed& a, Fixed& b) {
 	return (a.getRawBits() < b.getRawBits() ? a : b);
 }
@@ -159,4 +150,12 @@ Fixed const&	Fixed::min(Fixed const& a, Fixed const& b) {
 
 Fixed const&	Fixed::max(Fixed const& a, Fixed const& b) {
 	return (a.getRawBits() > b.getRawBits() ? a : b);
+}
+
+/* ----- EXTERNAL FUNCTION ----------- */
+
+/* Output stream operator */
+std::ostream&	operator<<(std::ostream& out, Fixed const& rhs) {
+	out << rhs.toFloat();
+	return (out);
 }
