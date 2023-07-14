@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 23:04:05 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/13 23:30:10 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/14 22:31:35 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Fixed::Fixed(Fixed const& src) {
 	*this = src;
 }
 
+/* Constructor with parameters */
 Fixed::Fixed(int const value) {
 	this->_fixedPointValue = value << this->_fractionalBits;
 }
