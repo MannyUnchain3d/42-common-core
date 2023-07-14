@@ -49,11 +49,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(OBJ_PATH)
 	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
 
 fclean: clean
-	$(RM) $(NAME) $(OBJ_PATH)
+	$(RM) $(NAME)
 	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
 
 re: fclean all
