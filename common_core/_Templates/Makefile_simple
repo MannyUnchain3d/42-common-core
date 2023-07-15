@@ -2,7 +2,7 @@
 NAME =
 
 # ***** COMPILATION **** #
-CC = g++
+CC = g++ -g3
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
