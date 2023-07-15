@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 23:04:05 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/14 23:16:17 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/15 20:52:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed(Fixed const& src) {
 	*this = src;
 }
 
-/* Constructor with parameters */
+/* Parameter Constructor */
 Fixed::Fixed(int const value) {
 	this->_fixedPointValue = value << this->_fractionalBits;
 }

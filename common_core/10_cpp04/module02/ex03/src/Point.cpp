@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:20:36 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/15 17:01:28 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/15 20:52:16 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Point::Point(void) : _x(0), _y(0) {
 Point::Point(Point const& src) : _x(src.getX()), _y(src.getY()) {
 }
 
-/* Constructor with parameters */
+/* Parameter Constructor */
 Point::Point(float const x, float const y) : _x(x), _y(y) {
 }
 
