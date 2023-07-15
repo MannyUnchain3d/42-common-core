@@ -5,13 +5,17 @@
 /* Default Constructor */
 Sample::Sample(void) {
 	// Make your Constructor here
-	return ;
 }
 
 /* Copy Constructor */
 Sample::Sample (Sample const& src) {
 	// Make your Copy Constructor here
 	*this = src;
+}
+
+/* Parameter Constructor */
+Sample::Sample (int const n) {
+	// Make your Constructor here
 }
 
 /* ----- DESTRUCTOR ------------------ */
