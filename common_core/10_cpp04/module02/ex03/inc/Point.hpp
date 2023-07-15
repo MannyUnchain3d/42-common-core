@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:41:33 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/15 01:47:21 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:03:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Point {
 		~Point(void);
 
 		Point&	operator=(Point const& src);
+		bool	operator==(Point const& rhs) const;
 
 		Fixed	getX(void) const;
 		Fixed	getY(void) const;
