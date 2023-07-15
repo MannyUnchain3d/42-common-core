@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 23:04:05 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/14 23:24:58 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:01:55 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/* ----- CONSTRUCTOR(S) -------------------*/
+/* ----- CONSTRUCTOR -------------------*/
 
 /* Default Constructor */
 Fixed::Fixed(void){
@@ -86,7 +86,7 @@ bool	Fixed::operator<=(Fixed const& rhs) {
 	return (this->_fixedPointValue <= rhs.getRawBits());
 }
 
-bool	Fixed::operator==(Fixed const& rhs) {
+bool	Fixed::operator==(Fixed const& rhs) const {
 	return (this->_fixedPointValue == rhs.getRawBits());
 }
 
