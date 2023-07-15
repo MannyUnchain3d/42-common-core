@@ -12,6 +12,7 @@
 # define UNDERLINE	"\033[4m"
 # define BLINK		"\033[5m"
 # define NC			"\033[0m"
+
 class Sample {
 	public:
 		Sample(void); // Class Constructor
