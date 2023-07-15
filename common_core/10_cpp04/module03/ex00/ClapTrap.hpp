@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:48:28 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/15 20:48:34 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/15 20:51:03 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ClapTrap {
 	public:
 		ClapTrap(void);
 		ClapTrap(const ClapTrap& src);
+		ClapTrap(int const n);
 		~ClapTrap(void);
 
 		ClapTrap& operator=(const ClapTrap& rhs);

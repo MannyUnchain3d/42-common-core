@@ -17,6 +17,7 @@ class Sample {
 	public:
 		Sample(void); // Class Constructor
 		Sample(const Sample& src); // Class Copy Constructor
+		Sample(int const n); // Class Parameter Constructor
 		~Sample(void); // Class Deconstructor
 
 		Sample& operator=(const Sample& rhs); // Operator Overload
