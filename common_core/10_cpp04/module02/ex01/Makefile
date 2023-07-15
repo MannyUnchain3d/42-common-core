@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 12:59:47 by Manny             #+#    #+#              #
-#    Updated: 2023/07/12 13:04:14 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/15 19:32:08 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME = Fixed
 
 # ***** COMPILATION **** #
-CC = g++
+CC = g++ -g3
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 

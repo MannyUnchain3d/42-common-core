@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 23:01:35 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/14 23:26:40 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/15 19:32:04 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = Fixed
 
 # ***** COMPILATION **** #
-CC = g++
+CC = g++ -g3
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 

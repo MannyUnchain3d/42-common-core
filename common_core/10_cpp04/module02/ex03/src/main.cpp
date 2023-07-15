@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:20:39 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/15 17:35:43 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/15 19:54:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void) {
 	Point a(0, 0);
 	Point b(10, 30);
 	Point c(20, 0);
-	Point point(30, 15);
+	Point point(10, 15);
 
 	if (bsp(a, b, c, point) == true) {
 		if (point == a || point == b || point == c)
