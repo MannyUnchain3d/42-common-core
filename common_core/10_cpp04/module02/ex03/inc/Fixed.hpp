@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 23:04:14 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/14 23:10:32 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:02:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Fixed {
 		bool	operator<(Fixed const& rhs);
 		bool	operator>=(Fixed const& rhs);
 		bool	operator<=(Fixed const& rhs);
-		bool	operator==(Fixed const& rhs);
+		bool	operator==(Fixed const& rhs) const;
 		bool	operator!=(Fixed const& rhs);
 
 		Fixed	operator+(Fixed const& rhs);
