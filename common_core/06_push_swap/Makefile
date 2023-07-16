@@ -6,75 +6,98 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:18:29 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:46:45 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 03:14:31 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = push_swap
-BONUS = checker
+NAME_B = checker
+
+# ***** COLORS ********* #
+RED		= \033[0;31m
+GREEN	= \033[0;32m
+YELLOW	= \033[0;33m
+BLUE	= \033[0;34m
+MAGENTA	= \033[0;35m
+CYAN	= \033[0;36m
+BOLD	= \033[1m
+ITALIC	= \033[3m
+ULINE	= \033[4m
+BLINK	= \033[5m
+NC		= \033[0m
 
 # ***** COMPILATION **** #
-CC = gcc -g3 -fsanitize=address
+CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
 # ***** INCLUDES ******* #
-INC = -I ./
+INC = -I ./inc/ -I $(LIBFT_DIR)
 
 # ***** LIBFT ********** #
-LIBFTDIR = ./libft/
-LIBFT = -L libft -lft
+LIBFT_DIR = ./libft/
+LIBFT = $(LIBFT_DIR)libft.a
+lIBFTFLAGS = -L $(LIBFT_DIR) -lft
 
 # ***** SOURCES ******* #
-SRC_PATH = src/
+SRC_DIR = ./src/
 SRC = cost.c init.c input_check.c main.c move.c position.c push.c rev_rotate.c \
 		rotate.c sort_3nb.c sort.c stack.c swap.c utils.c
-SRC_BONUS = cost.c init.c input_check.c move.c position.c push.c rev_rotate.c \
+SRC_B = cost.c init.c input_check.c move.c position.c push.c rev_rotate.c \
 		rotate.c sort_3nb.c sort.c stack.c swap.c utils.c checker.c
 
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
+SRCS_B = $(addprefix $(SRC_DIR), $(SRC_B))
+
 # ***** OBJECTS ******* #
-OBJ_PATH = obj/
+OBJ_DIR = ./obj/
 OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
-OBJS_BONUS = $(addprefix $(OBJ_PATH), $(OBJ_BONUS))
+OBJ_B = $(SRC_B:.c=.o)
+
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
+OBJS_B = $(addprefix $(OBJ_DIR), $(OBJ_B))
 
 # ***** RULES ********* #
-all: $(OBJ_PATH) $(NAME)
+all: $(OBJ_DIR) $(LIBFT) $(NAME)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_PATH):
-	mkdir $(OBJ_PATH)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-$(NAME): $(OBJS)
-	@make -C $(LIBFTDIR)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
+bonus: $(OBJ_DIR) $(LIBFT) $(NAME_B)
 
-$(BONUS): $(OBJS_BONUS)
-	@make -C $(LIBFTDIR)
-	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(BONUS) $(LIBFT)
-	@echo "\n\033[32m---- (っ▀¯▀)つ checker is ready! ----\033[0m\n"
+$(NAME): $(LIBFT) $(OBJS)
+	@echo "\n$(BLUE) $(CC) $(OBJS) $(lIBFTFLAGS) -o $(NAME) $(NC)"
+	@$(CC) $(OBJS) $(lIBFTFLAGS) -o $(NAME)
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-bonus: $(OBJ_PATH) $(BONUS)
+$(NAME_B): $(OBJS_B)
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS_B) $(INC) $(LIBFT) $(lIBFTFLAGS) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS_B) $(INC) $(LIBFT) $(lIBFTFLAGS) -o $@
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME_B) is ready! ----$(NC)\n"
+
+$(LIBFT):
+	@make -sC $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJ_PATH)
-	@make clean -C $(LIBFTDIR)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
+	$(RM) $(OBJ_DIR)
+	@make clean -sC $(LIBFT_DIR)
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME) $(BONUS)
-	@make fclean -C $(LIBFTDIR)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) and checker are gone! ----\033[0m\n"
+	$(RM) $(NAME) $(NAME_B)
+	@make fclean -sC $(LIBFT_DIR)
+	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
 
-rebonus: fclean bonus
+re_bonus: fclean bonus
 
+# ***** TESTS ********** #
 test2: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-100 -n 2))
 	./push_swap $(ARG) | ./checker $(ARG)
@@ -119,4 +142,4 @@ mem2:
 mem3:
 	valgrind -s ./$(NAME)
 
-.PHONY: all bonus clean fclean re rebonus test2 test3 test5 test100 test500 test1000 mem1 mem2 mem3
+.PHONY: all bonus clean fclean re re_bonus test2 test3 test5 test100 test500 test1000 mem1 mem2 mem3

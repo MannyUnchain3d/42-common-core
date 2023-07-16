@@ -20,7 +20,7 @@ class Sample {
 		Sample(int const n); // Class Parameter Constructor
 		~Sample(void); // Class Deconstructor
 
-		Sample& operator=(const Sample& rhs); // Operator Overload
+		Sample& operator=(Sample const& rhs); // Operator Overload
 
 		virtual	~Sample(void); // Virtual Deconstructor
 

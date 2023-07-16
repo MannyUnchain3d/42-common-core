@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 14:22:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/16 18:05:50 by Manny            ###   ########.fr       */
+/*   Created: 2023/05/10 15:44:15 by Manny             #+#    #+#             */
+/*   Updated: 2023/05/10 15:53:15 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+/*
+	DESCRIPTION :
+	The function ft_isspace checks whether c is a space character or not.
 
-# include "ClapTrap.hpp"
+	RETURN VALUE:
+	Non-zero if c is a space, zero if not.
+*/
 
-class	ScavTrap : public ClapTrap {
-	public:
-		ScavTrap(void);
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& rhs);
-		~ScavTrap(void);
-
-		ScavTrap&	operator=(ScavTrap const& rhs);
-
-		void	guardGate(void);
-
-	private:
-};
-
-#endif
+int	ft_isspace(int c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\r'
+		|| c == '\v' || c == '\f')
+		return (c);
+	return (0);
+}

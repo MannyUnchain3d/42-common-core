@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:43 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 20:04:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:58:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 /* Starts the simulation, creates 1 thread per philosopher and 1 manager thread.
  * Returns true if the simulation correctly launched or false if not. */

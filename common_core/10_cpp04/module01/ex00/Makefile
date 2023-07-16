@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 22:03:13 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/09 03:22:49 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/16 20:44:29 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,41 +35,40 @@ RM = rm -rf
 INC = -I ./inc/
 
 # ***** SOURCES ******** #
-SRC_PATH = ./src/
+SRC_DIR = ./src/
 SRC = main.cpp \
 	  newZombie.cpp \
 	  randomChump.cpp \
 	  Zombie.cpp
-SRCS = $(addprefix $(SRC_PATH), $(SRC))
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
-OBJ_PATH = ./obj/
+OBJ_DIR = ./obj/
 OBJ = $(SRC:.cpp=.o)
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
-all: $(OBJ_PATH) $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
- $(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
+ $(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ -I.
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
-
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ -I.
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS) -o $@
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 clean:
-	$(RM) $(OBJ_PATH)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
+	$(RM) $(OBJS) $(OBJ_DIR)
+	@echo "\n$(RED)---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
+	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
 

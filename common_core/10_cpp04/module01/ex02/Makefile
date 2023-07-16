@@ -6,12 +6,25 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/09 02:58:51 by Manny             #+#    #+#              #
-#    Updated: 2023/07/12 13:50:19 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/16 19:42:34 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = brain
+
+# ***** COLORS ********* #
+RED		= \033[0;31m
+GREEN	= \033[0;32m
+YELLOW	= \033[0;33m
+BLUE	= \033[0;34m
+MAGENTA	= \033[0;35m
+CYAN	= \033[0;36m
+BOLD	= \033[1m
+ITALIC	= \033[3m
+ULINE	= \033[4m
+BLINK	= \033[5m
+NC		= \033[0m
 
 # ***** COMPILATION ********* #
 CC = g++
@@ -31,19 +44,21 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJ) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
+	@echo "\n$(RED)---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
+	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
 

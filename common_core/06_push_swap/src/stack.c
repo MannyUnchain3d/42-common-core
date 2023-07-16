@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:31:17 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 19:52:22 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:15:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* Creates a new stack of elements, returns NULL if malloc fails,
  * else returns the new stack */

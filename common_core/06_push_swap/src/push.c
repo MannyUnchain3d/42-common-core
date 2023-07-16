@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:08:27 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:38:00 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:15:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* Pushes the top element of stack src to the top of stack dest */
 static void	push(t_stack **src, t_stack **dest)

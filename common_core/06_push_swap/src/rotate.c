@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:13:53 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 15:54:42 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:15:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* Rotates the top element of a stack to the bottom */
 static void	rotate(t_stack **stack)

@@ -31,15 +31,17 @@ OBJ = $(SRC:.cpp=.o)
 # ***** RULES ********** #
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
+$(NAME): $(OBJ)
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJ) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(OBJ_PATH)
+	$(RM) $(OBJ)
 	@echo "\n$(RED)---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean

@@ -6,17 +6,18 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 03:40:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/16 03:40:15 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/16 18:37:51 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void) {
-	ClapTrap	ClapTrap("Ryu");
+	ScavTrap	scav("Ryu");
 
-	ClapTrap.attack("Ken");
-	ClapTrap.takeDamage(5);
-	ClapTrap.beRepaired(5);
+	scav.attack("Ken");
+	scav.takeDamage(10);
+	scav.beRepaired(10);
+	scav.guardGate();
 	return (0);
 }

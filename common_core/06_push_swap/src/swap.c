@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:49:38 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:35:54 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:15:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* Swaps the top 2 elements of a stack, does nothing if there is 1
  * or no element */

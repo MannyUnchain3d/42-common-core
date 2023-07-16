@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:47:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:51:33 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 05:49:19 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,26 +14,41 @@
 NAME = minishell
 NAME_B = minishell_bonus
 
+# ***** COLORS ********* #
+RED		= \033[0;31m
+GREEN	= \033[0;32m
+YELLOW	= \033[0;33m
+BLUE	= \033[0;34m
+MAGENTA	= \033[0;35m
+CYAN	= \033[0;36m
+BOLD	= \033[1m
+ITALIC	= \033[3m
+ULINE	= \033[4m
+BLINK	= \033[5m
+NC		= \033[0m
+
 # ***** COMPILATION **** #
-CC = gcc -g3 #-fsanitize=address
+CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-UNAME = $(shell uname -s)
-ifeq ($(UNAME), Darwin)
-INC = -I ./inc -I $(LIBFT_PATH) -I /usr/local/opt/readline/include
-READ = -L /usr/local/opt/readline/lib -l readline
+# ***** INCLUDES ******* #
+OS = $(shell uname -s)
+ifeq ($(OS), Linux)
+	INC = -I ./inc -I $(LIBFT_DIR)
+	READ = -l readline
 else
-INC = -I ./inc -I $(LIBFT_PATH)
-READ = -l readline
+	INC = -I ./inc -I $(LIBFT_DIR) -I /usr/local/opt/readline/include
+	READ = -L /usr/local/opt/readline/lib -l readline
+
 endif
 
 # ***** LIBFT ********** #
-LIBFT_PATH = ./libft/
-LIBFT = ./libft/libft.a
+LIBFT_DIR = ./libft/
+LIBFT = $(LIBFT_DIR)libft.a
 
 # ***** SOURCES ******* #
-SRC_PATH = ./src/
+SRC_DIR = ./src/
 SRC = 	main.c \
 		builtins/cd_builtin.c \
 		builtins/echo_builtin.c \
@@ -74,61 +89,64 @@ SRC = 	main.c \
 		utils/exit.c \
 		utils/init_data.c
 
-SRC_BO =	$(filter-out parser/parse_2.c,$(SRC)) \
+SRC_B =	$(filter-out parser/parse_2.c,$(SRC)) \
 		parser/parse_2_bonus.c \
 		parser/wildling_bonus.c
 
-SRCS = $(addprefix $(SRC_PATH), $(SRC))
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******* #
-OBJ_PATH = ./obj/
+OBJ_DIR = ./obj/
 OBJ = $(SRC:.c=.o)
-OBJ_BO = $(SRC_BO:.c=.o)
+OBJ_B = $(SRC_B:.c=.o)
 
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
-OBJS_BO = $(addprefix $(OBJ_PATH), $(OBJ_BO))
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
+OBJS_B = $(addprefix $(OBJ_DIR), $(OBJ_B))
 
 # ***** RULES ********* #
-all: $(OBJ_PATH) $(LIBFT) $(NAME)
+all: $(OBJ_DIR) $(LIBFT) $(NAME)
 
-$(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
-	mkdir -p $(OBJ_PATH)builtins
-	mkdir -p $(OBJ_PATH)execution
-	mkdir -p $(OBJ_PATH)env
-	mkdir -p $(OBJ_PATH)parser
-	mkdir -p $(OBJ_PATH)redirections
-	mkdir -p $(OBJ_PATH)utils
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)builtins
+	@mkdir -p $(OBJ_DIR)execution
+	@mkdir -p $(OBJ_DIR)env
+	@mkdir -p $(OBJ_DIR)parser
+	@mkdir -p $(OBJ_DIR)redirections
+	@mkdir -p $(OBJ_DIR)utils
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-bonus: $(OBJ_PATH) $(LIBFT) $(NAME_B)
+bonus: $(OBJ_DIR) $(LIBFT) $(NAME_B)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(INC) $(LIBFT) $(READ) -o $@
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready! ----\033[0m\n"
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(INC) $(LIBFT) $(READ) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS) $(INC) $(LIBFT) $(READ) -o $@
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-$(NAME_B): $(OBJS_BO)
-	$(CC) $(CFLAGS) $(OBJS_BO) $(INC) $(LIBFT) $(READ) -o $@
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) bonus is ready! ----\033[0m\n"
+$(NAME_B): $(OBJS_B)
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS_B) $(INC) $(LIBFT) $(READ) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS_B) $(INC) $(LIBFT) $(READ) -o $@
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) bonus is ready! ----$(NC)\n"
 
 $(LIBFT):
-	make bonus -C $(LIBFT_PATH)
+	@make bonus -sC $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJ_PATH)
-	@make clean -C $(LIBFT_PATH)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
+	$(RM) $(OBJ_DIR)
+	@make clean -sC $(LIBFT_DIR)
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
 	$(RM) $(NAME) $(NAME_B)
-	@make fclean -C $(LIBFT_PATH)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
+	@make fclean -sC $(LIBFT_DIR)
+	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
 
-rebonus: fclean bonus
+re_bonus: fclean bonus
 
 # ***** MEMORY LEAKS *** #
 mem1:
@@ -138,4 +156,4 @@ mem2:
 mem3:
 	valgrind -s ./$(NAME)
 
-.PHONY: all clean fclean re bonus rebonus mem1 mem2 mem3
+.PHONY: all clean fclean re bonus re_bonus mem1 mem2 mem3

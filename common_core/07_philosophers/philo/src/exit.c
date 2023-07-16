@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:58:38 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 19:29:37 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:55:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 /* Frees the "dining table" data struct and all its elements.
  * Returns a NULL pointer */

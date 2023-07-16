@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:25 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 22:05:36 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:58:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 /* When a philosopher is ready to eat,
  * he waits for his mutex forks to be unlocked, locks them, and eats.

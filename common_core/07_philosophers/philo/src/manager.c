@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:37 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 15:03:25 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:58:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 /* Sets the sim_stop flag to true if the sim has stopped or false if not*/
 static void	set_sim_stop_flag(t_table *table, bool state)

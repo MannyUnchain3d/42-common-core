@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:43:04 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/16 20:54:05 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,14 +69,14 @@ all: $(NAME)
 $(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
 	@make -s -C mlx
 	$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $@
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME) is ready to play! ----\033[0m\n"
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready to play! ----$(NC)\n"
 
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
 	@make -s -C mlx
 	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
-	@echo "\n\033[32m---- (っ▀¯▀)つ $(NAME)$ bonus is ready to play! ----\033[0m\n"
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME)$ bonus is ready to play! ----$(NC)\n"
 
 %.o: %.c $(HEADER) $(HEADER_GNL)
 	$(CC) $(CFLAGS) -I/$(HEADER) -c $< -o $@
@@ -84,11 +84,11 @@ $(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
 clean:
 	@make clean -s -C mlx
 	$(RM) $(OBJ_M) $(OBJ_B)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----\033[0m\n"
+	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
 	$(RM) $(NAME) $(NAME_BONUS)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----\033[0m\n"
+	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
 

@@ -31,16 +31,18 @@ OBJ = $(SRC:.cpp=.o)
 # ***** RULES ********** #
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
+$(NAME): $(OBJ)
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJ) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJ) $(INC) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(OBJ_PATH)
-	@echo "\n$(RED)---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
+	$(RM) $(OBJ)
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
 	$(RM) $(NAME)
@@ -48,4 +50,12 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+# ***** MEMORY LEAKS **** #
+mem1:
+	valgrind --leak-check=summary ./$(NAME)
+mem2:
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+mem3:
+	valgrind -s ./$(NAME)
+
+.PHONY : all clean fclean re mem1 mem2 mem3

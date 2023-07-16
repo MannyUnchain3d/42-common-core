@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 21:47:11 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 22:19:25 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:58:15 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 /* Allocates memory and initializes fork mutex.
  * Returns a pointer to the fork mutex array, or NULL if errors */

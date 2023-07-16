@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:59:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/12 20:13:40 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:58:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 static void	print_status(t_philo *philo, char *str)
 {

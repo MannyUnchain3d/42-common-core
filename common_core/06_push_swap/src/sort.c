@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:42:55 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:22:04 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:15:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* Pushes all the numbers of stack A into stack B, until there is only 3 numbers
  * left in stack A. Pushes the smaller numbers first to improve efficiency */

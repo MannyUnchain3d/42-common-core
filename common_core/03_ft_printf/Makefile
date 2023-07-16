@@ -6,68 +6,86 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 13:26:33 by Manny             #+#    #+#              #
-#    Updated: 2023/07/09 03:35:00 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 03:33:16 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = libftprintf.a
 
+# ***** COLORS ********* #
+RED		= \033[0;31m
+GREEN	= \033[0;32m
+YELLOW	= \033[0;33m
+BLUE	= \033[0;34m
+MAGENTA	= \033[0;35m
+CYAN	= \033[0;36m
+BOLD	= \033[1m
+ITALIC	= \033[3m
+ULINE	= \033[4m
+BLINK	= \033[5m
+NC		= \033[0m
+
 # ***** COMPILATION **** #
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3
+CC = gcc -g3
+CFLAGS = -Wall -Wextra -Werror 
 AR = ar
 ARFLAGS = rcs
 RM = rm -rf
 
-# ***** SOURCES ******** #
-SRC_DIR = src
-SRC = ft_flags.c ft_flags_utils.c ft_nbr_len.c ft_print_char.c\
-		ft_print_flag.c ft_print_hex.c ft_print_int.c ft_print_ptr.c\
-		ft_print_str.c ft_print_unsigned.c ft_printf.c\
-		ft_printf_itoa.c ft_printf_utoa.c ft_printf_xtoa.c
-
-# ***** OBJECTS ******** #
-OBJ_DIR = obj
-OBJ = $(SRC:%.c=$(SRC_DIR)/$(OBJ_DIR)/%.o)
-
-# ***** HEADER ********* #
-HEADER = -I inc
+# ***** INCLUDES ******* #
+INC = -I ./inc/ -I $(LIBFT_DIR)
 
 # ***** LIBFT ********** #
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
+# ***** SOURCES ******** #
+SRC_DIR = ./src/
+SRC = ft_flags.c ft_flags_utils.c ft_nbr_len.c ft_print_char.c\
+		ft_print_flag.c ft_print_hex.c ft_print_int.c ft_print_ptr.c\
+		ft_print_str.c ft_print_unsigned.c ft_printf.c\
+		ft_printf_itoa.c ft_printf_utoa.c ft_printf_xtoa.c
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
+
 # ***** OBJECTS ******** #
-$(SRC_DIR)/$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(SRC_DIR)/$(OBJ_DIR)
-	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+OBJ_DIR = ./obj/
+OBJ = $(SRC:%.c=%.o)
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
-all: $(NAME)
+all: $(OBJ_DIR) $(LIBFT) $(NAME)
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 bonus: all
 
-$(NAME): $(LIBFT) $(OBJ)
-	cp $(LIBFT) $(NAME)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@echo "\n\e[32m---- (っ▀¯▀)つ $(NAME) is compiled! ----\e[0m\n"
+$(NAME): $(OBJS) $(LIBFT)
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@ $(NC)"
+	@$(AR) $(ARFLAGS) $@ $(OBJS) $(LIBFT)
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@make -sC $(LIBFT_DIR)
 
 clean:
-	@make -C $(LIBFT_DIR) clean
-	$(RM) $(SRC_DIR)/$(OBJ_DIR)
+	$(RM) $(OBJ_DIR)
+	@make clean -sC $(LIBFT_DIR)
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFT)
-	@echo "\n\e[31m---- ᕦ(ò_óˇ)ᕤ full cleaning done! ----\e[0m\n"
+	$(RM) $(NAME) $(NAME_B)
+	@make fclean -sC $(LIBFT_DIR)
+	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
+
+re_bonus: fclean bonus
 
 # ***** MEMORY LEAKS *** #
 mem1:
@@ -77,4 +95,4 @@ mem2:
 mem3:
 	valgrind -s ./$(NAME)
 
-.PHONY: all clean fclean re bonus mem1 mem2 mem3
+.PHONY: all clean fclean re bonus re_bonus mem1 mem2 mem3

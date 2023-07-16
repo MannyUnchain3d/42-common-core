@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:18:10 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/03 16:31:32 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:16:27 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 typedef struct s_stack
 {

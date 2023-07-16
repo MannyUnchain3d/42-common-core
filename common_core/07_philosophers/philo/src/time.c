@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 21:20:36 by Manny             #+#    #+#             */
-/*   Updated: 2023/02/08 21:29:44 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 05:58:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
 /* Gives the Unix Epoch in milliseconds
 (time elapsed since 00:00:00 UTC 01-Jan-1970) */

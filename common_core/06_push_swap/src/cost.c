@@ -6,11 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:40:10 by Manny             #+#    #+#             */
-/*   Updated: 2022/12/26 20:24:21 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/17 03:15:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* Finds the cost of moving each number from stack B to stack A.
  * 2 costs are calculated:

@@ -23,33 +23,32 @@ RM = rm -rf
 INC = -I ./inc/
 
 # ***** SOURCES ******** #
-SRC_PATH = ./src/
+SRC_DIR = ./src/
 SRC =	bsp.cpp Fixed.cpp main.cpp Point.cpp
-SRCS = $(addprefix $(SRC_PATH), $(SRC))
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
-OBJ_PATH = ./obj/
+OBJ_DIR = ./obj/
 OBJ = $(SRC:.cpp=.o)
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
-all: $(OBJ_PATH) $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
- $(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
+ $(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-	$(RM) $(OBJ) $(OBJ_PATH)
+	$(RM) $(OBJ_DIR)
 	@echo "\n$(RED)---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
