@@ -1,5 +1,5 @@
 # ***** EXECUTABLE ***** #
-NAME = claptrap
+NAME = scavtrap
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
@@ -20,16 +20,26 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # ***** INCLUDES ******* #
-INC = -I ./
+INC = -I ./inc/
 
 # ***** SOURCES ******** #
-SRC = ClapTrap.cpp main.cpp
+SRC_PATH = ./src/
+SRC = ClapTrap.cpp main.cpp ScavTrap.cpp
+SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
 # ***** OBJECTS ******** #
+OBJ_PATH = ./obj/
 OBJ = $(SRC:.cpp=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 
 # ***** RULES ********** #
-all: $(NAME)
+all: $(OBJ_PATH) $(NAME)
+
+ $(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC)
@@ -48,4 +58,12 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+# ***** MEMORY LEAKS **** #
+mem1:
+	valgrind --leak-check=summary ./$(NAME)
+mem2:
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+mem3:
+	valgrind -s ./$(NAME)
+
+.PHONY : all clean fclean re mem1 mem2 mem3
