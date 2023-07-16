@@ -10,7 +10,7 @@ RM = rm -rf
 INC = -I ./
 
 # ***** SOURCES ******** #
-SRC = claptrap.cpp main.cpp
+SRC = ClapTrap.cpp main.cpp
 
 # ***** OBJECTS ******** #
 OBJ = $(SRC:.cpp=.o)

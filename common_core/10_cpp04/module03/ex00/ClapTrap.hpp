@@ -6,12 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:48:28 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/15 20:51:03 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/16 02:50:11 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
+
+# include <iostream>
 
 # define RED		"\033[0;31m"
 # define GREEN		"\033[0;32m"
@@ -28,13 +30,21 @@
 class ClapTrap {
 	public:
 		ClapTrap(void);
-		ClapTrap(const ClapTrap& src);
-		ClapTrap(int const n);
+		ClapTrap(const ClapTrap& rhs);
+		ClapTrap(std::string  name);
 		~ClapTrap(void);
 
 		ClapTrap& operator=(const ClapTrap& rhs);
 
-		virtual	~ClapTrap(void);
+		void	attack(std::string const& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
+
+	private:
+		std::string			_name;
+		unsigned int		_hitPoints;
+		unsigned int		_energyPoints;
+		unsigned int		_attackDamage;
 };
 
 #endif
