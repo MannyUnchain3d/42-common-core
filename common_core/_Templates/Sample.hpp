@@ -23,6 +23,14 @@ class Sample {
 		Sample& operator=(const Sample& rhs); // Operator Overload
 
 		virtual	~Sample(void); // Virtual Deconstructor
+
+	private:
+		void	_privateMethod(void); // Private Method
+		int		_privateAttribute; // Private Attribute
+
+	protected:
+		void	_protectedMethod(void); // Protected Method
+		int		_protectedAttribute; // Protected Attribute
 };
 
 #endif
