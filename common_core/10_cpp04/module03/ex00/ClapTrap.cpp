@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:48:06 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/16 03:39:39 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/16 15:23:51 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ ClapTrap::ClapTrap(void) {
 }
 
 /* Copy Constructor */
-ClapTrap::ClapTrap (ClapTrap const& rhs) {
+ClapTrap::ClapTrap(ClapTrap const& rhs) {
 	std::cout << "ClapTrap Copy Constructor called" << std::endl;
 	*this = rhs;
 }
 
 /* Parameter Constructor */
-ClapTrap::ClapTrap (std::string name) : _name(name),
+ClapTrap::ClapTrap(std::string name) : _name(name),
 										_hitPoints(10),
 										_energyPoints(10),
 										_attackDamage(0) {
