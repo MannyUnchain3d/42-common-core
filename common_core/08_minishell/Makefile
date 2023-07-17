@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:47:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/17 05:49:19 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 23:06:28 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,15 +132,17 @@ $(NAME_B): $(OBJS_B)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) bonus is ready! ----$(NC)\n"
 
 $(LIBFT):
-	@make bonus -sC $(LIBFT_DIR)
+	@make -sC $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
+	@echo "\n$(YELLOW) $(RM) $(OBJ_DIR) $(NC)"
 	@make clean -sC $(LIBFT_DIR)
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME) $(NAME_B)
+	@$(RM) $(NAME) $(NAME_B)
+	@echo "\n$(YELLOW) $(RM) $(NAME) $(NAME_B) $(NC)"
 	@make fclean -sC $(LIBFT_DIR)
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 

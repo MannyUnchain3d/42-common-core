@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/17 05:48:20 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 23:00:16 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,19 +97,21 @@ $(NAME_B): $(OBJ_B) $(INC) $(GNL)
 	@make -sC mlx
 	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@ $(NC)"
 	@$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) bonus is ready to play! ----$(NC)\n"
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) bonus is ready to play! ----$(NC)"
 
 %.o: %.c $(INC) $(INC_GNL)
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) -I/$(INC) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) -I/$(INC) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ_M) $(OBJ_B)
+	@$(RM) $(OBJ_M) $(OBJ_B)
+	@echo "\n$(YELLOW) $(RM) $(OBJ_M) $(OBJ_B) $(NC)"
 	@make clean -sC mlx
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME) $(NAME_B)
+	@$(RM) $(NAME) $(NAME_B)
+	@echo "\n$(YELLOW) $(RM) $(NAME) $(NAME_B) $(NC)"
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all

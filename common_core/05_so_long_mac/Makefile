@@ -3,45 +3,63 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 14:21:27 by Manny             #+#    #+#              #
-#    Updated: 2023/07/16 20:54:05 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 22:48:18 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = so_long
-NAME_BONUS = so_long_bonus
+NAME_B = so_long_bonus
+
+# ***** COLORS ********* #
+RED		= \033[0;31m
+GREEN	= \033[0;32m
+YELLOW	= \033[0;33m
+BLUE	= \033[0;34m
+MAGENTA	= \033[0;35m
+CYAN	= \033[0;36m
+BOLD	= \033[1m
+ITALIC	= \033[3m
+ULINE	= \033[4m
+BLINK	= \033[5m
+NC		= \033[0m
 
 # ***** COMPILATION **** #
-CC = gcc -g3 -fsanitize=address
-CFLAGS = -Wall -Wextra -Werror -I/$(HEADER) -I/$(HEADER_GNL)
+CC = gcc -g3
+CFLAGS = -Wall -Wextra -Werror -I /$(INC) -I /$(GNL)
 RM = rm -rf
-OS = $(shell uname)
+
+# ***** MLX ************ #
+OS = $(shell uname -s)
 ifeq ($(OS), Linux)
 	MLX = -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
 else
 	MLX = -Lmlx -lmlx -Imlx -framework OpenGL -framework AppKit
 endif
 
-# ***** HEADER ********* #
-HEADER = so_long.h
-HEADER_GNL = gnl/get_next_line.h
+# ***** INCLUDES ********* #
+INC = so_long.h
+GNL = gnl/get_next_line.h
 
 # ***** SOURCES ******** #
 SRC = src/actions.c \
 		src/display_error.c \
 		src/map_check.c \
 		src/map_init.c \
-		src/path_check.c\
+		src/path_check.c
+
 SRC_M = src/mandatory/image.c \
 		src/mandatory/moves.c \
 		src/mandatory/so_long.c
+
 SRC_B = src/bonus/enemy_bonus.c \
 		src/bonus/image_bonus.c \
 		src/bonus/moves_bonus.c \
 		src/bonus/so_long_bonus.c
+
 SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_putnbr_fd.c \
 			src/utils/ft_putstr_fd.c \
@@ -49,6 +67,7 @@ SRC_UTILS = src/utils/ft_itoa.c \
 			src/utils/ft_strlcpy.c \
 			src/utils/ft_strdup.c \
 			src/utils/ft_strlen.c
+			
 SRC_GNL = gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
@@ -66,29 +85,34 @@ OBJ_B = $(SRC_B:.c=.o)
 # ***** RULES ********** #
 all: $(NAME)
 
-$(NAME): $(OBJ_M) $(HEADER) $(HEADER_GNL)
-	@make -s -C mlx
-	$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $@
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready to play! ----$(NC)\n"
+$(NAME): $(OBJ_M) $(INC) $(GNL)
+	@make -sC mlx
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $@
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready to play! ----$(NC)"
 
-bonus: $(NAME_BONUS)
+bonus: $(NAME_B)
 
-$(NAME_BONUS): $(OBJ_B) $(HEADER) $(HEADER_GNL)
-	@make -s -C mlx
-	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
-	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME)$ bonus is ready to play! ----$(NC)\n"
+$(NAME_B): $(OBJ_B) $(INC) $(GNL)
+	@make -sC mlx
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $@
+	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) bonus is ready to play! ----$(NC)\n"
 
-%.o: %.c $(HEADER) $(HEADER_GNL)
-	$(CC) $(CFLAGS) -I/$(HEADER) -c $< -o $@
+%.o: %.c $(INC) $(INC_GNL)
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) -I/$(INC) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) -I/$(INC) -c $< -o $@
 
 clean:
-	@make clean -s -C mlx
-	$(RM) $(OBJ_M) $(OBJ_B)
-	@echo "\n\033[31m---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
+	@$(RM) $(OBJ_M) $(OBJ_B)
+	@echo "\n$(YELLOW) $(RM) $(OBJ_M) $(OBJ_B) $(NC)"
+	@make clean -sC mlx
+	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME) $(NAME_BONUS)
-	@echo "\n\033[31m---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
+	@$(RM) $(NAME) $(NAME_B)
+	@echo "\n$(YELLOW) $(RM) $(NAME) $(NAME_B) $(NC)"
+	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all
 

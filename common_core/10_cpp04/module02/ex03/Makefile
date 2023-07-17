@@ -48,11 +48,13 @@ $(NAME): $(OBJS)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 clean:
-	$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJS) $(OBJ_DIR)
+	@echo "\n$(YELLOW) $(RM) $(OBJS) $(OBJ_DIR) $(NC)"
 	@echo "\n$(RED)---- (╯°□°)╯︵ ┻━┻ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "\n$(YELLOW) $(RM) $(NAME) $(NC)"
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
 re: fclean all

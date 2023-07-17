@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2023/07/17 02:55:44 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/17 22:58:29 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,12 +82,14 @@ $(LIBFT):
 	@make -sC $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
+	@echo "\n$(YELLOW) $(RM) $(OBJ_DIR) $(NC)"
 	@make clean -sC $(LIBFT_DIR)
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	$(RM) $(NAME) $(NAME_B)
+	@$(RM) $(NAME) $(NAME_B)
+	@echo "\n$(YELLOW) $(RM) $(NAME) $(NAME_B) $(NC)"
 	@make fclean -sC $(LIBFT_DIR)
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 
