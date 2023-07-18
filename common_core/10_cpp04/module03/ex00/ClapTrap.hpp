@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:48:28 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/16 15:21:54 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/18 15:58:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap {
 	public:
 		ClapTrap(void);
-		ClapTrap(const ClapTrap& rhs);
+		ClapTrap(ClapTrap const& rhs);
 		ClapTrap(std::string name);
 		~ClapTrap(void);
 
