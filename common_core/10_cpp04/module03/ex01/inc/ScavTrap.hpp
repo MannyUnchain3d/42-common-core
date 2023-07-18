@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:22:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/16 18:05:50 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/18 19:55:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	ScavTrap : public ClapTrap {
 
 		ScavTrap&	operator=(ScavTrap const& rhs);
 
+		void	attack(std::string const& target);
 		void	guardGate(void);
 
 	private:
