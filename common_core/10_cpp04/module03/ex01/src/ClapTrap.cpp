@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 03:40:01 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/16 18:29:40 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/18 19:47:30 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(ClapTrap const& rhs) {
 }
 
 /* Parameter Constructor */
-ClapTrap::ClapTrap(std::string name) : _name(name),
+ClapTrap::ClapTrap(std::string name) : 	_name(name),
 										_hitPoints(10),
 										_energyPoints(10),
 										_attackDamage(0) {
