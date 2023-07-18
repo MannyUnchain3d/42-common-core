@@ -15,10 +15,10 @@
 
 class Sample {
 	public:
-		Sample(void); // Class Constructor
-		Sample(const Sample& src); // Class Copy Constructor
-		Sample(int const n); // Class Parameter Constructor
-		~Sample(void); // Class Deconstructor
+		Sample(void); // Default Constructor
+		Sample(Sample const& rhs); // Copy Constructor
+		Sample(int const n); // Parameter Constructor
+		~Sample(void); // Default Deconstructor
 
 		Sample& operator=(Sample const& rhs); // Operator Overload
 

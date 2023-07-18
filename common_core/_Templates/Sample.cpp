@@ -8,9 +8,9 @@ Sample::Sample(void) {
 }
 
 /* Copy Constructor */
-Sample::Sample(Sample const& src) {
+Sample::Sample(Sample const& rhs) {
 	// Make your Copy Constructor here
-	*this = src;
+	*this = rhs;
 }
 
 /* Parameter Constructor */
