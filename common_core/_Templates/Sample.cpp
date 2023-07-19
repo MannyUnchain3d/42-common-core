@@ -1,6 +1,6 @@
 #include "Sample.hpp"
 
-/* ----- CONSTRUCTOR -------------------*/
+/* ----- CONSTRUCTOR ------------------ */
 
 /* Default Constructor */
 Sample::Sample(void) {
@@ -18,13 +18,13 @@ Sample::Sample(int const n) {
 	// Make your Constructor here
 }
 
-/* ----- DESTRUCTOR ------------------ */
+/* ----- DESTRUCTOR ------------------- */
 
 Sample::~Sample(void) {
 	// Make your Destructor here
 }
 
-/* ----- OPERATOR OVERLOAD ---------- */
+/* ----- OPERATOR OVERLOAD ------------ */
 
 Sample&	Sample::operator=(Sample const& rhs) {
 	// Make your Assignment here
@@ -35,9 +35,8 @@ Sample&	Sample::operator=(Sample const& rhs) {
 
 /* ----- SETTER ----------------------- */
 
-/* ----- PUBLIC METHOD ------------- */
+/* ----- PUBLIC METHOD ---------------- */
 
-/* ----- PRIVATE METHOD ------------ */
+/* ----- PRIVATE METHOD --------------- */
 
-/* ----- EXTERNAL FUNCTION --------- */
-
+/* ----- EXTERNAL FUNCTION ------------ */
