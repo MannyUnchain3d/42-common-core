@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:22:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:22:16 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 06:28:34 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 /* Default Constructor */
 ScavTrap::ScavTrap(void) :
-	ClapTrap("Default"), _scavHp(100), _scavHpMax(100), _scavEp(50), _scavAd(20) {
-	this->_hp = _scavHp;
+	ClapTrap("Default"), _scavHp(40), _scavHpMax(40),_scavEp(50), _scavAd(60) {
+	this->_hp = this->_scavHp;
 	this->_hpMax = this->_scavHpMax;
 	this->_ep = this->_scavEp;
 	this->_ad = this->_scavAd;
@@ -33,7 +33,7 @@ ScavTrap::ScavTrap(ScavTrap const& rhs) : ClapTrap(rhs) {
 
 /* Parameter Constructor */
 ScavTrap::ScavTrap(std::string name) :
-	ClapTrap(name), _scavHp(100), _scavHpMax(100), _scavEp(50), _scavAd(20) {
+	ClapTrap(name), _scavHp(40), _scavHpMax(40), _scavEp(50), _scavAd(60) {
 	this->_hp = _scavHp;
 	this->_hpMax = this->_scavHpMax;
 	this->_ep = this->_scavEp;

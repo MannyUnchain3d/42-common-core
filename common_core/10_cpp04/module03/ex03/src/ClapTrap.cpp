@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:48:06 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:33:34 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 05:29:07 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* ----- CONSTRUCTOR ------------------ */
 
 /* Default Constructor */
-ClapTrap::ClapTrap(void) : _name("Default"), _hp(10), _hpMax(10), _ep(10), _ad(0) {
+ClapTrap::ClapTrap(void) : _name("Default"), _hp(10), _hpMax(10), _ep(20), _ad(30) {
 	std::cout << YELLOW "[ClapTrap] " NC "Default Constructor called" << std::endl;
 }
 
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(ClapTrap const& rhs) {
 }
 
 /* Parameter Constructor */
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _hpMax(10), _ep(10), _ad(0) {
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _hpMax(10), _ep(20), _ad(30) {
 	std::cout << YELLOW "[ClapTrap] " << this->_name << NC " enters the arena with " << this->_hp << " hit points, ";
 	std::cout << this->_ep << " energy points and " << this->_ad << " attack points!" << std::endl;
 }
@@ -43,13 +43,31 @@ ClapTrap::~ClapTrap(void) {
 ClapTrap&	ClapTrap::operator=(ClapTrap const& rhs) {
 	if (this != &rhs)
 	{
-		this->_name = rhs._name + "_twin";
-		this->_hp = rhs._hp;
-		this->_hpMax = rhs._hpMax;
-		this->_ep = rhs._ep;
-		this->_ad = rhs._ad;
+		this->_name = rhs.getName();
+		this->_hp = rhs.getHp();
+		this->_hpMax = rhs.getHp();
+		this->_ep = rhs.getEp();
+		this->_ad = rhs.getAd();
 	}
 	return (*this);
+}
+
+/* ----- GETTER ----------------------- */
+
+std::string		ClapTrap::getName(void) const {
+	return (this->_name);
+}
+
+unsigned int	ClapTrap::getHp(void) const {
+	return (this->_hp);
+}
+
+unsigned int	ClapTrap::getEp(void) const {
+	return (this->_ep);
+}
+
+unsigned int	ClapTrap::getAd(void) const {
+	return (this->_ad);
 }
 
 /* ----- PUBLIC METHOD ---------------- */

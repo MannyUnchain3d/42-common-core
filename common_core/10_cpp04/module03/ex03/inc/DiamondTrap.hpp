@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:22:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:20:06 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:39:30 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class	ScavTrap : virtual public ClapTrap {
+class	DiamondTrap : public ScavTrap, public FragTrap {
 	public:
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& rhs);
-		~ScavTrap(void);
+		DiamondTrap(std::string name);
+		DiamondTrap(DiamondTrap const& rhs);
+		~DiamondTrap(void);
 
-		ScavTrap&	operator=(ScavTrap const& rhs);
+		DiamondTrap&	operator=(DiamondTrap const& rhs);
 
-		void	attack(std::string const& target);
-		void	guardGate(void);
+		void	whoAmI(void);
+		using	ScavTrap::attack;
 
 	protected:
-		ScavTrap(void);
+		DiamondTrap(void);
 
-		unsigned int	_scavHp;
-		unsigned int	_scavHpMax;
-		unsigned int	_scavEp;
-		unsigned int	_scavAd;
+	private:
+		std::string	_name;
 };
 
 #endif

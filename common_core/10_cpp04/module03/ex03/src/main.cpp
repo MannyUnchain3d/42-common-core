@@ -5,31 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 20:48:21 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 05:44:47 by Manny            ###   ########.fr       */
+/*   Created: 2023/07/18 23:26:47 by Manny             #+#    #+#             */
+/*   Updated: 2023/07/21 05:34:24 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+
+#include "DiamondTrap.hpp"
 #include "colors.h"
 
 int	main(void) {
-	ClapTrap	clap1("Ryu");
-	ClapTrap	clap2(clap1);
+	DiamondTrap	diamond1("Sagat");
+	DiamondTrap	diamond2(diamond1);
 	
 	std::cout << std::endl;
 	
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
-	clap1.attack("Bison");
-	clap1.takeDamage(8);
-	clap1.beRepaired(5);
+	diamond1.whoAmI();
+	diamond1.attack("Bison");
+	diamond1.takeDamage(8);
+	diamond1.beRepaired(10);
+	diamond1.highFivesGuys();
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
 
 	std::cout << std::endl;
 
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
-	clap2.takeDamage(10);
-	clap2.beRepaired(5);
+	diamond2.whoAmI();
+	diamond2.takeDamage(69);
+	diamond2.beRepaired(100000000);
+	diamond2.highFivesGuys();
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
 
 	std::cout << std::endl;

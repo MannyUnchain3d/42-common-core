@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 20:48:06 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:33:34 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 06:40:23 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ ClapTrap&	ClapTrap::operator=(ClapTrap const& rhs) {
 		this->_name = rhs._name + "_twin";
 		this->_hp = rhs._hp;
 		this->_hpMax = rhs._hpMax;
-		this->_ep = rhs._ep;
 		this->_ad = rhs._ad;
 	}
 	return (*this);

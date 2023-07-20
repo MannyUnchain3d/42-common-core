@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 20:48:28 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:33:40 by Manny            ###   ########.fr       */
+/*   Created: 2023/07/16 14:22:16 by Manny             #+#    #+#             */
+/*   Updated: 2023/07/21 06:12:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <iostream>
+# include "ClapTrap.hpp"
 
-class ClapTrap {
+class	ScavTrap : virtual public ClapTrap {
 	public:
-		ClapTrap(ClapTrap const& rhs);
-		ClapTrap(std::string name);
-		~ClapTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const& rhs);
+		~ScavTrap(void);
 
-		ClapTrap& operator=(const ClapTrap& rhs);
+		ScavTrap&	operator=(ScavTrap const& rhs);
 
 		void	attack(std::string const& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void	guardGate(void);
 
 	protected:
-		ClapTrap(void);
-		
-		std::string		_name;
-		unsigned int	_hp;
-		unsigned int	_hpMax;
-		unsigned int	_ep;
-		unsigned int	_ad;
+		ScavTrap(void);
+
+		unsigned int	_scavHp;
+		unsigned int	_scavHpMax;
+		unsigned int	_scavEp;
+		unsigned int	_scavAd;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:22:14 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:22:16 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 06:24:50 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /* Default Constructor */
 ScavTrap::ScavTrap(void) :
 	ClapTrap("Default"), _scavHp(100), _scavHpMax(100), _scavEp(50), _scavAd(20) {
-	this->_hp = _scavHp;
+	this->_hp = this->_scavHp;
 	this->_hpMax = this->_scavHpMax;
 	this->_ep = this->_scavEp;
 	this->_ad = this->_scavAd;
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(ScavTrap const& rhs) : ClapTrap(rhs) {
 /* Parameter Constructor */
 ScavTrap::ScavTrap(std::string name) :
 	ClapTrap(name), _scavHp(100), _scavHpMax(100), _scavEp(50), _scavAd(20) {
-	this->_hp = _scavHp;
+	this->_hp = this->_scavHp;
 	this->_hpMax = this->_scavHpMax;
 	this->_ep = this->_scavEp;
 	this->_ad = this->_scavAd;
@@ -54,7 +54,6 @@ ScavTrap&	ScavTrap::operator=(ScavTrap const& rhs) {
 	if (this != &rhs) {
 		this->_name = rhs._name + "_twin";
 		this->_hp = rhs._hp;
-		this->_hpMax = rhs._hpMax;
 		this->_ep = rhs._ep;
 		this->_ad = rhs._ad;
 	}

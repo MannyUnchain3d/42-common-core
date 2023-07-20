@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 14:22:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:20:06 by Manny            ###   ########.fr       */
+/*   Created: 2023/07/18 22:16:42 by Manny             #+#    #+#             */
+/*   Updated: 2023/07/21 06:06:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include "ClapTrap.hpp"
 
-class	ScavTrap : virtual public ClapTrap {
+class	FragTrap : virtual public ClapTrap {
 	public:
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& rhs);
-		~ScavTrap(void);
+		FragTrap(std::string name);
+		FragTrap(FragTrap const& rhs);
+		~FragTrap(void);
+		
+		FragTrap&	operator=(FragTrap const& rhs);
 
-		ScavTrap&	operator=(ScavTrap const& rhs);
-
-		void	attack(std::string const& target);
-		void	guardGate(void);
+		void	highFivesGuys(void);
 
 	protected:
-		ScavTrap(void);
+		FragTrap(void);
 
-		unsigned int	_scavHp;
-		unsigned int	_scavHpMax;
-		unsigned int	_scavEp;
-		unsigned int	_scavAd;
+		unsigned int	_fragHp;
+		unsigned int	_fragHpMax;
+		unsigned int	_fragEp;
+		unsigned int	_fragAd;
 };
 
 #endif

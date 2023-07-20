@@ -5,31 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 20:48:21 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 05:44:47 by Manny            ###   ########.fr       */
+/*   Created: 2023/07/16 03:40:14 by Manny             #+#    #+#             */
+/*   Updated: 2023/07/21 06:00:05 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 #include "colors.h"
 
 int	main(void) {
-	ClapTrap	clap1("Ryu");
-	ClapTrap	clap2(clap1);
+	FragTrap	frag1("Chung Li");
+	FragTrap	frag2(frag1);
 	
 	std::cout << std::endl;
 	
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
-	clap1.attack("Bison");
-	clap1.takeDamage(8);
-	clap1.beRepaired(5);
+	frag1.attack("Bison");
+	frag1.takeDamage(8);
+	frag1.beRepaired(5);
+	frag1.highFivesGuys();
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
 
 	std::cout << std::endl;
 
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
-	clap2.takeDamage(10);
-	clap2.beRepaired(5);
+	frag2.takeDamage(100);
+	frag2.beRepaired(5);
+	frag2.highFivesGuys();
 	std::cout << RED "/ * ------------------------------------------- */" NC << std::endl;
 
 	std::cout << std::endl;

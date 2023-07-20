@@ -1,0 +1,15 @@
+std::cout << YELLOW "clap ---->_hp: " << this->_hp << std::endl;
+std::cout << "clap ---->_ep: " << this->_ep << std::endl;
+std::cout << "clap ---->_ad: " << this->_ad << NC << std::endl;
+
+std::cout << GREEN "scav ---->_hp: " << this->_hp << std::endl;
+std::cout << "scav ---->_ep: " << this->_ep << std::endl;
+std::cout << "scav ---->_ad: " << this->_ad << NC << std::endl;
+
+std::cout << BLUE " frag ---->_hp: " << this->_hp << std::endl;
+std::cout << "frag ---->_ep: " << this->_ep << std::endl;
+std::cout << "frag ---->_ad: " << this->_ad << NC << std::endl;
+
+std::cout << CYAN "diam ---->_hp: " << this->_hp << std::endl;
+std::cout << "diam ---->_ep: " << this->_ep << std::endl;
+std::cout << "diam ---->_ad: " << this->_ad << NC << std::endl;
