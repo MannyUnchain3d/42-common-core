@@ -7,15 +7,15 @@ Sample::Sample(void) {
 	// Make your Constructor here
 }
 
+/* Parameter Constructor */
+Sample::Sample(int const n) {
+	// Make your Constructor here
+}
+
 /* Copy Constructor */
 Sample::Sample(Sample const& rhs) {
 	// Make your Copy Constructor here
 	*this = rhs;
-}
-
-/* Parameter Constructor */
-Sample::Sample(int const n) {
-	// Make your Constructor here
 }
 
 /* ----- DESTRUCTOR ------------------- */
@@ -36,6 +36,8 @@ Sample&	Sample::operator=(Sample const& rhs) {
 /* ----- SETTER ----------------------- */
 
 /* ----- PUBLIC METHOD ---------------- */
+
+/* ----- PROTECTED METHOD ------------- */
 
 /* ----- PRIVATE METHOD --------------- */
 
