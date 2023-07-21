@@ -6,13 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 22:16:42 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 06:06:43 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 12:36:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
+# include <iostream>
 # include "ClapTrap.hpp"
 
 class	FragTrap : virtual public ClapTrap {

@@ -6,13 +6,15 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:41:33 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/15 17:03:36 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 12:49:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef POINT_HPP
 # define POINT_HPP
 
+# include <iostream>
+# include <cmath>
 # include "Fixed.hpp"
 
 class	Point {
