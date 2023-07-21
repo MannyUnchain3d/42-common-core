@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 22:16:42 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 12:36:14 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/21 16:53:35 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class	FragTrap : virtual public ClapTrap {
+class	FragTrap : public ClapTrap {
 	public:
 		FragTrap(std::string name);
 		FragTrap(FragTrap const& rhs);
