@@ -8,7 +8,7 @@ Sample::Sample(void) {
 }
 
 /* Parameter Constructor */
-Sample::Sample(int const n) {
+Sample::Sample(std::string type) {
 	// Make your Constructor here
 }
 
