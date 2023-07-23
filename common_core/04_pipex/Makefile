@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 13:33:09 by Manny             #+#    #+#              #
-#    Updated: 2023/07/17 22:58:29 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/24 05:32:44 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,14 +59,14 @@ OBJS_B = $(addprefix $(OBJ_DIR), $(OBJ_B))
 # ***** RULES ********** #
 all: $(OBJ_DIR) $(LIBFT) $(NAME)
 
+bonus: $(OBJ_DIR) $(LIBFT) $(NAME_B)
+
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-
-bonus: $(OBJ_DIR) $(LIBFT) $(NAME_B)
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "\n$(BLUE) $(CC) $(OBJS) $(lIBFTFLAGS) -o $(NAME) $(NC)"
