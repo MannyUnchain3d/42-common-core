@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:13:03 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/11 20:17:37 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 05:39:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	child_process(char **argv, char **envp, int *fd)
 {
 	int	fdin;
 
-	fdin = open(argv[1], O_RDONLY, 0777);
+	fdin = open(argv[1], O_RDONLY, 0666);
 	if (fdin == -1)
-		error();
-	dup2(fd[1], STDOUT_FILENO);
+		error(argv[1], strerror(errno));
 	dup2(fdin, STDIN_FILENO);
 	close(fd[0]);
+	dup2(fd[1], STDOUT_FILENO);
 	execute(argv[2], envp);
+	error(argv[1], "Command not found");
 }
 
 /* Parent process takes data from the pipe, redirects the output for the fdout,
@@ -33,13 +34,14 @@ void	parent_process(char **argv, char **envp, int *fd)
 {
 	int	fdout;
 
-	fdout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	fdout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	if (fdout == -1)
-		error();
+		error(argv[4], strerror(errno));
 	dup2(fd[0], STDIN_FILENO);
-	dup2(fdout, STDOUT_FILENO);
 	close(fd[1]);
+	dup2(fdout, STDOUT_FILENO);
 	execute(argv[3], envp);
+	error(argv[4], "Command not found");
 }
 
 /* Main function creates a pipe, forks the process, runs child and parent
@@ -52,10 +54,10 @@ int	main(int argc, char **argv, char **envp)
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
-			error();
+			error(NULL, strerror(errno));
 		pid = fork();
 		if (pid == -1)
-			error();
+			error(NULL, strerror(errno));
 		if (pid == 0)
 			child_process(argv, envp, fd);
 		parent_process(argv, envp, fd);

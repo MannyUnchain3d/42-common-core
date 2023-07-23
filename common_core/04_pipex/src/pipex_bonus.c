@@ -6,11 +6,12 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 00:41:03 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/21 03:21:31 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 05:38:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <errno.h>
 
 /* Child process creates a fork and a pipe, redirects the output inside a pipe,
  * then closes the fd and executes the function.*/
@@ -20,10 +21,10 @@ void	child_process(char *argv, char **envp)
 	int		fd[2];
 
 	if (pipe(fd) == -1)
-		error();
+		error(NULL, strerror(errno));
 	pid = fork();
 	if (pid == -1)
-		error();
+		error(NULL, strerror(errno));
 	if (pid == 0)
 	{
 		close(fd[0]);
@@ -56,7 +57,7 @@ void	here_doc(char *limiter, int argc)
 	if (argc < 6)
 		usage();
 	if (pipe(fd) == -1)
-		error();
+		error(NULL, strerror(errno));
 	reader = fork();
 	if (reader == 0)
 	{

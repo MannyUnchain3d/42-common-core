@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:14:29 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/13 18:39:06 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/24 05:44:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,20 @@ char	*find_path(char *cmd, char **envp)
 }
 
 /* Displays an error. */
-void	error(void)
+void	error(char *filename, char *message)
 {
-	perror("\033[31mError\033[0m");
+	ft_putstr_fd("pipex: ", 2);
+	if (filename && *filename)
+	{
+		ft_putstr_fd(filename, 2);
+		ft_putstr_fd(": ", 2);
+	}
+	ft_putstr_fd(message, 2);
+	ft_putchar_fd('\n', 2);
+	if (message && !ft_strncmp(message, "command not found", 17))
+		exit(127);
+	if (filename == NULL)
+		exit(0);
 	exit(EXIT_FAILURE);
 }
 
@@ -66,10 +77,16 @@ void	execute(char *argv, char **envp)
 		while (cmd[++i])
 			free(cmd[i]);
 		free(cmd);
-		error();
+		error(argv, "command not found");
 	}
 	if (execve(path, cmd, envp) == -1)
-		error();
+	{
+		while (cmd[++i])
+			free(cmd[i]);
+		free(cmd);
+		free(path);
+		error(argv, strerror(errno));
+	}
 }
 
 /* Function that read input from the terminal and return line. */

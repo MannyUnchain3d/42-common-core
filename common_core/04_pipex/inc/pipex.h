@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:14:16 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/13 17:54:10 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/24 05:39:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 # include <stdio.h>
 # include <sys/wait.h>
 # include <fcntl.h>
+# include <errno.h>
 # include "../libft/libft.h"
 
 /* Mandatory functions */
-void	error(void);
+void	error(char *filename, char *message);
 char	*find_path(char *cmd, char **envp);
 int		get_next_line(char **line);
 void	execute(char *argv, char **envp);

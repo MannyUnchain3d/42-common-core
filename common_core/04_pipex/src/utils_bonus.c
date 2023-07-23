@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:46:06 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/11 20:18:57 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 05:39:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	open_fd(char *argv, int i)
 	else if (i == 2)
 		fd = open(argv, O_RDONLY, 0777);
 	if (fd == -1)
-		error();
+		error(NULL, strerror(errno));
 	return (fd);
 }
