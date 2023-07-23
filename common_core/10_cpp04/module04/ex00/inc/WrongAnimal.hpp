@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/21 19:36:41 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/23 23:10:27 by Manny            ###   ########.fr       */
+/*   Created: 2023/07/23 18:52:00 by Manny             #+#    #+#             */
+/*   Updated: 2023/07/24 00:00:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 # include <cstdlib>
 
 # ifdef __linux__
-# define PLAY_WOW "aplay ../sfx/wow.wav 2> /dev/null"
+# define PLAY_WTF "aplay ../sfx/wtf.wav 2> /dev/null"
 # else
-# define PLAY_WOW "afplay ../sfx/wow.wav 2> /dev/null"
+# define PLAY_WTF "afplay ../sfx/wtf.wav 2> /dev/null"
 # endif
 
-class	Animal {
+class	WrongAnimal {
 	public:
-		Animal(void);
-		Animal(Animal const& rhs);
-		virtual ~Animal(void);
+		WrongAnimal(void);
+		WrongAnimal(WrongAnimal const& rhs);
+		virtual ~WrongAnimal(void);
 
-		Animal&	operator=(Animal const& rhs);
+		WrongAnimal&	operator=(WrongAnimal const& rhs);
 
 		std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 
 	protected:
 		std::string		_type;

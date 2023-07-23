@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/21 22:18:31 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/21 22:19:22 by etetopat         ###   ########.fr        #
+#    Updated: 2023/07/23 19:52:43 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ INC = -I ./inc/
 
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
-SRC = Animal.cpp Dog.cpp main.cpp
+SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #

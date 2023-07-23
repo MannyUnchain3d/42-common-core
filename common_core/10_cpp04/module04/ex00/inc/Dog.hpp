@@ -3,31 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:36:41 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/21 22:30:21 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/23 23:53:09 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include <iostream>
 # include "Animal.hpp"
+# include <iostream>
+# include <cstdlib>
+
+# ifdef __linux__
+# define PLAY_DOG "aplay ../sfx/dog.wav 2> /dev/null"
+# else
+# define PLAY_DOG "afplay ../sfx/dog.wav 2> /dev/null"
+# endif
 
 class	Dog : public Animal {
 	public:
 		Dog(void);
-		Dog(std::string type);
 		Dog(Dog const& rhs);
-		virtual ~Dog(void);
+		~Dog(void);
 
 		Dog&	operator=(Dog const& rhs);
 
 	protected:
-		std::string	_type;
-		virtual void	makeSound(void) const;
+		void		makeSound(void) const;
 };
 
 #endif

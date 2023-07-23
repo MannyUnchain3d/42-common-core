@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/21 19:36:41 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/21 20:27:04 by etetopat         ###   ########.fr       */
+/*   Created: 2023/07/23 20:00:22 by Manny             #+#    #+#             */
+/*   Updated: 2023/07/24 00:25:23 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 # include <iostream>
 # include <cstdlib>
 
 # ifdef __linux__
-# define PLAY_CAT "aplay ../sfx/cat.wav 2> /dev/null"
+# define PLAY_WTF_CAT "aplay ../sfx/nani.wav 2> /dev/null"
 # else
-# define PLAY_CAT "afplay ../sfx/cat.wav 2> /dev/null"
+# define PLAY_WTF_CAT "afplay ../sfx/nani.wav 2> /dev/null"
 # endif
 
-class	Cat : public Animal {
+class	WrongCat : public WrongAnimal {
 	public:
-		Cat(void);
-		Cat(Cat const& rhs);
-		virtual ~Cat(void);
+		WrongCat(void);
+		WrongCat(WrongCat const& rhs);
+		virtual ~WrongCat(void);
 
-		Cat&	operator=(Cat const& rhs);
-
-	protected:
+		WrongCat&	operator=(WrongCat const& rhs);
 		void		makeSound(void) const;
 };
 

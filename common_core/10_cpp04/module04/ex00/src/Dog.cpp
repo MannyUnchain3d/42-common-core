@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:56:59 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/21 22:49:19 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/23 23:52:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,21 @@
 
 /* Default Constructor */
 Dog::Dog(void) {
-	// Make your Constructor here
+	this->_type = "Dog";
+	std::cout << BLUE "[Default Constructor Dog] " << NC "A wild " << this->_type << " appeared" << std::endl;
 }
 
-/* Parameter Constructor */
-Dog::Dog(std::string type) : _type(type) {
-	// Make your Constructor here
-}
 /* Copy Constructor */
 Dog::Dog(Dog const& rhs) : Animal(rhs) {
 	*this = rhs;
+	std::cout << BLUE "[Copy Constructor Dog] " << NC << "A twin " << rhs._type << "appeared" << std::endl;
 }
 
 /* ----- DESTRUCTOR ------------------- */
 
 /* Default Deconstructor */
 Dog::~Dog(void) {
-	// Make your Destructor here
+	std::cout << BLUE "[Destructor Dog] " << NC << "The dog was scared and ran away" << std::endl;
 }
 
 /* ----- OPERATOR OVERLOAD ------------ */
@@ -47,21 +45,21 @@ Dog&	Dog::operator=(Dog const& rhs) {
 /* ----- PROTECTED METHOD --------------- */
 
 void Dog::makeSound(void) const {
-	std::cout << MAGENTA "Bark! Bark! Bark!" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣄⢀⣀⣀⠀⠀⠀⠀⠀⠀⠀ " << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀ " << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⣀⠀⠀⠹⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀" << std::endl;
+	std::cout << BLUE "โฮ่ง! โฮ่ง! โฮ่ง!            ⢀⣤⣶⣄⢀⣀⣀⠀ " << std::endl;
+	std::cout << "                          ⠸⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀ " << std::endl;
+	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⣀  ⠹⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣠⣴⠾⠛⠉⠉⠉⠀⠀⠀⠀⠀⠉⠉⠉⠛⠷⣶⣼⣿⣉⣁⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⠀⠀⣠⡾⠛⠉⠛⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⡏⠉⠙⠛⢶⣄⠀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⢠⣾⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣿⣧⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⢠⣿⠃⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠈⢿⡇⠀⠀⠀  " << std::endl;
+	std::cout << "⠀⠀⢠⣿⠃⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀  ⠈⢿⡇⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠹⣿⡎⠀⠀⠀⣠⡾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⢻⡆⠀⠀⣆⣿⡇⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⣿⡀⠀⡀⠀⣿⠁⠀⢠⣾⣿⡿⠆⠀⠀⠀⠀⠀⠀⢀⣾⣿⡿⠆⠀⠀⠀⢈⣿⠀⣄⣾⡿⠁⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠘⣿⣧⣇⢀⣇⠀⠀⠘⣿⣿⣷⡆⠀⠀⠀⠀⠀⠀⠈⢿⣿⣷⠖⠀⠀⠀⢸⣿⣷⠿⠋⠀⠀⠀⠀⠀" << std::endl;
+	std::cout << "⠀⠀⠀⣿⡀⠀⡀⠀⣿⠁⠀⢠⣾⣿⡿⠆⠀⠀⠀⠀⠀⠀⢀⣾⣿⡿⠆⠀⠀⢈⣿⠀⣄⣾⡿⠁⠀⠀⠀" << std::endl;
+	std::cout << "⠀⠀⠀⠘⣿⣧⣇⢀⣇⠀⠀⠘⣿⣿⣷⡆⠀⠀⠀⠀⠀⠀⠈⢿⣿⣷⠖⠀⠀⢸⣿⣷⠿⠋⠀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⠀⠀⠉⠙⠻⣿⣆⡀⠀⠀⠉⠉⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣸⣿⠁⣀⣀⣀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⢀⣠⡶⠾⠛⠓⠶⣿⡟⠀⠀⠀⠀⠀⠀⠠⣾⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⠟⠋⠉⠛⠻⣦⡀⠀" << std::endl;
 	std::cout << "⢀⣾⠋⠀⠀⠀⠀⠀⠘⣿⣠⣄⡀⠀⠀⠀⠀⠛⠿⠟⠁⠀⠀⠀⠀⠀⡀⡀⠀⣴⣾⡏⠀⠀⠀⠀⠀⠈⣿⡄" << std::endl;
-	std::cout << "⢸⣯⠀⢠⠀⠀⢀⣄⣠⣿⠿⢿⣷⣤⣦⣀⣤⣤⣤⣀⣀⣀⣼⣆⣼⣷⣿⡾⠿⢿⣧⣀⣦⠀⠀⣤⠀⣸⡧ " << std::endl;
+	std::cout << "⢸⣯⠀⢠⠀⠀⢀⣄⣠⣿⠿⢿⣷⣤⣦⣀⣤⣤⣤⣀⣀⣀⣼⣆⣼⣷⣿⡾⠿⢿⣧⣀⣦⠀⠀⣤⠀ ⣸⡧ " << std::endl;
 	std::cout << "⠘⠿⣷⣾⣷⣤⠾⠿⠛⠁⠀⠀⠀⠁⠀⠉⠉⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠉⠛⠻⠷⠾⠿⠟⠛⠁" << std::endl;
+	std::system(PLAY_DOG);
 	std::cout <<  NC << std::endl;
 }

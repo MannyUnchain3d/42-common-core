@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 20:40:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/23 23:51:49 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/23 18:36:42 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 #include "colors.h"
 
 /* ----- CONSTRUCTOR ------------------ */
 
 /* Default Constructor */
-Cat::Cat(void) {
-	this->_type = "Cat";
-	std::cout << MAGENTA "[Default Constructor Cat] " << NC << "A wild " << this->_type << " appeared" << std::endl;
+WrongCat::WrongCat(void) {
+	this->_type = "WrongCat";
+	std::cout << RED "[Default Constructor WrongCat] " << NC << "A wild " << this->_type << " appeared" << std::endl;
 }
 
 /* Copy Constructor */
-Cat::Cat(Cat const& rhs) : Animal(rhs) {
+WrongCat::WrongCat(WrongCat const& rhs) : WrongAnimal(rhs) {
 	*this = rhs;
-	std::cout << MAGENTA "[Copy Constructor Cat] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
+	std::cout << RED "[Copy Constructor WrongCat] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
 }
 
 /* ----- DESTRUCTOR ------------------- */
 
 /* Default Deconstructor */
-Cat::~Cat(void) {
-	std::cout << MAGENTA "[Destructor Cat] " << NC << "The cat was scared and ran away" << std::endl;
+WrongCat::~WrongCat(void) {
+	std::cout << RED "[Destructor WrongCat] " << NC << "That wrong thing was scared and ran away" << std::endl;
 }
 
 /* ----- OPERATOR OVERLOAD ------------ */
 
-Cat&	Cat::operator=(Cat const& rhs) {
+WrongCat&	WrongCat::operator=(WrongCat const& rhs) {
 	if (this != &rhs)
 		this->_type = rhs._type;
 	return (*this);
@@ -44,8 +44,8 @@ Cat&	Cat::operator=(Cat const& rhs) {
 
 /* ----- PROTECTED METHOD --------------- */
 
-void Cat::makeSound(void) const {
-	std::cout << MAGENTA "เหมียว... เหมียว... เหมียว..." << std::endl;
+void WrongCat::makeSound(void) const {
+	std::cout << RED "เหมียว... เหมียว... เหมียว..." << std::endl;
 	std::cout << "⠀⠀⠀⠀⢀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⣠⠾⠛⠶⣄⢀⣠⣤⠴⢦⡀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⢠⡿⠉⠉⠉⠛⠶⠶⠖⠒⠒⣾⠋⠀⢀⣀⣙⣯⡁⠀⠀⠀⣿⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⠀⠀⢯⣼⠋⠉⠙⢶⠞⠛⠻⣆⠀⠀⠀" << std::endl;
@@ -57,6 +57,6 @@ void Cat::makeSound(void) const {
 	std::cout << "⠀⠀⠋⠙⣧⣀⡀⠀⠀⠀⠀⠀⠀⠘⠦⠼⠃⠀⠀⠀⠀⠀⠀⠀⢤⣼⣏⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⢀⠴⠚⠻⢧⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠞⠉⠉⠓⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠶⠶⠶⣶⣤⣴⡶⠶⠶⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀" << std::endl;
-	std::system(PLAY_CAT);
+	std::system(PLAY_WTF_CAT);
 	std::cout << NC << std::endl;
 }

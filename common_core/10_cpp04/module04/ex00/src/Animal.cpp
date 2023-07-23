@@ -3,40 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 20:04:03 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/21 22:46:55 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/23 23:09:04 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "colors.h"
+# include "Animal.hpp"
+# include "colors.h"
 
 /* ----- CONSTRUCTOR ------------------ */
 
 /* Default Constructor */
-Animal::Animal(void) : _type("Animal"){
-	std::cout << YELLOW "[Default Constructor] A wild animal appeared" NC << std::endl;
-}
-
-/* Parameter Constructor */
-Animal::Animal(std::string type) : _type(type) {
-	this->_type = type;
-	std::cout << YELLOW "[Param Constructor] A wild " << type << " appeared" NC << std::endl;
+Animal::Animal(void) : _type("Animal") {
+	std::cout << YELLOW "[Default Constructor Animal] " << NC << "A wild " << this->_type << " appeared" << std::endl;
 }
 
 /* Copy Constructor */
 Animal::Animal(Animal const& rhs) {
 	*this = rhs;
-	std::cout << YELLOW "[Copy Constructor] A twin" << rhs._type << " appeared" NC << std::endl;
+	std::cout << YELLOW "[Copy Constructor Animal] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
 }
 
 /* ----- DESTRUCTOR ------------------- */
 
 /* Default Deconstructor */
 Animal::~Animal(void) {
-	std::cout << YELLOW "[Default Destructor] The animal was scared and ran away" NC << std::endl;
+	std::cout << YELLOW "[Destructor Animal] " << NC << "The animal was scared and ran away" << std::endl;
 }
 
 /* ----- OPERATOR OVERLOAD ------------ */
@@ -56,23 +50,19 @@ std::string	Animal::getType(void) const {
 /* ----- PROTECTED METHOD --------------- */
 
 void Animal::makeSound(void) const {
-	std::cout << YELLOW "What does the fox say?!" << std::endl;
-	std::cout << "Ring-ding-ding-ding-dingeringeding!" << std::endl;
-	std::cout << "Gering-ding-ding-ding-dingeringeding!" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠙⠻⢶⣄⡀⠀⠀⠀⢀⣤⠶⠛⠛⡇⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⣙⣿⣦⣤⣴⣿⣁⠀⠀⣸⠇⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣌⠋⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣷⣄⡈⢻⣿⡟⢁⣠⣾⣿⣦⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⠘⣿⠃⣿⣿⣿⣿⡏⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠈⠛⣰⠿⣆⠛⠁⠀⡀⠀⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣦⠀⠘⠛⠋⠀⣴⣿⠁⠀⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣾⣿⣿⣿⡇⠀⠀⠀⢸⣿⣏⠀⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠀⠀⠀⠾⢿⣿⠀⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⣁⣠⣤⣀⣀⣤⣤⣤⣄⠈⠀⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⢰⣿⣿⣮⣉⣉⣉⣤⣴⣶⣿⣿⣿⣋⡥⠄⠀⠀⠀⠀⠉⢻⣄⠀⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣋⣁⣤⣀⣀⣤⣤⣤⣄⣿⡄⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⠁⠀⠀⠀⠀⠈⠛⠃⠀⠀⠀" << std::endl;
-	std::cout << "⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
-	std::cout << NC << std::endl;
+	std::cout << YELLOW "✧⁺⸜(●′▾‵●)⸝⁺✧" << std::endl;
+	std::cout << std::endl;
+	std::cout << "⠀⠀⢠⣶⣦⡀⠀⠀⠰⣿⣿⡄⠀⠀⢠⣿⣿⠆⠀⠀⢠⣶⣦⠀⠀⠀" << std::endl;
+	std::cout << "⠀⠀⠈⢿⣿⣷⠀⠀⠀⣿⣿⡇⠀⠀⢸⣿⣿⠀⠀⠀⣾⣿⡟⠀⠀" << std::endl;
+	std::cout << "⠀⠀⠀⠀⠉⠉⠀⠀⠀⠈⠉⠁⠀⠀⠈⠉⠁⠀⠀⠀⠉⠉⠀⠀⠀" << std::endl;
+	std::cout << "⣴⣄⠀⠀⠀⠀⢀⣴⡄⠀⢀⣤⣴⣦⣤⡀⠀⢠⣦⡀⠀⠀⠀⠀⣠⣦" << std::endl;
+	std::cout << "⣿⣿⠀⠀⠀⠀⢸⣿⠇⢠⣿⡟⠋⠙⢻⣿⡄⠸⣿⡇⠀⠀⠀⠀⣿⣿" << std::endl;
+	std::cout << "⢸⣿⣄⣴⣶⡄⣾⣿⠀⢾⣿⡁⠀⠀⢈⣿⡷⠀⣿⣷⢠⣶⣦⣠⣿⡇" << std::endl;
+	std::cout << "⠈⣿⣿⡿⠻⣿⣿⡿⠀⠘⣿⣧⣄⣠⣼⣿⠃⠀⢿⣿⣿⠟⢿⣿⣿⠁" << std::endl;
+	std::cout << "⠀⠻⠛⠁⠀⠘⠻⠃⠀⠀⠈⠛⠻⠟⠛⠁⠀⠀⠘⠟⠃⠀⠈⠛⠟⠀" << std::endl;
+	std::cout << "⠀⠀⠀⠀⣀⣀⠀⠀⠀⢀⣀⡀⠀⠀⢀⣀⡀⠀⠀⠀⣀⣀⠀⠀⠀" << std::endl;
+	std::cout << "⠀⠀⢀⣾⣿⡿⠀⠀⠀⣿⣿⡇⠀⠀⢸⣿⣿⠀⠀⠀⢿⣿⣧⠀⠀" << std::endl;
+	std::cout << "⠀⠀⠘⠿⠟⠁⠀⠀⠰⣿⣿⠃⠀⠀⠘⣿⣿⠆⠀⠀⠘⠿⠟⠀⠀" << std::endl;
+	std::system(PLAY_WOW);
+	std::cout << std::endl;
 }
