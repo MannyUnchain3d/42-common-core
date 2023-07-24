@@ -45,7 +45,7 @@ WrongCat&	WrongCat::operator=(WrongCat const& rhs) {
 /* ----- PROTECTED METHOD --------------- */
 
 void WrongCat::makeSound(void) const {
-	std::cout << RED "เหมียว... เหมียว... เหมียว..." << std::endl;
+	std::cout << RED "なに! なに! なに!" << std::endl;
 	std::cout << "⠀⠀⠀⠀⢀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⣠⠾⠛⠶⣄⢀⣠⣤⠴⢦⡀⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⢠⡿⠉⠉⠉⠛⠶⠶⠖⠒⠒⣾⠋⠀⢀⣀⣙⣯⡁⠀⠀⠀⣿⠀⠀⠀⠀" << std::endl;
 	std::cout << "⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⠀⠀⢯⣼⠋⠉⠙⢶⠞⠛⠻⣆⠀⠀⠀" << std::endl;

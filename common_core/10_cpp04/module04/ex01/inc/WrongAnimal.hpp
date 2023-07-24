@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 18:52:00 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/24 00:00:21 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 19:22:16 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	WrongAnimal {
 		WrongAnimal&	operator=(WrongAnimal const& rhs);
 
 		std::string		getType(void) const;
-		void	makeSound(void) const;
+		void	makeSound(void) const; // not virtual to prove that it's not polymorphic
 
 	protected:
 		std::string		_type;
