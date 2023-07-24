@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:20:51 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 01:54:52 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/25 04:58:37 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ Brain::~Brain(void) {
 /* ----- OPERATOR OVERLOAD ------------ */
 
 Brain&	Brain::operator=(Brain const& rhs) {
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = rhs._ideas[i];
+	if (this != &rhs) {
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = rhs._ideas[i];
+	}
 	std::cout << GREEN "[Assignation Operator Brain] Transfering ideas..." << NC << std::endl;
 	return (*this);
 }

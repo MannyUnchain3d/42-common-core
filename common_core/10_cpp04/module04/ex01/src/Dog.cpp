@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:56:59 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 02:26:43 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/25 05:01:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Dog::Dog(void) {
 /* Copy Constructor */
 Dog::Dog(Dog const& rhs) : Animal(rhs) {
 	*this = rhs;
-	this->_brain = rhs.getBrain()->clone();
 	std::cout << BLUE "[Copy Constructor Dog] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
 }
 
@@ -42,7 +41,7 @@ Dog::~Dog(void) {
 Dog&	Dog::operator=(Dog const& rhs) {
 	if (this != &rhs) {
 		this->_type = rhs._type;
-		this->_brain = getBrain()->clone();
+		this->_brain = rhs.getBrain()->clone();
 	}
 	return (*this);
 }

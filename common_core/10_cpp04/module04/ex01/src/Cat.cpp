@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 20:40:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 01:27:45 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/25 05:05:32 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Cat::Cat(void) {
 /* Copy Constructor */
 Cat::Cat(Cat const& rhs) : Animal(rhs) {
 	*this = rhs;
-	this->_brain = rhs.getBrain()->clone();
 	std::cout << MAGENTA "[Copy Constructor Cat] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
 }
 
@@ -42,7 +41,7 @@ Cat::~Cat(void) {
 Cat&	Cat::operator=(Cat const& rhs) {
 	if (this != &rhs) {
 		this->_type = rhs._type;
-		this->_brain = getBrain()->clone();
+		this->_brain = rhs.getBrain()->clone();
 	}
 	return (*this);
 }

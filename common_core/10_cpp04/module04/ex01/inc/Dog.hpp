@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:36:41 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 01:28:14 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/25 04:17:56 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <cstdlib>
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 # ifdef __linux__
 # define PLAY_DOG "aplay ../sfx/dog.wav 2> /dev/null"

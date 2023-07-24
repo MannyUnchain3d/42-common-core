@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:36:41 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 02:50:20 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/25 05:21:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@
 # include <iostream>
 # include <cstdlib>
 
-# include "Brain.hpp"
-
 # ifdef __linux__
 # define PLAY_WOW "aplay ../sfx/wow.wav 2> /dev/null"
 # else
 # define PLAY_WOW "afplay ../sfx/wow.wav 2> /dev/null"
 # endif
 
-class	Animal : public Brain {
+class	Animal {
 	public:
 		Animal(void);
 		Animal(Animal const& rhs);
