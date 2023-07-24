@@ -3,62 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:47:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/24 00:12:37 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 02:48:13 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "colors.h"
+
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-#include "colors.h"
-
-#include <iostream>
-
 int main(void) {
-	std::cout << RED "--------------- Animal ---------------" NC << std::endl;
-	const Animal*	meta = new Animal();
-	const Animal*	dog = new Dog();
-	const Animal*	cat = new Cat();
+	std::cout << RED "------------------ Dog Basic ------------------ " NC << std::endl;
+	std::cout << BLUE "Orginal:" NC << std::endl;
+	Dog	basic;
+	std::cout << std::endl;
+	std::cout << BLUE "Copy:" NC << std::endl;
+	Dog	tmp = basic;
 
 	std::cout << std::endl;
 
-	std::cout <<"dog type: " << BLUE << dog->getType() << " " NC << std::endl;
-	std::cout <<"cat type: " << MAGENTA << cat->getType() << " " NC << std::endl;
+	std::cout << RED "------------------ Animal Assignation ------------------ " NC<< std::endl;
+	const Animal*	animal[6];
+
+	for(int i = 0; i < 6; i++) {
+		if (i % 2 == 0) {
+			animal[i] = new Dog();
+			std::cout << std::endl;
+		} else {
+			animal[i] = new Cat();
+			std::cout << std::endl;
+		}
+	}
 
 	std::cout << std::endl;
+
+	std::cout << RED "------------------ Animal Deep Copy ------------------ " NC << std::endl;
+	for(int i = 0; i < 6; i++) {
+		std::cout << YELLOW << animal[i]->getType() << " " NC << std::endl;
+		animal[i]->makeSound();
+		delete animal[i];
+		std::cout << std::endl;
+
+	}
 	
-	cat->makeSound();
-	dog->makeSound();
-	meta->makeSound();
-
-	std::cout << std::endl;
-
-	delete meta;
-	delete dog;
-	delete cat;
-
-	std::cout << std::endl;
-	
-	std::cout << RED "--------------- Wrong Animal ---------------" NC << std::endl;
-
-	const WrongAnimal*	wrongCat = new WrongCat();
-	WrongCat nani = WrongCat();
-
-	std::cout << std::endl;
-
-	std::cout <<"wrongCat type: " << RED << wrongCat->getType() << NC << std::endl;
-	std::cout <<"nani type: " << RED << nani.getType() << NC << std::endl;
-
-	std::cout << std::endl;
-
-	wrongCat->makeSound();
-	nani.makeSound();
-
-	delete wrongCat;
-
 	return 0;
 }

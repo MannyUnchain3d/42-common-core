@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 20:40:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/23 23:51:49 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 01:27:45 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
 #include "colors.h"
+#include "Cat.hpp"
 
 /* ----- CONSTRUCTOR ------------------ */
 
 /* Default Constructor */
 Cat::Cat(void) {
 	this->_type = "Cat";
+	this->_brain = new Brain();
 	std::cout << MAGENTA "[Default Constructor Cat] " << NC << "A wild " << this->_type << " appeared" << std::endl;
 }
 
 /* Copy Constructor */
 Cat::Cat(Cat const& rhs) : Animal(rhs) {
 	*this = rhs;
+	this->_brain = rhs.getBrain()->clone();
 	std::cout << MAGENTA "[Copy Constructor Cat] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
 }
 
@@ -31,15 +33,24 @@ Cat::Cat(Cat const& rhs) : Animal(rhs) {
 
 /* Default Deconstructor */
 Cat::~Cat(void) {
+	delete this->_brain;
 	std::cout << MAGENTA "[Destructor Cat] " << NC << "The cat was scared and ran away" << std::endl;
 }
 
 /* ----- OPERATOR OVERLOAD ------------ */
 
 Cat&	Cat::operator=(Cat const& rhs) {
-	if (this != &rhs)
+	if (this != &rhs) {
 		this->_type = rhs._type;
+		this->_brain = getBrain()->clone();
+	}
 	return (*this);
+}
+
+/* ----- GETTER -------------------------- */
+
+Brain*	Cat::getBrain(void) const {
+	return (this->_brain);
 }
 
 /* ----- PROTECTED METHOD --------------- */

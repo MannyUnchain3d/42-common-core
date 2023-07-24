@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/21 19:36:41 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/21 20:27:04 by etetopat         ###   ########.fr       */
+/*   Created: 2023/07/24 17:13:29 by etetopat          #+#    #+#             */
+/*   Updated: 2023/07/25 01:52:57 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
-# include <cstdlib>
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-# ifdef __linux__
-# define PLAY_CAT "aplay ../sfx/cat.wav 2> /dev/null"
-# else
-# define PLAY_CAT "afplay ../sfx/cat.wav 2> /dev/null"
-# endif
-
-class	Cat : public Animal {
+class Brain {
 	public:
-		Cat(void);
-		Cat(Cat const& rhs);
-		virtual ~Cat(void);
+		Brain(void);
+		Brain(Brain const& rhs);
+		virtual ~Brain(void);
 
-		Cat&	operator=(Cat const& rhs);
-		Brain*	getBrain(void) const;
+		Brain& operator=(Brain const& rhs);
+
+		std::string*	getIdeas(void) const;
+		Brain*			clone(void) const;
 
 	protected:
-		void	makeSound(void) const;
-	
-	private:
-		Brain*	_brain;
+		std::string*	_ideas;
+
 };
 
 #endif
