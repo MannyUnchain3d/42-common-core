@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/21 22:18:31 by etetopat          #+#    #+#              #
-#    Updated: 2023/07/23 19:52:43 by Manny            ###   ########.fr        #
+#    Updated: 2023/07/25 02:42:29 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
-NAME = animal
+NAME = animal_brain
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
@@ -36,7 +36,7 @@ INC = -I ./inc/
 
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
-SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = Animal.cpp Brain.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
