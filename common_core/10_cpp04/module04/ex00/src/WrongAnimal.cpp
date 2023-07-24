@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 19:05:58 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/24 00:12:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 21:45:44 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
 #include "colors.h"
+#include "WrongAnimal.hpp"
 
 /* ----- CONSTRUCTOR ------------------ */
 

@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:00:22 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/24 00:25:23 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 21:44:34 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
 
-# include "WrongAnimal.hpp"
 # include <iostream>
 # include <cstdlib>
+
+# include "WrongAnimal.hpp"
 
 # ifdef __linux__
 # define PLAY_WTF_CAT "aplay ../sfx/nani.wav 2> /dev/null"

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 20:40:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/23 23:51:49 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 21:45:05 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
 #include "colors.h"
+#include "Cat.hpp"
 
 /* ----- CONSTRUCTOR ------------------ */
 

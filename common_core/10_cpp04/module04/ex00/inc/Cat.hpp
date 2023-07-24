@@ -13,9 +13,10 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
 # include <iostream>
 # include <cstdlib>
+
+# include "Animal.hpp"
 
 # ifdef __linux__
 # define PLAY_CAT "aplay ../sfx/cat.wav 2> /dev/null"
@@ -32,7 +33,7 @@ class	Cat : public Animal {
 		Cat&	operator=(Cat const& rhs);
 
 	protected:
-		void		makeSound(void) const;
+		void	makeSound(void) const;
 };
 
 #endif

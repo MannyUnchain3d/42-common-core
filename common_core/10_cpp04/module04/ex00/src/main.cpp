@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:47:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/24 00:12:37 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/24 21:45:31 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
+#include "colors.h"
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
-
-#include "colors.h"
-
-#include <iostream>
 
 int main(void) {
 	std::cout << RED "--------------- Animal ---------------" NC << std::endl;
