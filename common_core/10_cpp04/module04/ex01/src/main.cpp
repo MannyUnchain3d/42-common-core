@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:47:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 05:24:24 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 05:31:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int main(void) {
 			std::cout << std::endl;
 		}
 	}
-
-	std::cout << std::endl;
 
 	std::cout << RED "/ ------------- Animal Deep Copy ---------------- /" NC << std::endl;
 	for(int i = 0; i < 6; i++) {
