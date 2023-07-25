@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:26:45 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/26 01:36:11 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/26 01:59:13 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include "AMateria.hpp"
-
-class AMateria;
 
 class ICharacter {
 	public:
