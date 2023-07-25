@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 20:40:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 05:05:32 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 20:02:19 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ Cat::Cat(void) {
 	this->_type = "Cat";
 	this->_brain = new Brain();
 	std::cout << MAGENTA "[Default Constructor Cat] " << NC << "A wild " << this->_type << " appeared" << std::endl;
+	std::cout << L_MAGENTA "[Default Constructor Cat] _ideas[99]: " << NC << this->_brain->getIdeas()[99] << std::endl;
 }
 
 /* Copy Constructor */
 Cat::Cat(Cat const& rhs) : Animal(rhs) {
 	*this = rhs;
 	std::cout << MAGENTA "[Copy Constructor Cat] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
+	std::cout << L_MAGENTA "[Copy Constructor Cat] _ideas[99]: " << NC << this->_brain->getIdeas()[99] << std::endl;
 }
 
 /* ----- DESTRUCTOR ------------------- */
