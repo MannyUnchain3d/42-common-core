@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:47:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 20:28:30 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 20:45:04 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,20 @@ int main(void) {
 	
 	std::cout << RED "/ ----------------- WrongAnimal ----------------- /" NC << std::endl;
 
-	const WrongAnimal*	nani = new WrongCat();
+	const WrongAnimal*	fox = new WrongCat();
 	std::cout << std::endl;
 
-	std::cout <<"nani type: " << RED << nani->getType() << NC << std::endl;
+	WrongCat nani = WrongCat();
 	std::cout << std::endl;
 
-	nani->makeSound();
+	std::cout <<"fox type: " << RED << fox->getType() << NC << std::endl;
+	std::cout <<"nani type: " << RED << nani.getType() << NC << std::endl;
+	std::cout << std::endl;
 
-	delete nani;
+	fox->makeSound();
+	nani.makeSound();
 
+	delete fox;
+	
 	return 0;
 }
