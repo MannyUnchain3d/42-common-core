@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 17:20:51 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 05:29:48 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 20:10:48 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 Brain::Brain(void) {
 	this->_ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = "Eureka! I have an idea...";
-	std::cout << GREEN "[Default Constructor Brain]" NC << " I think so I am..." << std::endl;
+		this->_ideas[i] = "Eureka! I have an idea!";
+	std::cout << GREEN "[Default Constructor Brain]" NC << " I think... so I am..." << std::endl;
 }
 
 /* Copy Constructor */

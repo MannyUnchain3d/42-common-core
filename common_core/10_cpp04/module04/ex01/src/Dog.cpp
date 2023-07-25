@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:56:59 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 05:01:20 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/25 20:07:16 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ Dog::Dog(void) {
 	this->_type = "Dog";
 	this->_brain = new Brain();
 	std::cout << BLUE "[Default Constructor Dog] " << NC "A wild " << this->_type << " appeared" << std::endl;
+	std::cout << L_BLUE "[Default Constructor Dog] _ideas[99]: " << NC << this->_brain->getIdeas()[99] << std::endl;
 }
 
 /* Copy Constructor */
 Dog::Dog(Dog const& rhs) : Animal(rhs) {
 	*this = rhs;
 	std::cout << BLUE "[Copy Constructor Dog] " << NC << "A twin " << rhs._type << " appeared" << std::endl;
+	std::cout << L_BLUE "[Copy Constructor Dog] _ideas[99]: " << NC << this->_brain->getIdeas()[99] << std::endl;
 }
 
 /* ----- DESTRUCTOR ------------------- */
