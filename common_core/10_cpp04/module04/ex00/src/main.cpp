@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:47:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/24 21:45:31 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/25 20:28:30 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 #include "WrongCat.hpp"
 
 int main(void) {
-	std::cout << RED "--------------- Animal ---------------" NC << std::endl;
+	std::cout << RED "/ -------------------- Animal ------------------- /" NC << std::endl;
 	const Animal*	meta = new Animal();
-	const Animal*	dog = new Dog();
-	const Animal*	cat = new Cat();
+	std::cout << std::endl;
 
+	const Animal*	dog = new Dog();
+	std::cout << std::endl;
+
+	const Animal*	cat = new Cat();
 	std::cout << std::endl;
 
 	std::cout <<"dog type: " << BLUE << dog->getType() << " " NC << std::endl;
@@ -36,28 +39,23 @@ int main(void) {
 
 	std::cout << std::endl;
 
-	delete meta;
-	delete dog;
 	delete cat;
+	delete dog;
+	delete meta;
 
 	std::cout << std::endl;
 	
-	std::cout << RED "--------------- Wrong Animal ---------------" NC << std::endl;
+	std::cout << RED "/ ----------------- WrongAnimal ----------------- /" NC << std::endl;
 
-	const WrongAnimal*	wrongCat = new WrongCat();
-	WrongCat nani = WrongCat();
-
+	const WrongAnimal*	nani = new WrongCat();
 	std::cout << std::endl;
 
-	std::cout <<"wrongCat type: " << RED << wrongCat->getType() << NC << std::endl;
-	std::cout <<"nani type: " << RED << nani.getType() << NC << std::endl;
-
+	std::cout <<"nani type: " << RED << nani->getType() << NC << std::endl;
 	std::cout << std::endl;
 
-	wrongCat->makeSound();
-	nani.makeSound();
+	nani->makeSound();
 
-	delete wrongCat;
+	delete nani;
 
 	return 0;
 }
