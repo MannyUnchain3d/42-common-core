@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:42:51 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 00:30:49 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 02:58:38 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /* Default Constructor */
 MateriaSource::MateriaSource(void) {
 	for(int i = 0; i < MateriaSource::_materiasMax; i++)
-		this->_materials[i] = NULL;
+		this->_materias[i] = NULL;
 	std::cout << L_CYAN "[MateriaSource Default Constructor] The MateriaSource has been created." NC << std::endl;
 }
 
@@ -32,7 +32,7 @@ MateriaSource::MateriaSource(const MateriaSource& rhs) {
 
 MateriaSource::~MateriaSource(void) {
 	for(int i = 0; i < MateriaSource::_materiasMax; i++)
-		delete this->_materials[i];
+		delete this->_materias[i];
 	std::cout << L_CYAN "[MateriaSource Destructor] A MateriaSource has been destroyed." NC << std::endl;
 }
 
@@ -42,7 +42,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs) {
 	if (this != &rhs)
 	{
 		for(int i = 0; i < MateriaSource::_materiasMax; i++)
-			this->_materials[i] = rhs._materials[i];
+			this->_materias[i] = rhs._materias[i];
 	}
 	std::cout << L_CYAN "[MateriaSource Assignation Operator] A MateriaSource has been assigned." NC << std::endl;
 	return (*this);
@@ -53,8 +53,8 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs) {
 AMateria*	MateriaSource::getMaterial(std::string const& type) {
 	for(int i = 0; i < MateriaSource::_materiasMax; i++)
 	{
-		if (this->_materials[i] != NULL && this->_materials[i]->getType() == type)
-			return (this->_materials[i]);
+		if (this->_materias[i] != NULL && this->_materias[i]->getType() == type)
+			return (this->_materias[i]);
 	}
 	return (NULL);
 }
@@ -62,18 +62,19 @@ AMateria*	MateriaSource::getMaterial(std::string const& type) {
 /* ----- PUBLIC METHOD ---------------- */
 
 AMateria*	MateriaSource::createMateria(std::string const& type) {
-	for(int i = 0; i < MateriaSource::_materiasMax; i++)
-	{
-		if (this->_materials[i] && this->_materials[i]->getType() == type)
-			return (this->_materials[i]->clone());
+	for(int i = 0; i < MateriaSource::_materiasMax && this->_materias[i]; i++) {
+		if (this->_materias[i]->getType() == type) {
+			//std::cout << L_CYAN "The " NC << type << L_CYAN " Materia has been created." NC << std::endl;
+			return (this->_materias[i]->clone());
+		}
 	}
 	return (NULL);
 }
 
 void 	MateriaSource::learnMateria(AMateria* m) {
 	for (int i = 0; i < MateriaSource::_materiasMax; i++) {
-		if (this->_materials[i] == NULL) {
-			this->_materials[i] = m;
+		if (this->_materias[i] == NULL) {
+			this->_materias[i] = m;
 			std::cout << L_CYAN "The " NC << m->getType() << L_CYAN " Materia has been learned." NC << std::endl;
 			return;
 		}

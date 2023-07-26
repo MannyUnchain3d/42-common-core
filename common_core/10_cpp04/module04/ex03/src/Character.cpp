@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:45:02 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 00:54:05 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 03:02:48 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ Character::Character(std::string const& name) : _name(name), _nbMateria(0) {
 
 /* Copy Constructor */
 Character::Character(Character const& rhs) : _name(rhs.getName()) {
-	*this = rhs;
+	for (int i = 0; i < Character::_inventorySize; i++) {
+		if (rhs._inventory[i])
+			this->_inventory[i] = rhs._inventory[i]->clone();
+		if (rhs._inventory[i])
+			this->_nbMateria++;
+	}
 	std::cout << YELLOW "[Character Copy Constructor] An existing Character has been copied." NC << std::endl;
 }
 
@@ -85,13 +90,13 @@ void	Character::unequip(int idx) {
 		std::string _materiaType = this->_inventory[idx - 1]->getType();
 		this->_inventory[idx - 1] = NULL;
 		this->_nbMateria--;
-		std::cout << YELLOW "Unequipped " NC << this->_materiaType << YELLOW " Materia." NC << std::endl;
+		std::cout << YELLOW "Unequipped " NC << _materiaType << YELLOW " Materia." NC << std::endl;
 	}
 	std::cout << YELLOW "Inventory slot is empty..." NC << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	if (idx >= 0 && idx <= Character::_inventorySize && this->_inventory[idx]) {
+	if (idx >= 0 && idx <= Character::_inventorySize - 1 && this->_inventory[idx]) {
 		this->_inventory[idx]->use(target);
 		return ;
 	}

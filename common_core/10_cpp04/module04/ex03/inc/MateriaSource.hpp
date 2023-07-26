@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:44:49 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 00:32:23 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 02:36:55 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class MateriaSource : public IMateriaSource {
 
 	private:
 		static int const	_materiasMax = 4;
-		AMateria* 			_materials[MateriaSource::_materiasMax];
+		AMateria* 			_materias[MateriaSource::_materiasMax];
 };
 
 #endif
