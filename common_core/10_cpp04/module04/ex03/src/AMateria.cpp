@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 00:58:46 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 03:01:18 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 03:46:50 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ AMateria::AMateria(const AMateria& rhs) {
 /* ----- DESTRUCTOR ------------------- */
 
 AMateria::~AMateria(void) {
-	//std::cout << CYAN "[AMateria Destructor] A Materia has been destroyed." NC << std::endl;
+	std::cout << CYAN "[AMateria Destructor] A Materia has been destroyed." NC << std::endl;
 }
 
 /* ----- GETTER -------------- */

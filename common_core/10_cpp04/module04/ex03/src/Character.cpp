@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:45:02 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 03:02:48 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 03:49:17 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ void	Character::equip(AMateria* m) {
 void	Character::unequip(int idx) {
 	if (idx <= 0 || idx > Character::_inventorySize)
 		std::cout << YELLOW "Invalid index..." NC << std::endl;
-	if (idx > 0 && idx <= Character::_inventorySize && this->_inventory[idx - 1]) {
+	else if (idx > 0 && idx <= Character::_inventorySize && this->_inventory[idx - 1]) {
 		std::string _materiaType = this->_inventory[idx - 1]->getType();
 		this->_inventory[idx - 1] = NULL;
 		this->_nbMateria--;
 		std::cout << YELLOW "Unequipped " NC << _materiaType << YELLOW " Materia." NC << std::endl;
-	}
-	std::cout << YELLOW "Inventory slot is empty..." NC << std::endl;
+	} else
+		std::cout << YELLOW "Inventory slot is empty..." NC << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target) {
