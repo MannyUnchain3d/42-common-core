@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:44:49 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/26 01:44:51 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/27 00:32:23 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 # define MATERIASOURCE_HPP
 
 # include <iostream>
+# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class MateriaSource {
+class MateriaSource : public IMateriaSource {
 	public:
 		MateriaSource(void);
-		MateriaSource(std::string name);
-		MateriaSource(const MateriaSource& rhs);
-		virtual ~MateriaSource(void);
+		MateriaSource(MateriaSource const& rhs);
+		~MateriaSource(void);
 
-		MateriaSource& operator=(const MateriaSource& rhs);
+		MateriaSource& operator=(MateriaSource const& rhs);
 
-	protected:
-		void _protectedMethod(void);
-		int _protectedAttribute;
+		virtual AMateria*	getMaterial(std::string const& type);
+		virtual AMateria*	createMateria(std::string const& type);
+		virtual void		learnMateria(AMateria* materia);
 
 	private:
-		void _privateMethod(void);
-		int _privateAttribute;
+		static int const	_materiasMax = 4;
+		AMateria* 			_materials[MateriaSource::_materiasMax];
 };
 
 #endif

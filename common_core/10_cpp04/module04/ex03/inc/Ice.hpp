@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:01:13 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/26 01:15:34 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/26 20:13:21 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 
 # include <iostream>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Ice : public AMateria {
 	public:
 		Ice(void);
-		Ice(std::string name);
-		Ice(const Ice& rhs);
-		virtual ~Ice(void);
+		Ice(Ice const& rhs);
+		~Ice(void);
 
-		Ice& operator=(const Ice& rhs);
-
-	protected:
-		void	use(ICharacter& target);
-
-	private:
-		std::string	_type;
+		Ice& operator=(Ice const& rhs);
+		
+		virtual AMateria*	clone(void) const;
+		virtual void		use(ICharacter& target);
 };
 
 #endif

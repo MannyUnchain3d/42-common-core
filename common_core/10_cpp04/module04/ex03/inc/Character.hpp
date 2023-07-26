@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:44:18 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/26 01:44:20 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/27 00:15:52 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,30 @@
 # define CHARACTER_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class Character {
+
+class Character : public ICharacter {
 	public:
-		Character(void);
-		Character(std::string name);
-		Character(const Character& rhs);
-		virtual ~Character(void);
+		Character(std::string const& name);
+		Character(Character const& rhs);
+		~Character(void);
 
-		Character& operator=(const Character& rhs);
+		Character& operator=(Character const& rhs);
 
-	protected:
-		void _protectedMethod(void);
-		int _protectedAttribute;
+		std::string const&	getName(void) const;
+		virtual void		equip(AMateria* m);
+		virtual void		unequip(int idx);
+		virtual void		use(int idx, ICharacter& target);
 
 	private:
-		void _privateMethod(void);
-		int _privateAttribute;
+		std::string			_name;
+		std::string			_materiaType;
+		static const int	_inventorySize = 4;
+		AMateria*			_inventory[_inventorySize];
+		int					_nbMateria;
+
 };
 
 #endif

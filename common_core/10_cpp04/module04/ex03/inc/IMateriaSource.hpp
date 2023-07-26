@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:44:40 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/26 01:44:42 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/26 20:27:35 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,13 @@
 
 # include <iostream>
 
+class AMateria;
+
 class IMateriaSource {
 	public:
-		IMateriaSource(void);
-		IMateriaSource(std::string name);
-		IMateriaSource(const IMateriaSource& rhs);
-		virtual ~IMateriaSource(void);
-
-		IMateriaSource& operator=(const IMateriaSource& rhs);
-
-	protected:
-		void _protectedMethod(void);
-		int _protectedAttribute;
-
-	private:
-		void _privateMethod(void);
-		int _privateAttribute;
+		virtual ~IMateriaSource(void) {};
+		virtual void		learnMateria(AMateria* m) = 0;
+		virtual AMateria*	createMateria(std::string const& type) = 0;
 };
 
 #endif
