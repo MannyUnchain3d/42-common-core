@@ -24,7 +24,7 @@ INC = -I ./inc/
 
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
-SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
+SRC = AMateria.cpp Character.cpp Cure.cpp Fire.cpp Ice.cpp main.cpp MateriaSource.cpp
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #

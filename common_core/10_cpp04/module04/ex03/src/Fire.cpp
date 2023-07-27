@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Fire.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,30 +11,30 @@
 /* ************************************************************************** */
 
 #include "colors.h"
-#include "Ice.hpp"
+#include "Fire.hpp"
 
 /* ----- CONSTRUCTOR ------------------ */
 
 /* Default Constructor */
-Ice::Ice(void) : AMateria("ice") {
-	std::cout << BLUE "[Ice Default Constructor] The Materia " NC << this->_type << BLUE " has been created." NC << std::endl;
+Fire::Fire(void) : AMateria("fire") {
+	std::cout << RED "[Fire Default Constructor] The Materia " NC << this->_type << RED " has been created." NC << std::endl;
 }
 
 /* Copy Constructor */
-Ice::Ice(const Ice& rhs) : AMateria(rhs){
+Fire::Fire(const Fire& rhs) : AMateria(rhs){
 	*this = rhs;
-	std::cout << BLUE "[Ice Copy Constructor] An existing Ice Materia has been copied." NC << std::endl;
+	std::cout << RED "[Fire Copy Constructor] An existing Fire Materia has been copied." NC << std::endl;
 }
 
 /* ----- DESTRUCTOR ------------------- */
 
-Ice::~Ice(void) {
-	std::cout << BLUE "[Ice Destructor] An Ice Materia has been destroyed." NC << std::endl;
+Fire::~Fire(void) {
+	std::cout << RED "[Fire Destructor] An Fire Materia has been destroyed." NC << std::endl;
 }
 
 /* ----- OPERATOR OVERLOAD ------------ */
 
-Ice& Ice::operator=(const Ice& rhs) {
+Fire& Fire::operator=(const Fire& rhs) {
 	if (this != &rhs)
 		this->_type = rhs.getType();
 	return (*this);
@@ -42,10 +42,10 @@ Ice& Ice::operator=(const Ice& rhs) {
 
 /* ----- PUBLIC METHOD --------------- */
 
-AMateria*	Ice::clone(void) const {
-	return (new Ice(*this));
+AMateria*	Fire::clone(void) const {
+	return (new Fire(*this));
 }
 
-void	Ice::use(ICharacter& target) {
-	std::cout << BLUE "* shoots an ice bolt at " NC << target.getName() << BLUE " *" NC << std::endl;
+void	Fire::use(ICharacter& target) {
+	std::cout << RED "* throws a fireball at " NC << target.getName() << RED " *" NC << std::endl;
 }

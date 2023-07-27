@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:45:02 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 16:39:43 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/28 01:56:37 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ Character& Character::operator=(Character const& rhs) {
 				this->_nbMateria++;
 		}
 	}
-	//std::cout << YELLOW "[Character Assignation Operator] A Character has been assigned." NC << std::endl;
 	return (*this);
 }
 
@@ -98,7 +97,7 @@ void	Character::use(int idx, ICharacter& target) {
 		this->_inventory[idx]->use(target);
 		return ;
 	}
-	std::cout << YELLOW "Nothing to use..." NC << std::endl;
+	std::cout << YELLOW "* nothing to use *" NC << std::endl;
 }
 
 void	Character::printInventory(void) const {
