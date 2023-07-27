@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:45:02 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 03:49:17 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:39:43 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ std::string const&	Character::getName(void) const {
 /* ----- PUBLIC METHOD ---------------- */
 
 void	Character::equip(AMateria* m) {
-	if (!m)
-		std::cout << YELLOW "Invalid Materia..." NC << std::endl;
-	else if (this->_nbMateria < Character::_inventorySize) {
+	if (this->_nbMateria < Character::_inventorySize) {
 		for(int i = 0; i < Character::_inventorySize; i++) {
 			if (!this->_inventory[i]) {
 				this->_inventory[i] = m;
@@ -84,11 +82,11 @@ void	Character::equip(AMateria* m) {
 }
 
 void	Character::unequip(int idx) {
-	if (idx <= 0 || idx > Character::_inventorySize)
+	if (idx < 0 || idx >= Character::_inventorySize)
 		std::cout << YELLOW "Invalid index..." NC << std::endl;
-	else if (idx > 0 && idx <= Character::_inventorySize && this->_inventory[idx - 1]) {
-		std::string _materiaType = this->_inventory[idx - 1]->getType();
-		this->_inventory[idx - 1] = NULL;
+	else if (idx >= 0 && idx < Character::_inventorySize && this->_inventory[idx]) {
+		std::string _materiaType = this->_inventory[idx]->getType();
+		this->_inventory[idx] = NULL;
 		this->_nbMateria--;
 		std::cout << YELLOW "Unequipped " NC << _materiaType << YELLOW " Materia." NC << std::endl;
 	} else
@@ -101,4 +99,14 @@ void	Character::use(int idx, ICharacter& target) {
 		return ;
 	}
 	std::cout << YELLOW "Nothing to use..." NC << std::endl;
+}
+
+void	Character::printInventory(void) const {
+	std::cout << YELLOW "Inventory of " NC << this->_name << YELLOW ":" NC << std::endl;
+	for(int i = 0; i < Character::_inventorySize; i++) {
+		if (this->_inventory[i])
+			std::cout << YELLOW "[" NC << i + 1 << YELLOW "] " NC << this->_inventory[i]->getType() << std::endl;
+		else
+			std::cout << YELLOW "[" NC << i + 1 << YELLOW "] " NC << "Empty" << std::endl;
+	}
 }
