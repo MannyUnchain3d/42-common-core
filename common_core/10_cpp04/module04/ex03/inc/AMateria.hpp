@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 00:46:18 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 02:59:18 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 05:06:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria {
 		AMateria(const AMateria& rhs);
 		virtual ~AMateria(void);
 
-		// No assignation operator overload needed
+		// No assignation operator needed
 
 		std::string const&	getType(void) const;
 		virtual AMateria*	clone(void) const = 0;
