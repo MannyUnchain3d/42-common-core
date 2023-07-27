@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:26:45 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 00:27:22 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 07:07:33 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ICharacter {
 		virtual void 				equip(AMateria* m) = 0;
 		virtual void 				unequip(int idx) = 0;
 		virtual void 				use(int idx, ICharacter& target) = 0;
-
+		virtual void				printInventory(void) const = 0;
 		virtual ~ICharacter(void) {}
 };
 
