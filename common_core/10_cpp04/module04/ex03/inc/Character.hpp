@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 01:44:18 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/27 00:15:52 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/07/27 07:01:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Character : public ICharacter {
 		virtual void		equip(AMateria* m);
 		virtual void		unequip(int idx);
 		virtual void		use(int idx, ICharacter& target);
+		virtual void		printInventory(void) const;
 
 	private:
 		std::string			_name;
