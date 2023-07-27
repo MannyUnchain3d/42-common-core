@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:47:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/07/25 19:55:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/07/28 03:00:02 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 #include "WrongCat.hpp"
 
 int main(void) {
-	// Uncomment the following line to test the error
-	//Animal	abstract;
+	//Animal	abstract; // cannot instantiate an abstract class
 
 	std::cout << std::endl;
 
