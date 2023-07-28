@@ -56,7 +56,7 @@ re: fclean all
 mem1:
 	valgrind --leak-check=summary ./$(NAME)
 mem2:
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
 mem3:
 	valgrind -s ./$(NAME)
 
