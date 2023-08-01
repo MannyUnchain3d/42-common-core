@@ -6,14 +6,14 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:20:42 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/17 00:18:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/08/01 20:08:32 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 42
 # endif
 
 # include <stddef.h>
