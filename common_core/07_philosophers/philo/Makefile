@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 23:18:49 by Manny             #+#    #+#              #
-#    Updated: 2023/07/17 23:03:04 by etetopat         ###   ########.fr        #
+#    Updated: 2023/08/01 20:14:59 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,8 @@ $(NAME): $(OBJS)
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 clean:
-	@$(RM) $(OBJ)
-	@echo "\n$(YELLOW) $(RM) $(OBJ) $(NC)"
+	@$(RM) $(OBJ_DIR)
+	@echo "\n$(YELLOW) $(RM) $(OBJ_DIR) $(NC)"
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
