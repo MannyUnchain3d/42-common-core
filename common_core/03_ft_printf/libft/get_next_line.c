@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 01:21:03 by Manny             #+#    #+#             */
-/*   Updated: 2023/01/25 13:57:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/08/01 20:08:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_sub(char **rest, char **line)
+char	*gnl_from_rest(char **rest, char **line)
 {
 	char	*str;
 
@@ -41,7 +41,7 @@ char	*ft_sub(char **rest, char **line)
 	return (str);
 }
 
-char	*ft_sub_2(char **rest, char **line, char **buf)
+char	*gnl_from_buf(char **rest, char **line, char **buf)
 {
 	char	*str;
 	char	*tmp;
@@ -73,13 +73,13 @@ char	*get_next_line(int fd)
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	str = ft_sub(&rest[fd], &line);
+	str = gnl_from_rest(&rest[fd], &line);
 	i = 1;
 	while (!str && i)
 	{
 		i = read(fd, buf, BUFFER_SIZE);
 		buf[i] = '\0';
-		str = ft_sub_2(&rest[fd], &line, &buf);
+		str = gnl_from_buf(&rest[fd], &line, &buf);
 	}
 	free(buf);
 	if (ft_strlen(line) > 0)

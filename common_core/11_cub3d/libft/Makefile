@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/04 23:18:49 by Manny             #+#    #+#              #
-#    Updated: 2023/08/01 20:14:59 by Manny            ###   ########.fr        #
+#    Created: 2022/03/13 19:14:30 by Manny             #+#    #+#              #
+#    Updated: 2023/07/24 01:51:03 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
-NAME = philo
+NAME = libft.a
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
@@ -27,22 +27,27 @@ BLINK	= \033[5m
 NC		= \033[0m
 
 # ***** COMPILATION **** #
-CC = gcc -g3 -pthread #-fsanitize=thread
+CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
+AR = ar
+ARFLAGS = rcs
 RM = rm -rf
 
-# ***** INCLUDES ******* #
-INC = -I ./inc/
-
 # ***** SOURCES ******** #
-SRC_DIR = ./src/
-SRC = exit.c init.c input_check.c main.c manager.c time.c output.c philosopher.c
-SRCS	= $(addprefix $(SRC_DIR), $(SRC))
+SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
+		ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c ft_lstadd_back.c\
+		ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c\
+		ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_memchr.c ft_memcmp.c\
+		ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c\
+		ft_putnbr_fd.c ft_putstr_fd.c ft_putstr.c ft_split.c ft_strchr.c\
+		ft_strcmp.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c\
+		ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c\
+		ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+		get_next_line.c
 
 # ***** OBJECTS ******** #
-OBJ_DIR = ./obj/
-OBJ = $(SRC:.c=.o)
-OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # ***** RULES ********** #
 all: $(OBJ_DIR) $(NAME)
@@ -50,13 +55,13 @@ all: $(OBJ_DIR) $(NAME)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c
+	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(INC) -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) $(INC) -o $@
+$(NAME): $(OBJ_DIR) $(OBJ)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@echo "\n$(BLUE) $(AR) $(ARFLAGS) $(NAME) $(OBJ) $(NC)"
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 clean:

@@ -19,12 +19,20 @@ CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
+# ***** MLX ************ #
+OS = $(shell uname -s)
+ifeq ($(OS), Linux)
+	MLX = -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
+else
+	MLX = -Lmlx -lmlx -Imlx -framework OpenGL -framework AppKit
+endif
+
 # ***** INCLUDES ******* #
 INC = -I ./inc/
 
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
-SRC =
+SRC = main.c
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
@@ -43,8 +51,8 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $@
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 clean:
