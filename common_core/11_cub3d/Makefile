@@ -1,5 +1,5 @@
 # ***** EXECUTABLE ***** #
-NAME = cub3d
+NAME = cub3D
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
