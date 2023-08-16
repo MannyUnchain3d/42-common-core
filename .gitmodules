@@ -1,0 +1,3 @@
+[submodule "common_core/11_cub3d/minilibx-linux"]
+	path = common_core/11_cub3d/minilibx-linux
+	url = git@github.com:42Paris/minilibx-linux.git
