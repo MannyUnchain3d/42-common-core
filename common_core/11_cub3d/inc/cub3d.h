@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/08/01 23:07:28 by Manny            ###   ########.fr       */
+/*   Updated: 2023/08/02 15:53:15 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,23 @@ typedef struct s_img
 
 }	t_img;
 
-typedef struct s_tex
+typedef struct	s_tex_info
 {
-	char		*north;
-	char		*south;
-	char		*west;
-	char		*east;
-	int			*floor;
-	int			*ceiling;
-	int			size;
-	int			index;
-	int			x;
-	int			y;
-	double		pos;
-	double		step;
-}	t_tex;
+	char	*north;
+	char	*south;
+	char	*west;
+	char	*east;
+	int		*floor;
+	int		*ceiling;
+	int		size;
+	int		index;
+	int		x;
+	int		y;
+	double	pos;
+	double	step;
+}	t_tex_info;
 
-typedef struct s_map
+typedef struct	s_map_info
 {
 	char	*path;
 	char	**file;
@@ -101,16 +101,65 @@ typedef struct s_map
 	int		width;
 	int		height;
 	int		index_end_of_map;
-}	t_map;
+}	t_map_info;
 
-typedef struct s_player
+typedef struct s_ray
 {
+	double	camera_x;
+	double	dir_x;
+	double	dir_y;
+	double	side_x;
+	double	side_y;
+	double	delta_x;
+	double	delta_y;
+	double	wall_dist;
+	double	wall_x;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+}	t_ray;
+
+typedef struct	s_player
+{
+	char	dir;
 	double	x;
 	double	y;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	int		moved;
+	int		move_x;
+	int		move_y;
+	int		rotated; // 0 = not rotated, 1 = rotated left, 2 = rotated right
 }	t_player;
+
+typedef struct	s_data
+{
+	void		*mlx;
+	void		*win;
+	int			win_height;
+	int			win_width;
+	char		**map;
+	t_map_info	map_info;
+	t_player	player;
+	t_ray		ray;
+	t_tex_info	tex_info;
+	int			**texels;
+	int			**textures;
+}	t_data;
+
+
+/* ------ FUNCTIONS ------------------- */
+
+// init/init_data.c
+void	init_data(t_data *data);
+
+
 
 #endif
