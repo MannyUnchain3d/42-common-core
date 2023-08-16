@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:19 by Manny             #+#    #+#             */
-/*   Updated: 2023/08/02 01:15:28 by Manny            ###   ########.fr       */
+/*   Updated: 2023/08/02 15:53:18 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 		return (err_msg("Usage", ERR_USAGE, 1));
 	if (parse_args(&data, av))
 		return (1);
-	init_data(&data)
+	init_data(&data);
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();
