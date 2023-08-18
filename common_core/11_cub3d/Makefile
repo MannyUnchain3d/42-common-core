@@ -28,7 +28,12 @@ else
 endif
 
 # ***** INCLUDES ******* #
-INC = -I ./inc/
+OS = $(shell uname -s)
+ifeq ($(OS), Linux)
+	INC = -I ./inc/ -I ./libft/ -I ./minilibx-linux/
+else
+	INC = -I ./inc/ -I ./libft/ -I ./minilibx_opengl/
+endif
 
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
@@ -45,6 +50,11 @@ all: $(OBJ_DIR) $(NAME)
 
  $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)/exit
+	@mkdir -p $(OBJ_DIR)/init
+	@mkdir -p $(OBJ_DIR)/moves
+	@mkdir -p $(OBJ_DIR)/parsing
+	@mkdir -p $(OBJ_DIR)/rendering
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"

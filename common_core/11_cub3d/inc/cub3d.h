@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/08/02 15:53:15 by Manny            ###   ########.fr       */
+/*   Updated: 2023/08/18 20:31:39 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 
-# include <X11/X.h>// KeyPressMask, KeyReleaseMask, KeyPress, KeyRelease
-# include <X11/keysym.h>// keycodes for X11 (linux)
+# ifdef __linux__
+#  include <X11/X.h>// KeyPressMask, KeyReleaseMask, KeyPress, KeyRelease
+#  include <X11/keysym.h>// keycodes for X11 (linux)
+# endif
 
 /* ------ MACROS ---------------------- */
 
@@ -42,7 +44,6 @@
 # define FOV 60
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
-
 
 /* ------ ERROR MESSAGES -------------- */
 
@@ -76,7 +77,7 @@ typedef struct s_img
 
 }	t_img;
 
-typedef struct	s_tex_info
+typedef struct s_tex_info
 {
 	char	*north;
 	char	*south;
@@ -92,7 +93,7 @@ typedef struct	s_tex_info
 	double	step;
 }	t_tex_info;
 
-typedef struct	s_map_info
+typedef struct s_map_info
 {
 	char	*path;
 	char	**file;
@@ -102,6 +103,17 @@ typedef struct	s_map_info
 	int		height;
 	int		index_end_of_map;
 }	t_map_info;
+
+typedef struct s_minimap
+{
+	t_img	img;
+	char	**map;
+	int		size;
+	int		offset_x;
+	int		offset_y;
+	int		tile_size;
+	int		view_dist;
+}	t_minimap;
 
 typedef struct s_ray
 {
@@ -124,7 +136,7 @@ typedef struct s_ray
 	int		draw_end;
 }	t_ray;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	char	dir;
 	double	x;
@@ -139,7 +151,7 @@ typedef struct	s_player
 	int		rotated; // 0 = not rotated, 1 = rotated left, 2 = rotated right
 }	t_player;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void		*mlx;
 	void		*win;
@@ -150,6 +162,7 @@ typedef struct	s_data
 	t_player	player;
 	t_ray		ray;
 	t_tex_info	tex_info;
+	t_img		minimap;
 	int			**texels;
 	int			**textures;
 }	t_data;
@@ -159,7 +172,5 @@ typedef struct	s_data
 
 // init/init_data.c
 void	init_data(t_data *data);
-
-
 
 #endif
