@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:17:35 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/18 20:31:17 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:35:51 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void	init_data(t_data *data)
 	data->map = NULL;
 	init_map_info(&data->map_info);
 	init_img(&data->minimap);
+	data->texels = NULL;
+	data->textures = NULL;
 }
