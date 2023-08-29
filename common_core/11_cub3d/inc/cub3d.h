@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/08/18 20:31:39 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/08/29 22:59:14 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 
-# define TEXEL_SIZE 64
+# define TEX_SIZE 64
+
+# ifndef O_DIRECTORY
+#  define O_DIRECTORY 00200000
+# endif
 
 # define FOV 60
 # define MOVE_SPEED 0.1
@@ -48,22 +52,36 @@
 /* ------ ERROR MESSAGES -------------- */
 
 # define ERR_USAGE "Usage: ./cub3D <path_to_map/file.cub>"
-# define ERR_MAP "Invalid map"
-// ...
-// ...
-// ...
+# define ERR_MLX_IMG "Could not create mlx image"
+# define ERR_MLX_START "Could not start mlx"
+# define ERR_MLX_WIN "Could not create mlx window"
+# define ERR_MALLOC "Could not allocate memory"
+# define ERR_FILE_NOT_CUB "Not a .cub file"
+# define ERR_FILE_NOT_XPM "Not a .xpm file"
+# define ERR_FILE_IS_DIR "Is a directory"
+# define ERR_CHAR "Invalid character in map"
+# define ERR_MAX_PLAYER "Too many players in map"
+
 // ...
 
 /* ------ ENUMERATIONS ---------------- */
+
+enum e_output
+{
+	SUCCESS = 0,
+	FAILURE = 1,
+	ERROR = 2,
+	BREAK = 3,
+	CONTINUE = 4,
+};
 
 enum e_direction
 {
 	NORTH = 0,
 	SOUTH = 1,
 	WEST = 2,
-	EAST = 3
+	EAST = 3,
 };
-
 
 /* ------ STRUCTURES ------------------ */
 
@@ -74,23 +92,24 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
-
 }	t_img;
 
 typedef struct s_tex_info
 {
-	char	*north;
-	char	*south;
-	char	*west;
-	char	*east;
-	int		*floor;
-	int		*ceiling;
-	int		size;
-	int		index;
-	int		x;
-	int		y;
-	double	pos;
-	double	step;
+	char			*north;
+	char			*south;
+	char			*west;
+	char			*east;
+	int				*ceiling;
+	int				*floor;
+	unsigned long	ceiling_hex;
+	unsigned long	floor_hex;
+	int				size;
+	int				index;
+	int				x;
+	int				y;
+	double			pos;
+	double			step;
 }	t_tex_info;
 
 typedef struct s_map_info
@@ -167,10 +186,23 @@ typedef struct s_data
 	int			**textures;
 }	t_data;
 
-
 /* ------ FUNCTIONS ------------------- */
 
 // init/init_data.c
 void	init_data(t_data *data);
+void	init_clean_img(t_img *img);
+void	init_ray(t_ray *ray);
+
+// init/init_mlx.c
+void	init_mlx(t_data *data);
+void	init_img(t_data *data, t_img *img, int width, int height);
+void	init_tex_img(t_data *data, t_img *img, char *path);
+
+// init/init_texures.c
+void	init_textures(t_data *data);
+void	init_tex_info(t_tex_info *textures);
+
+// parsing/check_args.c
+int		check_file(char *arg, bool cub);
 
 #endif
