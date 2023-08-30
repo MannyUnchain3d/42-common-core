@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/08/29 22:59:14 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/08/30 23:36:14 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,22 @@
 /* ------ ERROR MESSAGES -------------- */
 
 # define ERR_USAGE "Usage: ./cub3D <path_to_map/file.cub>"
-# define ERR_MLX_IMG "Could not create mlx image"
-# define ERR_MLX_START "Could not start mlx"
-# define ERR_MLX_WIN "Could not create mlx window"
-# define ERR_MALLOC "Could not allocate memory"
 # define ERR_FILE_NOT_CUB "Not a .cub file"
 # define ERR_FILE_NOT_XPM "Not a .xpm file"
 # define ERR_FILE_IS_DIR "Is a directory"
-# define ERR_CHAR "Invalid character in map"
-# define ERR_MAX_PLAYER "Too many players in map"
-
-// ...
+# define ERR_MALLOC "Could not allocate memory"
+# define ERR_MLX_IMG "Could not create mlx image"
+# define ERR_MLX_START "Could not start mlx"
+# define ERR_MLX_WIN "Could not create mlx window"
+# define ERR_MAP_INVALID "Invalid map, check .cub file for errors"
+# define ERR_MAP_CHAR "Invalid character in map"
+# define ERR_MAP_MISSING "Map is missing"
+# define ERR_MAP_BORDERS "Map is not surrounded by walls"
+# define ERR_MAP_SMALL "Map is too small"
+# define ERR_MAP_POS "Map is not the last element in file"
+# define ERR_PLAYER_MAX "Too many players in map"
+# define ERR_PLAYER_DIR "Invalid player direction (not N,S,W or E)"
+# define ERR_PLAYER_POS "Invalid player position"
 
 /* ------ ENUMERATIONS ---------------- */
 
@@ -158,8 +163,8 @@ typedef struct s_ray
 typedef struct s_player
 {
 	char	dir;
-	double	x;
-	double	y;
+	double	pos_x;
+	double	pos_y;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
@@ -204,5 +209,31 @@ void	init_tex_info(t_tex_info *textures);
 
 // parsing/check_args.c
 int		check_file(char *arg, bool cub);
+
+// parsing/check_map.c
+int		check_map(t_data *data, char **map_tab);
+
+// parsing/check_map_borders.c
+int		check_sides(t_map_info *map, char **map_tab);
+
+// parsing/utils.c
+int		is_whitespace(char c);
+size_t	find_map_width(t_map_info *map, int i);
+
+// rendering/...
+
+// moves/...
+
+// error.c
+int		err_msg(char *detail, char *str, int code);
+int		err_msg_nb(int nb, char *str, int code);
+
+// exit/exit.c
+void	clean_exit(t_data *data, int code);
+int		quit_cub3d(t_data *data);
+
+// exit/free_data.c
+int		free_data(t_data *data);
+void	free_tab(void **tab);
 
 #endif
