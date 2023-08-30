@@ -6,13 +6,13 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:02:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/29 21:15:08 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/08/30 23:03:31 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	err_msg(char *detail, int *str, int code)
+int	err_msg(char *detail, char *str, int code)
 {
 	ft_putstr_fd("cub3D: Error", 2);
 	if (detail)

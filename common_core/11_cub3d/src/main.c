@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:19 by Manny             #+#    #+#             */
-/*   Updated: 2023/08/02 15:53:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/08/30 22:51:37 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,21 @@ static void	print_controls(void)
 	printf("WASD: Move\n");
 	printf("LEFT and RIGHT: Rotate\n");
 	printf("ESC: Exit\n");
-	printf("M: Toggle minimap\n"); //ON Y CROIT ( ͡° ͜ʖ ͡°)
-	printf("R: Toggle raycast\n"); //ON Y CROIT ( ͡° ͜ʖ ͡°)
-	printf("T: Toggle textures\n"); //ON Y CROIT ( ͡° ͜ʖ ͡°)
-	printf("G: Toggle grid\n"); //ON Y CROIT ( ͡° ͜ʖ ͡°)
-	printf("H: Toggle HUD\n"); //ON Y CROIT ( ͡° ͜ʖ ͡°)
-	printf("C: Toggle controls\n"); //ON Y CROIT ( ͡° ͜ʖ ͡°)
 }
+	/* ON Y CROIT ( ͡° ͜ʖ ͡°)
+	printf("M: Toggle minimap\n");
+	printf("R: Toggle raycast\n"); 
+	printf("T: Toggle textures\n");
+	printf("G: Toggle grid\n");
+	printf("H: Toggle HUD\n");
+	printf("C: Toggle controls\n");
+	*/
 
 static int	parse_args(t_data *data, char **av)
 {
-	// ON Y CROIT ( ͡° ͜ʖ ͡°)
+	if (check_file(av[1], true) == FAILURE)
+		clean_exit(data, FAILURE);
+
 }
 
 int	main(int ac, char **av)
@@ -49,9 +53,4 @@ int	main(int ac, char **av)
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();
-	// ...
-	// ...
-	// ...
-	// ...
-	// ON Y CROIT ( ͡° ͜ʖ ͡°)
 }
