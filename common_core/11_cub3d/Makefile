@@ -37,7 +37,20 @@ endif
 
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
-SRC = main.c
+SRC = 	error.c \
+		main.c \
+		exit/exit.c \
+		exit/free_data.c \
+		init/init_data.c \
+		init/init_mlx.c \
+		init/init_textures.c \
+		moves/... \
+		parsing/check_args.c \
+		parsing/check_map_borders.c \
+		parsing/check_map.c \
+		parsing/parsing_utils.c \
+		rendering/... \
+
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
