@@ -48,6 +48,7 @@ SRC = 	error.c \
 		parsing/check_args.c \
 		parsing/check_map_borders.c \
 		parsing/check_map.c \
+		parsing/create_map.c \
 		parsing/parsing_utils.c \
 		rendering/... \
 
