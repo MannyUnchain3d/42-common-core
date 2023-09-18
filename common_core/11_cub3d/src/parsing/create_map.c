@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_game_map.c                                  :+:      :+:    :+:   */
+/*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:19:52 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/01 23:01:33 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/09/16 07:03:04 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ static int	fill_map_tab(t_map_info *map_info, char **map_tab, int index)
 	map_tab[i] = NULL;
 	return (SUCCESS);
 }
-
-
 
 static int	get_map_info(t_data *data, char **file, int i)
 {
