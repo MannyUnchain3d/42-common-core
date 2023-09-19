@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:32:18 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/30 22:43:49 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:01:56 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,5 @@ int	check_map(t_data *data, char **map_tab)
 		return (FAILURE);
 	if (check_map_position(&data->map_info) == FAILURE)
 		return (err_msg(data->map_info.path, ERR_MAP_POS, FAILURE));
+	return (SUCCESS);
 }
