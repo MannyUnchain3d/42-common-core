@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:17:13 by etetopat          #+#    #+#             */
-/*   Updated: 2022/06/02 18:21:04 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/09/16 06:49:11 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,4 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		new[i++] = s2[j++];
 	new[i] = '\0';
 	return (new);
-}	
+}
