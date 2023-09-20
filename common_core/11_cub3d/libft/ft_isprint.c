@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 01:40:12 by etetopat          #+#    #+#             */
-/*   Updated: 2023/04/26 18:52:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/09/20 15:01:57 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@
 int	ft_isprint(int c)
 {
 	if (c >= ' ' && c <= '~')
-		return (c);
+		return (1);
 	return (0);
 }
