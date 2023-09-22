@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/09/20 23:26:13 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/09/22 21:39:42 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@
 # define ERR_CEILING_FLOOR "Invalid ceiling and/or floor color"
 # define ERR_COLOR_CEILING "Invalid ceiling color"
 # define ERR_COLOR_FLOOR "Invalid floor color"
-# define ERR_TEX_MISSING "Missing texture path"
+# define ERR_TEX_INVALID "Invalid texture"
+# define ERR_TEX_MISSING "Missing texture"
 # define ERR_TEX_COLOR "Missing color(s) for ceiling and/or floor"
 # define ERR_TEX_RGB "Invalid RGB value"
 
