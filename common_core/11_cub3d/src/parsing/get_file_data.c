@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:17:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/22 21:39:39 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:15:31 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,43 @@ static int	ignore_ws_get_data(t_data *data, char **map, int i, int j)
 			return (BREAK);
 		}
 		else
-
+		{
+			if (fill_color_textures(data, &data->tex_info, map[i], j) == ERROR)
+				return (FAILURE);
+			return (BREAK);
+		}
 	}
+	else if (ft_isdigit(map[i][j]))
+	{
+		if (create_map(data, map, i) == FAILURE)
+			return (err_msg(data->map_info.path, ERR_MAP_INVALID, FAILURE));
+		return (SUCCESS);
+	}
+	return (CONTINUE);
+}
+
+int	get_file_data(t_data *data, char **map)
+{
+	int	i;
+	int	j;
+	int	ret;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			ret = ignore_ws_get_data(data, map, i, j);
+			if (ret == BREAK)
+				break ;
+			else if (ret == FAILURE)
+				return (FAILURE);
+			else if (ret == SUCCESS)
+				return (SUCCESS);
+			j++;
+		}
+		i++;
+	}
+	return (SUCCESS);
 }
