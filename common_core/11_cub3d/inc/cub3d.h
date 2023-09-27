@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/09/22 21:39:42 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:42:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,8 @@ typedef struct s_ray
 	double	dir_y;
 	double	side_x;
 	double	side_y;
-	double	delta_x;
-	double	delta_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
 	double	wall_dist;
 	double	wall_x;
 	int		map_x;
