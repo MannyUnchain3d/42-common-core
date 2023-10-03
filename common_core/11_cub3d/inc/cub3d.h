@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/03 16:52:46 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:41:20 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ typedef struct s_player
 	int		moved;
 	int		move_x;
 	int		move_y;
-	int		rotated; // 0 = not rotated, 1 = rotated left, 2 = rotated right
+	int		rotate; // 0 = not rotate, 1 = rotate left, 2 = rotate right
 }	t_player;
 
 typedef struct s_data
