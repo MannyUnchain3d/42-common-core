@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/09/27 21:42:12 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/02 19:33:06 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,8 +151,8 @@ typedef struct s_ray
 	double	camera_x;
 	double	dir_x;
 	double	dir_y;
-	double	side_x;
-	double	side_y;
+	double	side_dist_x;
+	double	side_dist_y;
 	double	delta_dist_x;
 	double	delta_dist_y;
 	double	wall_dist;
