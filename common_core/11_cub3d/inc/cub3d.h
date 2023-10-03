@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/02 19:33:06 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/03 16:52:46 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@
 # define FOV 60
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
+
+# ifndef BONUS
+#  define BONUS 1
+# endif
 
 /* ------ ERROR MESSAGES -------------- */
 

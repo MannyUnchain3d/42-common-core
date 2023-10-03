@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/02 19:52:53 by Manny            ###   ########.fr        #
+#    Updated: 2023/10/03 17:57:27 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ SRC = 	error.c \
 		init/init_data.c \
 		init/init_mlx.c \
 		init/init_textures.c \
-		moves/... \
+		movements/ \
 		parsing/check_args.c \
 		parsing/check_map_borders.c \
 		parsing/check_map.c \
@@ -66,7 +66,10 @@ SRC = 	error.c \
 		parsing/get_file_data.c \
 		parsing/parse_data.c \
 		parsing/parsing_utils.c \
-		rendering/... \
+		rendering/images_utils.c \
+		rendering/raycasting.c \
+		rendering/render.c \
+		rendering/textures.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 

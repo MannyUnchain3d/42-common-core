@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:39:12 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/03 13:46:40 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/03 16:28:17 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ int	raycasting(t_player *player, t_data *data)
 		init_raycasting_info(x, &ray, player);
 		set_dda(&ray, player);
 		dda(data, &ray);
-		caluate_line_height(&ray, data, player);
-		//draw_line(data, &ray, x);
+		calculate_line_height(&ray, data, player);
+		update_texels(data, &data->tex_info, &ray, x);
 		x++;
 	}
 	return (SUCCESS);
