@@ -6,12 +6,15 @@
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/03 17:57:27 by etetopat         ###   ########.fr        #
+#    Updated: 2023/10/04 19:49:56 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = cub3D
+
+# ***** BONUS MODE ***** #
+BONUS = 0
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
@@ -56,7 +59,11 @@ SRC = 	error.c \
 		init/init_data.c \
 		init/init_mlx.c \
 		init/init_textures.c \
-		movements/ \
+		movements/input_handler.c \
+		movements/player_dir.c \
+		movements/player_move.c \
+		movements/player_pos.c \
+		movements/player_rotate.c \
 		parsing/check_args.c \
 		parsing/check_map_borders.c \
 		parsing/check_map.c \
@@ -75,7 +82,7 @@ SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
 OBJ_DIR = ./obj/
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
@@ -85,18 +92,24 @@ all: $(OBJ_DIR) $(NAME)
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(OBJ_DIR)/exit
 	@mkdir -p $(OBJ_DIR)/init
-	@mkdir -p $(OBJ_DIR)/moves
+	@mkdir -p $(OBJ_DIR)/movements
 	@mkdir -p $(OBJ_DIR)/parsing
 	@mkdir -p $(OBJ_DIR)/rendering
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC) -DBONUS=$(BONUS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -DBONUS=$(BONUS) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
+
+$(LIBFT):
+	@make -sC ./libft/
+
+bonus:
+	make all BONUS=1
 
 clean:
 	@$(RM) $(OBJ_DIR)

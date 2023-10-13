@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:05:15 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/29 19:35:28 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:45:19 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	clean_exit(t_data *data, int code)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)
 	{
-		mlx_destroy_display(data->mlx);
-		mlx_loop_end(data->mlx);
+		// mlx_destroy_display(data->mlx); ONLY ON MACOS
+		// mlx_loop_end(data->mlx);
 		free(data->mlx);
 	}
 	free_data(data);

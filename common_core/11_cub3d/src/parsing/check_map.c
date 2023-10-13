@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:32:18 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/19 15:01:56 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:42:44 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	check_player_position(t_data *data, char **map_tab)
 		{
 			if (ft_strchr("NSWE", map_tab[i][j]))
 			{
-				data->player.pos_x = (double)j + 0.5; // 0.5 is the offset to center the player in the tile
+				data->player.pos_x = (double)j + 0.5;
 				data->player.pos_y = (double)i + 0.5;
 				map_tab[i][j] = '0';
 			}
