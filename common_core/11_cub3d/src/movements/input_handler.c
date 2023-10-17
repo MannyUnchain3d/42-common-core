@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:49:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/03 19:54:36 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:13:01 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,41 @@ static int	key_release_handler(int key, t_data *data)
 	return (0);
 }
 
-//MOUSE BONUS IF ENOUGH TIME
+static void	wrap_mouse_position(t_data *data, int x, int y)
+{
+	if (x > data->win_width - DIST_EDGE_MOUSE_WRAP)
+	{
+		x = DIST_EDGE_MOUSE_WRAP;
+		mlx_mouse_move(data->mlx, data->win, x, y);
+	}
+	if (x < DIST_EDGE_MOUSE_WRAP)
+	{
+		x = data->win_width - DIST_EDGE_MOUSE_WRAP;
+		mlx_mouse_move(data->mlx, data->win, x, y);
+	}
+}
+
+static int	mouse_handler(int x, int y, t_data *data)
+{
+	static int	old_x = WIN_WIDTH / 2;
+
+	wrap_mouse_position(data, x, y);
+	if (x == old_x)
+		return (0);
+	else if (x < old_x)
+		data->player.moved += rotate_player(data, -1);
+	else if (x > old_x)
+		data->player.moved += rotate_player(data, 1);
+	old_x = x;
+	return (0);
+}
+
+void	listen_for_input(t_data *data)
+{
+	mlx_hook(data->win, ClientMessage, NoEventMask, quit_cub3d, data);
+	mlx_hook(data->win, KeyPress, KeyPressMask, key_press_handler, data);
+	mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release_handler, data);
+	if (BONUS)
+		mlx_hook(data->win, MotionNotify, PointerMotionMask,
+			mouse_handler, data);
+}

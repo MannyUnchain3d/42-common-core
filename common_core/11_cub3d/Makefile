@@ -6,12 +6,15 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/17 16:38:34 by Manny            ###   ########.fr        #
+#    Updated: 2023/10/17 16:47:16 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
 NAME = cub3D
+
+# ***** BONUS MODE ***** #
+BONUS = 0
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
@@ -79,7 +82,7 @@ SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 # ***** OBJECTS ******** #
 OBJ_DIR = ./obj/
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
@@ -89,18 +92,24 @@ all: $(OBJ_DIR) $(NAME)
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(OBJ_DIR)/exit
 	@mkdir -p $(OBJ_DIR)/init
-	@mkdir -p $(OBJ_DIR)/moves
+	@mkdir -p $(OBJ_DIR)/movements
 	@mkdir -p $(OBJ_DIR)/parsing
 	@mkdir -p $(OBJ_DIR)/rendering
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC) -DBONUS=$(BONUS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -DBONUS=$(BONUS) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
+
+$(LIBFT):
+	@make -sC ./libft/
+
+bonus:
+	make all BONUS=1
 
 clean:
 	@$(RM) $(OBJ_DIR)

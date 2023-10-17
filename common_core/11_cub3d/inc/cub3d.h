@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/03 19:41:20 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:47:04 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define FOV 60
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
+# define DIST_EDGE_MOUSE_WRAP 20
 
 # ifndef BONUS
 #  define BONUS 1
@@ -104,7 +105,7 @@ enum e_direction
 typedef struct s_img
 {
 	void	*img;
-	char	*addr;
+	int		*addr;
 	int		bpp;
 	int		line_len;
 	int		endian;
@@ -183,7 +184,7 @@ typedef struct s_player
 	int		moved;
 	int		move_x;
 	int		move_y;
-	int		rotate; // 0 = not rotate, 1 = rotate left, 2 = rotate right
+	int		rotate;
 }	t_player;
 
 typedef struct s_data
@@ -214,26 +215,70 @@ void	init_mlx(t_data *data);
 void	init_img(t_data *data, t_img *img, int width, int height);
 void	init_tex_img(t_data *data, t_img *img, char *path);
 
-// init/init_texures.c
+// init/init_textures.c
 void	init_textures(t_data *data);
 void	init_tex_info(t_tex_info *textures);
 
 // parsing/check_args.c
 int		check_file(char *arg, bool cub);
 
+// parsing/check_map_borders.c
+int		check_sides(t_map_info *map, char **map_tab);
+
 // parsing/check_map.c
 int		check_map(t_data *data, char **map_tab);
 
-// parsing/check_map_borders.c
-int		check_sides(t_map_info *map, char **map_tab);
+// parsing/check_textures.c
+int		check_textures(t_data *data, t_tex_info *textures);
+
+// parsing/create_map.c
+int		create_map(t_data *data, char **map_tab, int i);
+
+// parsing/fill_color_textures.c
+int		fill_color_textures(t_data *data, t_tex_info *tex, char *line, int i);
+
+// parsing/get_file_data.c
+int		get_file_data(t_data *data, char **map);
+
+// parsing/parse_data.c
+int		parse_data(char *path, t_data *data);
 
 // parsing/utils.c
 int		is_whitespace(char c);
 size_t	find_map_width(t_map_info *map, int i);
 
-// rendering/...
+// rendering/images_utils.c
+void	set_image_pixel(t_img *img, int x, int y, int color);
 
-// moves/...
+// rendering/minimap.c
+// void	render_minimap(t_data *data);
+// void	render_minimap_image(t_data *data);
+
+// rendering/raycasting.c
+void	raycasting(t_player *player, t_data *data);
+
+// rendering/render.c
+int		render(t_data *data);
+void	render_images(t_data *data);
+
+// rendering/textures.c
+void	init_texels(t_data *data);
+void	update_texels(t_data *data, t_tex_info *tex, t_ray *ray, int x);
+
+// movements/input_handler.c
+void	listen_for_input(t_data *data);
+
+/* movement/player_dir.c */
+void	init_player_dir(t_data *data);
+
+/* movement/player_move.c */
+int		move_player(t_data *data);
+
+/* movement/player_pos.c */
+int		validate_move(t_data *data, double new_x, double new_y);
+
+/* movement/player_rotate.c */
+int		rotate_player(t_data *data, double rotdir);
 
 // error.c
 int		err_msg(char *detail, char *str, int code);
