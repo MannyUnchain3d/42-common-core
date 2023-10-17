@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/03 17:57:27 by etetopat         ###   ########.fr        #
+#    Updated: 2023/10/17 16:38:34 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,11 @@ SRC = 	error.c \
 		init/init_data.c \
 		init/init_mlx.c \
 		init/init_textures.c \
-		movements/ \
+		movements/input_handler.c \
+		movements/player_dir.c \
+		movements/player_move.c \
+		movements/player_pos.c \
+		movements/player_rotate.c \
 		parsing/check_args.c \
 		parsing/check_map_borders.c \
 		parsing/check_map.c \
