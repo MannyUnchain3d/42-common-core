@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:39:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/04 15:37:25 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:51:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,15 @@ int	move_player(t_data *data)
 {
 	int	moved;
 
+	moved = 0;
 	if (data->player.move_y == 1)
-		moved += move_player_forward(data);
+		moved += move_forward(data);
 	if (data->player.move_y == -1)
-		moved += move_player_backward(data);
+		moved += move_backward(data);
 	if (data->player.move_x == -1)
-		moved += move_player_left(data);
+		moved += move_left(data);
 	if (data->player.move_x == 1)
-		moved += move_player_right(data);
+		moved += move_right(data);
 	if (data->player.rotate != 0)
 		moved += rotate_player(data, data->player.rotate);
 	return (moved);

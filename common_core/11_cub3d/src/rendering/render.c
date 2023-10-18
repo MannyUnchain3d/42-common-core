@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:04:50 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/03 16:54:59 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:04:39 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static void	render_raycast(t_data *data)
 void	render_images(t_data *data)
 {
 	render_raycast(data);
-	if (BONUS)
-		render_minimap(data);
+	//if (BONUS)
+	//	render_minimap(data);
 }
 
 int	render(t_data *data)

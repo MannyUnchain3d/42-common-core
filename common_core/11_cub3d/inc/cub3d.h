@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/04 19:47:04 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:04:02 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,7 @@ int		fill_color_textures(t_data *data, t_tex_info *tex, char *line, int i);
 int		get_file_data(t_data *data, char **map);
 
 // parsing/parse_data.c
-int		parse_data(char *path, t_data *data);
+void	parse_data(char *path, t_data *data);
 
 // parsing/utils.c
 int		is_whitespace(char c);
@@ -255,7 +255,7 @@ void	set_image_pixel(t_img *img, int x, int y, int color);
 // void	render_minimap_image(t_data *data);
 
 // rendering/raycasting.c
-void	raycasting(t_player *player, t_data *data);
+int		raycasting(t_player *player, t_data *data);
 
 // rendering/render.c
 int		render(t_data *data);

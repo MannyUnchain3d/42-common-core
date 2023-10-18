@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:39:12 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/03 16:28:17 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:03:00 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	dda(t_data *data, t_ray *ray)
 	}
 }
 
-static void	caluate_line_height(t_ray *ray, t_data *data, t_player *player)
+static void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 {
 	if (ray->side == 0)
 		ray->wall_dist = (ray->side_dist_x - ray->delta_dist_x);

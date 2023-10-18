@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:32:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/19 18:04:47 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:52:04 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_rgb(int *rgb)
 	while (i < 3)
 	{
 		if (rgb[i] < 0 || rgb[i] > 255)
-			return (err_msg_val(rgb[i], ERR_TEX_RGB, FAILURE));
+			return (err_msg_nb(rgb[i], ERR_TEX_RGB, FAILURE));
 		i++;
 	}
 	return (SUCCESS);

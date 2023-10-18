@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:19:52 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/20 23:34:49 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:59:47 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	change_space_to_wall(t_data *data)
 	int	j;
 
 	i = 0;
-	while (i < data->map[i])
+	while (data->map[i])
 	{
 		j = 0;
 		while (data->map[i][j] == ' ' || data->map[i][j] == '\t'

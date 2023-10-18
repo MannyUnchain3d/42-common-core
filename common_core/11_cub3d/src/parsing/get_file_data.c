@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:17:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/27 20:15:31 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/17 17:11:20 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*get_tex_path(char *line, int j)
 	int		len;
 	char	*path;
 
-	while (line[j] && line[j] == ' ' || line[j] == '\t')
+	while (line[j] && (line[j] == ' ' || line[j] == '\t'))
 		j++;
 	len = j;
 	while (line[len] && line[len] != ' ' && line[len] != '\t')
@@ -30,7 +30,7 @@ static char	*get_tex_path(char *line, int j)
 	while (line[j] && line[j] != ' ' && line[j] != '\t' && line[j] != '\n')
 		path[i++] = line[j++];
 	path[i] = '\0';
-	while (line[j] && line[j] == ' ' || line[j] == '\t')
+	while (line[j] && (line[j] == ' ' || line[j] == '\t'))
 		j++;
 	if (line[j] && line[j] != '\n')
 	{

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 20:16:08 by Manny             #+#    #+#             */
-/*   Updated: 2023/09/27 21:22:48 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/18 21:01:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	fill_tab(int row, int col, int i, t_data *data)
 		if (!data->map_info.file[row])
 		{
 			err_msg(NULL, ERR_MALLOC, 0);
-			return (free_data((void **)data->map_info.file));
+			return (free_tab((void **)data->map_info.file));
 		}
 		while (line[i] != '\0')
 			data->map_info.file[row][col++] = line[i++];
@@ -80,7 +80,7 @@ void	parse_data(char *path, t_data *data)
 	}
 	data->map_info.fd = open(path, O_RDONLY);
 	if (data->map_info.fd < 0)
-		err_msg(path, strerror(errno), errno);
+		err_msg(path, strerror(errno), FAILURE);
 	else
 	{
 		fill_tab(row, col, i, data);

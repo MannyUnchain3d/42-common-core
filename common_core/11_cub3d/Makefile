@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/17 16:47:16 by Manny            ###   ########.fr        #
+#    Updated: 2023/10/18 21:19:55 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,9 @@ ifeq ($(OS), Linux)
 else
 	MLX = -Lmlx -lmlx -Imlx -framework OpenGL -framework AppKit
 endif
+
+# ***** LIBFT ********** #
+LIBFT = ./libft/libft.a
 
 # ***** INCLUDES ******* #
 OS = $(shell uname -s)
@@ -86,7 +89,7 @@ OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
-all: $(OBJ_DIR) $(NAME)
+all: $(OBJ_DIR) $(LIBFT) $(NAME)
 
  $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -101,8 +104,8 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) $(INC) -DBONUS=$(BONUS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(MLX) -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -DBONUS=$(BONUS) -o $@
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) -o $@ $(NC)"
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) -DBONUS=$(BONUS) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 $(LIBFT):
