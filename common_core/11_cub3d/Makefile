@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/18 21:19:55 by Manny            ###   ########.fr        #
+#    Updated: 2023/10/20 14:07:51 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,9 @@ RM = rm -rf
 # ***** MLX ************ #
 OS = $(shell uname -s)
 ifeq ($(OS), Linux)
-	MLX = -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
+	MLX = -./minilibx-linux/ -lmlx -lXext -lX11 -lm -lz
 else
-	MLX = -Lmlx -lmlx -Imlx -framework OpenGL -framework AppKit
+	MLX = -L./minilibx_opengl/ -lmlx -framework OpenGL -framework AppKit
 endif
 
 # ***** LIBFT ********** #
@@ -62,7 +62,6 @@ SRC = 	error.c \
 		init/init_data.c \
 		init/init_mlx.c \
 		init/init_textures.c \
-		movements/input_handler.c \
 		movements/player_dir.c \
 		movements/player_move.c \
 		movements/player_pos.c \
@@ -80,6 +79,13 @@ SRC = 	error.c \
 		rendering/raycasting.c \
 		rendering/render.c \
 		rendering/textures.c
+
+OS = $(shell uname -s)
+ifeq ($(OS), Linux)
+	SRC += movements/input_handler.c
+else
+	SRC += movements/input_handler_mac.c
+endif
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
