@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:32:18 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/04 16:42:44 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:06:12 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ static int	check_valid_character(t_data *data, char **map_tab)
 	int	j;
 
 	i = 0;
-	data->player.dir = 0;
+	data->player.dir = '0';
 	while (map_tab[i])
 	{
 		j = 0;
 		while (map_tab[i][j])
 		{
-			while (map_tab[i][j] == ' ' || map_tab[i][j] == '\t'
-				|| map_tab[i][j] == '\r' || map_tab[i][j] == '\v'
-				|| map_tab[i][j] == '\f')
+			while (data->map[i][j] == ' ' || data->map[i][j] == '\t'
+				|| data->map[i][j] == '\r' || data->map[i][j] == '\v'
+				|| data->map[i][j] == '\f')
 				j++;
 			if (!(ft_strchr("01NSWE", map_tab[i][j])))
 				return (err_msg(data->map_info.path, ERR_MAP_CHAR, FAILURE));
-			if (ft_strchr("NSWE", map_tab[i][j]) && data->player.dir != 0)
+			if (ft_strchr("NSWE", map_tab[i][j]) && data->player.dir != '0')
 				return (err_msg(data->map_info.path, ERR_PLAYER_MAX, FAILURE));
-			if (ft_strchr("NSWE", map_tab[i][j]) && data->player.dir == 0)
+			if (ft_strchr("NSWE", map_tab[i][j]) && data->player.dir == '0')
 				data->player.dir = map_tab[i][j];
 			j++;
 		}
@@ -49,10 +49,11 @@ static int	check_valid_position(t_data *data, char **map_tab)
 	i = (int)data->player.pos_y;
 	j = (int)data->player.pos_x;
 	if (ft_strlen(map_tab[i - 1]) < (size_t)j
-		|| is_whitespace(map_tab[i - 1][j])
-		|| is_whitespace(map_tab[i + 1][j])
-		|| is_whitespace(map_tab[i][j - 1])
-		|| is_whitespace(map_tab[i][j + 1]))
+		|| ft_strlen(map_tab[i + 1]) < (size_t)j
+		|| is_whitespace(map_tab[i - 1][j]) == SUCCESS
+		|| is_whitespace(map_tab[i + 1][j]) == SUCCESS
+		|| is_whitespace(map_tab[i][j - 1]) == SUCCESS
+		|| is_whitespace(map_tab[i][j + 1]) == SUCCESS)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -97,8 +98,8 @@ static int	check_map_position(t_map_info *map)
 		while (map->file[i][j])
 		{
 			if (map->file[i][j] != ' ' && map->file[i][j] != '\t'
-				&& map->file[i][j] != '\r' && map->file[i][j] != '\v'
-				&& map->file[i][j] != '\f')
+				&& map->file[i][j] != '\r' && map->file[i][j] != '\n'
+				&& map->file[i][j] != '\v' && map->file[i][j] != '\f')
 				return (FAILURE);
 			j++;
 		}

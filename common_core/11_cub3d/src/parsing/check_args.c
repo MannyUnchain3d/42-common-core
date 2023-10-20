@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:41:34 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/29 22:27:35 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:59:20 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	check_file(char *arg, bool cub)
 	int	fd;
 
 	if (is_dir(arg))
-		return (err_msg(arg, ERR_FILE_IS_DIR, 1));
+		return (err_msg(arg, ERR_FILE_IS_DIR, FAILURE));
 	fd = open(arg, O_RDONLY);
 	if (fd == -1)
 		return (err_msg(arg, strerror(errno), FAILURE));
