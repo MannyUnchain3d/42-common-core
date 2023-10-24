@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 20:16:08 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/18 21:01:45 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/24 17:32:53 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	parse_data(char *path, t_data *data)
 	data->map_info.path = path;
 	data->map_info.file = ft_calloc(data->map_info.line_count
 			+ 1, sizeof(char *));
-	if (!data->map_info.file)
+	if (!(data->map_info.file))
 	{
 		err_msg(NULL, ERR_MALLOC, 0);
 		return ;

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/18 21:04:02 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/24 19:00:58 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ enum e_output
 	FAILURE = 1,
 	ERROR = 2,
 	BREAK = 3,
-	CONTINUE = 4,
+	CONTINUE = 4
 };
 
 enum e_direction
@@ -97,7 +97,7 @@ enum e_direction
 	NORTH = 0,
 	SOUTH = 1,
 	WEST = 2,
-	EAST = 3,
+	EAST = 3
 };
 
 /* ------ STRUCTURES ------------------ */
@@ -142,7 +142,7 @@ typedef struct s_map_info
 
 typedef struct s_minimap
 {
-	t_img	img;
+	t_img	*img;
 	char	**map;
 	int		size;
 	int		offset_x;
@@ -235,7 +235,7 @@ int		check_textures(t_data *data, t_tex_info *textures);
 int		create_map(t_data *data, char **map_tab, int i);
 
 // parsing/fill_color_textures.c
-int		fill_color_textures(t_data *data, t_tex_info *tex, char *line, int i);
+int		fill_color_textures(t_data *data, t_tex_info *tex, char *line, int j);
 
 // parsing/get_file_data.c
 int		get_file_data(t_data *data, char **map);

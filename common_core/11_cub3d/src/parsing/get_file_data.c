@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:17:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/17 17:11:20 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/24 17:36:49 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static char	*get_tex_path(char *line, int j)
 	while (line[j] && (line[j] == ' ' || line[j] == '\t'))
 		j++;
 	len = j;
-	while (line[len] && line[len] != ' ' && line[len] != '\t')
+	while (line[len] && (line[len] != ' ' && line[len] != '\t'))
 		len++;
 	path = malloc(sizeof(char) * (len - j + 1));
 	if (!path)
 		return (NULL);
 	i = 0;
-	while (line[j] && line[j] != ' ' && line[j] != '\t' && line[j] != '\n')
+	while (line[j] && (line[j] != ' ' && line[j] != '\t' && line[j] != '\n'))
 		path[i++] = line[j++];
 	path[i] = '\0';
 	while (line[j] && (line[j] == ' ' || line[j] == '\t'))
@@ -61,10 +61,10 @@ static int	ignore_ws_get_data(t_data *data, char **map, int i, int j)
 {
 	while (map[i][j] == ' ' || map[i][j] == '\t' || map[i][j] == '\n')
 		j++;
-	if (ft_isprint(map[i][j] && !ft_isdigit(map[i][j])))
+	if (ft_isprint(map[i][j]) && !ft_isdigit(map[i][j]))
 	{
 		if (map[i][j + 1] && ft_isprint(map[i][j + 1])
-				&& !ft_isdigit(map[i][j]))
+			&& !ft_isdigit(map[i][j]))
 		{
 			if (fill_direction_tex(&data->tex_info, map[i], j) == ERROR)
 				return (err_msg(data->map_info.path, ERR_TEX_INVALID, FAILURE));

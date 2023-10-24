@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:36:21 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/29 20:24:20 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:42:44 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ void	init_tex_img(t_data *data, t_img *img, char *path)
 void	init_mlx(t_data *data)
 {
 	data->mlx = mlx_init();
-	if (!data)
+	if (!data->mlx)
 		clean_exit(data, err_msg("mlx", ERR_MLX_START, 1));
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
 	if (!data->win)
 		clean_exit(data, err_msg("mlx", ERR_MLX_WIN, 1));
+
+	if (BONUS)
+		//mlx_mouse_move(data->mlx, data->win, data->win_width / 2,
+		//	data->win_height / 2); for linux
+		mlx_mouse_move(data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	return ;
 }

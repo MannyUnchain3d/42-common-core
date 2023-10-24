@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:58:13 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/30 23:14:24 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:28:58 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	is_whitespace(char c)
 {
-	if (c != ' ' && c != '\t' && c != '\r' && c != '\v' && c != '\f')
+	if (c != ' ' && c != '\t' && c != '\r' && c != '\n'
+		&& c != '\v' && c != '\f')
 		return (FAILURE);
 	else
 		return (SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:07:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/09/20 23:31:19 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:44:23 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 static bool	no_digit(char *str)
 {
-	int	i;
+	int		i;
+	bool	no_digit;
 
 	i = 0;
+	no_digit = true;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
-			return (true);
+		if (ft_isdigit(str[i]) == 1)
+			no_digit = false;
 		i++;
 	}
-	return (false);
+	return (no_digit);
 }
 
 static int	*copy_to_rgb_array(char **rgb_to_convert, int *rgb)
@@ -36,12 +38,12 @@ static int	*copy_to_rgb_array(char **rgb_to_convert, int *rgb)
 		rgb[i] = ft_atoi(rgb_to_convert[i]);
 		if (rgb[i] == -1 || no_digit(rgb_to_convert[i]) == true)
 		{
-			free((void **)rgb_to_convert);
+			free_tab((void **)rgb_to_convert);
 			free(rgb);
 			return (0);
 		}
 	}
-	free((void **)rgb_to_convert);
+	free_tab((void **)rgb_to_convert);
 	return (rgb);
 }
 
@@ -51,13 +53,13 @@ static int	*set_rgb_colors(char *line)
 	int		*rgb;
 	int		count;
 
-	count = 0;
 	rgb_to_convert = ft_split(line, ',');
+	count = 0;
 	while (rgb_to_convert[count])
 		count++;
 	if (count != 3)
 	{
-		free((void **)rgb_to_convert);
+		free_tab((void **)rgb_to_convert);
 		return (0);
 	}
 	rgb = malloc(sizeof(int) * 3);

@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:28:27 by etetopat          #+#    #+#             */
-/*   Updated: 2023/08/29 21:17:48 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:49:08 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ static int	*xpm_to_img(t_data *data, char *path)
 	int		y;
 
 	init_tex_img(data, &tmp, path);
-	buffer = ft_calloc(1, sizeof(int) * (data->tex_info.size
-				* data->tex_info.size));
+	buffer = ft_calloc(1, sizeof * buffer * data->tex_info.size
+			* data->tex_info.size);
 	if (!buffer)
 		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
 	y = 0;
 	while (y < data->tex_info.size)
 	{
 		x = 0;
-		while (y < data->tex_info.size)
+		while (x < data->tex_info.size)
 		{
 			buffer[y * data->tex_info.size + x]
 				= tmp.addr[y * data->tex_info.size + x];
