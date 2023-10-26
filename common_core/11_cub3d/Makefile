@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/20 14:07:51 by etetopat         ###   ########.fr        #
+#    Updated: 2023/10/26 17:13:09 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ RM = rm -rf
 # ***** MLX ************ #
 OS = $(shell uname -s)
 ifeq ($(OS), Linux)
-	MLX = -./minilibx-linux/ -lmlx -lXext -lX11 -lm -lz
+	MLX = -L./minilibx-linux/ -lmlx -lXext -lX11 -lm -lz
 else
 	MLX = -L./minilibx_opengl/ -lmlx -framework OpenGL -framework AppKit
 endif
