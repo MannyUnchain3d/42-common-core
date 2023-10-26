@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:19 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/04 19:31:14 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:02:44 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	parse_args(t_data *data, char **av)
 	parse_data(av[1], data);
 	if (get_file_data(data, data->map_info.file) == FAILURE)
 		return (free_data(data));
-	if (check_map(data, data->map_info.file) == FAILURE)
+	if (check_map(data, data->map) == FAILURE)
 		return (free_data(data));
 	if (check_textures(data, &data->tex_info) == FAILURE)
 		return (free_data(data));
@@ -55,9 +55,9 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (err_msg("Usage", ERR_USAGE, 1));
+	init_data(&data);
 	if (parse_args(&data, av))
 		return (1);
-	init_data(&data);
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();
