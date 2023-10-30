@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/26 17:13:09 by Manny            ###   ########.fr        #
+#    Updated: 2023/10/30 18:28:50 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,7 +134,7 @@ re: fclean all
 
 # ***** MEMORY LEAKS **** #
 mem1:
-	valgrind --leak-check=summary ./$(NAME)
+	valgrind --leak-check=summary ./$(NAME) maps/good.cub
 mem2:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
 mem3:

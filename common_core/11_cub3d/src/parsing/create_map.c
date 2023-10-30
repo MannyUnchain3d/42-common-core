@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:19:52 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/17 16:59:47 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/30 18:24:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	change_space_to_wall(t_data *data)
 			|| data->map[i][j] == '\r' || data->map[i][j] == '\v'
 			|| data->map[i][j] == '\f')
 			j++;
-		while (data->map[i][j])
+		while (data->map[i][++j])
 		{
 			if (data->map[i][j] == ' '
 				&& j != data->map[i][ft_strlen(data->map[i]) - 1])
