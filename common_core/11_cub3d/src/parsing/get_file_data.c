@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:17:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/30 17:17:51 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/30 18:45:01 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*get_tex_path(char *line, int j)
 
 static int	fill_direction_tex(t_tex_info *tex, char *line, int j)
 {
-	if (line[j + 2] && !ft_isprint(line[j + 2]))
+	if (line[j + 2] && ft_isprint(line[j + 2]))
 		return (ERROR);
 	if (line[j] == 'N' && line[j + 1] == 'O' && !(tex->north))
 		tex->north = get_tex_path(line, j + 2);
@@ -67,7 +67,7 @@ static int	ignore_ws_get_data(t_data *data, char **map, int i, int j)
 			&& !ft_isdigit(map[i][j]))
 		{
 			if (fill_direction_tex(&data->tex_info, map[i], j) == ERROR)
-			{	
+			{
 				if (map[i][j] == 'C' || map[i][j] == 'F')
 				{
 					if (fill_color_textures(data, &data->tex_info, map[i], j) == ERROR)

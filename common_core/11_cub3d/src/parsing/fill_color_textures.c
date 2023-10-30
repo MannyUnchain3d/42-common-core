@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:07:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/30 17:54:50 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/30 18:46:16 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int	*set_rgb_colors(char *line)
 
 int	fill_color_textures(t_data *data, t_tex_info *tex, char *line, int j)
 {
-	if (line[j + 1] && !ft_isprint(line[j + 1]))
+	if (line[j + 1] && ft_isprint(line[j + 1]))
 		return (err_msg(data->map_info.path, ERR_CEILING_FLOOR, ERROR));
 	if (!tex->ceiling && line[j] == 'C')
 	{
