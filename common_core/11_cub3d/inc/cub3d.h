@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/24 19:00:58 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/26 17:31:29 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ void	init_tex_img(t_data *data, t_img *img, char *path);
 
 // init/init_textures.c
 void	init_textures(t_data *data);
-void	init_tex_info(t_tex_info *textures);
+void	init_tex_info(t_tex_info *tex);
 
 // parsing/check_args.c
 int		check_file(char *arg, bool cub);
@@ -229,7 +229,7 @@ int		check_sides(t_map_info *map, char **map_tab);
 int		check_map(t_data *data, char **map_tab);
 
 // parsing/check_textures.c
-int		check_textures(t_data *data, t_tex_info *textures);
+int		check_textures(t_data *data, t_tex_info *tex);
 
 // parsing/create_map.c
 int		create_map(t_data *data, char **map_tab, int i);
