@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:14:24 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/18 21:05:08 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/31 17:49:14 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	init_texels(t_data *data)
 	if (data->texels)
 		free_tab((void **)data->texels);
 	data->texels = ft_calloc(data->win_height + 1, sizeof * data->texels);
+	if (!data->texels)
+		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
 	i = 0;
 	while (i < data->win_height)
 	{

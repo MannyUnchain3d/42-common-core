@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:04:50 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/18 21:04:39 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/31 17:54:25 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	set_frame_image_pixel(t_data *data, t_img *img, int x, int y)
 		set_image_pixel(img, x, y, data->texels[y][x]);
 	else if (y < data->win_height / 2)
 		set_image_pixel(img, x, y, data->tex_info.ceiling_hex);
-	else
+	else if (y < data->win_height - 1)
 		set_image_pixel(img, x, y, data->tex_info.floor_hex);
 }
 
