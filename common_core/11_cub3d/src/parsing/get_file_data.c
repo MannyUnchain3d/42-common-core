@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:17:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/30 18:45:01 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/31 18:20:18 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,7 @@ static int	ignore_ws_get_data(t_data *data, char **map, int i, int j)
 			&& !ft_isdigit(map[i][j]))
 		{
 			if (fill_direction_tex(&data->tex_info, map[i], j) == ERROR)
-			{
-				if (map[i][j] == 'C' || map[i][j] == 'F')
-				{
-					if (fill_color_textures(data, &data->tex_info, map[i], j) == ERROR)
-						return (FAILURE);
-					return (BREAK);
-				}
 				return (err_msg(data->map_info.path, ERR_TEX_INVALID, FAILURE));
-			}
 			return (BREAK);
 		}
 		else

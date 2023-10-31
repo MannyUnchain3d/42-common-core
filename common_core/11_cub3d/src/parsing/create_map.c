@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:19:52 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/30 18:24:36 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/31 18:01:06 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	fill_map_tab(t_map_info *map_info, char **map_tab, int index)
 	while (i < map_info->height)
 	{
 		j = 0;
-		map_tab[i] = malloc(sizeof(char) * map_info->width + 1);
+		map_tab[i] = malloc(sizeof(char) * (map_info->width + 1));
 		if (!map_tab[i])
 			return (err_msg(NULL, ERR_MALLOC, FAILURE));
 		while (map_info->file[index][j] && map_info->file[index][j] != '\n')
@@ -62,7 +62,7 @@ static int	fill_map_tab(t_map_info *map_info, char **map_tab, int index)
 static int	get_map_info(t_data *data, char **file, int i)
 {
 	data->map_info.height = count_map_lines(data, file, i);
-	data->map = malloc(sizeof(char *) * data->map_info.height + 1);
+	data->map = malloc(sizeof(char *) * (data->map_info.height + 1));
 	if (!data->map)
 		return (err_msg(NULL, ERR_MALLOC, FAILURE));
 	if (fill_map_tab(&data->map_info, data->map, i) == FAILURE)
