@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:19 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/26 17:02:44 by Manny            ###   ########.fr       */
+/*   Updated: 2023/10/31 19:57:22 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ static void	print_controls(void)
 	printf("||__|||__|||__|||__|||__||\n");
 	printf("|/__\\|/__\\|/__\\|/__\\|/__\\|\n");
 	printf(NC "\n");
-	printf("Controls:\n");
-	printf("WASD: Move\n");
-	printf("LEFT and RIGHT: Rotate\n");
-	printf("ESC: Exit\n");
+	printf("\tCONTROLS\n");
+	printf(MAGENTA "\tW"NC": Forward\n");
+	printf(MAGENTA "\tA"NC": Rotate left\n");
+	printf(MAGENTA "\tS"NC": Backward\n");
+	printf(MAGENTA "\tD"NC": Rotate Right\n");
+	printf(MAGENTA "\tLEFT "NC"and"MAGENTA" RIGHT"NC": Rotate\n");
+	printf(MAGENTA "\tESC"NC": Exit\n");
 }
 	/* ON Y CROIT ( ͡° ͜ʖ ͡°)
 	printf("M: Toggle minimap\n");
