@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:38:33 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/04 16:11:41 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:36:28 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool	valid_pos_in_map(t_data *data, double x, double y)
 {
 	if (x < 0.25 || x >= data->map_info.width - 1.25)
 		return (false);
-	if (y < 0.25 || y >= data->map_info.height - 1.25)
+	if (y < 0.25 || y >= data->map_info.height - 0.25)
 		return (false);
 	return (true);
 }
