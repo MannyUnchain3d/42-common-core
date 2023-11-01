@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:49:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/30 18:15:06 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/01 15:59:39 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	key_press_handler(int key, t_data *data)
 	if (key == 53)
 		quit_cub3d(data);
 	if (key == 123)
-		data->player.rotate += 1;
-	if (key == 124)
 		data->player.rotate -= 1;
+	if (key == 124)
+		data->player.rotate += 1;
 	if (key == 13 || key == 126)
 		data->player.move_y = 1;
 	if (key == 0)
@@ -35,18 +35,18 @@ static int	key_release_handler(int key, t_data *data)
 {
 	if (key == 53)
 		quit_cub3d(data);
-	if (key == 123 && data->player.rotate >= 1)
-		data->player.rotate = 0;
-	if (key == 124 && data->player.rotate <= -1)
-		data->player.rotate = 0;
 	if ((key == 13 || key == 126) && data->player.move_y == 1)
 		data->player.move_y = 0;
 	if (key == 0 && data->player.move_x == -1)
-		data->player.move_x = 0;
+		data->player.move_x += 1;
 	if ((key == 1 || key == 125) && data->player.move_y == -1)
 		data->player.move_y = 0;
 	if (key == 2 && data->player.move_x == 1)
-		data->player.move_x = 0;
+		data->player.move_x -= 1;
+	if (key == 123 && data->player.rotate <= 1)
+		data->player.rotate = 0;
+	if (key == 124 && data->player.rotate >= -1)
+		data->player.rotate = 0;
 	return (0);
 }
 
