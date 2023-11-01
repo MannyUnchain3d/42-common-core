@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:39:12 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/31 17:38:31 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/01 18:30:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	dda(t_data *data, t_ray *ray)
 			|| ray->map_y > data->map_info.height - 0.25
 			|| ray->map_x > data->map_info.width - 1.25)
 			break ;
-		else if (data->map[ray->map_y][ray->map_x] == '0')
+		else if (data->map[ray->map_y][ray->map_x] > '0')
 			hit = 1;
 	}
 }
@@ -84,7 +84,7 @@ static void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 		ray->wall_dist = (ray->side_dist_x - ray->delta_dist_x);
 	else
 		ray->wall_dist = (ray->side_dist_y - ray->delta_dist_y);
-	ray->line_height = (data->win_height / ray->wall_dist);
+	ray->line_height = (int)(data->win_height / ray->wall_dist);
 	ray->draw_start = -(ray->line_height) / 2 + data->win_height / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
