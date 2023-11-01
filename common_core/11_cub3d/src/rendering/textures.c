@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:14:24 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/31 17:49:14 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/01 18:48:35 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ static void	get_tex_index(t_data *data, t_ray *ray)
 {
 	if (ray->side == 0)
 	{
-		if (ray->dir_y < 0)
-			data->tex_info.index = NORTH;
-		else
-			data->tex_info.index = SOUTH;
-	}
-	else
-	{
 		if (ray->dir_x < 0)
 			data->tex_info.index = WEST;
 		else
 			data->tex_info.index = EAST;
+	}
+	else
+	{
+		if (ray->dir_y > 0)
+			data->tex_info.index = SOUTH;
+		else
+			data->tex_info.index = NORTH;
 	}
 }
 
