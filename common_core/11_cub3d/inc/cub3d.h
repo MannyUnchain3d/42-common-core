@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/10/26 17:31:29 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:15:05 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,25 @@
 # include <string.h>// strerror
 # include <stdbool.h>
 # include <fcntl.h>// open and close
-# include <math.h>// sin, cos, tan, atan2, sqrt, pow
+# include <math.h>// sin, cos, tan
 # include <errno.h>
-# include <sys/stat.h>
-# include <sys/types.h>
+//# include <sys/stat.h>
+//# include <sys/types.h>
 
 # ifdef __linux__
 #  include <X11/X.h>// KeyPressMask, KeyReleaseMask, KeyPress, KeyRelease
-#  include <X11/keysym.h>// keycodes for X11 (linux)
+#  include <X11/keysym.h>// keycodes for X11 (linux only)
 # endif
 
 /* ------ MACROS ---------------------- */
 
 # define WIN_TITLE "cub3D"
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 480
+# define WIN_WIDTH 1024
+# define WIN_HEIGHT 768
 
 # define TEX_SIZE 64
 
+// flag to check if file is a directory
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
 # endif
@@ -249,10 +250,6 @@ size_t	find_map_width(t_map_info *map, int i);
 
 // rendering/images_utils.c
 void	set_image_pixel(t_img *img, int x, int y, int color);
-
-// rendering/minimap.c
-// void	render_minimap(t_data *data);
-// void	render_minimap_image(t_data *data);
 
 // rendering/raycasting.c
 int		raycasting(t_player *player, t_data *data);
