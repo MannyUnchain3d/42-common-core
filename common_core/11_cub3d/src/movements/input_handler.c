@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:49:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/31 20:38:31 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/02 23:35:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	wrap_mouse_position(t_data *data, int x, int y)
 
 static int	mouse_handler(int x, int y, t_data *data)
 {
-	static int	old_x = WIN_WIDTH / 2;
+	static int	old_x = WIN_WIDTH / 2; // init on the same line on purpose
 
 	wrap_mouse_position(data, x, y);
 	if (x == old_x)
@@ -79,6 +79,12 @@ static int	mouse_handler(int x, int y, t_data *data)
 	return (0);
 }
 
+/* Sets up the hooks to listen for specific user input events.
+ * 1. Closes the window: `quit_cub3d` function is called.
+ * 2. Presses a key: `key_press_handler` function is called.
+ * 3. Releases a key: `key_release_handler` function is called.
+ * If the BONUS flag is set to true, an additional hook is set up
+ * to call the `mouse_handler` function when the mouse is moved. */
 void	listen_for_input(t_data *data)
 {
 	mlx_hook(data->win, ClientMessage, NoEventMask, quit_cub3d, data);
