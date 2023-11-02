@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/02 22:15:05 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/02 23:47:46 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,23 @@
 
 # define TEX_SIZE 64
 
-// flag to check if file is a directory
+// flag to check if a file is a directory
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
 # endif
 
-# define FOV 60
-# define MOVE_SPEED 0.1
-# define ROT_SPEED 0.05
-# define DIST_EDGE_MOUSE_WRAP 20
-
 # ifndef BONUS
 #  define BONUS 1
 # endif
+
+# if BONUS == 1
+#  define ROT_SPEED 0.01
+# else
+#  define ROT_SPEED 0.05
+# endif
+
+# define MOVE_SPEED 0.1
+# define DIST_EDGE_MOUSE_WRAP 20
 
 /* ------ ERROR MESSAGES -------------- */
 
