@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:04:50 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/31 17:54:25 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/02 20:54:11 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ static void	render_raycast(t_data *data)
 void	render_images(t_data *data)
 {
 	render_raycast(data);
-	//if (BONUS)
-	//	render_minimap(data);
 }
 
 int	render(t_data *data)
