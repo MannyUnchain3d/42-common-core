@@ -6,7 +6,7 @@
 #    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/10/31 20:27:46 by Manny            ###   ########.fr        #
+#    Updated: 2023/11/02 20:50:36 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,9 +116,9 @@ $(NAME): $(OBJS)
 
 $(LIBFT):
 	@make -sC ./libft/
-
 bonus:
-	make all BONUS=1
+	@make -s all BONUS=1
+	@echo "\n$(CYAN)(っ▀¯▀)つ $(NAME) bonus is ready!\n$(NC)"
 
 clean:
 	@$(RM) $(OBJ_DIR)
