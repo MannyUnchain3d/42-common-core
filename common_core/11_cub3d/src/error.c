@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 21:02:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/04 19:24:00 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:29:07 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	err_msg(char *detail, char *str, int code)
 
 int	err_msg_nb(int nb, char *str, int code)
 {
-	ft_putstr_fd("cub3D: Error", 2);
+	ft_putstr_fd("cub3D: Error: ", 2);
 	ft_putnbr_fd(nb, 2);
 	ft_putstr_fd(": ", 2);
 	ft_putstr_fd(str, 2);
