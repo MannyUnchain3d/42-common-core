@@ -6,12 +6,19 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:39:12 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/01 18:30:57 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/03 16:40:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/* Initializes raycasting information for a single ray.
+ * 1. Resets previous ray data using `init_ray`.
+ * 2. Calculates the x-coordinate of the ray on the camera plane.
+ * (left = -1, center = 0, right = 1)
+ * 3. Computes the ray direction based on the player's direction and plane.
+ * 4. Stores the player's map position.
+ * 5. Calculates distances to the next x and y sides of a map grid cell. */
 static void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 {
 	init_ray(ray);
@@ -24,6 +31,13 @@ static void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 	ray->delta_dist_y = fabs(1 / ray->dir_y);
 }
 
+/* Initializes the DDA algorithm variables for raycasting.
+ * 1. Checks the ray direction along the x-axis:
+ * - If the direction is negative, sets `step_x` to -1
+ * and calculates the initial `side_dist_x`.
+ * - If the direction is positive, sets `step_x` to 1
+ * and calculates the  initial `side_dist_x`, but using `map_x + 1.0`.
+ * 2. Same process for the y-axis, setting `step_y` and `side_dist_y`. */
 static void	set_dda(t_ray *ray, t_player *player)
 {
 	if (ray->dir_x < 0)
@@ -50,6 +64,17 @@ static void	set_dda(t_ray *ray, t_player *player)
 	}
 }
 
+/* Performs DDA algorithm to find wall intersections.
+ * 1. Initializes hit flag to 0, which tracks if a wall is hit.
+ * 2. Loops until a wall is hit:
+ *    a. Compares side distances to decide the next grid to check.
+ *    b. If ray's x-side distance is smaller, updates x-side distance,
+ *       moves one step in the x-direction, and sets side flag to 0 (x-side hit).
+ *    c. Otherwise, updates y-side distance, moves one step in the y-direction, 
+ *       and sets side flag to 1 (y-side hit).
+ *    d. Checks if the ray moves out of bounds; if yes, breaks out of the loop.
+ *    e. Checks if a wall is hit by checking the map grid value; 
+ *       if yes, sets hit flag to 1. */
 static void	dda(t_data *data, t_ray *ray)
 {
 	int	hit;
@@ -78,6 +103,11 @@ static void	dda(t_data *data, t_ray *ray)
 	}
 }
 
+/* Computes wall slice height and where to draw it on screen.
+ * 1. Determines wall distance based on ray hit side. (side = 0 x-side hit)
+ * 2. Calculates wall slice height based on window height and wall distance.
+ * 3. Determines where to start and end drawing the wall slice on screen.
+ * 4. Calculates horizontal wall hit position for texture mapping. */
 static void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 {
 	if (ray->side == 0)
