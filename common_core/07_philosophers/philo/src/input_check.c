@@ -6,13 +6,13 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:27:40 by Manny             #+#    #+#             */
-/*   Updated: 2023/07/17 05:58:14 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/03 10:36:55 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-/* Checks id the string contains only digits 0 - 9.
+/* Checks if the string contains only digits 0 - 9.
  * Returns true if the string only contains digits or false if not. */
 static bool	str_is_digit(char *str)
 {
