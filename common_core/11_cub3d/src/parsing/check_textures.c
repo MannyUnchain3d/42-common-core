@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:32:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/24 17:54:27 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:58:51 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ static int	check_rgb(int *rgb)
 	return (SUCCESS);
 }
 
+/* Converts an RGB color value to a hexadecimal color value.
+ * 1. Initializes a variable `hex` to store the hexadecimal value.
+ * 2. Multiplies the red value by 256^2, the green value by 256,
+ * and adds them along with the blue value to `hex`. (bit shifting)
+ * Example for red = 255, green = 0, blue = 0:
+ * hex = 255 * 256^2 + 0 * 256 + 0 = 16711680
+ * 16711680 is the hexadecimal value for red (0xFF0000).
+ * 3. Returns the hexadecimal color value.
+ */
 static unsigned long	rgb_to_hex(int *rgb)
 {
 	unsigned long	hex;

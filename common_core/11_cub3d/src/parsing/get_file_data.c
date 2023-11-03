@@ -6,12 +6,25 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 13:17:02 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/31 18:20:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/03 14:12:05 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/* Extracts a file path from a given line starting from index `j`.
+ * 1. Skips any leading whitespace characters from index `j`.
+ * 2. Calculates the length of the file path
+ * by finding the next whitespace or end of line.
+ * 3. Allocates memory for `path` to store the extracted file path.
+ *    - Returns NULL if memory allocation fails.
+ * 4. Copies characters from `line` to `path` until a whitespace, tab,
+ * or newline is encountered.
+ * 5. Terminates `path` with a null character to form a valid string.
+ * 6. Skips any trailing whitespace characters.
+ * 7. Checks if there are any extra characters after the file path.
+ *    - If found, frees `path` and sets it to NULL to indicate an error.
+ * 8. Returns the extracted file path or NULL if an error occurs. */
 static char	*get_tex_path(char *line, int j)
 {
 	int		i;
@@ -57,6 +70,15 @@ static int	fill_direction_tex(t_tex_info *tex, char *line, int j)
 	return (SUCCESS);
 }
 
+/* Skips over whitespace characters and processes map data based.
+ * 1. Skips any leading whitespace characters in the current line.
+ * 2. Checks if the first non-whitespace character is printable and not a digit:
+ * - If the next character is also printable and not a digit,
+ * attempts to process the characters as texture or direction information.
+ * - If there's no following character or it's a whitespace or a digit,
+ * attempts to process the characters as color information.
+ * 3. If the first non-whitespace character is a digit,
+ * attempts to process the map starting from the current line.  */
 static int	ignore_ws_get_data(t_data *data, char **map, int i, int j)
 {
 	while (map[i][j] == ' ' || map[i][j] == '\t' || map[i][j] == '\n')

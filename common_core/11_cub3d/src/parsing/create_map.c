@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:19:52 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/31 18:01:06 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/03 13:55:02 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ static int	count_map_lines(t_data *data, char **file, int i)
 	return (i - start_index);
 }
 
+/* Fills a 2D array `map_tab` with map data starting from a specified index.
+ * 1. Determines the width of the map using `find_map_width`.
+ * 2. Iterates through each line of the map (up to the map's height).
+ * - Allocates memory for each row in `map_tab` based on the map's width.
+ * - Checks for memory allocation failure and returns an error if necessary.
+ * - Copies characters from the file to `map_tab` until a newline
+ * or end of line is encountered.
+ * - Fills any remaining characters in `map_tab` row with null characters ('\0')
+ * to match the map's width.
+ * - Increments the index to move to the next line in the file.
+ * 3. Sets the last row of `map_tab` to NULL to indicate the end of the map data.
+ * 4. Returns `SUCCESS` to indicate successful execution.
+ */
 static int	fill_map_tab(t_map_info *map_info, char **map_tab, int index)
 {
 	int	i;
@@ -70,6 +83,7 @@ static int	get_map_info(t_data *data, char **file, int i)
 	return (SUCCESS);
 }
 
+/* Replaces all spaces in the map by walls for safety to make it valid */
 static void	change_space_to_wall(t_data *data)
 {
 	int	i;
