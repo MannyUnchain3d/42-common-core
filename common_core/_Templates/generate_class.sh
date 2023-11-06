@@ -66,7 +66,7 @@ ${class_name}::${class_name}(std::string name) {
 }
 
 /* Copy Constructor */
-${class_name}::${class_name}(const ${class_name}& rhs) {
+${class_name}::${class_name}(${class_name} const& rhs) {
 	*this = rhs;
 	// Make your Copy Constructor here
 }
@@ -79,7 +79,7 @@ ${class_name}::~${class_name}(void) {
 
 /* ----- OPERATOR OVERLOAD ------------ */
 
-${class_name}& ${class_name}::operator=(${class_name}const& rhs) {
+${class_name}& ${class_name}::operator=(${class_name} const& rhs) {
 	// Make your Assignment here
 	return (*this);
 }
