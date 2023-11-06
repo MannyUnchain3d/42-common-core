@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:36:21 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/02 23:49:19 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/03 14:57:35 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	init_mlx(t_data *data)
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
 	if (!data->win)
 		clean_exit(data, err_msg("mlx", ERR_MLX_WIN, 1));
-	//if (BONUS)
+	if (BONUS)
 	//	mlx_mouse_move(data->mlx, data->win, data->win_width / 2,
 	//		data->win_height / 2); // linux
-	//	mlx_mouse_move(data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2); // mac
+		mlx_mouse_move(data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2); // mac
 	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:58:13 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/24 17:28:58 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:24:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	is_whitespace(char c)
 	if (c != ' ' && c != '\t' && c != '\r' && c != '\n'
 		&& c != '\v' && c != '\f')
 		return (FAILURE);
-	else
-		return (SUCCESS);
+	return (SUCCESS);
 }
 
 size_t	find_map_width(t_map_info *map, int i)

@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:19 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/01 20:16:23 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:08:47 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,6 @@ static void	print_controls(void)
 	printf(MAGENTA "\tLEFT "NC"and"MAGENTA" RIGHT"NC": Rotate\n");
 	printf(MAGENTA "\tESC"NC": Exit\n");
 }
-	/* KEEP DREAMING... ( ͡° ͜ʖ ͡°)
-	printf("M: Toggle minimap\n");
-	printf("R: Toggle raycast\n"); 
-	printf("T: Toggle textures\n");
-	printf("G: Toggle grid\n");
-	printf("H: Toggle HUD\n");
-	printf("C: Toggle controls\n");
-	*/
 
 static int	parse_args(t_data *data, char **av)
 {
