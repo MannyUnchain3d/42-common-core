@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/02 23:47:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:13:45 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,17 +144,6 @@ typedef struct s_map_info
 	int		height;
 	int		index_end_of_map;
 }	t_map_info;
-
-typedef struct s_minimap
-{
-	t_img	*img;
-	char	**map;
-	int		size;
-	int		offset_x;
-	int		offset_y;
-	int		tile_size;
-	int		view_dist;
-}	t_minimap;
 
 typedef struct s_ray
 {
