@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/07 20:40:47 by etetopat          #+#    #+#             */
+/*   Updated: 2023/11/07 20:45:24 by etetopat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include <stdlib.h>
 
 class Bureaucrat {
 	public:
@@ -22,7 +33,6 @@ class Bureaucrat {
 			public:
 				virtual const char* what() const throw() { return "Grade is too high"; }
 		};
-
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw() { return "Grade is too low"; }
