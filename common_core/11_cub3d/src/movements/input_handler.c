@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:49:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/02 23:35:21 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/09 14:11:10 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	wrap_mouse_position(t_data *data, int x, int y)
 
 static int	mouse_handler(int x, int y, t_data *data)
 {
-	static int	old_x = WIN_WIDTH / 2; // init on the same line on purpose
+	static int	old_x = WIN_WIDTH / 2;
 
 	wrap_mouse_position(data, x, y);
 	if (x == old_x)

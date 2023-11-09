@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_color_textures.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:07:04 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/30 18:46:16 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:59:55 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ static bool	no_digit(char *str)
 	{
 		if (ft_isdigit(str[i]) == 1)
 			no_digit = false;
+		else
+		{
+			no_digit = true;
+			return (no_digit);
+		}
 		i++;
 	}
 	return (no_digit);
@@ -30,18 +35,21 @@ static bool	no_digit(char *str)
 
 static int	*copy_to_rgb_array(char **rgb_to_convert, int *rgb)
 {
-	int	i;
+	int		i;
+	char	*trim;
 
 	i = -1;
 	while (rgb_to_convert[++i])
 	{
-		rgb[i] = ft_atoi(rgb_to_convert[i]);
-		if (rgb[i] == -1 || no_digit(rgb_to_convert[i]) == true)
+		trim = ft_strtrim(rgb_to_convert[i], " \t\r\n");
+		rgb[i] = ft_atoi(trim);
+		if (rgb[i] == -1 || no_digit(trim) == true)
 		{
 			free_tab((void **)rgb_to_convert);
 			free(rgb);
 			return (0);
 		}
+		free(trim);
 	}
 	free_tab((void **)rgb_to_convert);
 	return (rgb);

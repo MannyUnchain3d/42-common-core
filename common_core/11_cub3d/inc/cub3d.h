@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/07 15:13:45 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/09 23:50:08 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,9 @@
 #  define BONUS 1
 # endif
 
-# if BONUS == 1
-#  define ROT_SPEED 0.01
-# else
-#  define ROT_SPEED 0.05
-# endif
-
 # define MOVE_SPEED 0.1
 # define DIST_EDGE_MOUSE_WRAP 20
+# define ROT_SPEED 0.05
 
 /* ------ ERROR MESSAGES -------------- */
 
@@ -72,7 +67,7 @@
 # define ERR_MAP_INVALID "Invalid map, check .cub file for errors"
 # define ERR_MAP_CHAR "Invalid character in map"
 # define ERR_MAP_MISSING "Map is missing"
-# define ERR_MAP_BORDERS "Map is not surrounded by walls"
+# define ERR_MAP_BORDERS "Map is not surrounded by walls, has empty spaces"
 # define ERR_MAP_SMALL "Map is too small"
 # define ERR_MAP_POS "Map is not the last element in file"
 # define ERR_PLAYER_MAX "Too many players in map"
@@ -143,6 +138,7 @@ typedef struct s_map_info
 	int		width;
 	int		height;
 	int		index_end_of_map;
+	int		error;
 }	t_map_info;
 
 typedef struct s_ray
@@ -217,7 +213,15 @@ void	init_tex_info(t_tex_info *tex);
 int		check_file(char *arg, bool cub);
 
 // parsing/check_map_borders.c
-int		check_sides(t_map_info *map, char **map_tab);
+int		check_map_fah(t_data *data, char **map_tab);
+void	flood_fill(int x, int y, char **map, t_data *data);
+void	get_player_pos(t_data *data, char **map);
+void	del_2stars(char **s);
+int		lenght_2star(char **s);
+char	**fah_dup2stars(char **str);
+bool	is_space(char c);
+
+int		check_border(char **map);
 
 // parsing/check_map.c
 int		check_map(t_data *data, char **map_tab);

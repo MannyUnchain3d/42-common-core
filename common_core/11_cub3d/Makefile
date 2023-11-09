@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
+#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/11/02 20:50:36 by Manny            ###   ########.fr        #
+#    Updated: 2023/11/09 22:06:39 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRC = 	error.c \
 		movements/player_rotate.c \
 		parsing/check_args.c \
 		parsing/check_map_borders.c \
+		parsing/check_map_borders2.c \
 		parsing/check_map.c \
 		parsing/check_textures.c \
 		parsing/create_map.c \
@@ -95,7 +96,7 @@ OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 
 # ***** RULES ********** #
-all: $(OBJ_DIR) $(LIBFT) $(NAME)
+all: $(OBJ_DIR) $(LIBFT) $(MLX) $(NAME)
 
  $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -110,12 +111,16 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) $(INC) -DBONUS=$(BONUS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) -o $@ $(NC)"
+	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $@ $(NC)"
 	@$(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) -DBONUS=$(BONUS) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 $(LIBFT):
 	@make -sC ./libft/
+
+$(MLX):
+	@make -sC ./minilibx_opengl/
+
 bonus:
 	@make -s all BONUS=1
 	@echo "\n$(CYAN)(っ▀¯▀)つ $(NAME) bonus is ready!\n$(NC)"
@@ -127,6 +132,7 @@ clean:
 
 fclean: clean
 	@make fclean -sC ./libft/
+	@make clean -sC ./minilibx_opengl/
 	@$(RM) $(NAME)
 	@echo "\n$(YELLOW) $(RM) $(NAME) $(NC)"
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"

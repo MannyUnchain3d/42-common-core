@@ -6,45 +6,107 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 20:52:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/24 16:27:43 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:09:42 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	check_top_bottom(char **map_tab, int i, int j)
-{
-	if (!map_tab || !map_tab[i] || !map_tab[i][j])
-		return (FAILURE);
-	while (map_tab[i][j] == ' ' || map_tab[i][j] == '\t'
-		|| map_tab[i][j] == '\r' || map_tab[i][j] == '\v'
-		|| map_tab[i][j] == '\f')
-		j++;
-	while (map_tab[i][j])
-	{
-		if (map_tab[i][j] != '1')
-			return (FAILURE);
-		j++;
-	}
-	return (SUCCESS);
-}
-
-int	check_sides(t_map_info *map, char **map_tab)
+void	get_player_pos(t_data *data, char **map)
 {
 	int	i;
 	int	j;
 
-	if (check_top_bottom(map_tab, 0, 0) == FAILURE)
-		return (FAILURE);
-	i = 1;
-	while (i < (map->height - 1))
+	i = -1;
+	while (map[++i])
 	{
-		j = ft_strlen(map_tab[i]) - 1;
-		if (map_tab[i][j] != '1')
-			return (FAILURE);
-		i++;
+		j = -1;
+		while (map[i][++j])
+		{
+			if (is_space(map[i][j]))
+				j++;
+			else if (map[i][j] == 'N' || map[i][j] == 'S' || \
+			map[i][j] == 'W' || map[i][j] == 'E')
+			{
+				data->player.move_x = j;
+				data->player.move_y = i;
+				return ;
+			}
+		}
 	}
-	if (check_top_bottom(map_tab, i, 0) == FAILURE)
-		return (FAILURE);
-	return (SUCCESS);
+	data->player.move_x = -1;
+	data->player.move_y = -1;
+}
+
+static bool	check_wall(int x, int y, char **map)
+{
+	if (map[y][x - 1] != '1' && map[y][x - 1] != '0')
+		return (false);
+	else if (map[y][x + 1] != '1' && map[y][x + 1] != '0')
+		return (false);
+	else if (map[y - 1][x] != '1' && map[y - 1][x] != '0')
+		return (false);
+	else if (map[y + 1][x] != '1' && map[y + 1][x] != '0')
+		return (false);
+	return (true);
+}
+
+void	flood_fill(int x, int y, char **map, t_data *data)
+{
+	int	col;
+	int	row;
+
+	col = ft_strlen(map[y]) - 1;
+	row = data->map_info.height;
+	if (map[y][x] == '\0')
+		return ;
+	if (x < 0 || y < 0 || y > row || x > col || map[y][x] == '1')
+		return ;
+	if (map[y][x] == '0' && check_wall(x, y, map) == false)
+		data->map_info.error++;
+	map[y][x] = '1';
+	flood_fill(x - 1, y, map, data);
+	flood_fill(x, y - 1, map, data);
+	flood_fill(x + 1, y, map, data);
+	flood_fill(x, y + 1, map, data);
+}
+
+int	check_border(char **map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] == '0' && check_wall(j, i, map) == false)
+				return (0);
+		}
+	}
+	return (1);
+}
+
+int	check_map_fah(t_data *data, char **map_tab)
+{
+	char	**new_map;
+	int		x;
+	int		y;
+
+	new_map = fah_dup2stars(map_tab);
+	get_player_pos(data, map_tab);
+	data->map_info.error = 0;
+	x = data->player.move_x;
+	y = data->player.move_y;
+	if (x < 0 || y < 0 || x >= (int)ft_strlen(map_tab[y]) - 1
+		|| y >= data->map_info.height - 1)
+		return (del_2stars(new_map), FAILURE);
+	flood_fill(x, y, new_map, data);
+	if (check_border(new_map) == 0)
+		return (del_2stars(new_map), FAILURE);
+	if (data->map_info.error != 0)
+		return (del_2stars(new_map), FAILURE);
+	return (del_2stars(new_map), SUCCESS);
 }

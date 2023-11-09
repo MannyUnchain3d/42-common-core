@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:32:18 by etetopat          #+#    #+#             */
-/*   Updated: 2023/10/20 15:06:12 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:11:47 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ static int	check_valid_position(t_data *data, char **map_tab)
 
 	i = (int)data->player.pos_y;
 	j = (int)data->player.pos_x;
+	if (i <= 0 || j <= 0 || !map_tab[i] || !map_tab[i - 1]
+		|| !map_tab[i + 1] || map_tab[i][j] == '\0'
+		|| map_tab[i - 1][j] == '\0' || map_tab[i + 1][j] == '\0'
+		|| map_tab[i][j + 1] == '\0' || map_tab[i][j - 1] == '\0')
+		return (FAILURE);
 	if (ft_strlen(map_tab[i - 1]) < (size_t)j
 		|| ft_strlen(map_tab[i + 1]) < (size_t)j
 		|| is_whitespace(map_tab[i - 1][j]) == SUCCESS
@@ -60,26 +65,27 @@ static int	check_valid_position(t_data *data, char **map_tab)
 
 static int	check_player_position(t_data *data, char **map_tab)
 {
-	int	i;
-	int	j;
+	static int	found_player = 0;
+	static int	i = -1;
+	int			j;
 
 	if (data->player.dir == '0')
 		return (err_msg(data->map_info.path, ERR_PLAYER_DIR, FAILURE));
-	i = 0;
-	while (map_tab[i])
+	while (map_tab[++i])
 	{
-		j = 0;
-		while (map_tab[i][j])
+		j = -1;
+		while (map_tab[i][++j])
 		{
 			if (ft_strchr("NSWE", map_tab[i][j]))
 			{
+				if (found_player)
+					return (err_msg(data->map_info.path, ERR_PLAYER_MAX, 1));
 				data->player.pos_x = (double)j + 0.5;
 				data->player.pos_y = (double)i + 0.5;
 				map_tab[i][j] = '0';
+				found_player = 1;
 			}
-			j++;
 		}
-		i++;
 	}
 	if (check_valid_position(data, map_tab) == FAILURE)
 		return (err_msg(data->map_info.path, ERR_PLAYER_POS, FAILURE));
@@ -112,15 +118,15 @@ int	check_map(t_data *data, char **map_tab)
 {
 	if (!data->map)
 		return (err_msg(data->map_info.path, ERR_MAP_MISSING, FAILURE));
-	if (check_sides(&data->map_info, map_tab) == FAILURE)
-		return (err_msg(data->map_info.path, ERR_MAP_BORDERS, FAILURE));
-	if (data->map_info.height < 3)
-		return (err_msg(data->map_info.path, ERR_MAP_SMALL, FAILURE));
 	if (check_valid_character(data, map_tab) == FAILURE)
 		return (FAILURE);
-	if (check_player_position(data, map_tab) == FAILURE)
-		return (FAILURE);
+	if (data->map_info.height < 3)
+		return (err_msg(data->map_info.path, ERR_MAP_SMALL, FAILURE));
 	if (check_map_position(&data->map_info) == FAILURE)
 		return (err_msg(data->map_info.path, ERR_MAP_POS, FAILURE));
+	if (check_map_fah(data, map_tab) == FAILURE)
+		return (err_msg(data->map_info.path, ERR_MAP_BORDERS, FAILURE));
+	if (check_player_position(data, map_tab) == FAILURE)
+		return (FAILURE);
 	return (SUCCESS);
 }

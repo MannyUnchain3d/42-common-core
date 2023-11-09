@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:19:52 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/03 13:55:02 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/07 17:24:19 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,34 +83,9 @@ static int	get_map_info(t_data *data, char **file, int i)
 	return (SUCCESS);
 }
 
-/* Replaces all spaces in the map by walls for safety to make it valid */
-static void	change_space_to_wall(t_data *data)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j] == ' ' || data->map[i][j] == '\t'
-			|| data->map[i][j] == '\r' || data->map[i][j] == '\v'
-			|| data->map[i][j] == '\f')
-			j++;
-		while (data->map[i][++j])
-		{
-			if (data->map[i][j] == ' '
-				&& j != data->map[i][ft_strlen(data->map[i]) - 1])
-				data->map[i][j] = '1';
-		}
-		i++;
-	}
-}
-
 int	create_map(t_data *data, char **file, int i)
 {
 	if (get_map_info(data, file, i) == FAILURE)
 		return (FAILURE);
-	change_space_to_wall(data);
 	return (SUCCESS);
 }
