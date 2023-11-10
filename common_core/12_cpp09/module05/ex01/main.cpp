@@ -6,20 +6,21 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:47:04 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/10 17:42:40 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/10 19:28:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdlib>
+#include <cstdlib> // needed only on linux for EXIT_SUCCESS
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int	main(void) {
 	try {
-		Bureaucrat bureaucrat("Alfred", 11);
-		Form form("Holyday Request", 10);
+		Bureaucrat bureaucrat("Alfred", 10);
+		Form form("Holyday Request", 10, 1);
 			
 		bureaucrat.signForm(form);
+		std::cout << std::endl;
 		std::cout << form << std::endl;
 	}
 	catch (std::exception& e) {

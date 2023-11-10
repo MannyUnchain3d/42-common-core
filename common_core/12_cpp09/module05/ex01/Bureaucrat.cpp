@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:42:13 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/10 17:35:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/10 18:36:18 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	Bureaucrat::signForm(Form& form) {
 /* ----- OPERATOR --------------------- */
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& rhs) {
-	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
+	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return (os);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 21:04:01 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/07 21:25:57 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:53:59 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 /* ----- CONSTRUCTOR ------------------ */
 
 /* Parameter Constructor */
-Form::Form(std::string const& name, int gradeToSign) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(0) {
-	if (gradeToSign < 1)
+Form::Form(std::string const& name, int gradeToSign, int gradeToExecute) :
+	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
+	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw Form::GradeTooHighException();
-	else if (gradeToSign > 150)
+	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw Form::GradeTooLowException();
 }
 
 /* Copy Constructor */
-Form::Form(Form const& rhs) : _name(rhs.getName()), _gradeToSign(rhs.getGradeToSign()),
+Form::Form(Form const& rhs): _name(rhs.getName()), _gradeToSign(rhs.getGradeToSign()),
 							  _gradeToExecute(rhs.getGradeToExecute()), _isSigned(rhs.getIsSigned()) {
 }
 
@@ -71,7 +72,8 @@ void Form::beSigned(Bureaucrat const& bureaucrat) {
 std::ostream& operator<<(std::ostream& os, Form const& rhs) {
 	os << "#---------- FORM INFO ----------#" << std::endl;
 	os << "Form name: " << rhs.getName() << std::endl;
-	os << "Grade clearance: " << rhs.getGradeToSign() << std::endl;
-	os << "Grade to execute " << rhs.getGradeToExecute();
+	os << "Grade to sign: " << rhs.getGradeToSign() << std::endl;
+	os << "Grade to execute: " << rhs.getGradeToExecute() << std::endl;
+	os << "Signed: " << (rhs.getIsSigned() ? "Yes" : "No") << std::endl;
 	return (os);
 }

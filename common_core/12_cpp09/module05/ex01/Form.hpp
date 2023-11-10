@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 21:03:46 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/07 21:07:17 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:22:45 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Bureaucrat;
 
 class Form {
 	public:
-		Form(std::string const& name, int gradeToSign);
 		Form(std::string const& name, int gradeToSign, int gradeToExecute);
 		Form(Form const& rhs);
 		~Form(void);
