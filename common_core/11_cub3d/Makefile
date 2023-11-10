@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 19:52:44 by Manny             #+#    #+#              #
-#    Updated: 2023/11/09 22:06:39 by etetopat         ###   ########.fr        #
+#    Updated: 2023/11/10 14:05:29 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,16 +34,23 @@ CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
+# ***** LIBFT ********** #
+LIBFT = ./libft/libft.a
+
 # ***** MLX ************ #
 OS = $(shell uname -s)
 ifeq ($(OS), Linux)
-	MLX = -L./minilibx-linux/ -lmlx -lXext -lX11 -lm -lz
+	MLX_DIR = ./minilibx-linux/
 else
-	MLX = -L./minilibx_opengl/ -lmlx -framework OpenGL -framework AppKit
+	MLX_DIR = ./minilibx_opengl/
 endif
 
-# ***** LIBFT ********** #
-LIBFT = ./libft/libft.a
+MLX = -L$(MLX_DIR) -lmlx
+ifeq ($(OS), Linux)
+	MLX += -lXext -lX11 -lm -lz
+else
+	MLX += -framework OpenGL -framework AppKit
+endif
 
 # ***** INCLUDES ******* #
 OS = $(shell uname -s)
@@ -110,16 +117,16 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) $(INC) -DBONUS=$(BONUS) -c $< -o $@
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(MLX_DIR)
 	@echo "\n$(BLUE) $(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $@ $(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) -DBONUS=$(BONUS) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -DBONUS=$(BONUS) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
 $(LIBFT):
 	@make -sC ./libft/
 
 $(MLX):
-	@make -sC ./minilibx_opengl/
+	@make -sC $(MLX_DIR)
 
 bonus:
 	@make -s all BONUS=1
@@ -132,7 +139,7 @@ clean:
 
 fclean: clean
 	@make fclean -sC ./libft/
-	@make clean -sC ./minilibx_opengl/
+	@make clean -sC $(MLX_DIR)
 	@$(RM) $(NAME)
 	@echo "\n$(YELLOW) $(RM) $(NAME) $(NC)"
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
