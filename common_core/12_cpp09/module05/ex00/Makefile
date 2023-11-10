@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
+#    By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 20:41:36 by etetopat          #+#    #+#              #
-#    Updated: 2023/11/07 20:41:38 by etetopat         ###   ########.fr        #
+#    Updated: 2023/11/10 17:48:36 by Manny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ INC = -I ./
 SRC = 	main.cpp Bureaucrat.cpp
 
 # ***** OBJECTS ******** #
-OBJ = $(SRC:.cpp=.o)
+OBJ_DIR = obj/
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 # ***** RULES ********** #
 all: $(NAME)
@@ -48,7 +49,8 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(INC) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -58,7 +60,7 @@ clean:
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(OBJ_DIR)
 	@echo "\n$(YELLOW) $(RM) $(NAME) $(NC)"
 	@echo "\n$(RED)---- (╯°□°）╯︵ ┻━┻ $(NAME) is gone! ----$(NC)\n"
 

@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:47:04 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/07 21:27:12 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:42:40 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 

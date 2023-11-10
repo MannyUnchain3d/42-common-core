@@ -26,7 +26,8 @@ INC = -I ./
 SRC = 	main.cpp Bureaucrat.cpp Form.cpp
 
 # ***** OBJECTS ******** #
-OBJ = $(SRC:.cpp=.o)
+OBJ_DIR = obj/
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 # ***** RULES ********** #
 all: $(NAME)
@@ -36,12 +37,13 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(INC) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJ) $(OBJ_DIR)
 	@echo "\n$(YELLOW) $(RM) $(OBJ) $(NC)"
 	@echo "\n$(RED)---- ᕦ(ò_óˇ)ᕤ $(NAME) is clean! ----$(NC)\n"
 
