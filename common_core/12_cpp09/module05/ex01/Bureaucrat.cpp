@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:42:13 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/10 18:36:18 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/10 20:53:21 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Bureaucrat::Bureaucrat(Bureaucrat const& rhs) : _name(rhs._name), _grade(rhs._gr
 /* ----- DESTRUCTOR ------------------- */
 
 Bureaucrat::~Bureaucrat(void) {
-	// Make your Destructor here
 }
 
 /* ----- OPERATOR OVERLOAD ------------ */

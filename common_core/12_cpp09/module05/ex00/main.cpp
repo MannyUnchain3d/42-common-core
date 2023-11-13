@@ -6,10 +6,11 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:47:04 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/05 00:56:46 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/10 20:35:32 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib> // needed only on linux for EXIT_SUCCESS
 #include "Bureaucrat.hpp"
 
 int	main(void) {
