@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:32:15 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/10 21:39:53 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/13 21:37:10 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	if (i % 2 == 0)
 		std::cout << "Bzzzzzz! " << this->_target << " has been robotomized successfully." << std::endl;
 	else
-		std::cout << " Robotomy failed" << std::endl;
+		std::cout << "Robotomy failed" << std::endl;
 	i++;
 }
