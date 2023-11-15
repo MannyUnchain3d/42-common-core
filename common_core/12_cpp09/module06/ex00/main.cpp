@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:59 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/14 20:10:25 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/15 20:35:38 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,5 @@ int	main(int ac, char **av) {
 		std::cout << "Usage: ./convert [value]" << std::endl;
 		return (0);
 	}
-	std::string	toConvert = av[1];
-	ScalarConverter c(toConvert);
-
-	c.convert();
+	ScalarConverter::convert(av[1]);
 }
