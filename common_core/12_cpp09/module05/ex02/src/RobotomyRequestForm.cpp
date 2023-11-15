@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:32:15 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/13 21:37:10 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/15 18:03:17 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const& r
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	static int	i;
+	static int	i = 0;
 	if (i % 2 == 0)
 		std::cout << "Bzzzzzz! " << this->_target << " has been robotomized successfully." << std::endl;
 	else

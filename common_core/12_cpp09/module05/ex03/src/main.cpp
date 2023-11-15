@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 19:56:26 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/14 13:39:09 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/15 18:02:04 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void) {
 	std::cout << YELLOW << "# ---------- Form 1 (PresidentialPardonForm) ---------- #" << NC << std::endl;
 	AForm*	presidential;
 	presidential = someRandomIntern.makeForm("presidential pardon", "Lincoln");
-	Bureaucrat	bureaucrat("Alfred", 10);
+	Bureaucrat bureaucrat("Alfred", 10);
 	bureaucrat.executeForm(*presidential);
 	bureaucrat.signForm(*presidential);
 	delete presidential;
