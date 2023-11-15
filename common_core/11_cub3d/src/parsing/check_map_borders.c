@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_borders.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 20:52:49 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/09 22:09:42 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:34:33 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	flood_fill(int x, int y, char **map, t_data *data)
 
 	col = ft_strlen(map[y]) - 1;
 	row = data->map_info.height;
-	if (map[y][x] == '\0')
+	if (map == NULL)
 		return ;
 	if (x < 0 || y < 0 || y > row || x > col || map[y][x] == '1')
 		return ;
@@ -100,8 +100,7 @@ int	check_map_fah(t_data *data, char **map_tab)
 	data->map_info.error = 0;
 	x = data->player.move_x;
 	y = data->player.move_y;
-	if (x < 0 || y < 0 || x >= (int)ft_strlen(map_tab[y]) - 1
-		|| y >= data->map_info.height - 1)
+	if (x < 0 || y < 0)
 		return (del_2stars(new_map), FAILURE);
 	flood_fill(x, y, new_map, data);
 	if (check_border(new_map) == 0)

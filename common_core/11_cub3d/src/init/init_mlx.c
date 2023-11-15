@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:36:21 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/10 14:09:54 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/15 18:12:56 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ void	init_mlx(t_data *data)
 	if (!data->win)
 		clean_exit(data, err_msg("mlx", ERR_MLX_WIN, 1));
 	if (BONUS)
-		mlx_mouse_move(data->mlx, data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
+	{
+		mlx_mouse_move(data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
+		mlx_mouse_hide(data->mlx, data->win);
+	}
 	return ;
 }
