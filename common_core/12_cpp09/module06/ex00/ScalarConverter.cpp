@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/16 00:10:12 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/16 21:17:00 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,13 @@ void	ScalarConverter::convertChar(double input) {
 	if (isprint(input)) {
 		c = static_cast<char>(input);
 		std::cout << "char: " << "'" << c << "'" << std::endl;
-	}
-	std::cout << "char: Non displayable" << std::endl;
+	} else
+		std::cout << "char: Non displayable" << std::endl;
 }
 
 void	ScalarConverter::convertInt(double input) {
-	if (isnan(input) || isinf(input)) {
+	if (isnan(input) || isinf(input) || input < std::numeric_limits<int>::min()
+		|| input > std::numeric_limits<int>::max()) {
 		std::cout << "int: impossible" << std::endl;
 		return ;
 	}
@@ -61,18 +62,25 @@ void	ScalarConverter::convertFloat(double input) {
 		std::cout << "float: " << input << "f" <<std::endl;
 		return ;
 	}
-	std::cout << "float: " << std::fixed;
-	if (input - static_cast<float>(input) == 0)
-		std::cout << static_cast<float>(input) << std::endl;
+	if (input < -std::numeric_limits<float>::max() || input > std::numeric_limits<float>::max())
+		std::cout << "float: impossible" << std::endl;
+	else if (input - static_cast<float>(input) == 0)
+		std::cout << "float: " << static_cast<float>(input) << ".0f" << std::endl;
 	else
-		std::cout << std::setprecision(1) << static_cast<float>(input) << "f" << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(input) << "f" << std::endl;
 }
 
 void ScalarConverter::convertDouble( double input ) {
-	if (isnan(input) || isinf(input))
+	if (isnan(input) || isinf(input)) {
 		std::cout << "double: " << input << std::endl;
+		return ;
+	}
+	if (input < -std::numeric_limits<double>::max() || input > std::numeric_limits<double>::max())
+		std::cout << "double: impossible" << std::endl;
+	else if (input - static_cast<double>(input) == 0)
+		std::cout << "double: " << static_cast<double>(input) << std::endl;
 	else
-		std::cout << "double: " << input << ".0" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(input) << std::endl;
 }
 
 void	ScalarConverter::convert(char* input) {

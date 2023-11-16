@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:40 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/15 23:49:57 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/16 20:46:22 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <iostream>
 # include <cstdlib>
 # include <iomanip>
-# include <cmath>
+# include <limits>
+# include <cmath> // for linux only
 
 class ScalarConverter {
 	public:
@@ -31,6 +32,11 @@ class ScalarConverter {
 		static void convertFloat(double input);
 		static void convertDouble(double input);
 		static void	convert(char* input);
+
+		template <typename T>
+    	static void printType(const T& value) {
+        	std::cout << "Type of " << value << " is: " << typeid(value).name() << std::endl;
+		}
 };
 
 #endif
