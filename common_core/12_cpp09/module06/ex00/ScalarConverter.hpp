@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:40 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/15 20:34:28 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/15 23:49:57 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <iostream>
 # include <cstdlib>
-# include <sstream>
 # include <iomanip>
+# include <cmath>
 
 class ScalarConverter {
 	public:

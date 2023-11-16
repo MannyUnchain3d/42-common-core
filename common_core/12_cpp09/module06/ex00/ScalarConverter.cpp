@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/15 21:10:05 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/16 00:10:12 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,41 +37,42 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const& c) {
 
 void	ScalarConverter::convertChar(double input) {
 	char	c;
-	std::stringstream ss;
-	if (isnan(input) == 1) {
+	if (isnan(input) || isinf(input)) {
 		std::cout << "char: impossible" << std::endl;
 		return ;
 	}
-	if (isprint(input) == 1) {
+	if (isprint(input)) {
 		c = static_cast<char>(input);
-		std::cout << "char: " << "'" + ss.str() + "'" << std::endl;
+		std::cout << "char: " << "'" << c << "'" << std::endl;
 	}
 	std::cout << "char: Non displayable" << std::endl;
-	return ;
 }
 
 void	ScalarConverter::convertInt(double input) {
-	if (isnan(input) || isinf(input))
+	if (isnan(input) || isinf(input)) {
 		std::cout << "int: impossible" << std::endl;
-	return ;
+		return ;
+	}
 	std::cout << "int: " << static_cast<int>(input) << std::endl;
 }
 
 void	ScalarConverter::convertFloat(double input) {
-	std::stringstream c;
-	c << input ;
-	if (isnan(input) == 1) {
-		std::cout << "float: " << c.str() + 'f' <<std::endl;
+	if (isnan(input) || isinf(input)) {
+		std::cout << "float: " << input << "f" <<std::endl;
 		return ;
 	}
-	double cast = static_cast<double>(input);
-	std::cout << "float: " << std::fixed << std::setprecision(1) << cast << 'f' << std::endl;
-	return ;
+	std::cout << "float: " << std::fixed;
+	if (input - static_cast<float>(input) == 0)
+		std::cout << static_cast<float>(input) << std::endl;
+	else
+		std::cout << std::setprecision(1) << static_cast<float>(input) << "f" << std::endl;
 }
 
-void	ScalarConverter::convertDouble(double input) {
-	std::cout << "double: " << std::fixed << std::setprecision(1) << input << std::endl;
-	return ;
+void ScalarConverter::convertDouble( double input ) {
+	if (isnan(input) || isinf(input))
+		std::cout << "double: " << input << std::endl;
+	else
+		std::cout << "double: " << input << ".0" << std::endl;
 }
 
 void	ScalarConverter::convert(char* input) {
