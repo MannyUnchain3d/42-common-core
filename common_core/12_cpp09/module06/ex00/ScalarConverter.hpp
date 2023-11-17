@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:40 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/17 19:19:39 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/18 00:19:08 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@
 
 class ScalarConverter {
 	public:
+		void convertChar(double input);
+		void convertInt(double input);
+		void convertFloat(double input);
+		void convertDouble(double input);
+		static void	convert(char* input);
+		
+	private:
 		ScalarConverter(void);
 		ScalarConverter(ScalarConverter const& c);
-
 		ScalarConverter &operator=(ScalarConverter const& c);
 		~ScalarConverter(void);
-
-		static void convertChar(double input);
-		static void convertInt(double input);
-		static void convertFloat(double input);
-		static void convertDouble(double input);
-		static void	convert(char* input);
 };
 
 #endif

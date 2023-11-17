@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/17 19:16:08 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/18 00:54:25 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,18 +93,19 @@ void	ScalarConverter::convert(char* input) {
 		std::cout << "Use digits only. First non-digit character found: " << "'" << *endPtr << "'" << std::endl;
 		return ;
 	}
-	
+
+	ScalarConverter sc;
 	if (input[0] == '-') {
 		// Handle negative number
-		convertChar(c);
-		convertInt(c);
-		convertFloat(c);
-		convertDouble(c);
+		sc.convertChar(c);
+		sc.convertInt(c);
+		sc.convertFloat(c);
+		sc.convertDouble(c);
 	} else {
 		// Handle positive number
-		convertChar(c);
-		convertInt(c);
-		convertFloat(c);
-		convertDouble(c);
+		sc.convertChar(c);
+		sc.convertInt(c);
+		sc.convertFloat(c);
+		sc.convertDouble(c);
 	}
 }
