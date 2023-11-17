@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/16 21:17:00 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/17 19:16:08 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void	ScalarConverter::convertChar(double input) {
 		std::cout << "char: impossible" << std::endl;
 		return ;
 	}
-	if (isprint(input)) {
+	if (input >= std::numeric_limits<char>::min()
+		&& input <= std::numeric_limits<char>::max())
 		c = static_cast<char>(input);
+	if (isprint(static_cast<unsigned char>(c)))
 		std::cout << "char: " << "'" << c << "'" << std::endl;
-	} else
+	else
 		std::cout << "char: Non displayable" << std::endl;
 }
 
@@ -78,16 +80,31 @@ void ScalarConverter::convertDouble( double input ) {
 	if (input < -std::numeric_limits<double>::max() || input > std::numeric_limits<double>::max())
 		std::cout << "double: impossible" << std::endl;
 	else if (input - static_cast<double>(input) == 0)
-		std::cout << "double: " << static_cast<double>(input) << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << input << std::endl;
 	else
-		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(input) << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << input << ".0" <<std::endl;
 }
 
 void	ScalarConverter::convert(char* input) {
 	char *endPtr;
 	double c = std::strtod(input, &endPtr);
-	convertChar(c);
-	convertInt(c);
-	convertFloat(c);
-	convertDouble(c);
+	
+	if (*endPtr != '\0' && !(endPtr == input + 1 && *input == '-')) {
+		std::cout << "Use digits only. First non-digit character found: " << "'" << *endPtr << "'" << std::endl;
+		return ;
+	}
+	
+	if (input[0] == '-') {
+		// Handle negative number
+		convertChar(c);
+		convertInt(c);
+		convertFloat(c);
+		convertDouble(c);
+	} else {
+		// Handle positive number
+		convertChar(c);
+		convertInt(c);
+		convertFloat(c);
+		convertDouble(c);
+	}
 }
