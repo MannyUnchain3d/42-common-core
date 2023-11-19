@@ -6,7 +6,7 @@
 /*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:28:43 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/19 23:47:27 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/20 00:06:36 by Manny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int main() {
 
 		std::cout << GREEN << "Object " << i + 1 << " (using pointer): ";
 		identify(obj);
+		
 		std::cout << L_BLUE << "Object " << i + 1 << " (using reference): ";
 		identify(*obj);
+		
 		delete obj;
 	}
 	std::cout << NC;
