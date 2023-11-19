@@ -31,8 +31,8 @@ class ${class_name} {
 	public:
 		${class_name}(void);
 		${class_name}(std::string name);
-		${class_name}(${class_name} const& rhs);
-		virtual ~${class_name}(void);
+		${class_name}(${class_name} const& src);
+		~${class_name}(void);
 
 		${class_name}& operator=(${class_name} const& rhs);
 
@@ -66,7 +66,7 @@ ${class_name}::${class_name}(std::string name) {
 }
 
 /* Copy Constructor */
-${class_name}::${class_name}(${class_name} const& rhs) {
+${class_name}::${class_name}(${class_name} const& src) {
 	*this = rhs;
 	// Make your Copy Constructor here
 }
