@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:17:32 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/18 00:54:25 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/20 14:26:52 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const& c) {
 /* ----- PUBLIC METHODS ---------------- */
 
 void	ScalarConverter::convertChar(double input) {
-	char	c;
+	char	c = '\0';
 	if (isnan(input) || isinf(input)) {
 		std::cout << "char: impossible" << std::endl;
 		return ;
