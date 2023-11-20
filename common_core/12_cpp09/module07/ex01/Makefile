@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/20 19:06:05 by etetopat          #+#    #+#              #
-#    Updated: 2023/11/20 19:06:06 by etetopat         ###   ########.fr        #
+#    Created: 2023/11/20 19:27:35 by etetopat          #+#    #+#              #
+#    Updated: 2023/11/20 19:27:36 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ***** EXECUTABLE ***** #
-NAME = whatever
+NAME = iter
 
 # ***** COLORS ********* #
 RED		= \033[0;31m
