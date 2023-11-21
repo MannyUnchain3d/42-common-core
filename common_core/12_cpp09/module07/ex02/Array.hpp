@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:15:07 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/20 21:05:04 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:34:47 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ class Array {
 	public:
 		Array();
 		Array(unsigned int n);
-		Array(const Array& src);
+		Array(Array const& src);
 		~Array();
 		
-		Array&			operator=(const Array& rhs);
+		Array&			operator=(Array const& rhs);
 		T&				operator[](unsigned int index);
+		T const&		operator[](unsigned int index) const;
 		
 		unsigned int	size() const;
 		void			print() const;

@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:15:19 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/20 21:46:49 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:43:09 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ Array<T>::Array() : _elements(NULL), _arraySize(0) {}
 /* Parameter Constructor */
 template <typename T>
 Array<T>::Array(unsigned int n) : _arraySize(n) {
-    _elements = new T[_arraySize];
-    for (unsigned int i = 0; i < _arraySize; ++i) 
-        _elements[i] = T();
+    if (_arraySize > 0) {
+        _elements = new T[_arraySize];
+        for (unsigned int i = 0; i < _arraySize; ++i) 
+            _elements[i] = T();
+    } else
+        _elements = NULL;
 }
 
 /* Copy Constructor */
@@ -45,7 +48,7 @@ Array<T>::~Array() {
 
 /* Assignment Operator */
 template <typename T>
-Array<T>& Array<T>::operator=(Array const & src) {
+Array<T>& Array<T>::operator=(Array const& src) {
     if (this != &src) {
         delete[] _elements;
         _arraySize = src._arraySize;
@@ -59,6 +62,14 @@ Array<T>& Array<T>::operator=(Array const & src) {
 /* Subscript Operator */
 template <typename T>
 T& Array<T>::operator[](unsigned int index) {
+    if (index >= _arraySize)
+        throw Array<T>::OutOfRangeException();
+    return _elements[index];
+}
+
+/* Const Subscript Operator */
+template <typename T>
+T const& Array<T>::operator[](unsigned int index) const {
     if (index >= _arraySize)
         throw Array<T>::OutOfRangeException();
     return _elements[index];
