@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:11:45 by etetopat          #+#    #+#             */
-/*   Updated: 2023/11/21 15:49:10 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:49:35 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	iter(T *array, size_t length, Func f) {
 }
 
 template <typename T>
-void print(T const& c) {
+void	print(T const& c) {
 	std::cout << c << ", ";
 }
 
