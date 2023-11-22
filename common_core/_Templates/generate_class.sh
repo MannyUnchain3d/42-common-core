@@ -67,7 +67,7 @@ ${class_name}::${class_name}(std::string name) {
 
 /* Copy Constructor */
 ${class_name}::${class_name}(${class_name} const& src) {
-	*this = rhs;
+	*this = src;
 	// Make your Copy Constructor here
 }
 
