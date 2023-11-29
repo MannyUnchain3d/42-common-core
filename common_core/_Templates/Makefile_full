@@ -22,6 +22,9 @@ RM = rm -rf
 # ***** INCLUDES ******* #
 INC = -I ./inc/
 
+# ***** HEADERS ******** #
+HDR = *.hpp
+
 # ***** SOURCES ******** #
 SRC_DIR = ./src/
 SRC =
@@ -38,7 +41,7 @@ all: $(OBJ_DIR) $(NAME)
  $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HDR)
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) $(INC) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 

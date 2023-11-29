@@ -6,7 +6,7 @@
 #    By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 21:43:07 by etetopat          #+#    #+#              #
-#    Updated: 2023/11/22 21:43:08 by etetopat         ###   ########.fr        #
+#    Updated: 2023/11/29 21:23:08 by etetopat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ RM = rm -rf
 # ***** INCLUDES ******* #
 INC = -I ./
 
+# ***** HEADERS ******** #
+HDR = *.hpp
+
 # ***** SOURCES ******** #
 SRC = main.cpp
 
@@ -49,7 +52,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(INC) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp $(HDR) 
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@

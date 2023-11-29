@@ -22,6 +22,9 @@ RM = rm -rf
 # ***** INCLUDES ******* #
 INC = -I ./
 
+# ***** HEADERS ******** #
+HDR = *.hpp
+
 # ***** SOURCES ******** #
 SRC =
 
@@ -37,7 +40,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(INC) -o $@
 	@echo "\n$(GREEN)---- (っ▀¯▀)つ $(NAME) is ready! ----$(NC)\n"
 
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp $(HDR)
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(MAGENTA) $(CC) $(CFLAGS) -c $< -o $@ $(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
