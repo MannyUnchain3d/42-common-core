@@ -6,7 +6,7 @@
 /*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 23:34:02 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/29 22:07:48 by etetopat         ###   ########.fr       */
+/*   Updated: 2023/11/29 22:18:32 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,33 +109,6 @@ void BitcoinExchange::extract(string const& filename) {
 
 /* ----- PRIVATE METHOD --------------- */
 
-bool	BitcoinExchange::_isLeapYear(int year) {
-	return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
-}
-
-int		BitcoinExchange::_toInt(string const& str) {
-	std::stringstream	ss(str);
-	int					value;
-
-	ss >> value;
-	return (value);
-}
-
-double	BitcoinExchange::_toDouble(string const& str) {
-	std::stringstream	ss(str);
-	double				value;
-
-	ss >> value;
-	return (value);
-}
-
-string	BitcoinExchange::_toStr(int value) {
-	std::stringstream	ss;
-	
-	ss << value;
-	return (ss.str());
-}
-
 string	BitcoinExchange::_previousDate(string const& date) {
 	int	year  = _toInt(date.substr(0, 4));
 	int	month = _toInt(date.substr(5,2));
@@ -165,6 +138,38 @@ string	BitcoinExchange::_previousDate(string const& date) {
 	return (newYear + "-" + newMonth + "-" + newDay); 
 }
 
+string	BitcoinExchange::_nextDate(string const& date) {
+	string	year  = date.substr(0, 4);
+	string	month = date.substr(5, 2);
+	string	day   = date.substr(8, 2);
+	
+	int	yearInt  = _toInt(year);
+	int	monthInt = _toInt(month);
+	int	dayInt   = _toInt(day);
+
+	int	daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31, 30, 31};
+	
+	if (_isLeapYear(yearInt))
+		daysInMonth[2] = 29;
+	dayInt++;
+
+	if (dayInt > daysInMonth[monthInt]) {
+		dayInt = 1;
+		monthInt++;
+
+		if (monthInt > 12) {
+			yearInt++;
+			monthInt = 1;
+		}		
+	}
+	
+	string	newYear  = _toStr(yearInt);
+	string	newMonth = (monthInt < 10) ? "0" + _toStr(monthInt) : _toStr(monthInt);
+	string	newDay   = (dayInt < 10) ? "0" + _toStr(dayInt) : _toStr(dayInt);
+	
+	return (newYear + "-" + newMonth + "-" + newDay);
+}
+
 string	BitcoinExchange::_trimWS(string const& str) {
 	size_t	start = str.find_first_not_of(' ');
 	if (start == string::npos)
@@ -188,6 +193,18 @@ bool	_isEmpty(string const& filename) {
 	bool	empty = file.peek() == std::ifstream::traits_type::eof();
 	file.close();
 	return (empty);
+}
+
+bool	BitcoinExchange::_isLeapYear(int year) {
+	return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+}
+
+bool	BitcoinExchange::_isAllDigit(string const& str, int (*isDigit)(int)) {
+	for (size_t i = 0; i < str.length(); i++) {
+		if (!isDigit(str[i]))
+			return (false);
+	}
+	return (true);
 }
 
 void	BitcoinExchange::_checkValue(string const& str) {
@@ -217,14 +234,6 @@ void	BitcoinExchange::_checkValue(string const& str) {
 	
 	if (value > 1000.0)
 		throw std::invalid_argument("number too big");
-}
-
-bool	BitcoinExchange::_isAllDigit(string const& str, int (*isDigit)(int)) {
-	for (size_t i = 0; i < str.length(); i++) {
-		if (!isDigit(str[i]))
-			return (false);
-	}
-	return (true);
 }
 
 bool	BitcoinExchange::_validDate(string const& date) {
@@ -270,34 +279,25 @@ bool	BitcoinExchange::_validDate(string const& date) {
 	return (true);
 }
 
-string	BitcoinExchange::_nextDate(string const& date) {
-	string	year  = date.substr(0, 4);
-	string	month = date.substr(5, 2);
-	string	day   = date.substr(8, 2);
-	
-	int	yearInt  = _toInt(year);
-	int	monthInt = _toInt(month);
-	int	dayInt   = _toInt(day);
+int		BitcoinExchange::_toInt(string const& str) {
+	std::stringstream	ss(str);
+	int					value;
 
-	int	daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31, 30, 31};
-	
-	if (_isLeapYear(yearInt))
-		daysInMonth[2] = 29;
-	dayInt++;
+	ss >> value;
+	return (value);
+}
 
-	if (dayInt > daysInMonth[monthInt]) {
-		dayInt = 1;
-		monthInt++;
+double	BitcoinExchange::_toDouble(string const& str) {
+	std::stringstream	ss(str);
+	double				value;
 
-		if (monthInt > 12) {
-			yearInt++;
-			monthInt = 1;
-		}		
-	}
+	ss >> value;
+	return (value);
+}
+
+string	BitcoinExchange::_toStr(int value) {
+	std::stringstream	ss;
 	
-	string	newYear  = _toStr(yearInt);
-	string	newMonth = (monthInt < 10) ? "0" + _toStr(monthInt) : _toStr(monthInt);
-	string	newDay   = (dayInt < 10) ? "0" + _toStr(dayInt) : _toStr(dayInt);
-	
-	return (newYear + "-" + newMonth + "-" + newDay);
+	ss << value;
+	return (ss.str());
 }
