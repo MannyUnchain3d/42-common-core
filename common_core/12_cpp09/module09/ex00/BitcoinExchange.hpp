@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Manny <etetopat@student.42bangkok.com>     +#+  +:+       +#+        */
+/*   By: etetopat <etetopat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 23:34:07 by Manny             #+#    #+#             */
-/*   Updated: 2023/11/24 19:32:02 by Manny            ###   ########.fr       */
+/*   Updated: 2023/11/29 16:44:55 by etetopat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ class BitcoinExchange {
 
 		BitcoinExchange& operator=(BitcoinExchange const& rhs);
 
-		void	convert(string const& filename);
+		void	extract(string const& filename);
 
 	private:
 		std::map<string, string>	_data;
 
 		string	_previousDate(string const& date);
 		string	_nextDate(string const& date);
-		string	_trim(string const& str);
+		string	_trimWS(string const& str);
 
 		bool	_fileExists(string const& filename);
 		bool	_isEmpty(string const& filename);
@@ -48,7 +48,7 @@ class BitcoinExchange {
 		bool	_validDate(string const& str);
 
 		int		_toInt(string const& str);
-		double	_toDigit(string const& str);
+		double	_toDouble(string const& str);
 		string	_toStr(int value);;
 };
 
