@@ -168,7 +168,7 @@ WordPress is a content management system (CMS for short) that allows anyone anyw
 
 For our Born2beroot server to be able to host a WordPress website, we need three things: HTTP server software (lighty), a database manager (MariaDB), and PHP. 
 
-PHP (PHP: Hypertext Preprocessor) is a very popular programming language for the creation of dynamic web pages a via web server
+PHP (PHP: Hypertext Preprocessor) is a very popular programming language for the creation of dynamic web pages via a web server.
 
 
 1 - cd /var/www/html - check Wordpress directory
