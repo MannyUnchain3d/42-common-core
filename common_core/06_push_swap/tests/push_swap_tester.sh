@@ -88,7 +88,7 @@ test_size()
     for (( i=1; i<=$N; i++ ))
     do
         SIZE=$(($END-$START+1))
-        ARG=$(ruby -e "puts ($START..$END).to_a.shuffle.join(' ')")
+        ARG=$(python3 -c "import random; print(' '.join(map(str, random.sample(range($START, $END+1), $END-$START+1))))")
         TIMES=$(./$FILE $ARG | wc -l)
         if [[ "$OSTYPE" == "darwin"* ]]; then
             OUTPUT=$(./$FILE $ARG | ./checker_Mac $ARG)
