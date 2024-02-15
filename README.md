@@ -93,7 +93,7 @@ This repository contains my projects completed as part of the 42 Common Core cur
 [![Cpp09 Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/cppe.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/12_cpp09)
 ***
 
-## 13_inception: `Work In Progress...`
+## 13_inception: `100/100` :star::star::star::star:
 [![Inception Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/inceptione.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main)
 ***
 
