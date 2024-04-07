@@ -8,20 +8,20 @@ This repository contains my projects completed as part of the 42 Common Core cur
 
 ***
 ## 00_libft: `125/125` :star::star::star::star::star2:
-**An implementation of several standard C library functions, as well as additional utility functions that are used in the other 42 projects.**
+**An implementation of several standard C library functions, as well as additional utility functions to help me in the other projects.**
 
 [![Libft Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/libftm.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/00_libft)
 ***
 
 ## 01_get_next_line: `125/125` :star::star::star::star::star2:
-**A function that reads a file line by line, useful for parsing files in future projects.**
+**A function that reads a file line by line, useful for parsing files.**
 
 [![Get_Next_Line Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/get_next_linem.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/01_get_next_line)
 ***
 
 ## 02_born2beroot: `125/125` :star::star::star::star::star2:
 **A project focused on system administration, involving setting up a server with specific constraints and learning about virtualization and security.**
-(This is just the notes I used to rehearse my evaluation)
+(This are just the notes I used to rehearse my evaluation)
 
 [![Born2BeRoot Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/born2berootm.png)](https://github.com/MannyUnchain3d/42curriculum/blob/main/common_core/02_born2beroot/born2beroot-eval.txt)
 ***
