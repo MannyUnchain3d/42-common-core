@@ -8,7 +8,7 @@ This repository contains my projects completed as part of the 42 Common Core cur
 
 ***
 ## 00_libft: `125/125` :star::star::star::star::star2:
-**An implementation of several standard C library functions, as well as additional utility functions that will be used in later 42 projects.**
+**An implementation of several standard C library functions, as well as additional utility functions that are used in the other 42 projects.**
 
 [![Libft Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/libftm.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/00_libft)
 ***
@@ -38,16 +38,10 @@ This repository contains my projects completed as part of the 42 Common Core cur
 [![Pipex Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/pipexm.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/04_pipex)
 ***
 
-## 05_so_long_linux: `125/125` :star::star::star::star::star2:
-**A small 2D game developed on Linux, focusing on graphics programming and event handling.**
+## 05_so_long: `125/125` :star::star::star::star::star2:
+**A small 2D game focusing on graphics programming with MiniLibX, a small graphical interface library that provides windows creation, drawing tools, and basic events management.**
 
-[![So_Long_Linux Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/so_longm.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/05_so_long_linux)
-***
-
-## 05_so_long_mac: `125/125` :star::star::star::star::star2:
-**A variant of the So_Long project, but specifically adapted for the MacOS environment.**
-
-[![So_Long_Mac Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/so_longm.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/05_so_long_mac)
+[![So_Long Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/so_longm.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/05_so_long_linux)
 ***
 
 ## 06_push_swap: `125/125` :star::star::star::star::star2:
