@@ -2,7 +2,7 @@
 
 This repository contains my projects completed as part of the 42 Common Core curriculum.
 
-**Disclaimer**: Please note that while I have strived for accuracy and completeness in these projects, nothing is perfect. There is always room for improvement in code, and the subjects at 42 evolve over time. Therefore, even if some code appears to be error-free, it may not fully align with the latest subject directives. I strongly encourage everyone to do their due diligence, attempt to code on their own first, and use these projects as a source of inspiration, just as I have ~~copied~~ been "inspired" by others. Enjoy!
+**Disclaimer**: Please note that while I have strived for accuracy and completeness in these projects, nothing is perfect. There is always room for improvement in coding, and the subjects at 42 evolve over time. Therefore, even if some projects appears to be error-free, it may not fully align with the latest subject directives. I strongly encourage everyone to do their due diligence, attempt to code on their own first, and use these projects as a source of inspiration, just as I have ~~copied~~ been "inspired" by others. Enjoy!
 
 (All Badges: [here](https://github.com/MannyUnchain3d/42-project-badges))
 
