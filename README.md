@@ -92,9 +92,3 @@ This repository contains my projects completed as part of the 42 Common Core cur
 
 [![Inception Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/inceptione.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main/common_core/13_inception)
 ***
-
-## 14_webserv: `Work In Progress...`
-[![Webserv Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/webserve.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main)
-***
-## 15_ft_transcendence: `Work In Progress...`
-[![Ft trasncendence_Badge](https://github.com/MannyUnchain3d/42-project-badges/blob/main/badges/ft_transcendencee.png)](https://github.com/MannyUnchain3d/42curriculum/tree/main)
